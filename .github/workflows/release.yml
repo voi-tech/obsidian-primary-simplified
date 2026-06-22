@@ -3,7 +3,7 @@ name: Release Primary Simplified
 on:
   push:
     tags:
-      - "v*"
+      - "*"
 
 permissions:
   contents: write
@@ -33,7 +33,7 @@ jobs:
 
       - name: Verify tag matches manifest version
         run: |
-          tag_version="${GITHUB_REF_NAME#v}"
+          tag_version="${GITHUB_REF_NAME}"
           manifest_version="$(node -p "require('./manifest.json').version")"
 
           if [ "$tag_version" != "$manifest_version" ]; then

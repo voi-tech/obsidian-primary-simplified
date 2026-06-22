@@ -29,11 +29,9 @@ If you want to support Cecilia May's original work, visit the original author's 
 - [🖼️ Previews](#️-previews)
   - [Light Mode](#light-mode)
     - [Desktop](#desktop)
-    - [Tablet](#tablet)
     - [Mobile](#mobile)
   - [Dark Mode](#dark-mode)
     - [Desktop](#desktop-1)
-    - [Tablet](#tablet-1)
     - [Mobile](#mobile-1)
 - [🍭 Design Approach](#-design-approach)
   - [🌞 Principles](#-principles)
@@ -65,16 +63,6 @@ If you want to support Cecilia May's original work, visit the original author's 
 
 ![Primary for Obsidian on Desktop - Light Mode](./assets/desktop-1_light-mode.png)
 
-![Primary for Obsidian on Desktop - Light Mode](./assets/desktop-2_light-mode.png)
-
-![Primary for Obsidian on Desktop - Light Mode](./assets/desktop-3_light-mode.png)
-
-#### Tablet
-
-<p align="center">
-<img alt="Primary for Obsidian on Tablet - Light Mode" src="./assets/tablet-1_light-mode.png" width="768px">
-</p>
-
 #### Mobile
 
 <p align="center">
@@ -86,16 +74,6 @@ If you want to support Cecilia May's original work, visit the original author's 
 #### Desktop
 
 ![Primary for Obsidian on Desktop - Dark Mode](./assets/desktop-1_dark-mode.png)
-
-![Primary for Obsidian on Desktop - Dark Mode](./assets/desktop-2_dark-mode.png)
-
-![Primary for Obsidian on Desktop - Dark Mode](./assets/desktop-3_dark-mode.png)
-
-#### Tablet
-
-<p align="center">
-<img alt="Primary for Obsidian on Tablet - Dark Mode" src="./assets/tablet-1_dark-mode.png" width="768px">
-</p>
 
 #### Mobile
 
@@ -165,6 +143,9 @@ Additional color palettes and theme presets options will be available for those 
 
 Primary Simplified is not currently listed in Obsidian's Community Themes directory.
 
+> [!IMPORTANT]
+> Obsidian's directory policy requires a publicly verifiable approval from the original author, or evidence that an inactive author could not be reached, before a fork can be submitted. Primary Simplified will remain a manual release until that requirement is documented.
+
 1. Download [`theme.css`](./theme.css) and [`manifest.json`](./manifest.json) from this repository.
 2. Create `<vault>/.obsidian/themes/Primary Simplified/`.
 3. Copy both downloaded files into that folder.
@@ -198,15 +179,15 @@ If you are not a developer, report problems and feature requests on this fork's 
 
 #### Build Instructions
 
-Primary Simplified is written with a mix of CSS and [Sass](https://sass-lang.com/), compiled with [Dart Sass](https://sass-lang.com/dart-sass/) via [GruntJS](https://gruntjs.com/configuring-tasks).
+Primary Simplified is written with CSS and [Sass](https://sass-lang.com/) and built with a small Node.js script using Dart Sass.
 
-Prerequisites: any current [NodeJS](https://nodejs.org/en/download/package-manager/current) version (Sass and Grunt are installed as project dependencies — no global gems or CLIs required).
+Prerequisite: a current LTS [Node.js](https://nodejs.org/) release. No global packages are required.
 
 #### Setting up your Theme Dev Environment
 
 Within the repo's path, run `npm install` to install all necessary modules.
 
-For live-reload into a local Obsidian vault while developing, go to `.env.example` and **define your local Obsidian vault path**, update `OBSIDIAN_PATH` to the local path of your Obsidian theme folder, then rename the file from `.env.example` to `.env`. This step is optional and only needed for hot-reload.
+For immediate reloads during development, clone or symlink this repository as the active theme directory in a disposable vault. Obsidian reads the regenerated root `theme.css` directly.
 
 #### Code, Build and Test
 
@@ -216,16 +197,18 @@ For a one-shot, deterministic build (used in CI and recommended before opening a
 npm run build
 ```
 
-This compiles `src/scss` → CSS, minifies it, and concatenates it with the README header, fonts, and Style Settings block into the single distributable `theme.css`. It does not require a `.env` file and produces the same output on any machine.
+This compiles `src/scss`, embeds the local WOFF2 font subsets, and concatenates the license banner and Style Settings metadata into the single distributable `theme.css`.
 
-For active development with live-reload into your `.env`-defined vault:
+For active development:
 
 ```
 npm run watch
 ```
 
 > [!NOTE] What does `watch` do?
-> It watches `src/**/*.scss` and `src/**/*.css` for changes and, on every save, re-runs the build and copies the resulting `theme.css` into the vault path defined in `.env`, so you can see changes live in Obsidian.
+> It watches `src/` and regenerates the root `theme.css` after every change. Obsidian reloads it when this repository is the installed theme directory.
+
+Run `npm test` before publishing. The contract tests validate the manifest, Style Settings ids, offline assets, release workflow, supported project structure, and the CSS size budget. The full manual release matrix is in [RELEASE_CHECKLIST.md](./RELEASE_CHECKLIST.md).
 
 ### License
 

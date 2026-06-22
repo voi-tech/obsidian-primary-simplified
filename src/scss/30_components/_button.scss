@@ -147,7 +147,7 @@ button[disabled="true"] {
     background: var(--interactive-accent);
     padding: var(--button-metadata-padding);
     border-radius: var(--button-s-radius);
-    margin-left: var(--size-2-2);
+    margin-inline-start: var(--size-2-2);
     box-shadow: var(--button-accent-shadow);
 
     transition: var(--button-anim);

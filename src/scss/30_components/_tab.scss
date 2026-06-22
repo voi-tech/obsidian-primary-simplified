@@ -357,7 +357,7 @@ body:not(.is-phone) .mod-root .workspace {
             transition: border, transform var(--button-anim);
     
             &:nth-child(3n+1) {
-                border-left: 1px solid var(--alternating-color-1);
+                border-inline-start: 1px solid var(--alternating-color-1);
 
                 .workspace-tab-header-inner-icon {
                     color: var(--alternating-color-1);
@@ -387,7 +387,7 @@ body:not(.is-phone) .mod-root .workspace {
             // but for some reason obsidian renders it switched in stacked tabs
             // so 3n+2 must be alternating-color-3 not 2
             &:nth-child(3n+2) {
-                border-left: 1px solid var(--alternating-color-3);
+                border-inline-start: 1px solid var(--alternating-color-3);
 
                 .workspace-tab-header-inner-icon {
                     color: var(--alternating-color-3);
@@ -417,7 +417,7 @@ body:not(.is-phone) .mod-root .workspace {
             // but for some reason obsidian renders it switched in stacked tabs
             // so 3n+3 must be alternating-color-2 not 3
             &:nth-child(3n+3) {
-                border-left: 1px solid var(--alternating-color-2);
+                border-inline-start: 1px solid var(--alternating-color-2);
 
                 .workspace-tab-header-inner-icon {
                     color: var(--alternating-color-2);
@@ -450,7 +450,7 @@ body:not(.is-phone) .mod-root .workspace {
             transition: border, border-color var(--anim-duration-fast) var(--anim-motion-swing);
 
             &:not(:first-child) {
-                border-left: 1px solid var(--background-modifier-border);
+                border-inline-start: 1px solid var(--background-modifier-border);
             }
             
             &:hover,

@@ -5,6 +5,14 @@
 // custom properties. Resetting them to `none` here removes the motion for
 // users who request it, without touching Obsidian's own --anim-duration-*
 // tokens or any other theme. No visual change for users who don't opt in.
+body.reduce-motion {
+    --anim-popup: none;
+    --anim-popup-alt: none;
+    --anim-popdown: none;
+    --background-anim: none;
+    --button-anim: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
     body {
         --anim-popup: none;

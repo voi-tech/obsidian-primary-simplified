@@ -1,0 +1,18 @@
+/*────────── Core Plugin: Bases ──────────*/
+
+// Obsidian 1.13 exposes these variables for table, card, list, and embedded
+// Bases views. Token-only overrides avoid coupling the theme to Bases DOM.
+body {
+    --bases-view-padding: var(--size-4-4);
+    --bases-header-border-width: 0 0 1px 0;
+    --bases-embed-border-color: var(--background-modifier-border);
+    --bases-embed-border-radius: var(--radius-m);
+    --bases-embed-border-width: 1px;
+    --bases-embed-padding: var(--size-4-2);
+    --bases-table-container-border-radius: var(--radius-m);
+    --bases-table-container-border-width: 1px;
+    --bases-table-cell-radius-active: var(--radius-s);
+    --bases-table-cell-radius-focus: var(--radius-s);
+    --bases-cards-radius: var(--radius-m);
+    --bases-cards-border-width: 1px;
+}

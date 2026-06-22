@@ -41,7 +41,7 @@ body:
     attributes:
       label: Primary Simplified Version
       description: What version of Primary Simplified are you using? Check `manifest.json` in the theme folder or the theme information shown under `Settings` → `Appearance` → `Themes`.
-      placeholder: e.g. 2.10.0
+      placeholder: e.g. 26.6.0
     validations:
       required: true
   - type: textarea

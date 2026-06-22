@@ -42,7 +42,7 @@ body .metadata-property-icon svg {
         font-size: calc(var(--font-smallest) - 0.1em);
         text-transform: uppercase;
         letter-spacing: 0.1em;
-        padding-left: var(--size-4-2);
+        padding-inline-start: var(--size-4-2);
         transition: color var(--anim-duration-superfast) var(--anim-motion-smooth);
     }
     
@@ -50,7 +50,7 @@ body .metadata-property-icon svg {
         position: unset;
         order: 2;
         opacity: 1;
-        left: unset;
+        inset-inline-start: unset;
 
         &::before {
             display: none;
@@ -93,11 +93,11 @@ body .metadata-property-icon svg {
     // gap: var(--size-2-1);
 
     &-icon {
-        padding-left: var(--size-2-3);
+        padding-inline-start: var(--size-2-3);
     }
 
     &-value {
-        padding-right: var(--size-2-3);
+        padding-inline-end: var(--size-2-3);
     }
 
     &-key-input:is(
@@ -118,7 +118,7 @@ body .metadata-property-icon svg {
 // Multi-select Pills Remove Button
 .multi-select-pill-remove-button {
     color: var(--pill-color-remove);
-    margin-right: calc(var(--pill-padding-x) / 2); // divided by 2 to account icon sizing
+    margin-inline-end: calc(var(--pill-padding-x) / 2); // divided by 2 to account icon sizing
     border-radius: 1em;
 
     .multi-select-pill:hover & {
@@ -211,7 +211,7 @@ body .metadata-property-icon svg {
 div.metadata-container {
     @container (width < 250px) {
         .metadata-property .metadata-property-value {
-            padding-left: calc(var(--icon-size) + var(--size-4-2) + 2px);
+            padding-inline-start: calc(var(--icon-size) + var(--size-4-2) + 2px);
         }
 
         .metadata-property:last-of-type {

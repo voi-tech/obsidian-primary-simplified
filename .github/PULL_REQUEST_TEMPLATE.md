@@ -29,7 +29,7 @@ All checkboxes below must be followed and checked.
 
 - [ ] I followed the **Developer's Guide** when building for Primary Simplified
 
-Primary Simplified uses Sass and Grunt, so building the project is important to ensure the final production code is up to date with changes from all the `.scss` and `.css` files. If you are unsure about this, see the developer section in the README or post an issue before opening this Pull Request.
+Primary Simplified uses Sass and a Node.js build script, so building the project is required to keep the distributable `theme.css` synchronized with its sources. If you are unsure about this, see the developer section in the README or post an issue before opening this Pull Request.
 
 - [ ] My code follows the style guidelines of Primary Simplified
 - [ ] I have performed a self-review of my own code

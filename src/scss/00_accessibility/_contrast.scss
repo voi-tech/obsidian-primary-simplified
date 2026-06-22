@@ -1,5 +1,10 @@
 /*────────── Forced Colors / High Contrast ──────────*/
 
+:where(button, input, textarea, select, [tabindex]:not([tabindex="-1"])):focus-visible {
+    outline: 2px solid var(--interactive-accent);
+    outline-offset: 2px;
+}
+
 // Primary's focus cues mostly rely on box-shadow and background-color, both
 // of which are suppressed by Windows High Contrast / forced-colors mode.
 // This adds a system-color outline fallback so keyboard focus stays visible

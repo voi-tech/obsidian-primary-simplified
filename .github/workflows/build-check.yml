@@ -27,5 +27,8 @@ jobs:
       - name: Build theme
         run: npm run build
 
+      - name: Validate theme contract
+        run: npm test
+
       - name: Verify committed theme artifact
         run: git diff --exit-code -- theme.css
