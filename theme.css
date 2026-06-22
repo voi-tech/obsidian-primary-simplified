@@ -2310,7 +2310,7 @@ settings:
         id: readme-content
         type: info-text
         markdown: true
-        description: 🎨 Visit the [Full Guide](https://primary-theme.github.io/) and check if you have any preferred ready-to-go style presets there, or if you want some inspiration on styling your embeds. (Note: the previous direct link to this page returned a 404 — #274 — and has been pointed back to the guide's homepage until the page is relocated.)
+        description: 🎨 Visit the [Full Guide](https://primary-theme.github.io/) and check if you have any preferred ready-to-go style presets there, or if you want some inspiration on styling your embeds. (The previous direct link to this page returned a 404 — #274 — and has been pointed back to the guide's homepage until the page is relocated.)
     -
         id: embed-max-height
         type: variable-text
