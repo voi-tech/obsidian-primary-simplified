@@ -1,12 +1,11 @@
 name: Bug Report
-description: I want to report something that isn't working properly in Primary
+description: I want to report something that isn't working properly in Primary Simplified
 labels: ["🐛 bug"]
-projects: ["primary-theme/1"]
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to fill out this bug report! Before proceeding, please check the [Issues](https://github.com/primary-theme/obsidian/issues) page and check if your bug is already posted to avoid duplication.
+        Thanks for taking the time to fill out this bug report! Before proceeding, check this repository's existing issues to avoid duplication.
   - type: dropdown
     id: hardware-acceleration
     attributes:
@@ -40,9 +39,9 @@ body:
   - type: input
     id: primary-version
     attributes:
-      label: Primary Theme Version
-      description: What version of Primary are you using? To check, open up `Settings` in Obsidian. Then go to the `Appearance` tab and under `Themes`, press `Manage`. Look for Primary and click it. It should open up the info page for Primary and at top, you will find `Version`. Any version below v2.0.0 will not be entertained as these versions are no longer supported.
-      placeholder: v2.7.0
+      label: Primary Simplified Version
+      description: What version of Primary Simplified are you using? Check `manifest.json` in the theme folder or the theme information shown under `Settings` → `Appearance` → `Themes`.
+      placeholder: e.g. 2.10.0
     validations:
       required: true
   - type: textarea

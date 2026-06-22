@@ -1,6 +1,6 @@
 /* @settings
 
-name: Primary Theme Settings
+name: Primary Simplified Theme Settings
 id: primary-theme
 settings:
 	-
@@ -13,17 +13,17 @@ settings:
         id: readme-content
         type: info-text
         markdown: true
-        description: 📚 Visit the [Full Guide](https://primary-theme.github.io/) for the complete documentation including theme features, font guides, customization guide and more
+        description: 📚 Visit the [original Primary Full Guide](https://primary-theme.github.io/) for upstream documentation. Some details may differ in Primary Simplified.
     -
         id: readme-content
         type: info-text
         markdown: true
-        description: 🎯 Check out the [Roadmap](https://git.new/primary/project-tracker) to get a view of Primary's Development
+        description: 🎯 Primary Simplified is independently maintained. See this fork's repository README for project status and contribution information.
     -
         id: readme-content
         type: info-text
         markdown: true
-        description: 📮 Subscribe to [Primary Theme Updates](https://primarytheme.substack.com/subscribe) to get notified of Primary updates, new features, and goodies right in your inbox!
+        description: 📮 The [original Primary Substack](https://primarytheme.substack.com/subscribe) is maintained by the original author and does not publish Primary Simplified release notices.
 	-
 		id: interface
 		type: heading
@@ -45,12 +45,12 @@ settings:
         id: readme-content
         type: info-text
         markdown: true
-        description: 🌿 Primary v1.0 user? Want to use the original Karla font? Read the [Karla Font Guide](https://primary-theme.github.io/guides/font-recommendations/karla/) to learn how to get back into using it.
+        description: 🌿 Original Primary v1.0 user? Read the upstream [Karla Font Guide](https://primary-theme.github.io/guides/font-recommendations/karla/) to restore the original Karla font.
     -
         id: readme-content
         type: info-text
         markdown: true
-        description: 🌸 Visit the [Font Recommendation Guide](https://primary-theme.github.io/guides/font-recommendations/overview/) for more curated font options for Primary! The guide includes a setup tutorial.
+        description: 🌸 Visit the original Primary [Font Recommendation Guide](https://primary-theme.github.io/guides/font-recommendations/overview/) for curated font options and a setup tutorial.
     -
         id: typography_features
         type: heading
@@ -208,7 +208,7 @@ settings:
 		id: zero-popup-blur
 		type: class-toggle
 		title: Remove Popup Background Blur
-        description: This removes the background blur when opening the Settings, Command Palette, Quick Switcher, and other pop up boxes.This is a good option to toggle on if you are experiencing unreconcilable buggy-ness and visual issues with Primary. You may also toggle this on if you don't prefer the background blur, or just need some performance boost (especially for bigger vaults).
+        description: This removes the background blur when opening the Settings, Command Palette, Quick Switcher, and other pop up boxes. This is a good option if you experience visual issues with Primary Simplified, prefer no background blur, or need a performance boost in a larger vault.
 	-
 		id: interface_ribbon
 		type: heading
@@ -624,7 +624,7 @@ settings:
         id: readme-content
         type: info-text
         markdown: true
-        description: 🎨 Visit the [Header Presets](https://primary-theme.github.io/guides/overview/) section in the Full Guide to import the Settings.
+        description: 🎨 Visit the original Primary guide's [Header Presets](https://primary-theme.github.io/guides/overview/) section to import settings. Some details may differ in Primary Simplified.
     -
         id: readme-content
         type: info-text
@@ -2140,7 +2140,7 @@ settings:
         id: readme-content
         type: info-text
         markdown: true
-        description: 🎨 Visit the [Full Guide](https://primary-theme.github.io/) and check if you have any preferred ready-to-go style presets there, or if you want some inspiration on styling your embeds. (The previous direct link to this page returned a 404 — #274 — and has been pointed back to the guide's homepage until the page is relocated.)
+        description: 🎨 Visit the [original Primary Full Guide](https://primary-theme.github.io/) for ready-to-go style presets or embed styling inspiration. Some details may differ in Primary Simplified.
     -
         id: embed-max-height
         type: variable-text
@@ -3692,23 +3692,23 @@ settings:
 		type: heading
 		level: 1
 		collapsed: true
-		title: Support Primary's Development
+		title: About and Support
     -
         id: readme-content
         type: info-text
         markdown: true
-        title: 💗 Make a Donation on Ko-fi
-        description: Support development by subscribing monthly or making a one-time donation at [Primary's Ko-fi Page](https://ko-fi.com/ceciliamay).
+        title: 💗 Support the Original Author
+        description: Cecilia May's [Ko-fi page](https://ko-fi.com/ceciliamay) supports the original author of Primary, not the Primary Simplified fork.
     -
         id: readme-content
         type: info-text
         markdown: true
-        title: ⭐ Star the Theme on Github
-        description: Visit [Primary's Github Page](https://git.new/primary/obsidian) and consider starring the theme to show your appreciation!
+        title: ⭐ Primary Simplified Repository
+        description: See this fork's repository README for source code, project status, and contribution information.
     -
         id: readme-content
         type: info-text
         markdown: true
-        title: 🐛 Submit an Issue or Feature Request!
-        description: Visit [Primary's Github Issue Page](https://git.new/primary/obsidian) to submit an issue or feature request. <br> No Github account? Send me a message through [Twitter](https://x.com/ceciliamay_) or directly via [Email](mailto:contact.ceciliamay@gmail.com)
+        title: 🐛 Submit an Issue or Feature Request
+        description: Use the Issues page in the Primary Simplified repository to submit a bug report or feature request.
 */

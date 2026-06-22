@@ -27,11 +27,11 @@ Please delete options that are not relevant.
 
 All checkboxes below must be followed and checked.
 
-- [ ] I followed the **Developer's Guide** when building for Primary
+- [ ] I followed the **Developer's Guide** when building for Primary Simplified
 
-Primary uses Sass and Grunt so building the project is important to ensure the final production code is up to date with changes from all the `.scss` and `.css` files. If you are unsure about this please look into the Developer's section inside the README or if you have any questions, post an issue or send us a message before sending in this Pull Request.
+Primary Simplified uses Sass and Grunt, so building the project is important to ensure the final production code is up to date with changes from all the `.scss` and `.css` files. If you are unsure about this, see the developer section in the README or post an issue before opening this Pull Request.
 
-- [ ] My code follows the style guidelines of Primary
+- [ ] My code follows the style guidelines of Primary Simplified
 - [ ] I have performed a self-review of my own code
 - [ ] I have commented my code, particularly in hard-to-understand areas
 - [ ] I have made corresponding changes to the documentation
