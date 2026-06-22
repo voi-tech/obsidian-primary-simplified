@@ -1618,7 +1618,7 @@ settings:
         title: Link Opacity when Pressed
         default: 0.5
 	-
-		id: nf_link
+		id: nf_link-nonmarkdown
 		type: heading
 		level: 3
 		collapsed: true
@@ -1633,7 +1633,7 @@ settings:
         default-light: 'hsla(4, 59%, 64%, 1)'
         default-dark: 'hsla(4, 91%, 67%, 1)'
     -
-        id: link-unresolved-color
+        id: link-unresolved-color-hover
         type: variable-themed-color
         title: Non-markdown Links Color when Hovered
         format: hsl
@@ -1641,7 +1641,7 @@ settings:
         default-light: 'hsla(4, 72%, 55%, 1)'
         default-dark: 'hsla(5, 94%, 73%, 1)'
 	-
-		id: nf_link
+		id: nf_link-unresolved
 		type: heading
 		level: 3
 		collapsed: true
@@ -1655,7 +1655,7 @@ settings:
         default-light: 'hsla(34, 29%, 60%, 1)'
         default-dark: 'hsla(34, 24%, 40%, 1)'
     -
-        id: link-unresolved-color
+        id: link-unresolved-color-hover
         type: variable-themed-color
         title: Unresolved Links Color when Hovered
         format: hsl
@@ -1669,7 +1669,7 @@ settings:
         description: Choose a number between 0 to 1.
         default: 1
 	-
-		id: nf_link
+		id: nf_link-resolved
 		type: heading
 		level: 3
 		collapsed: true
@@ -1691,7 +1691,7 @@ settings:
         default-light: 'hsla(43, 83%, 57%, 1)'
         default-dark: 'hsla(43, 69%, 63%, 1)'
 	-
-		id: nf_link
+		id: nf_link-external
 		type: heading
 		level: 3
 		collapsed: true
@@ -1705,7 +1705,7 @@ settings:
         default-light: 'hsla(149, 50%, 39%, 1)'
         default-dark: 'hsla(154, 57%, 42%, 1)'
     -
-        id: link-external-color
+        id: link-external-color-hover
         type: variable-themed-color
         title: External Links Color when Hovered
         format: hsl
@@ -1783,7 +1783,7 @@ settings:
         default-light: 'hsla(35, 28%, 40%, 1)'
         default-dark: 'hsla(34, 31%, 68%, 1)'
     -
-        id: list-marker-color
+        id: list-marker-color-collapsed
         type: variable-themed-color
         title: List Marker Color when Collapsed
         format: hsl
@@ -1796,6 +1796,12 @@ settings:
 		level: 2
 		collapsed: true
 		title: Checkbox
+    -
+        id: enable-alternative-checkboxes
+        title: Enable Alternative Checkboxes
+        description: Disable this if you are using your own implementation via a CSS Snippet.
+        default: true
+        type: class-toggle
     -
         id: checklist-bg
         type: variable-themed-color
@@ -2229,7 +2235,7 @@ settings:
         description: You can also have different radiuses per side. Just write them in the CSS format of top left, top right, bottom right, bottom left. i.e. 2px, 8px, 12px, 0px.
         default: 12px
 	-
-		id: nf_note-embed-border
+		id: nf_note-embed-border-top
 		type: heading
 		level: 4
 		collapsed: true
@@ -2255,7 +2261,7 @@ settings:
         default-light: 'hsla(37, 38%, 83%, 1)'
         default-dark: 'hsla(34, 24%, 40%, 1)'
 	-
-		id: nf_note-embed-border
+		id: nf_note-embed-border-right
 		type: heading
 		level: 4
 		collapsed: true
@@ -2281,7 +2287,7 @@ settings:
         default-light: 'hsla(37, 38%, 83%, 1)'
         default-dark: 'hsla(34, 24%, 40%, 1)'
 	-
-		id: nf_note-embed-border
+		id: nf_note-embed-border-bottom
 		type: heading
 		level: 4
 		collapsed: true
@@ -2307,7 +2313,7 @@ settings:
         default-light: 'hsla(37, 38%, 83%, 1)'
         default-dark: 'hsla(34, 24%, 40%, 1)'
 	-
-		id: nf_note-embed-border
+		id: nf_note-embed-border-left
 		type: heading
 		level: 4
 		collapsed: true
@@ -2462,7 +2468,7 @@ settings:
         markdown: true
         description: 🎨 The collapse indicator and indentation guide colors take in the color of the text color. If you don't want the hassle of changing these two other nuances, you can just change the text color. <br><br> Same goes for background color when hovered, you can focus on just changing the background color and leave the hovered color and it will adjust accordingly.
 	-
-		id: file-explorer_folder
+		id: file-explorer_folder-1
 		type: heading
 		level: 2
 		collapsed: true
@@ -2508,7 +2514,7 @@ settings:
         default-light: 'hsla(4, 56%, 48%, 0.25)'
         default-dark: 'hsla(4, 88%, 61%, 0.25)'
 	-
-		id: file-explorer_folder
+		id: file-explorer_folder-2
 		type: heading
 		level: 2
 		collapsed: true
@@ -2554,7 +2560,7 @@ settings:
         default-light: 'hsla(18, 69%, 50%, 0.25)'
         default-dark: 'hsla(24, 84%, 50%, 0.25)'
 	-
-		id: file-explorer_folder
+		id: file-explorer_folder-3
 		type: heading
 		level: 2
 		collapsed: true
@@ -2600,7 +2606,7 @@ settings:
         default-light: 'hsla(40, 98%, 36%, 0.25)'
         default-dark: 'hsla(42, 79%, 51%, 0.25)'
 	-
-		id: file-explorer_folder
+		id: file-explorer_folder-4
 		type: heading
 		level: 2
 		collapsed: true
@@ -2646,7 +2652,7 @@ settings:
         default-light: 'hsla(153, 65%, 29%, 0.25)'
         default-dark: 'hsla(154, 57%, 42%, 0.25)'
 	-
-		id: file-explorer_folder
+		id: file-explorer_folder-5
 		type: heading
 		level: 2
 		collapsed: true
@@ -2692,7 +2698,7 @@ settings:
         default-light: 'hsla(200, 64%, 37%, 0.25)'
         default-dark: 'hsla(194, 59%, 56%, 0.25)'
 	-
-		id: file-explorer_folder
+		id: file-explorer_folder-6
 		type: heading
 		level: 2
 		collapsed: true
@@ -2738,7 +2744,7 @@ settings:
         default-light: 'hsla(275, 37%, 43%, 0.25)'
         default-dark: 'hsla(242, 52%, 69%, 0.25)'
 	-
-		id: file-explorer_folder
+		id: file-explorer_folder-7
 		type: heading
 		level: 2
 		collapsed: true
@@ -2784,7 +2790,7 @@ settings:
         default-light: 'hsla(4, 56%, 48%, 0.25)'
         default-dark: 'hsla(4, 88%, 61%, 0.25)'
 	-
-		id: file-explorer_folder
+		id: file-explorer_folder-8
 		type: heading
 		level: 2
 		collapsed: true
@@ -2830,7 +2836,7 @@ settings:
         default-light: 'hsla(18, 69%, 50%, 0.25)'
         default-dark: 'hsla(24, 84%, 50%, 0.25)'
 	-
-		id: file-explorer_folder
+		id: file-explorer_folder-9
 		type: heading
 		level: 2
 		collapsed: true
@@ -2876,7 +2882,7 @@ settings:
         default-light: 'hsla(40, 98%, 36%, 0.25)'
         default-dark: 'hsla(42, 79%, 51%, 0.25)'
 	-
-		id: file-explorer_folder
+		id: file-explorer_folder-10
 		type: heading
 		level: 2
 		collapsed: true
@@ -2922,7 +2928,7 @@ settings:
         default-light: 'hsla(153, 65%, 29%, 0.25)'
         default-dark: 'hsla(154, 57%, 42%, 0.25)'
 	-
-		id: file-explorer_folder
+		id: file-explorer_folder-11
 		type: heading
 		level: 2
 		collapsed: true
@@ -2968,7 +2974,7 @@ settings:
         default-light: 'hsla(200, 64%, 37%, 0.25)'
         default-dark: 'hsla(194, 59%, 56%, 0.25)'
 	-
-		id: file-explorer_folder
+		id: file-explorer_folder-12
 		type: heading
 		level: 2
 		collapsed: true
@@ -3025,7 +3031,7 @@ settings:
         title: Custom Bookmarks Folders
         description: By default, File Explorer and Bookmarks share the same colors when the colorful folders toggles are turned on. If you'd like a different color for the Bookmarks folders, toggle this on and set your preferred colors below. Just like File Explorer, customization goes up to 12 folders and cycles through them.
 	-
-		id: bookmark_folder
+		id: bookmark_folder-1
 		type: heading
 		level: 3
 		collapsed: true
@@ -3071,7 +3077,7 @@ settings:
         default-light: 'hsla(4, 56%, 48%, 0.25)'
         default-dark: 'hsla(4, 88%, 61%, 0.25)'
 	-
-		id: bookmark_folder
+		id: bookmark_folder-2
 		type: heading
 		level: 3
 		collapsed: true
@@ -3117,7 +3123,7 @@ settings:
         default-light: 'hsla(18, 69%, 50%, 0.25)'
         default-dark: 'hsla(24, 84%, 50%, 0.25)'
 	-
-		id: bookmark_folder
+		id: bookmark_folder-3
 		type: heading
 		level: 3
 		collapsed: true
@@ -3163,7 +3169,7 @@ settings:
         default-light: 'hsla(40, 98%, 36%, 0.25)'
         default-dark: 'hsla(42, 79%, 51%, 0.25)'
 	-
-		id: bookmark_folder
+		id: bookmark_folder-4
 		type: heading
 		level: 3
 		collapsed: true
@@ -3209,7 +3215,7 @@ settings:
         default-light: 'hsla(153, 65%, 29%, 0.25)'
         default-dark: 'hsla(154, 57%, 42%, 0.25)'
 	-
-		id: bookmark_folder
+		id: bookmark_folder-5
 		type: heading
 		level: 3
 		collapsed: true
@@ -3255,7 +3261,7 @@ settings:
         default-light: 'hsla(200, 64%, 37%, 0.25)'
         default-dark: 'hsla(194, 59%, 56%, 0.25)'
 	-
-		id: bookmark_folder
+		id: bookmark_folder-6
 		type: heading
 		level: 3
 		collapsed: true
@@ -3301,7 +3307,7 @@ settings:
         default-light: 'hsla(275, 37%, 43%, 0.25)'
         default-dark: 'hsla(242, 52%, 69%, 0.25)'
 	-
-		id: bookmark_folder
+		id: bookmark_folder-7
 		type: heading
 		level: 3
 		collapsed: true
@@ -3347,7 +3353,7 @@ settings:
         default-light: 'hsla(4, 56%, 48%, 0.25)'
         default-dark: 'hsla(4, 88%, 61%, 0.25)'
 	-
-		id: bookmark_folder
+		id: bookmark_folder-8
 		type: heading
 		level: 3
 		collapsed: true
@@ -3393,7 +3399,7 @@ settings:
         default-light: 'hsla(18, 69%, 50%, 0.25)'
         default-dark: 'hsla(24, 84%, 50%, 0.25)'
 	-
-		id: bookmark_folder
+		id: bookmark_folder-9
 		type: heading
 		level: 3
 		collapsed: true
@@ -3439,7 +3445,7 @@ settings:
         default-light: 'hsla(40, 98%, 36%, 0.25)'
         default-dark: 'hsla(42, 79%, 51%, 0.25)'
 	-
-		id: bookmark_folder
+		id: bookmark_folder-10
 		type: heading
 		level: 3
 		collapsed: true
@@ -3485,7 +3491,7 @@ settings:
         default-light: 'hsla(153, 65%, 29%, 0.25)'
         default-dark: 'hsla(154, 57%, 42%, 0.25)'
 	-
-		id: bookmark_folder
+		id: bookmark_folder-11
 		type: heading
 		level: 3
 		collapsed: true
@@ -3531,7 +3537,7 @@ settings:
         default-light: 'hsla(200, 64%, 37%, 0.25)'
         default-dark: 'hsla(194, 59%, 56%, 0.25)'
 	-
-		id: bookmark_folder
+		id: bookmark_folder-12
 		type: heading
 		level: 3
 		collapsed: true
