@@ -1,8 +1,5 @@
 blank_issues_enabled: false
 contact_links:
-  - name: Documentation Suggestion
-    url: https://github.com/primary-theme/primary-theme.github.io/issues
-    about: Want to suggest an improvement to the documentation site? Please report here instead!
-  - name: Primary Theme Guide
+  - name: Primary Theme Guide (original Primary)
     url: https://primary-theme.github.io/
-    about: View the complete list of features, how to use them, guides and more.
+    about: View the original Primary theme's features, usage guides, and customization documentation.

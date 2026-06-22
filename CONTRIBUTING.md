@@ -1,6 +1,6 @@
-# Contributing to Primary
+# Contributing to Primary Simplified
 
-Thanks for considering a contribution! This guide covers the developer workflow. For reporting bugs or suggesting features as a non-developer, see the [Issues page](https://github.com/primary-theme/obsidian/issues) and the README's [Contributing](./README.md#-contributing) section instead.
+Thanks for considering a contribution! This guide covers the developer workflow. For reporting bugs or suggesting features as a non-developer, see this fork's [Issues page](../../issues) and the README's [Contributing](./README.md#-contributing) section instead.
 
 ## Setup
 
@@ -12,14 +12,16 @@ See the README's [Build Instructions](./README.md#build-instructions) for `npm r
 
 ## Project structure
 
-- `src/scss/**` — the only source of truth for styles. Organized in numbered layers (`10_foundations` → `60_community-plugins`); follow the existing layer when adding rules.
-- `src/css/{readme,style-settings}.css` — hand-maintained CSS prepended/appended to the compiled output.
+- `src/scss/**` — the source of truth for styles. Organized in numbered layers (`10_foundations` → `70_settings`); follow the existing layer when adding rules.
+- `src/css/{readme,style-settings}.css` — the license banner and Style Settings metadata.
+- `src/fonts/*.woff2` — local Latin and Latin Extended variable-font subsets embedded by the build.
+- `scripts/build-theme.mjs` — the deterministic build and watch entry point.
 - `theme.css` — the generated, distributable artifact. **Never hand-edit it** — run `npm run build` instead.
 - `src/css/main*.css` / `*.css.map` are build artifacts and are gitignored; don't commit them.
 
 ## Style guidelines
 
-- **No hardcoded colors, spacing, or radii outside `src/scss/10_foundations/palettes/_classic-original.scss`.** All visual tokens live there as CSS custom properties on `body`, with `.theme-light` / `.theme-dark` overrides only where light/dark must differ.
+- **No hardcoded colors, spacing, or radii outside `src/scss/10_foundations/palettes/classic/`.** Shared tokens live in `_tokens.scss`; light and dark semantic colors live in their matching partials.
 - **Avoid `!important`.** If you must use it, leave a comment explaining why (see `_callout.scss` and `_prompt.scss` for existing examples).
 - **Don't introduce SCSS variables (`$…`) or `@import`.** The codebase uses `@use` exclusively and keeps all theming in runtime CSS custom properties so Style Settings and user snippets keep working.
 - Prefer the narrowest selector that solves the problem — avoid deep nesting and broad, fragile selectors on Obsidian's internal DOM.
@@ -33,7 +35,8 @@ Before opening a PR:
 - [ ] Verified in **both** light and dark mode.
 - [ ] Verified on **both** desktop and mobile (or noted as not applicable).
 - [ ] Verified in **both** Live Preview and Reading View, where relevant.
-- [ ] No new hardcoded colors/spacing outside the palette file, and no unexplained `!important`.
+- [ ] No new hardcoded colors/spacing outside the palette partials, and no unexplained `!important`.
+- [ ] `npm test` passes and `theme.css` remains below the release size budget.
 - [ ] If `src/css/style-settings.css` was touched, the Style Settings panel was reloaded in Obsidian to confirm it still parses.
 
 ## Pull requests

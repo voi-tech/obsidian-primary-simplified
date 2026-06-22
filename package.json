@@ -1,26 +1,16 @@
 {
-  "name": "primary",
-  "version": "1.0.0",
-  "description": "Packages for running GruntJS tasks for better developer experience when building or contributing to Primary for Obsidian. Primary is an intricate, polished, comfy color palette for various apps.",
-  "author": "Cecilia May",
+  "name": "primary-simplified",
+  "version": "26.6.0",
+  "private": true,
+  "description": "Build tooling for Primary Simplified, an independently maintained fork of the Primary theme for Obsidian.",
+  "author": "voitech",
   "license": "GPL-3.0",
   "scripts": {
-    "build": "grunt build",
-    "deploy": "grunt deploy",
-    "watch": "grunt"
-  },
-  "dependencies": {
-    "dotenv": "^16.4.5",
-    "sass": "^1.74.1"
+    "build": "node scripts/build-theme.mjs",
+    "watch": "node scripts/build-theme.mjs --watch",
+    "test": "node --test"
   },
   "devDependencies": {
-    "grunt": "^1.6.1",
-    "grunt-cli": "^1.5.0",
-    "grunt-concat-css": "^0.3.2",
-    "grunt-contrib-copy": "^1.0.0",
-    "grunt-contrib-cssmin": "^5.0.0",
-    "grunt-contrib-sass": "^2.0.0",
-    "grunt-contrib-watch": "^1.1.0",
-    "grunt-env": "^1.0.1"
+    "sass": "^1.89.2"
   }
 }

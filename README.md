@@ -1,14 +1,11 @@
-![Primary for Obsidian Overview](assets/obsidian-overview-header.png)
+![Primary Simplified for Obsidian Overview](./assets/obsidian-overview-header.png)
 <h1 align="center">Primary Simplified for <a href="https://obsidian.md">Obsidian</a></h1>
-<p align="center"><em>A streamlined fork of <a href="https://github.com/primary-theme/obsidian">Primary</a> by Cecilia May, maintained by voitech.</em></p>
 <p align="center">
-    <a href="https://github.com/primary-theme/obsidian/stargazers"><img alt="Repo stars" src="https://img.shields.io/github/stars/primary-theme/obsidian?style=for-the-badge&logoColor=EEE7DD&labelColor=593E21&color=D6971B"></a>
-    <a href="./LICENSE"><img alt="Repo License" src="https://img.shields.io/github/license/primary-theme/obsidian?style=for-the-badge&logoColor=EEE7DD&labelColor=593E21&color=BF3F35"></a>
-    <a href=""><img alt="Repository Contributors" src="https://img.shields.io/github/contributors/primary-theme/obsidian?style=for-the-badge&logoColor=EEE7DD&labelColor=593E21&color=23739B"></a>
+    <a href="./LICENSE"><img alt="GPL-3.0 License" src="https://img.shields.io/badge/license-GPL--3.0-BF3F35?style=for-the-badge&labelColor=593E21"></a>
 </p>
 
 <p align="center" style="font-style: italic;">
-    Winner of <a href="http://obsidian.md/october2021">Obsidian October 2021</a>'s Best Theme ✨
+    The original Primary theme won <a href="https://obsidian.md/october2021">Obsidian October 2021</a>'s Best Theme ✨
     <blockquote>
     Primary is soft, chewy, comforting — like a chocolate chip cookie, or a warm brownie. Primary instantly puts you in a relaxed state that opens the door to creativity and exploration. Wonderfully executed down to the smallest details, Primary ran away with first place.
     </blockquote>
@@ -18,29 +15,23 @@
     <strong>Obsidian October 2021 Judges</strong>
 </p>
 
-<small>
-    This refresh wouldn't be possible without my <a href="https://github.com/primary-theme/obsidian/releases/tag/v.2.7.0">supporters</a>!
-    <br><br>
-    If you like the theme, consider supporting its development by making a one-time donation or subscribe monthly (with perks!) through <a href="https://ko-fi.com/ceciliamay">Ko-fi</a>.
-    <br><br>
-    Thank you so much for your patronage!
-    <br><br>
-</small>
+## 🪪 Attribution & Fork Notice
 
-<p align="center">
-    <a href='https://ko-fi.com/E1E76SQX8' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://storage.ko-fi.com/cdn/kofi1.png?v=3' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
-</p>
+**Primary Simplified** is an independent, community-maintained fork of [Primary](https://github.com/primary-theme/obsidian), originally created by Cecilia May. It is not affiliated with or endorsed by the original author.
+
+This fork retains the original copyright and license notices and is distributed under the [GNU General Public License v3.0](./LICENSE). The repository began as an imported snapshot of Primary; it does not contain the complete upstream Git history.
+
+If you want to support Cecilia May's original work, visit the original author's [Ko-fi page](https://ko-fi.com/ceciliamay).
 
 ## 🧭 Navigation
 - [🧭 Navigation](#-navigation)
+- [🪪 Attribution & Fork Notice](#-attribution--fork-notice)
 - [🖼️ Previews](#️-previews)
   - [Light Mode](#light-mode)
     - [Desktop](#desktop)
-    - [Tablet](#tablet)
     - [Mobile](#mobile)
   - [Dark Mode](#dark-mode)
     - [Desktop](#desktop-1)
-    - [Tablet](#tablet-1)
     - [Mobile](#mobile-1)
 - [🍭 Design Approach](#-design-approach)
   - [🌞 Principles](#-principles)
@@ -50,8 +41,8 @@
     - [Top quality. Know you're in good hands.](#top-quality-know-youre-in-good-hands)
     - [A Collection of Fashion Houses](#a-collection-of-fashion-houses)
 - [📖 Installation](#-installation)
-  - [Install Official Release](#install-official-release)
-  - [Install Beta Version](#install-beta-version)
+  - [Install Primary Simplified manually](#install-primary-simplified-manually)
+  - [Build from source](#build-from-source)
 - [🧸 Features, Customization, and Plugins](#-features-customization-and-plugins)
 - [🚧 Disclaimer](#-disclaimer)
 - [🌺 Contributing](#-contributing)
@@ -70,47 +61,30 @@
 
 #### Desktop
 
-![Primary for Obsidian on Desktop - Light Mode](assets/desktop-1_light-mode.png)
-
-![Primary for Obsidian on Desktop - Light Mode](assets/desktop-2_light-mode.png)
-
-![Primary for Obsidian on Desktop - Light Mode](assets/desktop-3_light-mode.png)
-
-#### Tablet
-
-<p align="center">
-<img alt="Primary for Obsidian on Tablet - Light Mode" src="assets/tablet-1_light-mode.png" width="768px">
-</p>
+![Primary for Obsidian on Desktop - Light Mode](./assets/desktop-1_light-mode.png)
 
 #### Mobile
 
 <p align="center">
-<img alt="Primary for Obsidian on Tablet - Light Mode" src="assets/mobile-1_light-mode.png" width="320px">
+<img alt="Primary for Obsidian on Mobile - Light Mode" src="./assets/mobile-1_light-mode.png" width="320px">
 </p>
 
 ### Dark Mode
 
 #### Desktop
 
-![Primary for Obsidian on Desktop - Dark Mode](assets/desktop-1_dark-mode.png)
-
-![Primary for Obsidian on Desktop - Dark Mode](assets/desktop-2_dark-mode.png)
-
-![Primary for Obsidian on Desktop - Dark Mode](assets/desktop-3_dark-mode.png)
-
-#### Tablet
-
-<p align="center">
-<img alt="Primary for Obsidian on Tablet - Dark Mode" src="assets/tablet-1_dark-mode.png" width="768px">
-</p>
+![Primary for Obsidian on Desktop - Dark Mode](./assets/desktop-1_dark-mode.png)
 
 #### Mobile
 
 <p align="center">
-<img alt="Primary for Obsidian on Tablet - Dark Mode" src="assets/mobile-1_dark-mode.png" width="320px">
+<img alt="Primary for Obsidian on Mobile - Dark Mode" src="./assets/mobile-1_dark-mode.png" width="320px">
 </p>
 
 ## 🍭 Design Approach
+
+> [!NOTE]
+> This section describes the design principles of the original Primary theme and is retained as project heritage.
 
 Primary is an opinionated Obsidian theme that merges play with work.
 
@@ -165,34 +139,27 @@ Additional color palettes and theme presets options will be available for those 
 
 ## 📖 Installation
 
-### Install Official Release
+### Install Primary Simplified manually
 
-This option will give you access to public releases.
+Primary Simplified is not currently listed in Obsidian's Community Themes directory.
 
-1. Open up Obsidian and go to Settings.
-2. Inside Settings, head over to the Appearance tab.
-3. Under Themes, you should find a button called, `Manage`. Click on it. This will open up the Community Themes page.
-4. On the search bar, type `Primary`, and click the one that says, `By Cecilia May`. It should open up the theme.
-5. Click `Install and Use` to install the theme! Enjoy.
+> [!IMPORTANT]
+> Obsidian's directory policy requires a publicly verifiable approval from the original author, or evidence that an inactive author could not be reached, before a fork can be submitted. Primary Simplified will remain a manual release until that requirement is documented.
 
-### Install Beta Version
+1. Download [`theme.css`](./theme.css) and [`manifest.json`](./manifest.json) from this repository.
+2. Create `<vault>/.obsidian/themes/Primary Simplified/`.
+3. Copy both downloaded files into that folder.
+4. Reload Obsidian, then select **Primary Simplified** under **Settings → Appearance → Themes**.
 
-This option is exclusive to monthly subscribers of Primary.
+The original **Primary** theme by Cecilia May remains available from Obsidian's Community Themes directory.
 
-1. Head on over to [Primary's Ko-fi](https://ko-fi.com/ceciliamay) page.Under Buy a Coffee, choose Membership and subscribe to get access to member exclusive posts.
-2. After subscribing, head over to the `Posts` tab. This is under the header, just below my name and ko-fi link.
-3. Once in the Posts tab, you should be able to find posts usually titled along the lines of `Primary x.x.x-beta (Monthly Subscriber Exclusive)`. Click on the latest post.
-4. The post includes the full Release Notes so you're fully informed what new features or fixes you get for that release! To get the a copy of that beta, scroll down a bit until you find the `Click here to download the CSS file.` link. This should take you to a GitHub gist page.
-5. On the GitHub gist page at the top right side, click **Download Zip**. This will give you a `.zip` file with 1 file inside, the `primary-x.x.x-beta.css` file (where x.x.x is the version number).
-6. Unzip the file and copy the CSS file.
-7. Paste it under your vault's `.obsidian/themes` folder. You can open this folder through Obsidian. To do so, open up *Settings*, and go to the *Appearance* tab. Under `Themes`, there's an icon beside the theme dropdown. Click it to open the themes folder. It should open up the folder `Vault Name/.obsidian/themes`. Paste the CSS file there.
-8. Go back to Obsidian and open up your Command Palette. Type `Reload app without saving` and press enter so that your Obsidian gets reloaded and ensures it identifies the CSS file.
-9. Once your Obsidian has reloaded, open up Settings -> Appearance tab. Under the `Themes` dropdown, select the `primary-x.x.x-beta` you downloaded. This should load the theme.
-10. Reload the app again for best results.
+### Build from source
+
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for prerequisites, build commands, and the local development workflow.
 
 ## 🧸 Features, Customization, and Plugins
 
-For a complete and up to date list of features, customization options, customization guide, and supported plugins, head on over to [Primary for Obsidian Full Guide](https://primary-theme.github.io/).
+The [Primary for Obsidian Full Guide](https://primary-theme.github.io/) documents the original Primary theme. Most concepts still apply, but fork-specific behavior may diverge over time.
 
 ## 🚧 Disclaimer
 
@@ -206,25 +173,21 @@ Consider contributing to this open project if you'd like to support a necessary 
 
 ### Non-developers
 
-If you are not a developer, a great way to contribute to the theme is by reporting issues and feature requests! You can do so through the [Issues Page](https://github.com/primary-theme/obsidian/issues).
-
-Don't have a GitHub account? Consider sending a message through [Twitter](https://x.com/ceciliamay_) or send me a report directly via [Email](mailto:contact.ceciliamay@gmail.com).
-
-Another great way to contribute is by sharing screenshots of how you use Primary! You can share them on Twitter and tagging @primarytheme or me @ceciliamay_ . You can also send them through the Discussions Page.
+If you are not a developer, report problems and feature requests on this fork's [Issues page](../../issues). Before filing a report, check whether the problem is also present with Obsidian's default theme and disable snippets and community plugins where practical.
 
 ### Developers
 
 #### Build Instructions
 
-Primary is written with a mix of CSS and [Sass](https://sass-lang.com/), compiled with [Dart Sass](https://sass-lang.com/dart-sass/) via [GruntJS](https://gruntjs.com/configuring-tasks).
+Primary Simplified is written with CSS and [Sass](https://sass-lang.com/) and built with a small Node.js script using Dart Sass.
 
-Prerequisites: any current [NodeJS](https://nodejs.org/en/download/package-manager/current) version (Sass and Grunt are installed as project dependencies — no global gems or CLIs required).
+Prerequisite: a current LTS [Node.js](https://nodejs.org/) release. No global packages are required.
 
 #### Setting up your Theme Dev Environment
 
 Within the repo's path, run `npm install` to install all necessary modules.
 
-For live-reload into a local Obsidian vault while developing, go to `.env.example` and **define your local Obsidian vault path**, update `OBSIDIAN_PATH` to the local path of your Obsidian theme folder, then rename the file from `.env.example` to `.env`. This step is optional and only needed for hot-reload.
+For immediate reloads during development, clone or symlink this repository as the active theme directory in a disposable vault. Obsidian reads the regenerated root `theme.css` directly.
 
 #### Code, Build and Test
 
@@ -234,28 +197,27 @@ For a one-shot, deterministic build (used in CI and recommended before opening a
 npm run build
 ```
 
-This compiles `src/scss` → CSS, minifies it, and concatenates it with the README header and Style Settings block into the single distributable `theme.css`. It does not require a `.env` file and produces the same output on any machine.
+This compiles `src/scss`, embeds the local WOFF2 font subsets, and concatenates the license banner and Style Settings metadata into the single distributable `theme.css`.
 
-To build **and** copy the result (`theme.css` + `manifest.json`) into the vault folder defined in `.env` — a one-shot sync of your Obsidian install:
-
-```
-npm run deploy
-```
-
-For active development with live-reload into your `.env`-defined vault:
+For active development:
 
 ```
 npm run watch
 ```
 
 > [!NOTE] What does `watch` do?
-> It watches `src/**/*.scss` and `src/**/*.css` for changes and, on every save, re-runs the build and copies the resulting `theme.css` and `manifest.json` into the vault folder defined in `.env`, so you can see changes live in Obsidian.
+> It watches `src/` and regenerates the root `theme.css` after every change. Obsidian reloads it when this repository is the installed theme directory.
+
+Run `npm test` before publishing. The contract tests validate the manifest, Style Settings ids, offline assets, release workflow, supported project structure, and the CSS size budget. The full manual release matrix is in [RELEASE_CHECKLIST.md](./RELEASE_CHECKLIST.md).
 
 ### License
 
-Primary is licensed under the **GNU General Public License v3.0**. See the [LICENSE](./LICENSE) file for the full text. If you reuse or adapt this code, please credit the project per the notice in [`src/css/readme.css`](./src/css/readme.css).
+Primary Simplified is licensed under the **GNU General Public License v3.0**. See the [LICENSE](./LICENSE) file for the full text and [`src/css/readme.css`](./src/css/readme.css) for the fork and upstream notices.
 
 ## 🧠 Creating Primary
+
+> [!NOTE]
+> “Creating Primary” and “Credits” below are the original author's words, retained as project heritage and attribution.
 
 I had 3 problems I wanted to solve.
 

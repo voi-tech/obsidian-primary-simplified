@@ -18,8 +18,7 @@ input[type='number'] {
         cursor: not-allowed;
     }
 
-    // Mobile
-    .workspace-drawer &,
+    // Mobile modal controls
     .is-mobile .modal & {
         border: 1px solid var(--background-modifier-border);
     }
@@ -66,7 +65,7 @@ input[type='number']:focus-visible {
 
 // Mobile
 .search-input-container input:not(.is-mobile .search-input-container input) {
-    padding-left: 28px;
+    padding-inline-start: 28px;
 }
 
 .search-input-clear-button {

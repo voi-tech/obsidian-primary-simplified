@@ -1,0 +1,507 @@
+/*───────────────────────────────────
+
+✦ P R I M A R Y ✦
+in Classic Original
+© Cecilia May
+
+If you have any questions on this palette,
+would like to adopt it to your
+website/app/custom theme, please read the
+USAGE, LICENSE, and CONTRIBUTION page ↴
+
+
+───────────────────────────────────
+
+This file houses all the theme-able
+variables of Primary. This is the template
+for creating presets, and is a great
+reference if you'd like to adjust the
+theme i.e. colors, radius, margins, etc.
+
+The structure is separated into three
+main sections: Shape Sizing Style,
+Light Palette, and Dark Palette.
+
+Each section follows the Primary for
+Obsidian theme repo's folder structure.
+
+The file/folder setup is based on
+Obsidian's Developer Documentation.
+
+The aim of this file is to overwrite the
+Obsidian Variables (all accessible via
+the app.css through DevTools), only
+when needed.
+
+───────────────────────────────────*/
+
+/* Keyframe Animations */
+@keyframes slideUp {
+    0% {
+        // adjusted to 0 to accommodate .suggestion-container[data-popper-placement]
+        transform: translateY(0%);
+        opacity: 0;
+    }
+    10% {
+        transform: translateY(8%);
+        opacity: 0.2;
+    }
+    20% {
+        transform: translateY(5%);
+        opacity: 0.4;
+    }
+    50% {
+        transform: translateY(-2%);
+        opacity: 0.85;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideUpAlt {
+    0% {
+        margin-top: 3%;
+        opacity: 0;
+    }
+    10% {
+        margin-top: 1.5%;
+        opacity: 0.2;
+    }
+    40% {
+        margin-top: -0.16%;
+        opacity: 0.85;
+    }
+    100% {
+        margin-top: 4px;
+        margin-bottom: 4px;
+        opacity: 1;
+    }
+}
+
+@keyframes slideDown {
+    0% {
+        transform: translateY(-10%);
+        opacity: 0;
+    }
+    60% {
+        transform: translateY(2%);
+        opacity: 0.85;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/*───────────────────────────────────
+        Non-Color Variables
+───────────────────────────────────*/
+body {
+    /*────────── Foundations ──────────*/
+
+    /* Global Animation */
+    --anim-popup: 0.3s slideUp forwards;
+    --anim-popup-alt: 0.335s slideUpAlt forwards;
+    --anim-popdown: 0.4s slideDown forwards;
+    --background-anim: background var(--anim-duration-fast) var(--anim-motion-smooth);
+
+    /* Cursor */
+    --cursor: pointer;
+
+    /* Font */
+    --font-interface-theme: 'Inter';
+    --font-text-theme: 'Inter';
+    --font-monospace-theme: 'Cascadia Code';
+
+    --interface-font-feature: "calt" 1, "case" 0, "ccmp" 1, "ss03" 1, "cv01" 1, "cv05" 1, "cv06" 1, "cv08" 0, "cv11" 1, "cv12" 0, "cv13" 0;
+    --text-font-feature: "calt" 1, "case" 0, "ccmp" 1, "ss03" 1, "cv01" 1, "cv05" 1, "cv06" 1, "cv08" 0, "cv11" 1, "cv12" 0, "cv13" 0;
+    --monospace-font-feature:  "calt" 1, "ss01" 1, "ss02" 1, "ss03" 1, "ss05" 1, "ss19" 1, "zero" 1;
+
+    /* Font Sizes */
+    // Fixed
+    --font-ui-smallest: 11px; // Primary Custom Font Size
+    --font-ui-smaller: 12px;
+    --font-ui-small: 13px;
+    --font-ui-medium: 15px;
+    --font-ui-large: 20px;
+
+    // Relative [Used for Editor UI texts like footnotes, codeblock, backlinks in documents, block-ids, etc.]
+    --font-smallest: 0.8em;
+    --font-smaller: 0.875em;
+    --font-small: 0.933em;
+
+    // Interface Component Specific
+    --font-nav-item-size: ;
+    --font-tree-item-size: ;
+
+    // Editor Component Specific
+    --font-blockquote-size: ;
+    --font-callout-title-size: ;
+    --font-callout-size: ;
+    --font-inlinecode-size: ;
+    --font-codeblock-size: ;
+    --font-codeblock-btn-size: ;
+    --font-footnotes-title-size: ;
+    --font-footnotes-flag-size: ;
+    --font-footnotes-size: ;
+    --font-blockid-size: ;
+
+    /* Font Thickness */
+    font-weight: var(--font-normal);
+    --font-thin: 150;
+    --font-extralight: 250;
+    --font-light: 350;
+    --font-normal: 450;
+    --font-medium: 550;
+    --font-semibold: 650;
+    --font-bold: 750;
+    --font-extrabold: 850;
+    --font-black: 900;
+
+    --bold-weight: var(--font-bold);
+    --bold-modifier: 200;
+    --bold-italic-weight: var(--font-bold);
+
+    /* Icon */
+    --icon-xs: 13px;
+    --icon-s: 15px;
+    --icon-m: 16px;
+    --icon-l: 18px;
+    --icon-xl: 24px;
+    --icon-container-radius: 0px;
+    --clickable-icon-radius: calc(var(--radius-s) + 1px);
+
+    --ribbon-icon: var(--icon-s);
+    --sidebar-tab-icon: var(--icon-s);
+    --sidebar-nav-icon: var(--icon-s);
+    --editor-tab-icon: var(--icon-s);
+    --editor-header-icon: var(--icon-s);
+
+    /* Radius */
+    --radius-xs: 2px;
+
+    /*────────── Window ──────────*/
+
+    /* Divider */
+    --divider-width-hover: 4px;
+    --divider-radius: var(--radius-m);
+
+    /* Ribbon */
+    --ribbon-border-width: 1px;
+    --ribbon-radius: var(--editor-border-radius);
+    --ribbon-radius: var(--editor-border-radius);
+    --ribbon-margin-bottom: var(--editor-pane-margin);
+    --ribbon-icon-spacing: var(--size-2-2);
+
+    /* Sidebar */
+    --nav-item-white-space: nowrap;
+    --nav-item-radius: 6px;
+    --nav-item-padding: calc(var(--size-4-1) + 1px)
+                        var(--size-4-2)
+                        calc(var(--size-4-1) + 1px)
+                        var(--size-4-6);
+    --nav-file-padding-active:  calc(var(--size-4-1))
+                                var(--size-4-2)
+                                calc(var(--size-4-1) + var(--button-inset-shadow-size))
+                                var(--size-4-6);
+
+    /* Status Bar */
+    --status-bar-floating-opacity: 0.5;
+    --status-bar-floating-opacity-hover: 1;
+    --status-bar-floating-offset: var(--size-2-2);
+
+    /* Titlebar */
+    --titlebar-text-weight: var(--font-normal);
+
+    /* Vault Switcher */
+    --vault-profile-font-size: var(--font-ui-small);
+    --vault-profile-font-weight: var(--font-semibold);
+    --vault-name-border-width: 1px;
+
+    /*────────── Components ──────────*/
+
+    --popup-bg-blur: 3px;
+    --component-font-weight: var(--font-medium);
+
+    /* Button */
+    --button-padding:   var(--size-4-2)
+                        var(--size-4-3)
+                        calc(var(--size-4-2) + var(--button-inset-shadow-size))
+                        var(--size-4-3);
+    --button-padding-active:    calc(var(--size-4-2) + var(--button-inset-shadow-size))
+                                var(--size-4-3)
+                                var(--size-4-2)
+                                var(--size-4-3);
+    --button-inset-shadow-size: 2px;
+    --button-axis-offset: 2px;
+    --button-radius: var(--size-4-2);
+
+
+    --button-metadata-padding:  var(--size-2-3)
+                                var(--size-4-2)
+                                calc(var(--size-2-3) + var(--button-inset-shadow-size))
+                                var(--size-2-3);
+    --button-metadata-padding-active:   calc(var(--size-2-2) + var(--button-inset-shadow-size))
+                                        var(--size-4-2)
+                                        var(--size-2-3)                                   
+                                        var(--size-2-3);
+    --button-s-radius: calc(var(--button-radius) * 0.8);
+    --button-s-padding: var(--size-2-2)
+                        var(--size-4-2)
+                        var(--size-2-2)
+                        var(--size-4-2);
+
+    --button-anim: var(--anim-duration-fast) var(--anim-motion-jumpy);
+
+    --close-button-radius: var(--radius-l);
+    --copy-code-button-radius: var(--radius-s);
+
+    --button-opacity-active: 0.5;
+
+    /* Dropdown */
+    --dropdown-height:  calc(
+                            var(--font-ui-small) + 
+                            calc(var(--size-4-4) + var(--button-inset-shadow-size))
+                        );
+
+    /* Menu */
+    --menu-item-radius: calc(var(--radius-m) - 1px);
+
+    /* Modal */
+    --modal-radius: var(--radius-xl);
+    --modal-close-button-size: 20px;
+    --settings-nav-item-padding:    calc(var(--size-2-3) + 1px)
+                                    var(--size-4-3)
+                                    calc(var(--size-2-3) + 1px)
+                                    var(--size-4-3);
+    --settings-nav-item-padding-hover:  calc(var(--size-2-3) + 1px)
+                                        var(--size-4-3)
+                                        calc(var(--size-2-3) + 1px)
+                                        var(--size-4-5);
+    --settings-nav-item-padding-active: var(--size-2-3)
+                                        var(--size-4-3)
+                                        calc(var(--size-2-3) + var(--button-inset-shadow-size))
+                                        var(--size-4-5);
+    --settings-nav-item-radius: calc(var(--radius-m) - 1px);
+
+    /* Navigation */
+    --flair-count-padding: 2px 4px;
+    --flair-count-radius: calc(var(--radius-s) + 1px);
+
+    /* Pill */
+    --pill-tag-weight: var(--component-font-weight);
+
+    /* Progress */
+    --progress-width: 220px;
+    --progress-height: 8px;
+    --progress-border-width: 1px;
+    --progress-value-radius: var(--progress-height);
+
+    /* Slider */
+    --slider-track-height: 5px;
+
+    /* Tab */
+    --tab-font-size: var(--font-ui-small);
+    --tab-outline-width: 1px;
+    --tab-curve: 6px;
+    --tab-radius: var(--radius-s);
+    --tab-radius-active: 6px 6px 0 0;
+    --tab-width: 200px;
+    --tab-max-width: 320px;
+
+    // Stacked Tabs
+    --tab-stacked-pane-width: 700px;
+    --tab-stacked-header-width: var(--header-height);
+    --tab-stacked-font-size: var(--font-ui-small);
+
+    /* Text Input */
+    --input-height: 32px;
+    --input-radius: var(--button-radius);
+    --search-icon-size: 14px;
+    --search-clear-button-size: 12px;
+
+    /*────────── Editor ──────────*/
+
+    /* Background */
+    --editor-bgpattern-size: 50px 50px;
+
+    /* Blockquote */
+    --blockquote-border-thickness: 2px;
+
+    /* Callout */
+    --callout-shadow-offset: 4px;
+    --callout-content-shadow-blur: 3px;
+    --callout-title-padding: var(--size-4-3) var(--size-4-4);
+    --callout-content-padding:  var(--size-4-1)
+                                var(--size-4-4)
+                                calc(var(--size-4-1) + var(--callout-shadow-offset))
+                                var(--size-4-4);
+    --callout-radius: var(--radius-m);
+    --callout-blend-mode: unset;
+
+    /* Checklist */
+    --checklist-done-decoration: line-through;
+    --checkbox-radius: var(--radius-s);
+
+    /* Code */
+    --code-radius: var(--radius-m);
+    --inline-code-radius: var(--radius-s);
+
+    /* Embeds */
+    --embed-padding: var(--size-2-3) var(--embed-left-right-padding) 0px;
+    --embed-left-right-padding: var(--size-4-4);
+    --embed-border-radius: var(--radius-l);
+    --embed-border-top:
+        var(--embed-border-top-width)
+        var(--embed-border-top-style)
+        var(--embed-border-top-color);
+    --embed-border-top-width: 1px;
+    --embed-border-top-style: solid;
+
+    --embed-border-end:
+        var(--embed-border-end-width)
+        var(--embed-border-end-style)
+        var(--embed-border-end-color);
+    --embed-border-end-width: 1px;
+    --embed-border-end-style: solid;
+
+    --embed-border-bottom:
+        var(--embed-border-bottom-width)
+        var(--embed-border-bottom-style)
+        var(--embed-border-bottom-color);
+    --embed-border-bottom-width: 1px;
+    --embed-border-bottom-style: solid;
+
+    --embed-border-start:
+        var(--embed-border-start-width)
+        var(--embed-border-start-style)
+        var(--embed-border-start-color);
+    --embed-border-start-width: 1px;
+    --embed-border-start-style: solid;
+
+    --embed-title-border:
+        var(--embed-title-border-width)
+        var(--embed-title-border-style)
+        var(--embed-title-border-color);
+    --embed-title-border-width: 1px;
+    --embed-title-border-style: solid;
+    --embed-title-margin-bottom: var(--size-4-2);
+    --embed-title-font-size: var(--font-text-size);
+    --embed-title-font-weight: var(--font-medium);
+    --embed-title-letter-spacing: normal;
+    --embed-title-text-transform: none;
+    
+    --embed-media-border-radius: var(--radius-m);
+
+    /* Emphasis */
+    --underline-decoration-opacity: 22%;
+
+    /* File */
+    --editor-border-width: 1px;
+    --file-header-border-width: 1px;
+
+    --file-line-width: 40rem;
+    --file-max-line-width: 88%;
+
+    --header-height: 46px;
+    --file-tab-gap: 0px;
+    --tab-status-radius: var(--radius-s);
+    --new-tab-btn-radius: 2em;
+    --editor-pane-margin: 10px;
+    --editor-border-radius: var(--radius-l);
+
+    /* Headings */
+    --h1-weight: var(--font-semibold);
+    --h1-text-align: left;
+    --h1-letter-spacing: unset;
+    --h1-text-transform: normal;
+    --h1-border-width: 0px;
+    --h1-border-style: solid;
+    --h1-border-radius: 0px;
+
+    --h2-weight: var(--font-semibold);
+    --h2-text-align: left;
+    --h2-letter-spacing: unset;
+    --h2-text-transform: normal;
+    --h2-border-width: 0px;
+    --h2-border-style: solid;
+    --h2-border-radius: 0px;
+
+    --h3-weight: var(--font-semibold);
+    --h3-text-align: left;
+    --h3-letter-spacing: unset;
+    --h3-text-transform: normal;
+    --h3-border-width: 0px;
+    --h3-border-style: solid;
+    --h3-border-radius: 0px;
+
+    --h4-weight: var(--font-semibold);
+    --h4-text-align: left;
+    --h4-letter-spacing: unset;
+    --h4-text-transform: normal;
+    --h4-border-width: 0px;
+    --h4-border-style: solid;
+    --h4-border-radius: 0px;
+    
+    --h5-weight: var(--font-semibold);
+    --h5-text-align: left;
+    --h5-letter-spacing: unset;
+    --h5-text-transform: normal;
+    --h5-border-width: 0px;
+    --h5-border-style: solid;
+    --h5-border-radius: 0px;
+
+    --h6-weight: var(--font-semibold);
+    --h6-text-align: left;
+    --h6-letter-spacing: unset;
+    --h6-text-transform: normal;
+    --h6-border-width: 0px;
+    --h6-border-style: solid;
+    --h6-border-radius: 0px;
+
+    /* Horizontal Rule */
+    --hr-thickness: 1px;
+
+    /* Link */
+    --link-unresolved-opacity: 1;
+    --link-underline-offset: 2px;
+    --link-decoration-thickness: 1.5px;
+    --link-decoration-opacity: 22%;
+    --link-opacity-active: 0.5;
+
+    /* Lists */
+    --list-indent-editing: 0.6em;
+    --list-bullet-indent-reading: -1em;
+    --indentation-guide-reading-indent: -1em;
+
+    /* Properties | Metadata */
+    --metadata-border-width: 1px;
+    --metadata-divider-width: 0px;
+    --metadata-border-radius: var(--radius-m);
+    --metadata-property-radius: calc(var(--radius-m) - 1px);
+    --metadata-container-padding: var(--size-4-3) var(--size-4-3);
+
+    /* Tag */
+    --tag-padding-x: 0.6em;
+    --tag-padding-y: 0.15em;
+    --tag-radius: 1em;
+
+    /*────────── Mobile ──────────*/
+
+    &.is-mobile {
+        --metadata-container-padding: var(--size-4-2) var(--size-4-2);
+        --clickable-icon-radius: var(--radius-m);
+        --button-radius: calc(var(--radius-l) - 2px);
+        --input-font-weight: var(--font-normal);
+        --mobile-folder-icon-size: 16px;
+    }
+
+    /*────────── Core Plugins ──────────*/
+
+}
+
+/*───────────────────────────────────
+            Light Palette
+───────────────────────────────────*/
