@@ -1,0 +1,46 @@
+/*────────── Loading ──────────*/
+
+.is-loading:before {
+    height: 4px;
+    background-color: var(--loading-line-color);
+    box-shadow: var(--loading-line-shadow);
+}
+
+.progress-bar {
+    background: var(--background-primary);
+
+    &-message {
+        font-size: var(--font-ui-smaller);
+        color: var(--text-faint);
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+    }
+    
+    &-indicator {
+        width: 35%;
+        height: var(--size-4-3);
+        border-radius: var(--size-4-3);
+    }
+
+    &-line {
+        height: var(--size-4-3);
+        background: var(--loading-line-bg-color);
+        box-shadow: var(--loading-line-shadow);
+    }
+
+    &-subline {
+        height: var(--size-4-3);
+        background: var(--loading-line-color);
+        box-shadow: var(--loading-line-shadow);
+        animation: var(--anim-duration-moderate) var(--anim-motion-smooth) infinite;
+    }
+}
+
+// Mobile
+.is-mobile {
+    .progress-bar {
+        &-indicator {
+            width: 50%;
+        }
+    }
+}

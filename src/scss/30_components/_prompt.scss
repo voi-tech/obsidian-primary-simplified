@@ -1,0 +1,115 @@
+/*────────── Prompt ──────────*/
+
+input.prompt-input {
+    background: var(--prompt-input-background);
+    padding: 28px var(--size-4-6);
+}
+
+input.prompt-input,
+input.prompt-input:hover,
+input.prompt-input:active,
+input.prompt-input:focus,
+input.prompt-input:focus-visible {
+    border-bottom: var(--prompt-separator-border);
+}
+
+// prompt for adding Tags, linking Files
+.suggestion-container:not([data-popper-placement]),
+.suggestion-popover,
+.popover {
+    animation: var(--anim-popup);
+}
+
+.suggestion-container[data-popper-placement] {
+    animation: var(--anim-popup-alt) !important; // !important is used to override inline styling from searchers
+}
+
+.suggestion-item:not(.mod-search-suggestion .suggestion-item) {
+    font-size: calc(var(--font-ui-medium) - 1px);
+    color: var(--prompt-suggestion-color);
+    border-radius: calc(var(--radius-m) - 1px);
+    transition: padding var(--anim-duration-fast) var(--anim-motion-swing);
+
+    &.is-selected {
+        color: var(--prompt-suggestion-color-selected);
+        background: var(--prompt-suggestion-background-selected);
+        box-shadow: var(--prompt-suggestion-shadow-selected);
+    }
+
+    &.mod-complex .suggestion-highlight {
+        font-weight: var(--font-semibold);
+        color: var(--prompt-suggestion-highlight-color);
+    }
+
+    &.mod-complex.is-selected .suggestion-highlight {
+        color: var(--prompt-suggestion-highlight-color-selected);
+    }
+}
+
+.suggestion-item:empty {
+    display: none;
+}
+
+// Prompt Instructions for all Prompts
+.prompt-instructions {
+    background: var(--prompt-instructions-background);
+    padding: var(--size-4-2) var(--size-4-3);
+}
+
+.prompt-instructions,
+.prompt-instructions:hover,
+.prompt-instructions:active,
+.prompt-instructions:focus,
+.prompt-instructions:focus-visible {
+    border-top: var(--prompt-separator-border);
+}
+
+.prompt-instruction-command {
+    color: var(--inline-code-color);
+    background-color: var(--background-secondary);
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+// Quick Switcher, Command Palette
+.prompt {
+    animation: var(--anim-popup);
+
+    &-results {
+        background: var(--prompt-results-background);
+    }
+
+    .suggestion-item {
+        padding: var(--size-4-2) var(--size-4-3);
+    
+        &.is-selected:not(body.is-phone .prompt .suggestion-item.is-selected) {
+            padding: var(--size-4-2) var(--size-4-3) var(--size-4-2) var(--size-4-6);
+        }
+    }
+
+    // Adds rotated flair to Pinned Commands
+    .suggestion-aux .suggestion-flair > svg.lucide-pin {
+        transform: rotate(45deg);
+    }
+}
+
+// Mobile
+.is-mobile {
+    .prompt {
+        border: 1px solid var(--background-modifier-border-focus);
+    }
+}
+
+.is-phone  {
+    .suggestion-bg {
+        backdrop-filter: blur(var(--popup-bg-blur));
+    }
+
+    .prompt {
+        border-bottom: none;
+    }
+}
+
+.theme-dark.is-mobile .prompt input.prompt-input {
+    background: var(--background-primary);
+}

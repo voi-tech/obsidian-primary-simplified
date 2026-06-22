@@ -1,0 +1,82 @@
+/*────────── Icons ──────────*/
+// Workspace Icon Size (selectors from app.css)
+body:not(.is-phone, .is-mobile) {
+    .mod-left-split .workspace-tab-header-inner-icon .svg-icon,
+    .mod-right-split .workspace-tab-header-inner-icon .svg-icon,
+    .clickable-icon {
+        --icon-size: var(--icon-s);
+    }
+
+    .clickable-icon.side-dock-ribbon-action .svg-icon {
+        --icon-size: var(--ribbon-icon);
+    }
+} 
+
+// Mobile
+body:is(.is-phone, .is-mobile) {
+    .clickable-icon svg {
+        --icon-size: var(--icon-m);
+    }
+
+    .workspace-drawer-active-tab-icon,
+    .workspace-drawer-tab-option-item-icon {
+        --icon-size: var(--icon-m);
+        color: var(--icon-color);
+    }
+}
+
+// .clickable-icon
+.is-mobile .clickable-icon,
+.clickable-icon {
+    &:hover {
+        color: var(--icon-color-hover);
+        background: var(--icon-bg-hover);
+        cursor: var(--cursor);
+    }
+
+    &:active {
+        color: var(--icon-color-active);
+        background: var(--icon-bg-pressed);
+    }
+
+    &.has-active-menu {
+        color: var(--icon-color-active);
+        background: var(--icon-bg-active-menu);
+
+        &:hover {
+            color: var(--icon-color-active);
+        }
+    }
+
+    &.is-active.is-active {
+        background: var(--icon-bg-active);
+
+        &:hover {
+            color: var(--icon-color-active);
+        }
+    }
+
+    &[aria-disabled='true'] {
+        color: var(--icon-color);
+        opacity: 0.3;
+        cursor: not-allowed;
+    }
+
+    &.list-item-part {
+        color: var(--icon-color);
+        background: var(--icon-bg);
+
+        &:hover {
+            color: var(--icon-color-hover);
+            background: var(--icon-bg-hover);
+        }
+    }
+}
+
+// Mobile
+.workspace-drawer .nav-buttons-container {
+    --icon-color: unset;
+    --icon-color-hover: unset;
+    --icon-color-active: unset;
+    --icon-color-focus: unset;
+}

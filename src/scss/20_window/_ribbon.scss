@@ -1,0 +1,116 @@
+/*────────── Ribbon ──────────*/
+
+.workspace-ribbon {
+    & .side-dock-actions,
+    & .side-dock-settings {
+        // General (at rest, on hover, and when active)
+        .clickable-icon {
+            color: var(--non-alternating-color);
+            background: var(--icon-bg);
+            padding: var(--ribbon-icon-spacing) var(--size-2-3);
+            
+            &:hover {
+                background: var(--icon-bg-hover);
+                cursor: var(--cursor);
+            }
+
+            &.is-active {
+                background: var(--icon-bg-active);
+            }
+
+            // Alternating Colors (on hover, on pressing, and when active)
+            &:nth-child(3n+1) {
+                &.is-active,
+                &:hover {
+                    color: var(--alternating-color-1);
+                }
+
+                &:active {
+                    color: var(--alternating-color-1-hover-active);
+                }
+            }
+
+            &:nth-child(3n+2) {
+                &.is-active,
+                &:hover {
+                    color: var(--alternating-color-2);
+                }
+
+                &:active {
+                    color: var(--alternating-color-2-hover-active);
+                }
+            }
+
+            &:nth-child(3n+3) {
+                &.is-active,
+                &:hover {
+                    color: var(--alternating-color-3);
+                }
+
+                &:active {
+                    color: var(--alternating-color-3-hover-active);
+                }
+            }
+        }
+    }
+
+    &.mod-left {
+        &:before {
+            border-bottom: none;
+        }
+    
+        border: var(--ribbon-border-width) solid var(--divider-color);
+        border-left: none;
+
+        border-radius: 0px var(--ribbon-radius) var(--ribbon-radius) 0px;
+        margin-bottom: var(--ribbon-margin-bottom);
+    }
+}
+
+// Mobile
+.workspace-drawer-ribbon {
+    border-right: 1px solid var(--background-modifier-border);
+}
+
+/*────────── SS: Ribbon Styles ──────────*/
+
+body.ribbon-slideout:not(.is-mobile) {
+    .workspace-ribbon.mod-left:before {
+        visibility: hidden;
+    }
+    
+    .workspace-ribbon.workspace-ribbon {
+        --ribbon-background: var(--ribbon-slideout-background);
+        --titlebar-background-focused: var(--ribbon-background);
+        --ribbon-background-collapsed: var(--ribbon-background);
+        position: absolute;
+        left: calc(-1 * (var(--ribbon-width) / 4));
+        opacity: 0;
+        transition: var(--anim-motion-jumpy) var(--anim-duration-moderate);
+        box-shadow: var(--ribbon-slideout-shadow);
+    
+        &:hover {
+            left: 0px;
+            opacity: 1;
+            transition: var(--anim-motion-jumpy) var(--anim-duration-moderate);
+        }
+    }
+
+    .sidebar-toggle-button.mod-left {
+        background: var(--ribbon-background);
+        --tab-container-background: var(--ribbon-background);
+    }
+
+    &.is-hidden-frameless:not(.is-fullscreen) {
+        .workspace-tabs.mod-top-left-space .workspace-tab-header-container {
+            padding-left: calc(var(--size-4-2) + var(--frame-left-space) + var(--ribbon-width));
+
+        }
+    }
+
+    &:not(.is-hidden-frameless.is-frameless) {
+        .side-dock-actions {
+            margin-top: var(--header-height);
+        }
+    }
+}

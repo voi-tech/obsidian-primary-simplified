@@ -1,0 +1,138 @@
+/*────────── Sidebar ──────────*/
+
+// Sidebar Buttons
+.nav-header {
+    padding: 0px var(--size-4-2) 0px var(--size-4-2);
+}
+
+.nav-buttons-container {
+    gap: var(--size-4-1);
+    justify-content: left;
+    padding-left: var(--size-2-3);
+    margin-top: var(--size-4-1);
+    margin-bottom: var(--size-4-1);
+}
+
+.nav-action-button {
+    padding: var(--size-2-3) var(--size-2-3);
+}
+
+// Vault Profile
+body:not(.is-mobile) .workspace-split {
+    .workspace-sidedock-vault-profile.workspace-sidedock-vault-profile {
+        width: unset;
+        background: var(--vault-name-background);
+        padding: var(--size-2-2) var(--size-2-2);
+        border: var(--vault-name-border);
+        border-radius: var(--radius-m);
+        margin: 0px var(--size-4-2) var(--editor-pane-margin);
+
+        // Remove chevron-up-down Switcher Icon
+        .workspace-drawer-vault-switcher-icon {
+            display: none;
+        }
+
+        .workspace-drawer-vault-name {
+            color: var(--vault-name-color);
+        }
+
+        .workspace-drawer-vault-switcher {
+            border-radius: calc(var(--radius-m) - 3px);
+            cursor: var(--cursor);
+
+            &:hover {
+                .workspace-drawer-vault-name {
+                    color: var(--vault-name-color-hover);
+                }
+            }
+        }
+    }
+}
+
+// Mobile
+.workspace-drawer-backdrop {
+    backdrop-filter: blur(var(--popup-bg-blur));
+}
+
+.workspace-drawer {
+    background-color: var(--mobile-sidebar-background);
+
+    &-inner {
+        background-color: var(--mobile-sidebar-background);
+    }
+
+    &.is-pinned .workspace-drawer-header,
+    &-header {
+        padding: var(--size-4-4) var(--size-4-5) 0 var(--size-4-5);
+    }
+
+    &-header-switcher {
+        gap: var(--size-4-2);
+    }
+
+    &.mod-left {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        
+        &:not(.is-pinned) {
+            border-right: 1px solid var(--background-modifier-border);
+            box-shadow: var(--mobile-sidebar-left-shadow);
+        }
+
+        &.is-pinned {
+            --divider-width: 0;
+        }
+    }
+
+    &.mod-right {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        
+        &:not(.is-pinned) {
+            border-left: 1px solid var(--background-modifier-border);
+            box-shadow: var(--mobile-sidebar-right-shadow);
+        }
+
+        &.is-pinned {
+            --divider-width: 0;
+        }
+    }
+
+    &-tab-option-item {
+        text-transform: capitalize;
+        padding: var(--size-4-4) var(--size-4-2);
+    }
+
+    .nav-header {
+        padding-left: var(--size-4-3);
+        padding-right: var(--size-4-3);
+    }
+}
+
+.workspace-drawer-active-tab-header.tappable {
+    text-transform: capitalize;
+    padding:    var(--size-4-2)
+                var(--size-4-3)
+                calc(var(--size-4-2) + var(--button-inset-shadow-size));
+    box-shadow: var(--button-shadow);
+    margin-top: var(--size-2-2);
+    border-radius: calc(var(--radius-m) + 2px);
+
+    &:focus-within {
+        box-shadow: var(--button-shadow-focus);
+    }
+}
+
+.workspace-drawer-active-tab-chevron {
+    padding-right: 0px;
+}
+
+// Mobile [Tablet]
+.is-tablet {
+    .workspace-drawer:not(.is-pinned) {
+        border: 1px solid var(--background-modifier-border);
+        border-radius: calc(var(--editor-border-radius) * 2);
+        margin: calc(var(--editor-pane-margin) * 3) calc(var(--editor-pane-margin) * 3);
+        box-shadow: var(--mobile-sidebar-tablet-shadow);
+    }
+}

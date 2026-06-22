@@ -1,0 +1,238 @@
+/*────────── File ──────────*/
+
+// Note Header
+.view-header {
+    --header-height: 38px;
+
+    // Right Side Action Icons
+    .view-action.clickable-icon {
+        &:nth-child(3n+1) {
+            &:hover {
+                color: var(--alternating-color-1);
+            }
+
+            &.mod-filled:hover svg {
+                fill: var(--alternating-color-1);
+            }
+
+            &:active,
+            &.has-active-menu {
+                color: var(--alternating-color-1-hover-active);
+            }
+
+            &.mod-filled:active svg {
+                fill: var(--alternating-color-1-hover-active);
+            }
+        }
+
+        &:nth-child(3n+2) {
+            &:hover {
+                color: var(--alternating-color-2);
+            }
+
+            &.mod-filled:hover svg {
+                fill: var(--alternating-color-2);
+            }
+
+            &:active,
+            &.has-active-menu {
+                color: var(--alternating-color-2-hover-active);
+            }
+
+            &.mod-filled:active svg {
+                fill: var(--alternating-color-2-hover-active);
+            }
+        }
+
+        &:nth-child(3n+3) {
+            &:hover {
+                color: var(--alternating-color-3);
+            }
+
+            &.mod-filled:hover svg {
+                fill: var(--alternating-color-3);
+            }
+
+            &:active,
+            &.has-active-menu {
+                color: var(--alternating-color-3-hover-active);
+            }
+
+            &.mod-filled:hover svg {
+                fill: var(--alternating-color-3-hover-active);
+            }
+        }
+    }
+}
+
+// Notes and Files
+.workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container .workspace-tab-header,
+.is-focused .workspace-leaf.mod-active .view-header,
+.view-header,
+.workspace-split.mod-root .view-content {
+    background: var(--editor-bg-color);
+}
+
+.mod-fade:not(.mod-at-end):after {
+    --background-primary: var(--editor-bg-color);
+}
+
+// Stacked Tab Note Header Styling
+// Stacked Tabs .view-header Styling
+.mod-root .workspace-tabs.mod-stacked {
+    .view-header {
+        border-bottom: none;
+
+        .view-header-title-container {
+            opacity: 0;
+            transition: var(--anim-duration-fast) var(--anim-motion-delay);
+
+            &:hover {
+                opacity: 1;
+                transition: var(--anim-duration-fast) var(--anim-motion-delay);
+            }
+        }
+    }
+}
+
+// Breadcrumb
+.view-header-title-parent {
+    .view-header {
+        &-breadcrumb {
+            color: var(--breadcrumb-color);
+            
+            &:hover {
+                color: var(--breadcrumb-color-hover);
+                background: var(--breadcrumb-bg-hover);
+                cursor: var(--cursor);
+            }
+        }
+    
+        &-breadcrumb-separator {
+            color: var(--breadcrumb-separator-color);
+        }
+
+    }
+}
+
+// File Title
+.view-header-title.view-header-title.view-header-title.view-header-title {
+    color: var(--file-header-title-color);
+}
+
+// Document Search
+.document-search {
+    align-items: center;
+}
+
+// New Tab or Empty Tab
+.workspace-leaf-content[data-type="empty"] {
+    .view-header {
+        border-color: transparent;
+
+        &-nav-buttons,
+        &-title-container {
+            visibility: hidden;
+        }
+    }
+}
+
+.workspace-leaf-content {
+    container-type: inline-size;
+
+    .empty-state-title {
+        font-size: var(--font-ui-medium);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--text-muted);
+    }
+
+    .empty-state-action {
+        color: var(--text-faint);
+        background: var(--empty-state-action-btn-bg);
+        font-size: var(--font-ui-small);
+        line-height: normal;
+        padding: var(--size-4-2) var(--size-4-4);
+        border: 1px solid var(--background-modifier-border);
+        border-radius: var(--new-tab-btn-radius);
+        margin: var(--size-4-3) var(--size-2-3);
+        transition: var(--anim-duration-superfast) var(--anim-motion-smooth);
+
+        &:hover {
+            color: var(--text-muted);
+            border-color: var(--background-modifier-border-hover);
+        }
+
+        &:active {
+            opacity: 0.5;
+        }
+    }
+
+    @container (width < 640px) {
+        // Description
+        .empty-state-container {
+            div:nth-child(2) {
+                font-size: var(--font-ui-small);
+                color: var(--text-faint);
+            }
+        }
+    }
+
+    @container (width > 640px) {
+        .empty-state {
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+    
+        .empty-state-container {
+            max-width: 100%;
+        }
+    
+        .empty-state-action-list {
+            margin-top: 0;
+            display: flex;
+            justify-content: center;
+        }
+    
+        .empty-state-action {
+            &:hover {
+                transform: translateY(-4px);
+            }
+    
+            &:active {
+                transform: translateY(2px);
+            }
+        }
+    }
+}
+
+.empty-state-title {
+    .mod-root & {
+        display: none;
+    }
+
+    body.is-mobile {
+        display: none;
+    }
+}
+
+body.is-mobile {
+    .empty-state {
+        &-action {
+            color: var(--text-faint);
+            background: var(--empty-state-action-btn-bg);
+            padding: var(--size-4-3) var(--size-4-4);
+            border: 1px solid var(--background-modifier-border);
+            border-radius: var(--new-tab-btn-radius);
+
+            &:hover {
+                transform: unset;
+            }
+    
+            &:active {
+                opacity: var(--button-opacity-active);
+                transform: unset;
+            }
+        }
+    }
+}

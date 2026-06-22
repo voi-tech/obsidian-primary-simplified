@@ -1,0 +1,17 @@
+/*────────── Checkbox ──────────*/
+input[type=checkbox] {
+    &:hover {
+        cursor: var(--cursor);
+    }
+
+    .theme-light &,
+    .theme-dark & {
+        &:not(:checked) {
+            background: var(--checklist-bg);
+        }
+
+        &:hover {
+            box-shadow: var(--checklist-shadow-hover);
+        }
+    }
+}

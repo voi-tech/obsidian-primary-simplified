@@ -1,0 +1,138 @@
+/*────────── Modals ──────────*/
+
+.modal-container {
+    backdrop-filter: blur(var(--popup-bg-blur));
+}
+
+.modal {
+    animation: var(--anim-popup);
+}
+
+/*────────── Modal: Settings ──────────*/
+// Settings Left Sidebar
+.modal {
+    .vertical-tab-header-group {
+        padding-top: 0;
+    }
+    
+    // Tab Header
+    .vertical-tab-header-group-title {
+        font-size: var(--font-ui-smallest);
+        color: var(--settings-nav-group-title-color);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+
+        // Mobile
+        .is-phone & {
+            font-size: var(--font-ui-small);
+
+            &:first-child {
+                margin-top: var(--size-4-4);
+            }
+        }
+    }
+    
+    // Nav Items
+    .vertical-tab-nav-item {
+        text-transform: capitalize;
+        font-size: var(--font-ui-small);
+        color: var(--settings-nav-item-text-color);
+        padding: var(--settings-nav-item-padding);
+        border-radius: var(--settings-nav-item-radius);
+        margin-bottom: var(--size-2-1);
+        transition: box-shadow var(--button-anim);
+        transition: padding-left var(--anim-duration-fast) var(--anim-motion-swing);
+        
+        // Mobile
+        &:hover:not(.is-active):not(body.is-phone .vertical-tab-nav-item) {
+            color: var(--settings-nav-item-text-color-hover);
+            background: var(--settings-nav-item-bg-hover);
+            padding: var(--settings-nav-item-padding-hover);
+        }
+    
+        &:active:not(.is-active):not(body.is-phone .vertical-tab-nav-item) {
+            color: var(--settings-nav-item-text-color-active);
+        }
+    
+        &.is-active:not(body.is-phone .vertical-tab-nav-item) {
+            padding: var(--settings-nav-item-padding-active);
+        }
+    
+        &.is-active:nth-child(3n+1):not(body.is-phone .vertical-tab-nav-item) {
+            color: var(--settings-nav-item-active-color);
+            background: var(--alternating-color-1);
+            box-shadow: var(--button-accent-shadow);
+        }
+    
+        &.is-active:nth-child(3n+2):not(body.is-phone .vertical-tab-nav-item) {
+            color: var(--settings-nav-item-active-color);
+            background: var(--alternating-color-2);
+            box-shadow: var(--button-accent-shadow);
+        }
+    
+        &.is-active:nth-child(3n+3):not(body.is-phone .vertical-tab-nav-item) {
+            color: var(--settings-nav-item-active-color);
+            background: var(--alternating-color-3);
+            box-shadow: var(--button-accent-shadow);
+        }
+    }
+}
+
+// Mobile
+.is-mobile {
+    &.theme-dark .vertical-tab-content {
+        background: var(--background-primary);
+    }
+
+    .modal {
+        border: 1px solid var(--background-modifier-border-hover);
+        border-radius: var(--radius-xl);
+    }
+}
+
+.is-phone {
+    .modal {
+        border-radius: var(--size-4-4) var(--size-4-4) 0 0;
+    }
+
+    .modal-title {
+        text-transform: capitalize;
+    }
+
+    .mod-confirmation .modal:not(.mod-lg) {
+        border: 1px solid var(--background-modifier-border-hover);
+    }
+}
+
+// Community Modals
+
+.community-item {
+    border: none;
+    box-shadow: var(--community-item-shadow);
+    transition: background var(--anim-duration-superfast) var(--anim-motion-smooth);
+    transition: box-shadow var(--anim-duration-fast) var(--anim-motion-swing);
+
+    &:hover {
+        box-shadow: var(--community-item-shadow-hover);
+    }
+
+    &.is-selected,
+    &.is-selected:hover {
+        box-shadow: var(--community-item-selected-shadow);
+    }
+}
+
+.community-item .flair,
+.flair.mod-pop {
+    font-weight: var(--font-semibold);
+    color: var(--inline-code-color);
+    background: var(--inline-code-bg);
+    box-shadow: var(--community-item-flair-shadow);
+}
+
+.modal.modal .community-item.is-selected .flair,
+.modal.modal .community-item.is-selected:hover .flair {
+    color: var(--inline-code-bg);
+    background: var(--inline-code-color);
+    box-shadow: var(--community-item-flair-shadow);
+}

@@ -1,0 +1,29 @@
+/*────────── Dropdown ──────────*/
+
+select,
+.dropdown {
+    font-weight: var(--component-font-weight);    
+    border-radius: var(--button-radius);
+    transition: var(--background-anim);
+    
+    &:hover {
+        cursor: var(--cursor);
+    }
+
+    &:active {
+        box-shadow: var(--button-shadow-active);
+    }
+
+    &:focus {
+        background-color: var(--interactive-hover);
+        box-shadow: var(--button-shadow-focus);
+    }
+}
+
+select[disabled],
+select[aria-disabled="true"],
+select[disabled="true"]
+.dropdown[disabled] {
+    opacity: var(--disabled-component-opacity);
+    cursor: not-allowed;
+}

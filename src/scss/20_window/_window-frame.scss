@@ -1,0 +1,10 @@
+/*────────── Window Frame ──────────*/
+
+.workspace,
+.workspace-ribbon.mod-left.is-collapsed,
+.mod-root.workspace-split,
+.mod-root .workspace-tabs .workspace-leaf,
+.workspace-tab-container,
+.is-grabbing .workspace-tabs {
+    background: var(--titlebar-background);
+}

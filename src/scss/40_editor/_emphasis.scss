@@ -1,0 +1,93 @@
+/*────────── Emphasis ──────────*/
+// Bold and Italic are set in the Theme Palette
+
+body {   
+    // Underline 
+    u {
+        color: var(--underline-color);
+        text-underline-offset: var(--link-underline-offset);
+        text-decoration-color: var(--underline-decoration-color);
+    }
+
+    // Strikethrough
+    .cm-strikethrough,
+    p del {
+        color: var(--strikethrough-color);
+    }
+
+    // Code
+    .cm-s-obsidian span.cm-inline-code,
+    code {
+        color: var(--inline-code-color);
+        background: var(--inline-code-bg);
+    }
+
+    // Bold, Italic
+    .cm-strong.cm-em,
+    .cm-strong .cm-em,
+    .cm-em .cm-strong,
+    strong em,
+    em strong {
+        color: var(--bold-italic-color);
+        font-weight: var(--bold-italic-weight);
+    }
+
+    // Multi-colored Highlights
+    // Normal Highlight
+    .cm-highlight,
+    .markdown-rendered mark {
+        color: var(--normal-highlight-color);
+        background-color: var(--normal-highlight-bg);
+    }
+
+    // Bold Highlight
+    .cm-highlight.cm-strong,
+    .markdown-rendered strong mark {
+        color: var(--bold-highlight-color);
+        background-color: var(--bold-highlight-bg);
+    }
+
+    // Italic Highlight
+    .cm-highlight.cm-em,
+    .markdown-rendered em mark {
+        color: var(--italic-highlight-color);
+        background-color: var(--italic-highlight-bg);
+    }
+
+    // Bold Italic Highlight
+    .cm-highlight.cm-em.cm-strong,
+    .markdown-rendered em > mark > strong,
+    .markdown-rendered strong > mark > em,
+    .markdown-rendered strong > em > mark {
+        color: var(--bold-italic-highlight-color);
+        background-color: var(--bold-italic-highlight-bg);
+    }
+
+    // Blockquote Writing Mode Overrides
+    span.cm-quote {
+        &.cm-strong {
+            color: var(--bold-color);
+        }
+    
+        &.cm-em {
+            color: var(--italic-color);
+        }
+    
+        &.cm-strikethrough {
+            color: var(--strikethrough-color);
+        }
+    
+        &.cm-inline-code {
+            color: var(--inline-code-color);
+            background: var(--inline-code-bg);
+        }
+    
+        &.cm-strong.cm-em {
+            color: var(--bold-italic-color);
+        }
+    
+        &.cm-strong.cm-em.cm-strikethrough {
+            color: var(--bold-italic-strikethrough-color);
+        }
+    }
+}

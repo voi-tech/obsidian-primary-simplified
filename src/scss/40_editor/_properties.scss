@@ -1,0 +1,267 @@
+/*────────── Properties ──────────*/
+
+.metadata-property {
+    // Multi-select Pills
+    &:not([data-property-key="tags"]) {
+        --pill-border-width: 1px;
+        --pill-padding-x: 0.5em;
+        --pill-padding-y: 0.15em;
+        --pill-radius: 0.35em;
+    }
+
+    // Tag Pills
+    &[data-property-key="tags"] {
+        --pill-padding-x: 0.6em;
+        --pill-padding-y: 0.15em;
+        --pill-radius: 1em;
+    }
+}
+
+// Metadata Property Box icon resizing
+body .metadata-property-icon svg {
+    --icon-size: calc(var(--icon-s) - 2px);
+}
+
+.metadata-container {
+    padding: var(--metadata-container-padding);
+}
+
+// Metadata Properties Heading
+    // Collapsed
+.metadata-properties-heading {
+    line-height: unset;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    margin-bottom: 0;
+
+    .metadata-properties-title {
+        color: var(--metadata-properties-title-color-collapsed);
+        font-weight: var(--font-semibold);
+        font-size: calc(var(--font-smallest) - 0.1em);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        padding-left: var(--size-4-2);
+        transition: color var(--anim-duration-superfast) var(--anim-motion-smooth);
+    }
+    
+    .collapse-indicator {
+        position: unset;
+        order: 2;
+        opacity: 1;
+        left: unset;
+
+        &::before {
+            display: none;
+        }
+    }
+
+    &:hover {
+        cursor: var(--cursor);
+
+        .metadata-properties-title,
+        .collapse-indicator.collapse-indicator svg {
+            color: var(--metadata-properties-title-color-hover);
+        }
+    }
+
+
+    // Not Collapsed
+    &:not(.is-collapsed) {
+        margin-bottom: var(--size-4-2);
+
+        .metadata-properties-title {
+            color: var(--metadata-properties-title-color);
+        }
+
+        &:hover {
+            .metadata-properties-title,
+            .collapse-indicator svg {
+                color: var(--metadata-properties-title-color-hover);
+            }
+        }
+    } 
+}
+
+// Metadata Content
+.metadata-content {
+    font-size: var(--font-small);
+}
+
+.metadata-property {
+    // gap: var(--size-2-1);
+
+    &-icon {
+        padding-left: var(--size-2-3);
+    }
+
+    &-value {
+        padding-right: var(--size-2-3);
+    }
+
+    &-key-input:is(
+        input[type='text'],
+        input[type='date'],
+        input[type='datetime-local'],
+        input[type='number'],
+        .multi-select-container
+        ) {
+            color: var(--metadata-key-input-color);
+
+            &:focus-within {
+                color: var(--metadata-key-input-color-active);
+            }
+    }
+}
+
+// Multi-select Pills Remove Button
+.multi-select-pill-remove-button {
+    color: var(--pill-color-remove);
+    margin-right: calc(var(--pill-padding-x) / 2); // divided by 2 to account icon sizing
+    border-radius: 1em;
+
+    .multi-select-pill:hover & {
+        color: var(--pill-color-remove-hover);
+
+        &:hover {
+            color: var(--text-on-accent);
+            background: var(--background-modifier-error-hover);
+            opacity: 1;
+        }
+            
+        &:active {
+            opacity: var(--button-opacity-active);
+        }
+    }
+}
+
+// Multi-select Pills Tags
+.metadata-property[data-property-key="tags"] .multi-select-pill {
+    --pill-weight: var(--pill-tag-weight);
+    --metadata-divider-width: 0px;
+    border: none;
+
+    &:hover {
+        box-shadow: var(--pill-tag-shadow-hover);
+    }
+
+    &:nth-child(3n + 1) {
+        color: var(--pill-tag-color-1);
+        background: var(--pill-tag-bg-1);
+
+        .multi-select-pill-remove-button {
+            color: var(--pill-tag-color-1);
+            opacity: 0.5;
+
+            &:hover {
+                color: var(--text-on-accent);
+                background: var(--pill-tag-color-1);
+                opacity: 1;
+            }
+
+            &:active {
+                opacity: var(--button-opacity-active);
+            }
+        }
+    }
+
+    &:nth-child(3n + 2) {
+        color: var(--pill-tag-color-2);
+        background: var(--pill-tag-bg-2);
+
+        .multi-select-pill-remove-button {
+            color: var(--pill-tag-color-2);
+            opacity: 0.5;
+
+            &:hover {
+                color: var(--text-on-accent);
+                background: var(--pill-tag-color-2);
+                opacity: 1;
+            }
+
+            &:active {
+                opacity: var(--button-opacity-active);
+            }
+        }
+    }
+
+    &:nth-child(3n + 3) {
+        color: var(--pill-tag-color-3);
+        background: var(--pill-tag-bg-3);
+
+        .multi-select-pill-remove-button {
+            color: var(--pill-tag-color-3);
+            opacity: 0.5;
+
+            &:hover {
+                color: var(--text-on-accent);
+                background: var(--pill-tag-color-3);
+                opacity: 1;
+            }
+
+            &:active {
+                opacity: var(--button-opacity-active);
+            }
+        }
+    }
+}
+
+// Smaller Properties
+div.metadata-container {
+    @container (width < 250px) {
+        .metadata-property .metadata-property-value {
+            padding-left: calc(var(--icon-size) + var(--size-4-2) + 2px);
+        }
+
+        .metadata-property:last-of-type {
+            margin-bottom: var(--size-4-2);
+            
+            .metadata-property-value {
+                border-bottom: none;
+            }
+        }
+    }
+}
+
+// Sidebar File Properties Tab
+.workspace-leaf-content[data-type="file-properties"] {
+    .view-content {
+        padding-top: var(--size-4-2);
+    }
+
+    .metadata-container {
+        --metadata-border-width: 0px;
+        --metadata-background: var(--metadata-tab-background);
+
+        padding: 0;
+        margin-bottom: 0;
+        border-radius: 0;
+    }
+}
+
+// Source Code Properties
+.cm-hmd-frontmatter.cm-hmd-frontmatter {
+    color: var(--yaml-base-color);
+
+    &.cm-def,
+    &.cm-meta {
+        color: var(--yaml-def-meta-color);
+    }
+
+    &.cm-atom {
+        color: var(--yaml-atom-color);
+    }
+
+    &.cm-keyword {
+        color: var(--yaml-keyword-color);
+    }
+
+    &.cm-number {
+        color: var(--yaml-number-color);
+    }
+
+    &.cm-string {
+        color: var(--yaml-string-color);
+    }
+}

@@ -1,0 +1,22 @@
+/*────────── Tag ──────────*/
+
+.cm-hashtag,
+a.tag {
+    font-weight: var(--pill-tag-weight);
+    box-shadow: var(--tag-shadow);
+    transition: var(--anim-duration-superfast) var(--anim-motion-smooth);
+
+    &:hover {
+        color: var(--tag-color-hover);
+    }
+}
+
+a.tag {
+    &:hover {
+        box-shadow: var(--tag-shadow-hover);
+    }
+
+    &:active {
+        box-shadow: var(--tag-shadow-active);
+    }   
+}

@@ -1,0 +1,261 @@
+/*────────── Button ──────────*/
+.is-mobile button:not(button.clickable-icon),
+button:not(button.clickable-icon) {
+    font-weight: var(--component-font-weight);
+    padding: var(--button-padding);
+    border-radius: var(--button-radius);
+    transition: var(--button-anim);
+    transition: var(--background-anim);
+    cursor: var(--cursor);
+
+    &:active {
+        background: var(--interactive-normal);
+        padding: var(--button-padding-active);
+        box-shadow: var(--button-shadow-active);
+        transition: var(--button-anim);
+    }
+
+    &:focus-visible {
+        background: var(--interactive-normal-hover);
+        box-shadow: var(--button-shadow-focus);
+    }
+
+    &.mod-cta {
+        box-shadow: var(--button-accent-shadow);
+
+        &:hover {
+            box-shadow: var(--button-accent-shadow-hover);
+        }
+
+        &:active {
+            background: var(--interactive-accent);
+            box-shadow: var(--button-accent-shadow-active);
+        }
+        
+        &:focus-visible {
+            background: var(--interactive-accent-hover);
+            box-shadow: var(--button-shadow-focus);
+        }
+    }
+
+    &.mod-warning {
+        color: var(--text-on-accent);
+        background-color: var(--background-modifier-error);
+        box-shadow: var(--button-accent-shadow);
+
+        &:hover {
+            background-color: var(--background-modifier-error-hover);
+            box-shadow: var(--button-accent-shadow-hover);
+        }
+
+        &:active {
+            background: var(--background-modifier-error);
+            box-shadow: var(--button-accent-shadow-active);
+        }
+
+        &:focus-visible {
+            background: var(--background-modifier-error-hover);
+            box-shadow: var(--button-accent-shadow-focus);
+        }
+    }
+
+    &.mod-destructive {
+        color: var(--text-on-accent);
+        background: var(--background-modifier-warning);
+        box-shadow: var(--button-accent-shadow);
+
+        &:hover {
+            background: var(--background-modifier-warning-hover);
+            box-shadow: var(--button-accent-shadow-hover);
+        }
+
+        &:active {
+            background: var(--background-modifier-warning);
+            box-shadow: var(--button-accent-shadow-active);
+        }
+    }
+
+    &.mod-loading {
+        opacity: var(--disabled-component-opacity);
+        cursor: wait;
+    }
+
+    &.mod-cancel {
+        color: var(--text-normal);
+    }
+}
+
+// Disabled Button
+button[disabled],
+button[aria-disabled="true"],
+button[disabled="true"] {
+    opacity: var(--disabled-component-opacity);
+    cursor: not-allowed;
+}
+
+// Document Search Close Button
+// Modal Close Button
+.document-search-close-button,
+.modal-close-button {
+    font-size: calc(var(--modal-close-button-size));
+    line-height: var(--modal-close-button-size);
+
+    color: var(--text-on-accent);
+    background: var(--background-modifier-error);
+    border-radius: var(--close-button-radius);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: var(--cursor);
+
+    &::before {
+        font-weight: var(--font-extralight);
+        font-feature-settings: "case";
+    }
+
+    &:hover {
+        color: var(--text-on-accent);
+        background: var(--background-modifier-error-hover);
+    }
+    
+    &:active {
+        opacity: var(--button-opacity-active);
+    }
+}
+
+.document-search-close-button {
+    padding: 0.2rem 0.2rem;
+
+    &:active {
+        color: var(--text-on-accent);
+        background: var(--background-modifier-error-hover);
+        opacity: var(--button-opacity-active);
+    }
+}
+
+.modal-close-button {
+    width: var(--modal-close-button-size);
+    height: fit-content;
+}
+
+// Property Box Add Property Button
+.metadata-container .metadata-add-button {
+    font-weight: var(--component-font-weight);
+    text-transform: capitalize;
+    color: var(--text-on-accent);
+    background: var(--interactive-accent);
+    padding: var(--button-metadata-padding);
+    border-radius: var(--button-s-radius);
+    margin-left: var(--size-2-2);
+    box-shadow: var(--button-accent-shadow);
+
+    transition: var(--button-anim);
+    transition: var(--background-anim);
+
+    &:hover {
+        color: var(--text-on-accent);
+        background: var(--interactive-accent-hover);
+        box-shadow: var(--button-accent-shadow-hover);
+
+        .text-button-icon {
+            color: var(--text-on-accent);
+        }
+    }
+
+    &:active {
+        padding: var(--button-metadata-padding-active);
+        box-shadow: var(--button-accent-shadow-active);
+    }
+
+    &.text-icon-button:active {
+        color: var(--text-on-accent);
+        background: var(--interactive-accent-hover);
+        padding: var(--button-metadata-padding-active);
+        box-shadow: var(--button-shadow-active);
+        transition: var(--button-anim);
+
+        .text-button-icon {
+            color: var(--text-on-accent);
+        }
+    }
+}
+
+// Edit Embed Block Button
+.markdown-source-view.mod-cm6
+.cm-embed-block:not(.cm-table-widget):hover
+.edit-block-button {
+    padding: var(--size-2-2) var(--size-2-2);
+    background: var(--embed-edit-btn-bg);
+    border-radius: var(--radius-m);
+    box-shadow: var(--embed-edit-btn-shadow);
+
+    &:hover {
+        background: var(--embed-edit-btn-bg-hover);
+        box-shadow: var(--embed-edit-btn-shadow-hover);
+    }
+}
+
+// Copy Code Block Button
+// Embed Link Button
+.markdown-source-view.mod-cm6 .code-block-flair,
+.markdown-rendered button.copy-code-button,
+.markdown-embed-link,
+.file-embed-link {
+    display: flex;
+    font-weight: var(--component-font-weight);
+    line-height: 1;
+    padding: var(--size-2-3) var(--size-2-3);
+    border-radius: var(--radius-m);
+    transition: var(--anim-duration-superfast) var(--anim-motion-smooth);
+
+    &:hover {
+        box-shadow: var(--copy-code-btn-shadow);
+    }
+}
+
+@media (hover: hover) {
+    .markdown-embed-link,
+    .file-embed-link {
+        &:hover {
+            box-shadow: var(--copy-code-btn-shadow);
+        }
+    }
+}
+
+.mod-community-modal .modal-sidebar button.clickable-icon {
+    color: var(--icon-color);
+    padding: unset;
+
+    &:hover {
+        color: var(--icon-color-hover);
+        background: var(--icon-bg-hover);
+        cursor: var(--cursor);
+    }
+
+    &:active {
+        color: var(--icon-color-active);
+        background: var(--icon-bg-pressed);
+    }
+
+    &.has-active-menu,
+    &.has-active-menu {
+        color: var(--icon-color-active);
+        background: var(--icon-bg-active-menu);
+
+        &:hover {
+            color: var(--icon-color-active);
+        }
+    }
+}
+
+// Search Result File Match Replace Button
+.search-result-file-match button.search-result-file-match-replace-button {
+    padding: var(--button-s-padding);
+    border-radius: var(--button-s-radius);
+    box-shadow: var(--button-shadow);
+
+    &:active {
+        padding: var(--button-s-padding);
+    }
+}

@@ -1,0 +1,121 @@
+/*────────── Link ──────────*/
+
+// Reset
+.cm-s-obsidian span.cm-hmd-internal-link:hover,
+.cm-s-obsidian span.cm-link:hover {
+    text-decoration-line: unset;
+    color: unset;
+}
+
+// ahref Links
+a {
+    color: var(--link-ahref-color);
+    text-underline-offset: var(--link-underline-offset);
+    text-decoration-color: var(--link-ahref-decoration-color);
+
+    &:hover {
+        color: var(--link-ahref-color-hover);
+        text-decoration-color: var(--link-ahref-decoration-color-hover);
+    }
+
+    &:active {
+        opacity: var(--link-opacity-active);
+    }
+}
+
+// Internal Link Reading Mode
+.markdown-rendered .internal-link,
+.metadata-container .internal-link,
+.internal-link {
+    color: var(--link-color);
+    text-underline-offset: var(--link-underline-offset);
+    text-decoration-color: var(--link-decoration-color);
+
+    &:hover {
+        color: var(--link-color-hover);
+        text-decoration-color: var(--link-decoration-color-hover);
+    }
+
+    &:active {
+        opacity: var(--link-opacity-active);
+    }
+
+    &.is-unresolved {
+        color: var(--link-unresolved-color);
+        text-underline-offset: var(--link-underline-offset);
+        text-decoration-color: var(--link-unresolved-decoration-color);
+
+        &:hover {
+            color: var(--link-unresolved-color-hover);
+            text-decoration-color: var(--link-unresolved-decoration-color-hover);
+        }
+
+        &:active {
+            opacity: var(--link-opacity-active);
+        }
+    }
+}
+
+// Internal Link Source Mode/Live Preview
+.cm-hmd-internal-link {
+    .is-unresolved .cm-underline {
+        color: var(--link-unresolved-color);
+        text-underline-offset: var(--link-underline-offset);
+        text-decoration-color: var(--link-unresolved-decoration-color);
+
+        &:hover {
+            color: var(--link-unresolved-color-hover);
+            text-decoration-color: var(--link-unresolved-decoration-color-hover);
+        }
+
+        &:active {
+            text-underline-offset: var(--link-underline-offset);
+            opacity: var(--link-opacity-active);
+        }
+    }
+
+    .cm-underline {
+        color: var(--link-color);
+        text-underline-offset: var(--link-underline-offset);
+        text-decoration-color: var(--link-decoration-color);
+    
+        &:hover {
+            color: var(--link-color-hover);
+            text-underline-offset: var(--link-underline-offset);
+            text-decoration-color: var(--link-decoration-color-hover);
+        }
+    
+        &:active {
+            text-underline-offset: var(--link-underline-offset);
+            opacity: var(--link-opacity-active);
+        }
+    }
+}
+
+// External Link
+.external-link,
+.cm-link .cm-underline,
+.cm-url,
+.cm-underline {
+    color: var(--link-external-color);
+    text-underline-offset: var(--link-underline-offset);
+    text-decoration-color: var(--link-external-decoration-color);
+
+    &:hover {
+        color: var(--link-external-color-hover);
+        text-underline-offset: var(--link-underline-offset);
+        text-decoration-color: var(--link-external-decoration-color-hover);
+    }
+
+    &:active {
+        text-underline-offset: var(--link-underline-offset);
+        opacity: var(--link-opacity-active);
+    }
+}
+
+.external-link {
+    background-image: linear-gradient(transparent, transparent), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgba(136, 136, 136)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='7' y1='17' x2='17' y2='7'%3E%3C/line%3E%3Cpolyline points='7 7 17 7 17 17'%3E%3C/polyline%3E%3C/svg%3E");
+    background-size: calc(var(--font-text-size) + 0.2em), 1em;
+    background-position-x: right;
+    background-position-y: center;
+}

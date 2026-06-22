@@ -1,0 +1,23 @@
+/*────────── Gutter ──────────*/
+
+// Gutter Placement
+.is-readable-line-width {
+    .cm-contentContainer {
+        @container (width > 48rem) {
+            .cm-gutters {
+                position: absolute;
+                margin-inline-start: 0.75rem;
+            }
+        }
+    }
+}
+
+// Activeline Gutter Number Highlight
+.cm-gutterElement {
+    font-size: var(--font-ui-smallest);
+    color: var(--gutter-color);
+
+    &.cm-active {
+        color: var(--gutter-color-active);
+    }
+}

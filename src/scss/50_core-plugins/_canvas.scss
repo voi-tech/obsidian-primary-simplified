@@ -1,0 +1,57 @@
+/*────────── Core Plugin: Canvas ──────────*/
+
+.canvas-menu {
+    border-radius: var(--radius-m);
+    box-shadow: var(--canvas-menu-shadow);
+}
+
+.canvas-card-menu.canvas-card-menu {
+    background: var(--canvas-menu-bg);
+    border: var(--canvas-menu-border);
+    border-radius: var(--radius-m);
+    box-shadow: var(--canvas-menu-shadow);
+
+    .canvas-card-menu-button {
+        --icon-stroke: 2px;
+        color: var(--canvas-icon-color);
+
+        &:hover {
+            color: var(--canvas-icon-color-hover);
+
+            svg {
+                transform: translateY(-3px);
+            }
+        }
+
+        svg {
+            fill: none;
+        }
+    }
+}
+
+.canvas-control-group {
+    background: var(--canvas-menu-bg);
+    border: var(--canvas-menu-border);
+    border-radius: var(--radius-m);
+    box-shadow: var(--canvas-menu-shadow);
+
+    .canvas-control-item {
+        color: var(--canvas-icon-color);
+        background: var(--canvas-menu-bg);
+
+        &:hover {
+            color: var(--canvas-icon-color-hover);
+            background: var(--canvas-menu-bg-hover);
+        }
+
+        &.is-disabled {
+            svg {
+                color: var(--canvas-icon-color-disabled);
+            }
+
+            &:hover {
+                background: inherit;
+            }
+        }
+    }
+}
