@@ -34,7 +34,9 @@ span.code-block-flair {
 }
 
 // Monospace Font Feature
-div:not(.list-bullet::after),
+// NOTE: the previous `div:not(.list-bullet::after)` selector was invalid
+// (pseudo-elements aren't allowed inside `:not()`), which silently dropped
+// the whole rule. Scope mono font-features to code-related elements only.
 .HyperMD-codeblock,
 .cm-inline-code,
 pre,

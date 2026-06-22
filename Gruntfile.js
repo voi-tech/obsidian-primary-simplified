@@ -34,6 +34,10 @@ Read more at https://git.new/primary/obsidian
 
 ────────────────────────────────────*/
 
+// Load OBSIDIAN_PATH (and any other vars) from .env at config-evaluation time,
+// so the hot-reload copy target below resolves to the correct absolute path.
+require('dotenv').config();
+
 module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -95,7 +99,6 @@ module.exports = function(grunt) {
                 files: {
                     'theme.css': [
                         'src/css/readme.css',
-                        'src/css/fonts/*.css',
                         'src/css/main.min.css',
                         'src/css/style-settings.css'
                     ]
@@ -110,12 +113,12 @@ module.exports = function(grunt) {
             but instead replaces the file and forces the same name    */
         copy: {
             hot_reload: {
-                expand: true,
-                src: 'theme.css',
-                dest: process.env.HOME + process.env.OBSIDIAN_PATH,
-                rename: function(dest, src) {
-                    return dest + 'theme.css';
-                }
+                // No-op unless OBSIDIAN_PATH is set in .env, so a clean clone
+                // (CI or another contributor) never writes into their home dir.
+                files: process.env.OBSIDIAN_PATH ? [
+                    { src: 'theme.css',     dest: (process.env.HOME || '') + process.env.OBSIDIAN_PATH + 'theme.css' },
+                    { src: 'manifest.json', dest: (process.env.HOME || '') + process.env.OBSIDIAN_PATH + 'manifest.json' }
+                ] : []
             }
         },
 
@@ -147,6 +150,12 @@ module.exports = function(grunt) {
         from src/. Does not touch .env or any local vault path, so it
         can run identically in CI or on a fresh clone with no setup.   */
     grunt.registerTask('build', ['sass:unminified', 'sass:minified', 'cssmin', 'concat_css']);
+
+    /*  deploy command: build, then copy theme.css + manifest.json into the
+        vault folder defined by OBSIDIAN_PATH in .env. Run `npm run deploy` to
+        sync your Obsidian install on demand (or `npm run watch` to keep it
+        synced automatically on every save). */
+    grunt.registerTask('deploy', ['sass:unminified', 'sass:minified', 'cssmin', 'concat_css', 'copy']);
 
     /*  default command: watches for changes in the working directory
         and performs tasks as indicated under the grunt-contrib-watch plugin    */

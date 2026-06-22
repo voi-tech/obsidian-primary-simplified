@@ -111,9 +111,12 @@ body {
     --cursor: pointer;
 
     /* Font */
+    // 'Inter' resolves to Obsidian's built-in Inter, so it needs no bundled
+    // @font-face. 'Cascadia Code' is NOT bundled with Obsidian — if the user
+    // hasn't installed it, the fallback chain keeps a sensible monospace.
     --font-interface-theme: 'Inter';
     --font-text-theme: 'Inter';
-    --font-monospace-theme: 'Cascadia Code';
+    --font-monospace-theme: 'Cascadia Code', var(--font-monospace-default, ui-monospace), monospace;
 
     --interface-font-feature: "calt" 1, "case" 0, "ccmp" 1, "ss03" 1, "cv01" 1, "cv05" 1, "cv06" 1, "cv08" 0, "cv11" 1, "cv12" 0, "cv13" 0;
     --text-font-feature: "calt" 1, "case" 0, "ccmp" 1, "ss03" 1, "cv01" 1, "cv05" 1, "cv06" 1, "cv08" 0, "cv11" 1, "cv12" 0, "cv13" 0;
@@ -131,22 +134,6 @@ body {
     --font-smallest: 0.8em;
     --font-smaller: 0.875em;
     --font-small: 0.933em;
-
-    // Interface Component Specific
-    --font-nav-item-size: ;
-    --font-tree-item-size: ;
-
-    // Editor Component Specific
-    --font-blockquote-size: ;
-    --font-callout-title-size: ;
-    --font-callout-size: ;
-    --font-inlinecode-size: ;
-    --font-codeblock-size: ;
-    --font-codeblock-btn-size: ;
-    --font-footnotes-title-size: ;
-    --font-footnotes-flag-size: ;
-    --font-footnotes-size: ;
-    --font-blockid-size: ;
 
     /* Font Thickness */
     font-weight: var(--font-normal);

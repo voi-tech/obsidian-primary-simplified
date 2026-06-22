@@ -1,5 +1,6 @@
-![Primary for Obsidian Overview](https://github.com/primary-theme/obsidian/blob/main/assets/obsidian-overview-header.png)
-<h1 align="center">Primary for <a href="https://obsidian.md">Obsidian</a></h1>
+![Primary for Obsidian Overview](assets/obsidian-overview-header.png)
+<h1 align="center">Primary Simplified for <a href="https://obsidian.md">Obsidian</a></h1>
+<p align="center"><em>A streamlined fork of <a href="https://github.com/primary-theme/obsidian">Primary</a> by Cecilia May, maintained by voitech.</em></p>
 <p align="center">
     <a href="https://github.com/primary-theme/obsidian/stargazers"><img alt="Repo stars" src="https://img.shields.io/github/stars/primary-theme/obsidian?style=for-the-badge&logoColor=EEE7DD&labelColor=593E21&color=D6971B"></a>
     <a href="./LICENSE"><img alt="Repo License" src="https://img.shields.io/github/license/primary-theme/obsidian?style=for-the-badge&logoColor=EEE7DD&labelColor=593E21&color=BF3F35"></a>
@@ -69,44 +70,44 @@
 
 #### Desktop
 
-![Primary for Obsidian on Desktop - Light Mode](https://github.com/primary-theme/obsidian/blob/main/assets/desktop-1_light-mode.png)
+![Primary for Obsidian on Desktop - Light Mode](assets/desktop-1_light-mode.png)
 
-![Primary for Obsidian on Desktop - Light Mode](https://github.com/primary-theme/obsidian/blob/main/assets/desktop-2_light-mode.png)
+![Primary for Obsidian on Desktop - Light Mode](assets/desktop-2_light-mode.png)
 
-![Primary for Obsidian on Desktop - Light Mode](https://github.com/primary-theme/obsidian/blob/main/assets/desktop-3_light-mode.png)
+![Primary for Obsidian on Desktop - Light Mode](assets/desktop-3_light-mode.png)
 
 #### Tablet
 
 <p align="center">
-<img alt="Primary for Obsidian on Tablet - Light Mode" src="https://github.com/primary-theme/obsidian/blob/main/assets/tablet-1_light-mode.png" width="768px">
+<img alt="Primary for Obsidian on Tablet - Light Mode" src="assets/tablet-1_light-mode.png" width="768px">
 </p>
 
 #### Mobile
 
 <p align="center">
-<img alt="Primary for Obsidian on Tablet - Light Mode" src="https://github.com/primary-theme/obsidian/blob/main/assets/mobile-1_light-mode.png" width="320px">
+<img alt="Primary for Obsidian on Tablet - Light Mode" src="assets/mobile-1_light-mode.png" width="320px">
 </p>
 
 ### Dark Mode
 
 #### Desktop
 
-![Primary for Obsidian on Desktop - Dark Mode](https://github.com/primary-theme/obsidian/blob/main/assets/desktop-1_dark-mode.png)
+![Primary for Obsidian on Desktop - Dark Mode](assets/desktop-1_dark-mode.png)
 
-![Primary for Obsidian on Desktop - Dark Mode](https://github.com/primary-theme/obsidian/blob/main/assets/desktop-2_dark-mode.png)
+![Primary for Obsidian on Desktop - Dark Mode](assets/desktop-2_dark-mode.png)
 
-![Primary for Obsidian on Desktop - Dark Mode](https://github.com/primary-theme/obsidian/blob/main/assets/desktop-3_dark-mode.png)
+![Primary for Obsidian on Desktop - Dark Mode](assets/desktop-3_dark-mode.png)
 
 #### Tablet
 
 <p align="center">
-<img alt="Primary for Obsidian on Tablet - Dark Mode" src="https://github.com/primary-theme/obsidian/blob/main/assets/tablet-1_dark-mode.png" width="768px">
+<img alt="Primary for Obsidian on Tablet - Dark Mode" src="assets/tablet-1_dark-mode.png" width="768px">
 </p>
 
 #### Mobile
 
 <p align="center">
-<img alt="Primary for Obsidian on Tablet - Dark Mode" src="https://github.com/primary-theme/obsidian/blob/main/assets/mobile-1_dark-mode.png" width="320px">
+<img alt="Primary for Obsidian on Tablet - Dark Mode" src="assets/mobile-1_dark-mode.png" width="320px">
 </p>
 
 ## 🍭 Design Approach
@@ -233,7 +234,13 @@ For a one-shot, deterministic build (used in CI and recommended before opening a
 npm run build
 ```
 
-This compiles `src/scss` → CSS, minifies it, and concatenates it with the README header, fonts, and Style Settings block into the single distributable `theme.css`. It does not require a `.env` file and produces the same output on any machine.
+This compiles `src/scss` → CSS, minifies it, and concatenates it with the README header and Style Settings block into the single distributable `theme.css`. It does not require a `.env` file and produces the same output on any machine.
+
+To build **and** copy the result (`theme.css` + `manifest.json`) into the vault folder defined in `.env` — a one-shot sync of your Obsidian install:
+
+```
+npm run deploy
+```
 
 For active development with live-reload into your `.env`-defined vault:
 
@@ -242,7 +249,7 @@ npm run watch
 ```
 
 > [!NOTE] What does `watch` do?
-> It watches `src/**/*.scss` and `src/**/*.css` for changes and, on every save, re-runs the build and copies the resulting `theme.css` into the vault path defined in `.env`, so you can see changes live in Obsidian.
+> It watches `src/**/*.scss` and `src/**/*.css` for changes and, on every save, re-runs the build and copies the resulting `theme.css` and `manifest.json` into the vault folder defined in `.env`, so you can see changes live in Obsidian.
 
 ### License
 

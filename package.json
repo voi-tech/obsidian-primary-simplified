@@ -6,6 +6,7 @@
   "license": "GPL-3.0",
   "scripts": {
     "build": "grunt build",
+    "deploy": "grunt deploy",
     "watch": "grunt"
   },
   "dependencies": {

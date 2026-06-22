@@ -1,8 +1,9 @@
 {
-  "name": "Primary",
-  "version": "2.10.0",
-  "minAppVersion": "1.4.0",
-  "author": "Cecilia May",
+  "name": "Primary Simplified",
+  "version": "26.6.0",
+  "minAppVersion": "1.13.0",
+  "author": "voitech",
+  "authorUrl": "https://github.com/voi-tech",
   "fundingUrl": {
     "Ko-fi": "https://ko-fi.com/ceciliamay"
   }

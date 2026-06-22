@@ -13,7 +13,7 @@ See the README's [Build Instructions](./README.md#build-instructions) for `npm r
 ## Project structure
 
 - `src/scss/**` — the only source of truth for styles. Organized in numbered layers (`10_foundations` → `60_community-plugins`); follow the existing layer when adding rules.
-- `src/css/{readme,style-settings}.css`, `src/css/fonts/*.css` — hand-maintained CSS prepended/appended to the compiled output.
+- `src/css/{readme,style-settings}.css` — hand-maintained CSS prepended/appended to the compiled output.
 - `theme.css` — the generated, distributable artifact. **Never hand-edit it** — run `npm run build` instead.
 - `src/css/main*.css` / `*.css.map` are build artifacts and are gitignored; don't commit them.
 
