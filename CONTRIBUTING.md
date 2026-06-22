@@ -1,6 +1,6 @@
-# Contributing to Primary
+# Contributing to Primary Simplified
 
-Thanks for considering a contribution! This guide covers the developer workflow. For reporting bugs or suggesting features as a non-developer, see the [Issues page](https://github.com/primary-theme/obsidian/issues) and the README's [Contributing](./README.md#-contributing) section instead.
+Thanks for considering a contribution! This guide covers the developer workflow. For reporting bugs or suggesting features as a non-developer, see this fork's [Issues page](../../issues) and the README's [Contributing](./README.md#-contributing) section instead.
 
 ## Setup
 
