@@ -1,8 +1,17 @@
 /*───────────────────────────────────
 
-✦ P R I M A R Y ✦
+✦ P R I M A R Y   S I M P L I F I E D ✦
 
-an Obsidian Theme by Cecilia May
+an independently maintained Obsidian theme fork
+maintained by voitech
+
+Based on Primary by Cecilia May:
+https://github.com/primary-theme/obsidian
+
+Primary Simplified is not affiliated with or
+endorsed by the original author.
+
+Modified and rebranded on 2026-06-22.
 
 ────────────────────────────────────
 
@@ -21,36 +30,15 @@ Obsidian October 2021 Best Theme 🏆
 
 ────────────────────────────────────
 
-X : @ceciliamay_
-GitHub : @ceciliamay
+Original Primary by Cecilia May:
+X: @ceciliamay_
+GitHub: @ceciliamay
 
-────────────────────────────────────
-
-Get ✦ P R I M A R Y ✦ updates right
-in your inbox 📮
-
-https://primarytheme.substack.com/subscribe
-
-────────────────────────────────────
-
-● SUPPORT MY WORK ●
+Original author's Ko-fi:
 https://ko-fi.com/ceciliamay
-+ early access to updates
-+ Premium Palettes
-+ ports to other theme-able Apps
 
-● ROADMAP ●
-https://git.new/primary/project-tracker
-
-● OBSIDIAN FORUM THREAD ●
+Original Primary forum thread:
 https://forum.obsidian.md/t/primary-theme/26687
-
-● README ●
-https://git.new/primary/obsidian
-- Features and How to Use Them
-- Supported Plugins
-- Contribution Guide
-- Developer Guide
 
 ────────────────────────────────────
 
@@ -66,21 +54,12 @@ CODE STRUCTURE
 This theme is using the
 GNU GENERAL PUBLIC LICENSE v3.
 
-Please visit the project's README file
-for more information:
-https://git.new/primary/obsidian
+Primary Simplified is a modified version of
+Primary. The source, modification notices,
+and license are available in this repository.
 
-If you will be using parts of the code
-or are inspired, please do leave a link
-to my Ko-fi:
-https://ko-fi.com/ceciliamay
-
-as well as leave a link to the original
-GitHub repository:
+Original Primary repository:
 https://github.com/primary-theme/obsidian
-
-It has to be stated clearly, publicly,
-and visibly. Thank you so much!
 
 ────────────────────────────────────*/
 /*────────── Cascadia Code ──────────*/

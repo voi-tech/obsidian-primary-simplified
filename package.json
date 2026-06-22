@@ -1,8 +1,8 @@
 {
-  "name": "primary",
+  "name": "primary-simplified",
   "version": "1.0.0",
-  "description": "Packages for running GruntJS tasks for better developer experience when building or contributing to Primary for Obsidian. Primary is an intricate, polished, comfy color palette for various apps.",
-  "author": "Cecilia May",
+  "description": "Build tooling for Primary Simplified, an independently maintained fork of the Primary theme for Obsidian.",
+  "author": "voitech (maintainer); original theme by Cecilia May",
   "license": "GPL-3.0",
   "scripts": {
     "build": "grunt build",
