@@ -55,3 +55,9 @@
 @use '60_community-plugins/calendar-liam-cain';
 @use '60_community-plugins/kanban-mgmeyers';
 @use '60_community-plugins/style-settings-mgmeyers';
+
+// Loaded last so the reduced-motion / forced-colors overrides below win the
+// cascade against the same-specificity `body { ... }` declarations in the
+// palette and component layers.
+@use '00_accessibility/motion';
+@use '00_accessibility/contrast';

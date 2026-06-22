@@ -1,0 +1,12 @@
+/*────────── Forced Colors / High Contrast ──────────*/
+
+// Primary's focus cues mostly rely on box-shadow and background-color, both
+// of which are suppressed by Windows High Contrast / forced-colors mode.
+// This adds a system-color outline fallback so keyboard focus stays visible
+// without touching anything in normal (non-forced-colors) rendering.
+@media (forced-colors: active) {
+    :focus-visible {
+        outline: 2px solid Highlight;
+        outline-offset: 1px;
+    }
+}
