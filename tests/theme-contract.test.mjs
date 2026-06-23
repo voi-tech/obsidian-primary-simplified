@@ -64,11 +64,11 @@ function lightSettingColor(id) {
 test("release metadata targets Obsidian 1.13 and uses an exact SemVer tag", () => {
   assert.equal(manifest.name, "Primary Simplified");
   assert.match(manifest.version, /^\d+\.\d+\.\d+$/);
-  assert.equal(manifest.version, "26.6.0");
+  assert.equal(manifest.version, "26.6.1");
   assert.equal(manifest.minAppVersion, "1.13.0");
   assert.equal(manifest.author, "voitech");
   assert.equal(manifest.authorUrl, "https://github.com/voi-tech");
-  assert.deepEqual(JSON.parse(read("versions.json")), { "26.6.0": "1.13.0" });
+  assert.deepEqual(JSON.parse(read("versions.json")), { "26.6.0": "1.13.0", "26.6.1": "1.13.0" });
 
   const workflow = read(".github/workflows/release.yml");
   assert.doesNotMatch(workflow, /tags:\s*\n\s*-\s*["']v\*/);
