@@ -381,6 +381,19 @@
     --clock-chbx-color: hsla(210, 39%, 52%, 1);
     --telephone-chbx-color: hsla(148, 48%, 42%, 1);
 
+    /* Progress Bar Tasks (0-4) */
+    --task-progress-track: var(--background-modifier-border);
+    --task-progress-track-border: var(--background-modifier-border-hover);
+    --task-progress-fill: var(--interactive-accent);
+
+    /* Speech Bubble Tasks (5-9) */
+    --speech-bubble-5: var(--callout-note);
+    --speech-bubble-6: var(--callout-tip);
+    --speech-bubble-7: var(--callout-success);
+    --speech-bubble-8: var(--callout-warning);
+    --speech-bubble-9: var(--callout-danger);
+    --speech-bubble-opacity: 20%;
+
     /* Drag Ghost */
     --drag-ghost-background: var(--interactive-accent);
     --drag-ghost-text-color: var(--text-on-accent);
