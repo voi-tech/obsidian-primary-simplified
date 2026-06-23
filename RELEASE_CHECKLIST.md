@@ -36,7 +36,8 @@
 
 ## Style Settings and performance
 
-- [ ] Fresh settings, migrated settings, each primary toggle/select, themed colors, individual reset, full reset, and the collapsed Legacy section work.
+- [ ] Fresh settings, migrated settings after removed legacy IDs, each core toggle/select, themed colors, individual reset, and full reset work.
+- [ ] The Style Settings surface contains only the supported core controls; removed legacy IDs do not reappear.
 - [ ] Style Settings reports no parse errors and applies the same values in main and pop-out windows.
 - [ ] A large vault and large Canvas remain responsive while scrolling, switching themes, and idling.
 - [ ] Developer tools show no theme-caused errors, repeated layout warnings, remote requests, or missing resources.
