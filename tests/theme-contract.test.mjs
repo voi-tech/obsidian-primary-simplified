@@ -84,12 +84,16 @@ test("Style Settings metadata is normalized and all ids are unique", () => {
   const duplicates = ids.filter((id, index) => ids.indexOf(id) !== index);
   assert.deepEqual([...new Set(duplicates)], []);
   assert.match(settings, /id:\s*link-ahref-color\b/);
-  assert.match(settings, /id:\s*legacy-compatibility\b/);
+  assert.doesNotMatch(settings, /id:\s*legacy-compatibility\b/);
+  assert.doesNotMatch(settings, /id:\s*legacy-/);
+  assert.doesNotMatch(settings, /id:\s*font-ui-/);
+  assert.doesNotMatch(settings, /id:\s*h[1-6]-(?:font|line-height|letter-spacing|text-transform|border-(?:top|right|bottom|left)-color)\b/);
+  assert.doesNotMatch(settings, /id:\s*bookmark-folder-\d+-/);
+  assert.doesNotMatch(settings, /id:\s*(?:star|note|location|info|amount|quote|idea|pro|con|bookmark|up|down|law|language|clock|telephone)-chbx-/);
 
-  const primarySettings = settings.slice(0, settings.indexOf("id: legacy-compatibility"));
-  const primaryControlCount = [...primarySettings.matchAll(/^\s+type:\s*(?!heading|info-text)([^\s]+)\s*$/gm)].length;
-  assert.ok(primaryControlCount >= 90 && primaryControlCount <= 120,
-    `expected 90–120 primary controls, found ${primaryControlCount}`);
+  const controlCount = [...settings.matchAll(/^\s+type:\s*(?!heading|info-text)([^\s]+)\s*$/gm)].length;
+  assert.ok(controlCount >= 70 && controlCount <= 100,
+    `expected 70–100 core controls, found ${controlCount}`);
 });
 
 test("Obsidian 1.13 callout colors are valid CSS colors", () => {
