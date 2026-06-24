@@ -7,6 +7,7 @@ const read = (path) => readFileSync(new URL(path, root), "utf8");
 const manifest = JSON.parse(read("manifest.json"));
 const packageJson = JSON.parse(read("package.json"));
 const settings = read("src/css/style-settings.css");
+const lightPalette = read("src/scss/10_foundations/palettes/classic/_light.scss");
 const scss = read("src/scss/index.scss") +
   read("src/scss/40_editor/_callout.scss") +
   read("src/scss/50_core-plugins/_bookmark.scss");
@@ -55,9 +56,21 @@ function contrast(first, second) {
   return (a + 0.05) / (b + 0.05);
 }
 
-function lightSettingColor(id) {
-  const match = settings.match(new RegExp(`id: ${id}\\n[\\s\\S]*?default-light: ['\"]?hsla?\\((\\d+),?\\s*(\\d+)%?,?\\s*(\\d+)%?`));
-  assert.ok(match, `missing light color for ${id}`);
+const lightVariables = new Map(
+  [...lightPalette.matchAll(/--([\w-]+):\s*([^;]+);/g)].map((match) => [match[1], match[2].trim()]),
+);
+
+function lightPaletteColor(variable) {
+  let value = lightVariables.get(variable);
+  assert.ok(value, `missing light color for --${variable}`);
+  for (let hops = 0; hops < 5; hops += 1) {
+    const ref = value.match(/^var\(--([\w-]+)\)$/);
+    if (!ref) break;
+    value = lightVariables.get(ref[1]);
+    assert.ok(value, `unresolved var(--${ref[1]}) while tracing --${variable}`);
+  }
+  const match = value.match(/hsla?\((\d+)[,\s]+(\d+)%?[,\s]+(\d+)%?/);
+  assert.ok(match, `--${variable} resolved to non-hsl value: ${value}`);
   return hslToRgb(...match.slice(1).map(Number));
 }
 
@@ -83,7 +96,6 @@ test("Style Settings metadata is normalized and all ids are unique", () => {
   const ids = settingIds(settings);
   const duplicates = ids.filter((id, index) => ids.indexOf(id) !== index);
   assert.deepEqual([...new Set(duplicates)], []);
-  assert.match(settings, /id:\s*link-ahref-color\b/);
   assert.doesNotMatch(settings, /id:\s*legacy-compatibility\b/);
   assert.doesNotMatch(settings, /id:\s*legacy-/);
   assert.doesNotMatch(settings, /id:\s*font-ui-/);
@@ -91,9 +103,14 @@ test("Style Settings metadata is normalized and all ids are unique", () => {
   assert.doesNotMatch(settings, /id:\s*bookmark-folder-\d+-/);
   assert.doesNotMatch(settings, /id:\s*(?:star|note|location|info|amount|quote|idea|pro|con|bookmark|up|down|law|language|clock|telephone)-chbx-/);
 
-  const controlCount = [...settings.matchAll(/^\s+type:\s*(?!heading|info-text)([^\s]+)\s*$/gm)].length;
-  assert.ok(controlCount >= 70 && controlCount <= 100,
-    `expected 70–100 core controls, found ${controlCount}`);
+  // Style Settings is restricted to toggles, selects, and structural entries —
+  // no free-text/number/color controls (manual color, size, and font values
+  // are configured via CSS snippet instead). See [[style-settings-no-control-cap]].
+  const controlTypes = [...settings.matchAll(/^\s+type:\s*([^\s]+)\s*$/gm)].map((match) => match[1]);
+  for (const type of controlTypes) {
+    assert.ok(["heading", "info-text", "class-toggle", "class-select"].includes(type),
+      `Style Settings control type "${type}" requires manual entry; only toggles/selects are allowed`);
+  }
 });
 
 test("Obsidian 1.13 callout colors are valid CSS colors", () => {
@@ -104,8 +121,8 @@ test("Obsidian 1.13 callout colors are valid CSS colors", () => {
 
 test("essential light-theme text colors meet WCAG AA contrast", () => {
   const background = hslToRgb(35, 36, 96);
-  for (const id of ["link-ahref-color", "link-unresolved-color", "link-color", "link-external-color"]) {
-    assert.ok(contrast(background, lightSettingColor(id)) >= 4.5, `${id} is below 4.5:1`);
+  for (const variable of ["link-ahref-color", "link-unresolved-color", "link-color", "link-external-color"]) {
+    assert.ok(contrast(background, lightPaletteColor(variable)) >= 4.5, `--${variable} is below 4.5:1`);
   }
 });
 

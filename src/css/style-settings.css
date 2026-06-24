@@ -15,7 +15,7 @@ settings:
 - id: readme-built-in-settings
   type: info-text
   markdown: true
-  description: Use Obsidian Settings → Appearance for fonts, accent color, and editor font size. Theme-specific controls are below.
+  description: Use Obsidian Settings → Appearance for fonts, accent color, and editor font size. Theme-specific controls are below. All controls here are toggles or presets — for color and size customization, use a CSS snippet instead.
 - id: essentials
   type: heading
   level: 1
@@ -34,6 +34,43 @@ settings:
   type: class-toggle
   title: Remove Popup Background Blur
   description: This removes the background blur when opening the Settings, Command Palette, Quick Switcher, and other pop up boxes. This is a good option if you experience visual issues with Primary Simplified, prefer no background blur, or need a performance boost in a larger vault.
+- id: zero-tab-anim
+  type: class-toggle
+  title: Disable Inactive Tab Animations
+  description: Removes the transform transition on inactive tab headers.
+- id: zero-popup-popdown
+  type: class-toggle
+  title: Disable Popup Open/Close Animation
+  description: Removes the slide-in/slide-out animation when popups open or close.
+- id: essential-appearance
+  type: heading
+  level: 2
+  collapsed: true
+  title: Appearance presets
+- id: accent-palette
+  type: class-select
+  title: Accent Palette
+  description: Switches the accent and checked-checkbox color to a curated palette, in light and dark mode.
+  allowEmpty: false
+  default: accent-palette-default
+  options:
+  - label: Default
+    value: accent-palette-default
+  - label: Warm
+    value: accent-palette_warm
+  - label: Cool
+    value: accent-palette_cool
+- id: layout-density
+  type: class-select
+  title: Layout Density
+  description: Switches between comfortable and compact spacing for file explorer rows and body text line height.
+  allowEmpty: false
+  default: layout-density-default
+  options:
+  - label: Comfortable
+    value: layout-density-default
+  - label: Compact
+    value: layout-density_compact
 - id: essential-ribbon
   type: heading
   level: 2
@@ -49,25 +86,6 @@ settings:
     value: ribbon-default
   - label: Slide Out on Hover
     value: ribbon-slideout
-- id: ribbon-background
-  type: variable-themed-color
-  format: hsl
-  opacity: true
-  title: Ribbon Background Color
-  default-light: hsla(34, 34%, 90%, 1)
-  default-dark: hsla(31, 17%, 12%, 1)
-- id: ribbon-width
-  type: variable-number
-  title: Ribbon Width
-  description: Adjust your ribbon's width. Unit is in px only.
-  default: 44
-  format: px
-- id: ribbon-icon
-  type: variable-number
-  title: Ribbon Icon Size
-  description: Adjust your ribbon's icon size. Unit is in px only.
-  default: 15
-  format: px
 - id: essential-editor
   type: heading
   level: 2
@@ -85,44 +103,18 @@ settings:
     value: editor-bgpattern-linegrid
   - label: Dot Grid
     value: editor-bgpattern-dotgrid
-- id: editor-bg-color
-  type: variable-themed-color
-  format: hsl
-  opacity: true
-  title: Editor Background Color
-  description: Sets the size of the grid, dotted grid, or image
-  default-light: hsla(35, 36%, 96%, 1)
-  default-dark: hsla(30, 19%, 14%, 1)
-- id: editor-bgpattern-size
-  type: variable-text
-  title: Editor Background Size for Pattern Background
-  description: Sets the size of the line grid or dot grid
-  default: 50px 50px
-- id: editor-bgpattern-color
-  type: variable-themed-color
-  format: hsl
-  opacity: true
-  title: Editor Background's Pattern Color
-  description: Only available for line grid or dot grid background types. Sets the color of the line grid, dot grid. For line grid, it will take the color input and reduce it to 30% opacity.
-  default-light: hsla(37, 38%, 83%, 1)
-  default-dark: hsla(31, 27%, 24%, 1)
-- id: file-line-width
-  type: variable-text
-  title: File Readable Line Width
-  description: You may use any CSS units like em, rem, ch, px.
-  default: 700px
 - id: active-line-highlight
   type: class-toggle
   title: Toggle Active Line Highlighting
   description: Adds background color to active line.
-- id: active-line-bg
-  type: variable-themed-color
-  format: hsl
-  opacity: true
-  title: Active Line Background Color
-  description: Only works when Active Line Highlighting is turned on.
-  default-light: hsla(36, 38%, 98%, 1)
-  default-dark: hsla(33, 20%, 16%, 1)
+- id: file-header-hover
+  type: class-toggle
+  title: Auto-hide File Header
+  description: Hides the file header bar until you hover over it.
+- id: file-header-title-hover
+  type: class-toggle
+  title: Auto-hide File Header Title
+  description: Hides the file title text in the header until you hover over it.
 - id: essential-status-bar
   type: heading
   level: 2
@@ -156,204 +148,42 @@ settings:
     value: sb-sync-only
   - label: Word Count Only
     value: sb-word-count-only
-- id: status-bar-floating-opacity
-  type: variable-number-slider
-  title: Floating Style - Status Bar Opacity at Rest
-  description: Sets the opacity of the status bar at rest if Floating Status Bar style is chosen. Range goes from 0 being transparent, until 1 being completely visible.
-  min: 0
-  max: 1
-  step: 0.1
-  default: 0.5
-- id: status-bar-floating-opacity-hover
-  type: variable-number-slider
-  title: Floating Style - Status Bar Opacity on Hover
-  description: Sets the opacity of the status bar when hovering it if Floating Status Bar style is chosen. Range goes from 0 being transparent, until 1 being completely visible.
-  min: 0
-  max: 1
-  step: 0.1
-  default: 1
-- id: essential-progress
-  type: heading
-  level: 2
-  collapsed: true
-  title: Progress
-- id: progress-background
-  type: variable-themed-color
-  title: Progress Background Color
-  format: hsl
-  opacity: true
-  default-light: hsla(34, 34%, 90%, 1)
-  default-dark: hsla(31, 17%, 12%, 1)
-- id: progress-color-1
-  type: variable-themed-color
-  title: Progress Color 1
-  description: Color for values 0% to 39%
-  format: hsl
-  opacity: true
-  default-light: hsla(4, 72%, 55%, 1)
-  default-dark: hsla(4, 88%, 61%, 1)
-- id: progress-color-2
-  type: variable-themed-color
-  title: Progress Color 2
-  description: Color for values 40% to 59%
-  format: hsl
-  opacity: true
-  default-light: hsla(21, 81%, 59%, 1)
-  default-dark: hsla(22, 82%, 47%, 1)
-- id: progress-color-3
-  type: variable-themed-color
-  title: Progress Color 3
-  description: Color for values 60% to 79%
-  format: hsl
-  opacity: true
-  default-light: hsla(43, 83%, 57%, 1)
-  default-dark: hsla(40, 78%, 48%, 1)
 - id: essential-headings
   type: heading
   level: 2
   collapsed: true
   title: Headings
-- id: h1-size
-  type: variable-text
-  title: Font Size
-  default: 1.802em
-- id: h1-weight
-  type: variable-number
-  title: Font Weight
-  default: 650
-- id: h1-color
-  type: variable-themed-color
-  title: Color
-  format: hsl
-  opacity: true
-  default-light: hsla(33, 54%, 17%, 1)
-  default-dark: hsla(32, 48%, 85%, 1)
-- id: h2-size
-  type: variable-text
-  title: Font Size
-  default: 1.602em
-- id: h2-weight
-  type: variable-number
-  title: Font Weight
-  default: 650
-- id: h2-color
-  type: variable-themed-color
-  title: Color
-  format: hsl
-  opacity: true
-  default-light: hsla(33, 54%, 17%, 1)
-  default-dark: hsla(32, 48%, 85%, 1)
-- id: h3-size
-  type: variable-text
-  title: Font Size
-  default: 1.424em
-- id: h3-weight
-  type: variable-number
-  title: Font Weight
-  default: 650
-- id: h3-color
-  type: variable-themed-color
-  title: Color
-  format: hsl
-  opacity: true
-  default-light: hsla(33, 54%, 17%, 1)
-  default-dark: hsla(32, 48%, 85%, 1)
-- id: h4-size
-  type: variable-text
-  title: Font Size
-  default: 1.266em
-- id: h4-weight
-  type: variable-number
-  title: Font Weight
-  default: 650
-- id: h4-color
-  type: variable-themed-color
-  title: Color
-  format: hsl
-  opacity: true
-  default-light: hsla(33, 54%, 17%, 1)
-  default-dark: hsla(32, 48%, 85%, 1)
-- id: h5-size
-  type: variable-text
-  title: Font Size
-  default: 1.125em
-- id: h5-weight
-  type: variable-number
-  title: Font Weight
-  default: 650
-- id: h5-color
-  type: variable-themed-color
-  title: Color
-  format: hsl
-  opacity: true
-  default-light: hsla(33, 54%, 17%, 1)
-  default-dark: hsla(32, 48%, 85%, 1)
-- id: h6-size
-  type: variable-text
-  title: Font Size
-  default: 1em
-- id: h6-weight
-  type: variable-number
-  title: Font Weight
-  default: 650
-- id: h6-color
-  type: variable-themed-color
-  title: Color
-  format: hsl
-  opacity: true
-  default-light: hsla(33, 54%, 17%, 1)
-  default-dark: hsla(32, 48%, 85%, 1)
-- id: essential-emphasis-and-highlight
-  type: heading
-  level: 2
-  collapsed: true
-  title: Emphasis and highlight
-- id: bold-color
-  type: variable-themed-color
-  title: Bold Text Color
-  format: hsl
-  opacity: true
-  default-light: hsla(4, 56%, 48%, 1)
-  default-dark: hsla(4, 88%, 61%, 1)
-- id: bold-weight
-  type: variable-number
-  title: Bold Text Weight
-  default: 750
-- id: italic-color
-  type: variable-themed-color
-  title: Italic Text Color
-  format: hsl
-  opacity: true
-  default-light: hsla(200, 64%, 37%, 1)
-  default-dark: hsla(194, 59%, 56%, 1)
-- id: strikethrough-color
-  type: variable-themed-color
-  title: Strikethrough Text Color
-  format: hsl
-  opacity: true
-  default-light: hsla(34, 29%, 60%, 1)
-  default-dark: hsla(34, 24%, 40%, 1)
-- id: bold-italic-color
-  type: variable-themed-color
-  title: Bold + Italic Text Color
-  format: hsl
-  opacity: true
-  default-light: hsla(33, 54%, 17%, 1)
-  default-dark: hsla(32, 48%, 85%, 1)
-- id: normal-highlight-color
-  type: variable-themed-color
-  title: Highlight Text Color
-  format: hsl
-  opacity: true
-  default-light: hsla(31, 45%, 24%, 1)
-  default-dark: hsla(34, 39%, 74%, 1)
-- id: normal-highlight-bg
-  type: variable-themed-color
-  title: Highlight Background Color
-  format: hsl
-  opacity: true
-  default-light: hsla(44, 100%, 50%, 0.2)
-  default-dark: hsla(44, 100%, 50%, 0.2)
+- id: heading-style
+  type: class-select
+  title: Heading Style
+  description: Switches the font size and weight scale used for H1–H6, in one preset.
+  allowEmpty: false
+  default: heading-style-default
+  options:
+  - label: Default
+    value: heading-style-default
+  - label: Bold
+    value: heading-style_bold
+  - label: Minimal
+    value: heading-style_minimal
+- id: h1-vt-align-center
+  type: class-toggle
+  title: Center-align H1 Vertically
+- id: h2-vt-align-center
+  type: class-toggle
+  title: Center-align H2 Vertically
+- id: h3-vt-align-center
+  type: class-toggle
+  title: Center-align H3 Vertically
+- id: h4-vt-align-center
+  type: class-toggle
+  title: Center-align H4 Vertically
+- id: h5-vt-align-center
+  type: class-toggle
+  title: Center-align H5 Vertically
+- id: h6-vt-align-center
+  type: class-toggle
+  title: Center-align H6 Vertically
 - id: essential-links
   type: heading
   level: 2
@@ -362,64 +192,6 @@ settings:
 - id: no-decor-link
   type: class-toggle
   title: Remove Link Underline
-- id: link-ahref-color
-  type: variable-themed-color
-  title: Non-markdown Links Color
-  format: hsl
-  opacity: true
-  default-light: hsla(4, 56%, 48%, 1)
-  default-dark: hsla(4, 91%, 67%, 1)
-- id: link-unresolved-color
-  type: variable-themed-color
-  title: Unresolved Links Color
-  format: hsl
-  opacity: true
-  default-light: hsla(35, 28%, 40%, 1)
-  default-dark: hsla(34, 24%, 40%, 1)
-- id: link-color
-  type: variable-themed-color
-  title: Resolved Links Color
-  format: hsl
-  opacity: true
-  default-light: hsla(40, 90%, 29%, 1)
-  default-dark: hsla(42, 79%, 51%, 1)
-- id: link-external-color
-  type: variable-themed-color
-  title: External Links Color
-  format: hsl
-  opacity: true
-  default-light: hsla(153, 65%, 29%, 1)
-  default-dark: hsla(154, 57%, 42%, 1)
-- id: essential-blockquotes-and-lists
-  type: heading
-  level: 2
-  collapsed: true
-  title: Blockquotes and lists
-- id: blockquote-border-thickness
-  type: variable-text
-  title: Blockquote Border Thickness
-  default: 2px
-- id: blockquote-border-color
-  type: variable-themed-color
-  title: Blockquote Border Color
-  format: hsl
-  opacity: true
-  default-light: hsla(37, 38%, 83%, 1)
-  default-dark: hsla(28, 22%, 18%, 1)
-- id: blockquote-background-color
-  type: variable-themed-color
-  title: Blockquote Background Color
-  format: hsl
-  opacity: true
-  default-light: hsla(36, 38%, 98%, 1)
-  default-dark: hsla(29, 16%, 12%, 1)
-- id: list-marker-color
-  type: variable-themed-color
-  title: List Marker Color
-  format: hsl
-  opacity: true
-  default-light: hsla(34, 29%, 60%, 1)
-  default-dark: hsla(34, 24%, 40%, 1)
 - id: essential-checkboxes
   type: heading
   level: 2
@@ -430,154 +202,15 @@ settings:
   description: Disable this if you are using your own implementation via a CSS Snippet.
   default: true
   type: class-toggle
-- id: checklist-bg
-  type: variable-themed-color
-  title: Unchecked Background Color
-  format: hsl
-  opacity: true
-  default-light: hsla(36, 38%, 98%, 1)
-  default-dark: hsla(30, 17%, 13%, 1)
-- id: checkbox-color
-  type: variable-themed-color
-  title: Checked Background Color
-  format: hsl
-  opacity: true
-  default-light: hsla(149, 50%, 39%, 1)
-  default-dark: hsla(154, 75%, 26%, 1)
-- id: checklist-done-color
-  type: variable-themed-color
-  title: Checked Text Color
-  format: hsl
-  opacity: true
-  default-light: hsla(34, 29%, 60%, 1)
-  default-dark: hsla(34, 24%, 40%, 1)
-- id: inprogress-chbx-color
-  type: variable-themed-color
-  title: In Progress [/] Color
-  format: hsl
-  opacity: true
-  default-light: hsla(34, 82%, 57%, 1)
-  default-dark: hsla(31, 85%, 59%, 1)
-- id: resched-chbx-color
-  type: variable-themed-color
-  title: Reschedule [>] Color
-  format: hsl
-  opacity: true
-  default-light: hsla(178, 18%, 59%, 1)
-  default-dark: hsla(178, 19%, 55%, 1)
-- id: sched-chbx-color
-  type: variable-themed-color
-  title: Schedule or Date [<] Color
-  format: hsl
-  opacity: true
-  default-light: hsla(32, 10%, 68%, 1)
-  default-dark: hsla(32, 10%, 58%, 1)
-- id: important-chbx-color
-  type: variable-themed-color
-  title: Important [!] Color
-  format: hsl
-  opacity: true
-  default-light: hsla(17, 83%, 52%, 1)
-  default-dark: hsla(17, 83%, 47%)
-- id: cancelled-chbx-color
-  type: variable-themed-color
-  title: Cancelled [-] Color
-  format: hsl
-  opacity: true
-  default-light: hsla(32, 10%, 68%, 1)
-  default-dark: hsla(32, 10%, 58%, 1)
-- id: question-chbx-color
-  type: variable-themed-color
-  title: Question [?] Color
-  format: hsl
-  opacity: true
-  default-light: hsla(281, 33%, 54%, 1)
-  default-dark: hsla(281, 37%, 54%, 1)
 - id: essential-media-and-embeds
   type: heading
   level: 2
   collapsed: true
   title: Media and embeds
-- id: embed-media-border-radius
-  type: variable-text
-  title: Media Border Radius
-  description: Set border radius size for media (images, audio, video)
-  default: 8px
-- id: embed-max-height
-  type: variable-text
-  title: Note Embed Max Height
-  description: If you embed very long notes, you can change the max height so that each embed is scrollable. You can also set this by line-height using the unit rlh, or other CSS supported units. Recommended values are 20rlh and 40rlh.
-  default: 4000px
-- id: embed-background
-  type: variable-themed-color
-  title: Note Embed Background Color
-  format: hsl
-  opacity: true
-  default-light: hsla(39, 39%, 94%, 1)
-  default-dark: hsla(31, 19%, 14%, 1)
 - id: embed-hide-title
   type: class-toggle
   title: Hide Note Embed Title
   description: Hide the note's title when embedding notes.
-- id: embed-title-color
-  type: variable-themed-color
-  title: Note Embed Title Color
-  format: hsl
-  opacity: true
-  default-light: hsla(31, 23%, 50%, 1)
-  default-dark: hsla(34, 24%, 40%, 1)
-- id: embed-border-radius
-  type: variable-text
-  title: Note Embed Border Radius
-  description: You can also have different radiuses per side. Just write them in the CSS format of top left, top right, bottom right, bottom left. i.e. 2px, 8px, 12px, 0px.
-  default: 12px
-- id: embed-border-top-color
-  type: variable-themed-color
-  title: Note Embed Top Border Color
-  format: hsl
-  opacity: true
-  default-light: hsla(37, 38%, 83%, 1)
-  default-dark: hsla(34, 24%, 40%, 1)
-- id: essential-canvas
-  type: heading
-  level: 2
-  collapsed: true
-  title: Canvas
-- id: canvas-dot-pattern
-  type: variable-themed-color
-  title: Canvas Dot Pattern Color
-  format: hsl
-  opacity: true
-  default-light: hsla(37, 38%, 83%, 1)
-  default-dark: hsla(31, 27%, 24%, 1)
-- id: canvas-card-label-color
-  type: variable-themed-color
-  title: Canvas Card Label Color
-  format: hsl
-  opacity: true
-  default-light: hsla(34, 29%, 60%, 1)
-  default-dark: hsla(34, 24%, 40%, 1)
-- id: canvas-color
-  type: variable-themed-color
-  title: Canvas Color 1
-  format: rgb-values
-  opacity: false
-  default-light: rgb(182, 175, 166)
-  default-dark: rgb(182, 175, 166)
-- id: canvas-color-1
-  type: variable-themed-color
-  title: Canvas Color 2
-  format: rgb-values
-  opacity: false
-  default-light: rgb(223, 90, 90)
-  default-dark: rgb(223, 90, 90)
-- id: canvas-color-2
-  type: variable-themed-color
-  title: Canvas Color 3
-  format: rgb-values
-  opacity: false
-  default-light: rgb(231, 130, 63)
-  default-dark: rgb(231, 130, 63)
 - id: essential-file-explorer-and-bookmarks
   type: heading
   level: 2
@@ -607,130 +240,4 @@ settings:
   type: class-toggle
   title: Toggle to Inherit Parent Folder Colors
   description: The color cycles through up to 12 colors for both top level folders and subfolders by default. If you would like subfolders to be colored based on their top level folder colors, toggle this on.
-- id: nav-folder-1-color
-  type: variable-themed-color
-  format: hsl
-  opacity: true
-  title: Folder 1 Text Color
-  default-light: hsla(4, 56%, 48%, 1)
-  default-dark: hsla(4, 88%, 61%, 1)
-- id: nav-folder-2-color
-  type: variable-themed-color
-  format: hsl
-  opacity: true
-  title: Folder 2 Text Color
-  default-light: hsla(18, 69%, 50%, 1)
-  default-dark: hsla(24, 84%, 50%, 1)
-- id: nav-folder-3-color
-  type: variable-themed-color
-  format: hsl
-  opacity: true
-  title: Folder 3 Text Color
-  default-light: hsla(40, 98%, 36%, 1)
-  default-dark: hsla(42, 79%, 51%, 1)
-- id: nav-folder-4-color
-  type: variable-themed-color
-  format: hsl
-  opacity: true
-  title: Folder 4 Text Color
-  default-light: hsla(153, 65%, 29%, 1)
-  default-dark: hsla(154, 57%, 42%, 1)
-- id: nav-folder-5-color
-  type: variable-themed-color
-  format: hsl
-  opacity: true
-  title: Folder 5 Text Color
-  default-light: hsla(200, 64%, 37%, 1)
-  default-dark: hsla(194, 59%, 56%, 1)
-- id: nav-folder-6-color
-  type: variable-themed-color
-  format: hsl
-  opacity: true
-  title: Folder 6 Text Color
-  default-light: hsla(275, 37%, 43%, 1)
-  default-dark: hsla(242, 52%, 69%, 1)
-- id: nav-folder-7-color
-  type: variable-themed-color
-  format: hsl
-  opacity: true
-  title: Folder 7 Text Color
-  default-light: hsla(4, 56%, 48%, 1)
-  default-dark: hsla(4, 88%, 61%, 1)
-- id: nav-folder-8-color
-  type: variable-themed-color
-  format: hsl
-  opacity: true
-  title: Folder 8 Text Color
-  default-light: hsla(18, 69%, 50%, 1)
-  default-dark: hsla(24, 84%, 50%, 1)
-- id: nav-folder-9-color
-  type: variable-themed-color
-  format: hsl
-  opacity: true
-  title: Folder 9 Text Color
-  default-light: hsla(40, 98%, 36%, 1)
-  default-dark: hsla(42, 79%, 51%, 1)
-- id: nav-folder-10-color
-  type: variable-themed-color
-  format: hsl
-  opacity: true
-  title: Folder 10 Text Color
-  default-light: hsla(153, 65%, 29%, 1)
-  default-dark: hsla(154, 57%, 42%, 1)
-- id: nav-folder-11-color
-  type: variable-themed-color
-  format: hsl
-  opacity: true
-  title: Folder 11 Text Color
-  default-light: hsla(200, 64%, 37%, 1)
-  default-dark: hsla(194, 59%, 56%, 1)
-- id: nav-folder-12-color
-  type: variable-themed-color
-  format: hsl
-  opacity: true
-  title: Folder 12 Text Color
-  default-light: hsla(275, 37%, 43%, 1)
-  default-dark: hsla(242, 52%, 69%, 1)
-- id: essential-graph
-  type: heading
-  level: 2
-  collapsed: true
-  title: Graph
-- id: graph-node
-  type: variable-themed-color
-  format: hsl
-  opacity: true
-  title: Resolved Note Node Color
-  description: Color of existing notes
-  default-light: hsla(202, 66%, 48%, 1)
-  default-dark: hsla(197, 48%, 49%, 1)
-- id: graph-node-unresolved
-  type: variable-themed-color
-  format: hsl
-  opacity: true
-  title: Unresolved Note Node Color
-  description: Color of notes that don't exist (unresolved backlinks)
-  default-light: hsla(43, 83%, 57%, 1)
-  default-dark: hsla(42, 79%, 51%, 1)
-- id: graph-node-tag
-  type: variable-themed-color
-  format: hsl
-  opacity: true
-  title: Tag Node Color
-  default-light: hsla(4, 72%, 55%, 1)
-  default-dark: hsla(4, 88%, 61%, 1)
-- id: graph-node-attachment
-  type: variable-themed-color
-  format: hsl
-  opacity: true
-  title: Attachment Node Color
-  default-light: hsla(148, 30%, 65%, 1)
-  default-dark: hsla(155, 78%, 29%, 1)
-- id: graph-node-focused
-  type: variable-themed-color
-  format: hsl
-  opacity: true
-  title: Active File Node Color
-  default-light: hsla(31, 45%, 24%, 1)
-  default-dark: hsla(34, 39%, 74%, 1)
 */

@@ -156,3 +156,74 @@ body.no-decor-link {
     --link-external-decoration-hover: none;
     --link-unresolved-decoration-style: none;
 }
+
+/*────────── Style Settings: Appearance Presets ──────────*/
+
+/* Accent Palette */
+body.accent-palette_warm {
+    --interactive-accent: hsl(20, 75%, 45%);
+    --interactive-accent-hover: hsl(20, 75%, 40%);
+    --checkbox-color: hsl(20, 75%, 45%);
+    --checkbox-color-hover: hsl(20, 75%, 40%);
+}
+
+body.accent-palette_warm.theme-dark {
+    --interactive-accent: hsl(20, 80%, 58%);
+    --interactive-accent-hover: hsl(20, 80%, 63%);
+    --checkbox-color: hsl(20, 70%, 45%);
+    --checkbox-color-hover: hsl(20, 70%, 50%);
+}
+
+body.accent-palette_cool {
+    --interactive-accent: hsl(205, 65%, 42%);
+    --interactive-accent-hover: hsl(205, 65%, 37%);
+    --checkbox-color: hsl(205, 55%, 40%);
+    --checkbox-color-hover: hsl(205, 55%, 35%);
+}
+
+body.accent-palette_cool.theme-dark {
+    --interactive-accent: hsl(205, 70%, 60%);
+    --interactive-accent-hover: hsl(205, 70%, 65%);
+    --checkbox-color: hsl(205, 55%, 45%);
+    --checkbox-color-hover: hsl(205, 55%, 50%);
+}
+
+/* Layout Density */
+body.layout-density_compact {
+    --nav-item-height: 22px;
+    --nav-item-padding: var(--size-2-2) var(--size-4-2);
+    --line-height-normal: 1.4;
+    --line-height-tight: 1.2;
+    --file-margins: var(--size-4-4);
+}
+
+/* Heading Style */
+body.heading-style_bold {
+    --h1-size: 2.1em;
+    --h1-weight: 800;
+    --h2-size: 1.75em;
+    --h2-weight: 750;
+    --h3-size: 1.5em;
+    --h3-weight: 700;
+    --h4-size: 1.3em;
+    --h4-weight: 700;
+    --h5-size: 1.15em;
+    --h5-weight: 700;
+    --h6-size: 1em;
+    --h6-weight: 700;
+}
+
+body.heading-style_minimal {
+    --h1-size: 1.4em;
+    --h1-weight: 600;
+    --h2-size: 1.25em;
+    --h2-weight: 600;
+    --h3-size: 1.15em;
+    --h3-weight: 600;
+    --h4-size: 1.05em;
+    --h4-weight: 600;
+    --h5-size: 1em;
+    --h5-weight: 600;
+    --h6-size: 0.95em;
+    --h6-weight: 600;
+}
