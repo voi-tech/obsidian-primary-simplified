@@ -644,6 +644,7 @@ body.enable-alternative-checkboxes {
     li[data-task="0"] > input:checked,
     li[data-task="0"] > p > input:checked {
         --task-progress: 0%;
+        --task-progress-fill: color-mix(in srgb, var(--interactive-accent) 25%, var(--task-progress-track));
     }
 
     // Progress: 25%
@@ -651,6 +652,7 @@ body.enable-alternative-checkboxes {
     li[data-task="1"] > input:checked,
     li[data-task="1"] > p > input:checked {
         --task-progress: 25%;
+        --task-progress-fill: color-mix(in srgb, var(--interactive-accent) 45%, var(--task-progress-track));
     }
 
     // Progress: 50%
@@ -658,6 +660,7 @@ body.enable-alternative-checkboxes {
     li[data-task="2"] > input:checked,
     li[data-task="2"] > p > input:checked {
         --task-progress: 50%;
+        --task-progress-fill: color-mix(in srgb, var(--interactive-accent) 65%, var(--task-progress-track));
     }
 
     // Progress: 75%
@@ -665,6 +668,7 @@ body.enable-alternative-checkboxes {
     li[data-task="3"] > input:checked,
     li[data-task="3"] > p > input:checked {
         --task-progress: 75%;
+        --task-progress-fill: color-mix(in srgb, var(--interactive-accent) 85%, var(--task-progress-track));
     }
 
     // Progress: 100%
@@ -672,9 +676,12 @@ body.enable-alternative-checkboxes {
     li[data-task="4"] > input:checked,
     li[data-task="4"] > p > input:checked {
         --task-progress: 100%;
+        --task-progress-fill: var(--interactive-accent);
     }
 
-    // Speech Bubble (5-9) — whole task row becomes a chat bubble, checkbox hidden
+    // Speech Bubble (5-9) — whole task row becomes a tag-style pill, checkbox hidden
+    // Matches the Properties tag pill look: fully rounded, no border, tinted
+    // background with the same color used for the text (see _properties.scss).
     li[data-task="5"],
     li[data-task="6"],
     li[data-task="7"],
@@ -686,10 +693,12 @@ body.enable-alternative-checkboxes {
     .HyperMD-task-line[data-task="8"],
     .HyperMD-task-line[data-task="9"] {
         margin-inline-start: -15px;
-        padding: 3px 10px;
-        border-radius: 3px 12px 12px 12px;
+        padding: 0.15em 0.6em;
+        border-radius: 1em;
+        border: none;
         max-width: fit-content;
-        transition: background-color 0.2s, border-radius 0.2s;
+        font-weight: var(--pill-tag-weight);
+        transition: background-color 0.2s, color 0.2s;
 
         .task-list-item-checkbox {
             display: none;
@@ -704,30 +713,35 @@ body.enable-alternative-checkboxes {
     // Bubble: note color
     li[data-task="5"],
     .HyperMD-task-line[data-task="5"] {
+        color: var(--speech-bubble-5);
         background-color: color-mix(in srgb, var(--speech-bubble-5) var(--speech-bubble-opacity), transparent);
     }
 
     // Bubble: tip color
     li[data-task="6"],
     .HyperMD-task-line[data-task="6"] {
+        color: var(--speech-bubble-6);
         background-color: color-mix(in srgb, var(--speech-bubble-6) var(--speech-bubble-opacity), transparent);
     }
 
     // Bubble: success color
     li[data-task="7"],
     .HyperMD-task-line[data-task="7"] {
+        color: var(--speech-bubble-7);
         background-color: color-mix(in srgb, var(--speech-bubble-7) var(--speech-bubble-opacity), transparent);
     }
 
     // Bubble: warning color
     li[data-task="8"],
     .HyperMD-task-line[data-task="8"] {
+        color: var(--speech-bubble-8);
         background-color: color-mix(in srgb, var(--speech-bubble-8) var(--speech-bubble-opacity), transparent);
     }
 
     // Bubble: danger color
     li[data-task="9"],
     .HyperMD-task-line[data-task="9"] {
+        color: var(--speech-bubble-9);
         background-color: color-mix(in srgb, var(--speech-bubble-9) var(--speech-bubble-opacity), transparent);
     }
 
