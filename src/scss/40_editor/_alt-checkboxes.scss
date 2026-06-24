@@ -52,9 +52,15 @@ body.enable-alternative-checkboxes {
     li {
         &[data-task=">"],
         &[data-task="<"],
+        &[data-task="!"],
         &[data-task="-"],
+        &[data-task="?"],
+        &[data-task="*"],
         &[data-task="n"],
         &[data-task="l"],
+        &[data-task="i"],
+        &[data-task="S"],
+        &[data-task='"'],
         &[data-task="I"],
         &[data-task="p"],
         &[data-task="c"],
@@ -70,27 +76,15 @@ body.enable-alternative-checkboxes {
         &[data-task="T"],
         &[data-task="M"],
         &[data-task="D"],
+        &[data-task="B"],
         &[data-task="g"],
+        &[data-task="h"],
         &[data-task="s"],
         &[data-task="H"],
         &[data-task="R"] {
             input[type=checkbox]:checked:hover {
                 background-color: transparent;
                 border-color: transparent;
-                box-shadow: none;
-            }
-        }
-
-        &[data-task="!"],
-        &[data-task="?"],
-        &[data-task="*"],
-        &[data-task="i"],
-        &[data-task='"'],
-        &[data-task="S"],
-        &[data-task="B"],
-        &[data-task="h"] {
-            input[type=checkbox]:checked:hover {
-                background-color: var(--interactive-accent);
                 box-shadow: none;
             }
         }
@@ -156,12 +150,11 @@ body.enable-alternative-checkboxes {
     input[type=checkbox]:checked[data-task="!"],
     li[data-task="!"] > input:checked,
     li[data-task="!"] > p > input:checked {
-        background-color: var(--important-chbx-color);
-        // border-color: transparent;
-        border-radius: var(--important-chbx-radius);
-        
+        background-color: transparent;
+        border-color: transparent;
+
         &:after {
-            background-color: var(--important-chbx-icon-color);
+            background-color: var(--important-chbx-color);
             -webkit-mask-position: 50% 50%;
             -webkit-mask-size: 80%;
             -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-triangle-alert'%3E%3Cpath d='m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3'/%3E%3Cpath d='M12 9v4'/%3E%3Cpath d='M12 17h.01'/%3E%3C/svg%3E");
@@ -187,11 +180,11 @@ body.enable-alternative-checkboxes {
     input[type=checkbox]:checked[data-task="?"],
     li[data-task="?"] > input:checked,
     li[data-task="?"] > p > input:checked {
-        background-color: var(--question-chbx-color);
+        background-color: transparent;
         border-color: transparent;
-        
+
         &:after {
-            background-color: var(--question-chbx-icon-color);
+            background-color: var(--question-chbx-color);
             -webkit-mask-position: 50% 50%;
             -webkit-mask-size: 90%;
             -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-circle-help'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3'/%3E%3Cpath d='M12 17h.01'/%3E%3C/svg%3E");
@@ -202,12 +195,11 @@ body.enable-alternative-checkboxes {
     input[type=checkbox]:checked[data-task="*"],
     li[data-task="*"] > input:checked,
     li[data-task="*"] > p > input:checked {
-        background-color: var(--star-chbx-color);
-        // border-color: transparent;
-        border-radius: 100%;
-        
+        background-color: transparent;
+        border-color: transparent;
+
         &:after {
-            background-color: var(--star-chbx-icon-color);
+            background-color: var(--star-chbx-color);
             -webkit-mask-position: 50% 50%;
             -webkit-mask-size: 70%;
             -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-star'%3E%3Cpath d='M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z'/%3E%3C/svg%3E");
@@ -249,11 +241,11 @@ body.enable-alternative-checkboxes {
     input[type=checkbox]:checked[data-task="i"],
     li[data-task="i"] > input:checked,
     li[data-task="i"] > p > input:checked {
-        background-color: var(--info-chbx-color);
-        // border-color: transparent;
-        
+        background-color: transparent;
+        border-color: transparent;
+
         &:after {
-            background-color: var(--info-chbx-icon-color);
+            background-color: var(--info-chbx-color);
             -webkit-mask-position: 50% 50%;
             -webkit-mask-size: 100%;
             -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-info'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M12 16v-4'/%3E%3Cpath d='M12 8h.01'/%3E%3C/svg%3E");
@@ -264,12 +256,11 @@ body.enable-alternative-checkboxes {
     input[type=checkbox]:checked[data-task="S"],
     li[data-task="S"] > input:checked,
     li[data-task="S"] > p > input:checked {
-        background-color: var(--amount-chbx-color);
+        background-color: transparent;
         border-color: transparent;
-        border-radius: var(--amount-chbx-radius);
-        
+
         &:after {
-            background-color: var(--amount-chbx-icon-color);
+            background-color: var(--amount-chbx-color);
             -webkit-mask-position: 50% 50%;
             -webkit-mask-size: 100%;
             -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-circle-dollar-sign'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8'/%3E%3Cpath d='M12 18V6'/%3E%3C/svg%3E");
@@ -280,10 +271,11 @@ body.enable-alternative-checkboxes {
     input[type=checkbox]:checked[data-task='"'],
     li[data-task='"'] > input:checked,
     li[data-task='"'] > p > input:checked {
-        background-color: var(--quote-chbx-color);
-        
+        background-color: transparent;
+        border-color: transparent;
+
         &:after {
-            background-color: var(--quote-chbx-icon-color);
+            background-color: var(--quote-chbx-color);
             -webkit-mask-position: 50% 50%;
             -webkit-mask-size: 90%;
             -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-quote'%3E%3Cpath d='M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z'/%3E%3Cpath d='M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z'/%3E%3C/svg%3E");
@@ -519,11 +511,11 @@ body.enable-alternative-checkboxes {
     input[type=checkbox]:checked[data-task="B"],
     li[data-task="B"] > input:checked,
     li[data-task="B"] > p > input:checked {
-        background-color: var(--blocked-chbx-color);
+        background-color: transparent;
         border-color: transparent;
 
         &:after {
-            background-color: var(--blocked-chbx-icon-color);
+            background-color: var(--blocked-chbx-color);
             -webkit-mask-position: 50% 50%;
             -webkit-mask-size: 90%;
             -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-octagon-x'%3E%3Cpath d='m15 9-6 6'/%3E%3Cpath d='M2.586 16.726A2 2 0 0 1 2 15.414V8.586a2 2 0 0 1 .586-1.414l4.586-4.586A2 2 0 0 1 8.586 2h6.828a2 2 0 0 1 1.414.586l4.586 4.586A2 2 0 0 1 22 8.586v6.828a2 2 0 0 1-.586 1.414l-4.586 4.586a2 2 0 0 1-1.414.586H8.586a2 2 0 0 1-1.414-.586z'/%3E%3Cpath d='m9 9 6 6'/%3E%3C/svg%3E");
@@ -549,11 +541,11 @@ body.enable-alternative-checkboxes {
     input[type=checkbox]:checked[data-task="h"],
     li[data-task="h"] > input:checked,
     li[data-task="h"] > p > input:checked {
-        background-color: var(--health-chbx-color);
+        background-color: transparent;
         border-color: transparent;
 
         &:after {
-            background-color: var(--health-chbx-icon-color);
+            background-color: var(--health-chbx-color);
             -webkit-mask-position: 50% 50%;
             -webkit-mask-size: 90%;
             -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='lucide lucide-heart-pulse'%3E%3Cpath d='M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z'/%3E%3Cpath d='M3.22 8.5h1.66a2 2 0 0 1 1.79 1.11l.85 1.7a2 2 0 0 0 3.69-.2l.49-1.47a1 1 0 0 1 1.74-.3l.91 1.16a2 2 0 0 0 1.57.76h2.05'/%3E%3C/svg%3E");
