@@ -23,7 +23,27 @@ function filesBelow(path) {
 }
 
 function settingIds(source) {
-  return [...source.matchAll(/^\s+id:\s*([^\s#]+)\s*$/gm)].map((match) => match[1]);
+  return [...source.matchAll(/^\s*-?\s*id:\s*([^\s#]+)\s*$/gm)].map((match) => match[1]);
+}
+
+function settingClassNames(source) {
+  return new Set([
+    ...settingIds(source),
+    ...[...source.matchAll(/^\s+value:\s*([^\s#]+)\s*$/gm)].map((match) => match[1]),
+  ]);
+}
+
+function scssBodyClasses(source) {
+  const bodySelectorClasses = [...source.matchAll(/body(?:\.[A-Za-z0-9_-]+)+/g)]
+    .flatMap((match) => match[0].match(/\.([A-Za-z0-9_-]+)/g).map((value) => value.slice(1)));
+  return [...new Set(bodySelectorClasses)].sort();
+}
+
+function allScssSource() {
+  return filesBelow("src/scss/")
+    .filter((file) => file.pathname.endsWith(".scss"))
+    .map((file) => readFileSync(file, "utf8"))
+    .join("\n");
 }
 
 function pngDimensions(path) {
@@ -113,6 +133,15 @@ test("Style Settings metadata is normalized and all ids are unique", () => {
   }
 });
 
+test("Style Settings exposes every theme-owned body class", () => {
+  const exposedClasses = settingClassNames(settings);
+  const appClasses = new Set(["is-mobile", "is-phone", "theme-dark", "theme-light"]);
+  const orphanClasses = scssBodyClasses(allScssSource())
+    .filter((className) => !exposedClasses.has(className) && !appClasses.has(className));
+
+  assert.deepEqual(orphanClasses, []);
+});
+
 test("Obsidian 1.13 callout colors are valid CSS colors", () => {
   assert.doesNotMatch(scss, /rgba\(var\(--callout-color\)\)/);
   assert.match(scss, /--callout-color:\s*var\(--callout-(?:general|default)\)/);
@@ -127,12 +156,10 @@ test("essential light-theme text colors meet WCAG AA contrast", () => {
 });
 
 test("core theme avoids expensive and brittle optional integrations", () => {
-  const allScss = filesBelow("src/scss/")
-    .filter((file) => file.pathname.endsWith(".scss"))
-    .map((file) => readFileSync(file, "utf8"))
-    .join("\n");
+  const allScss = allScssSource();
   assert.doesNotMatch(allScss, /:has\(/);
   assert.doesNotMatch(allScss, /url\(\s*["']?https?:\/\//i);
+  assert.doesNotMatch(allScss, /--bookmark-folder-\d+-/);
   for (const line of allScss.split("\n").filter((value) => value.includes("!important"))) {
     assert.match(line, /\/\//, `unjustified !important: ${line.trim()}`);
   }
