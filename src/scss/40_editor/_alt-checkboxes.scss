@@ -644,7 +644,7 @@ body.enable-alternative-checkboxes {
     li[data-task="0"] > input:checked,
     li[data-task="0"] > p > input:checked {
         --task-progress: 0%;
-        --task-progress-fill: color-mix(in srgb, var(--interactive-accent) 25%, var(--task-progress-track));
+        --task-progress-fill: color-mix(in srgb, var(--interactive-accent) 55%, white);
     }
 
     // Progress: 25%
@@ -652,7 +652,7 @@ body.enable-alternative-checkboxes {
     li[data-task="1"] > input:checked,
     li[data-task="1"] > p > input:checked {
         --task-progress: 25%;
-        --task-progress-fill: color-mix(in srgb, var(--interactive-accent) 45%, var(--task-progress-track));
+        --task-progress-fill: color-mix(in srgb, var(--interactive-accent) 70%, white);
     }
 
     // Progress: 50%
@@ -660,7 +660,7 @@ body.enable-alternative-checkboxes {
     li[data-task="2"] > input:checked,
     li[data-task="2"] > p > input:checked {
         --task-progress: 50%;
-        --task-progress-fill: color-mix(in srgb, var(--interactive-accent) 65%, var(--task-progress-track));
+        --task-progress-fill: color-mix(in srgb, var(--interactive-accent) 85%, white);
     }
 
     // Progress: 75%
@@ -668,7 +668,7 @@ body.enable-alternative-checkboxes {
     li[data-task="3"] > input:checked,
     li[data-task="3"] > p > input:checked {
         --task-progress: 75%;
-        --task-progress-fill: color-mix(in srgb, var(--interactive-accent) 85%, var(--task-progress-track));
+        --task-progress-fill: color-mix(in srgb, var(--interactive-accent) 95%, white);
     }
 
     // Progress: 100%
