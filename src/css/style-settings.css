@@ -3,53 +3,23 @@
 name: Primary Simplified Theme Settings
 id: primary-theme
 settings:
-- id: readme-guide
-  type: heading
-  level: 1
-  collapsed: true
-  title: About Primary Simplified
-- id: readme-overview
-  type: info-text
-  markdown: true
-  description: Primary Simplified keeps Primary’s warm, playful visual language while targeting Obsidian 1.13 and newer.
-- id: readme-built-in-settings
-  type: info-text
-  markdown: true
-  description: Use Obsidian Settings → Appearance for fonts, accent color, and editor font size. Theme-specific controls are below. All controls here are toggles or presets — for color and size customization, use a CSS snippet instead.
 - id: essentials
   type: heading
   level: 1
   collapsed: false
   title: Theme settings
-- id: essential-animations
-  type: heading
-  level: 2
-  collapsed: true
-  title: Animations and effects
-- id: reduce-motion
-  type: class-toggle
-  title: Reduce theme motion
-  description: Disables decorative tab, popup, and background animations without changing Obsidian’s functional transitions.
-- id: zero-popup-blur
-  type: class-toggle
-  title: Remove Popup Background Blur
-  description: This removes the background blur when opening the Settings, Command Palette, Quick Switcher, and other pop up boxes. This is a good option if you experience visual issues with Primary Simplified, prefer no background blur, or need a performance boost in a larger vault.
-- id: zero-tab-anim
-  type: class-toggle
-  title: Disable Inactive Tab Animations
-  description: Removes the transform transition on inactive tab headers.
-- id: zero-popup-popdown
-  type: class-toggle
-  title: Disable Popup Open/Close Animation
-  description: Removes the slide-in/slide-out animation when popups open or close.
+- id: readme-overview
+  type: info-text
+  markdown: true
+  description: Primary Simplified keeps Primary's warm visual language while exposing only theme-specific toggles and presets. Use Obsidian Settings -> Appearance for fonts, accent color, and editor font size.
 - id: essential-appearance
   type: heading
   level: 2
   collapsed: true
-  title: Appearance presets
+  title: Appearance
 - id: accent-palette
   type: class-select
-  title: Accent Palette
+  title: Accent palette
   description: Switches the accent and checked-checkbox color to a curated palette, in light and dark mode.
   allowEmpty: false
   default: accent-palette-default
@@ -62,7 +32,7 @@ settings:
     value: accent-palette_cool
 - id: layout-density
   type: class-select
-  title: Layout Density
+  title: Layout density
   description: Switches between comfortable and compact spacing for file explorer rows and body text line height.
   allowEmpty: false
   default: layout-density-default
@@ -71,92 +41,10 @@ settings:
     value: layout-density-default
   - label: Compact
     value: layout-density_compact
-- id: essential-ribbon
-  type: heading
-  level: 2
-  collapsed: true
-  title: Ribbon
-- id: ribbon_styles
-  type: class-select
-  title: Ribbon Style
-  allowEmpty: false
-  default: ribbon-default
-  options:
-  - label: Docked
-    value: ribbon-default
-  - label: Slide Out on Hover
-    value: ribbon-slideout
-- id: essential-editor
-  type: heading
-  level: 2
-  collapsed: true
-  title: Editor
-- id: interface_editor-bg
-  type: class-select
-  title: Editor Background Type
-  allowEmpty: false
-  default: editor-bg-default
-  options:
-  - label: Plain Color
-    value: editor-bg-default
-  - label: Line Grid
-    value: editor-bgpattern-linegrid
-  - label: Dot Grid
-    value: editor-bgpattern-dotgrid
-- id: active-line-highlight
-  type: class-toggle
-  title: Toggle Active Line Highlighting
-  description: Adds background color to active line.
-- id: file-header-hover
-  type: class-toggle
-  title: Auto-hide File Header
-  description: Hides the file header bar until you hover over it.
-- id: file-header-title-hover
-  type: class-toggle
-  title: Auto-hide File Header Title
-  description: Hides the file title text in the header until you hover over it.
-- id: essential-status-bar
-  type: heading
-  level: 2
-  collapsed: true
-  title: Status bar
-- id: interface_status-bar-style
-  type: class-select
-  title: Status Bar Style
-  allowEmpty: false
-  default: sb-default
-  options:
-  - label: On Top
-    value: sb-default
-  - label: Visible Full Length
-    value: sb-style-full
-  - label: Slide Up Full Length
-    value: sb-style-slideupfull
-  - label: Slide Out
-    value: sb-style-slideout
-  - label: Floating
-    value: sb-style-floating
-- id: interface_status-bar-item-display
-  type: class-select
-  title: Status Bar Item Visibility
-  allowEmpty: false
-  default: sb-item-default
-  options:
-  - label: Show Everything
-    value: sb-item-default
-  - label: Sync Only
-    value: sb-sync-only
-  - label: Word Count Only
-    value: sb-word-count-only
-- id: essential-headings
-  type: heading
-  level: 2
-  collapsed: true
-  title: Headings
 - id: heading-style
   type: class-select
-  title: Heading Style
-  description: Switches the font size and weight scale used for H1–H6, in one preset.
+  title: Heading style
+  description: Switches the font size and weight scale used for H1-H6, in one preset.
   allowEmpty: false
   default: heading-style-default
   options:
@@ -166,78 +54,125 @@ settings:
     value: heading-style_bold
   - label: Minimal
     value: heading-style_minimal
-- id: h1-vt-align-center
+- id: use-system-fonts
   type: class-toggle
-  title: Center-align H1 Vertically
-- id: h2-vt-align-center
-  type: class-toggle
-  title: Center-align H2 Vertically
-- id: h3-vt-align-center
-  type: class-toggle
-  title: Center-align H3 Vertically
-- id: h4-vt-align-center
-  type: class-toggle
-  title: Center-align H4 Vertically
-- id: h5-vt-align-center
-  type: class-toggle
-  title: Center-align H5 Vertically
-- id: h6-vt-align-center
-  type: class-toggle
-  title: Center-align H6 Vertically
-- id: essential-links
+  title: Use system fonts
+  description: Uses the operating system font stack instead of Primary Simplified's bundled Inter and Cascadia Code font families.
+- id: essential-motion
   type: heading
   level: 2
   collapsed: true
-  title: Links
+  title: Motion and performance
+- id: reduce-motion
+  type: class-toggle
+  title: Reduce theme motion
+  description: Disables decorative tab, popup, and background animations without changing Obsidian's functional transitions.
+- id: zero-popup-blur
+  type: class-toggle
+  title: Remove popup background blur
+  description: Removes background blur from Settings, Command Palette, Quick Switcher, and other popups.
+- id: essential-workspace
+  type: heading
+  level: 2
+  collapsed: true
+  title: Workspace
+- id: ribbon_styles
+  type: class-select
+  title: Ribbon style
+  allowEmpty: false
+  default: ribbon-default
+  options:
+  - label: Docked
+    value: ribbon-default
+  - label: Slide out on hover
+    value: ribbon-slideout
+- id: interface_status-bar-style
+  type: class-select
+  title: Status bar style
+  allowEmpty: false
+  default: sb-default
+  options:
+  - label: On top
+    value: sb-default
+  - label: Visible full length
+    value: sb-style-full
+  - label: Slide up full length
+    value: sb-style-slideupfull
+  - label: Slide out
+    value: sb-style-slideout
+  - label: Floating
+    value: sb-style-floating
+- id: interface_status-bar-item-display
+  type: class-select
+  title: Status bar item visibility
+  allowEmpty: false
+  default: sb-item-default
+  options:
+  - label: Show everything
+    value: sb-item-default
+  - label: Sync only
+    value: sb-sync-only
+  - label: Word count only
+    value: sb-word-count-only
+- id: essential-editor-and-notes
+  type: heading
+  level: 2
+  collapsed: true
+  title: Editor and notes
+- id: interface_editor-bg
+  type: class-select
+  title: Editor background
+  allowEmpty: false
+  default: editor-bg-default
+  options:
+  - label: Plain color
+    value: editor-bg-default
+  - label: Line grid
+    value: editor-bgpattern-linegrid
+  - label: Dot grid
+    value: editor-bgpattern-dotgrid
+- id: active-line-highlight
+  type: class-toggle
+  title: Highlight active line
+  description: Adds background color to the active editor line.
+- id: headings-vertical-center
+  type: class-toggle
+  title: Vertically center headings
+  description: Uses the previous per-heading vertical alignment behavior for all heading levels.
 - id: no-decor-link
   type: class-toggle
-  title: Remove Link Underline
-- id: essential-checkboxes
-  type: heading
-  level: 2
-  collapsed: true
-  title: Checkboxes
+  title: Remove link underline
 - id: enable-alternative-checkboxes
-  title: Enable Alternative Checkboxes
-  description: Disable this if you are using your own implementation via a CSS Snippet.
+  title: Enable alternative checkboxes
+  description: Disable this if you are using your own implementation via a CSS snippet.
   default: true
   type: class-toggle
-- id: essential-media-and-embeds
-  type: heading
-  level: 2
-  collapsed: true
-  title: Media and embeds
 - id: embed-hide-title
   type: class-toggle
-  title: Hide Note Embed Title
+  title: Hide note embed title
   description: Hide the note's title when embedding notes.
-- id: essential-file-explorer-and-bookmarks
+- id: essential-folders-and-bookmarks
   type: heading
   level: 2
   collapsed: true
-  title: File Explorer and Bookmarks
+  title: Folders and bookmarks
+- id: folder-color-preset
+  type: class-select
+  title: Folder color preset
+  description: Applies folder and bookmark color treatment as one preset instead of separate low-level toggles.
+  allowEmpty: false
+  default: folder-color-default
+  options:
+  - label: Off
+    value: folder-color-default
+  - label: Text
+    value: folder-color_text
+  - label: Background
+    value: folder-color_background
+  - label: Full color
+    value: folder-color_full
 - id: alt-folder-icons
   type: class-toggle
-  title: Toggle using Folders as Collapse Indicators
+  title: Use folder icons as collapse indicators
   description: Use folders as collapse indicators instead of chevrons.
-- id: colorful-folders_text
-  type: class-toggle
-  title: Toggle Colored Folder Text
-  description: Adds colors to the name text of the folder. When hovered, folder background is colored.
-- id: colorful-folders_collapse-indicator
-  type: class-toggle
-  title: Toggle Colored Folder Collapse Indicators
-  description: Adds color to the collapse indicators of the folders.
-- id: colorful-folders_background
-  type: class-toggle
-  title: Toggle Colored Folder Backgrounds
-  description: Adds background color to folders.
-- id: colorful-folders_indentation-guide
-  type: class-toggle
-  title: Toggle Colored Folder Colored Indentation Guide
-  description: Colors folder's indentation guide based on parent folder's color.
-- id: colorful-folders_inherit-color
-  type: class-toggle
-  title: Toggle to Inherit Parent Folder Colors
-  description: The color cycles through up to 12 colors for both top level folders and subfolders by default. If you would like subfolders to be colored based on their top level folder colors, toggle this on.
 */

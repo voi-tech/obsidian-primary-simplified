@@ -33,6 +33,16 @@ function settingClassNames(source) {
   ]);
 }
 
+function styleSettingControls(source) {
+  return [...source.matchAll(/^\s+type:\s*([^\s]+)\s*$/gm)]
+    .map((match) => match[1])
+    .filter((type) => !["heading", "info-text"].includes(type));
+}
+
+function classSelectValues(source) {
+  return [...source.matchAll(/^\s+value:\s*([^\s#]+)\s*$/gm)].map((match) => match[1]);
+}
+
 function scssBodyClasses(source) {
   const bodySelectorClasses = [...source.matchAll(/body(?:\.[A-Za-z0-9_-]+)+/g)]
     .flatMap((match) => match[0].match(/\.([A-Za-z0-9_-]+)/g).map((value) => value.slice(1)));
@@ -120,7 +130,10 @@ test("Style Settings metadata is normalized and all ids are unique", () => {
   assert.doesNotMatch(settings, /id:\s*legacy-/);
   assert.doesNotMatch(settings, /id:\s*font-ui-/);
   assert.doesNotMatch(settings, /id:\s*h[1-6]-(?:font|line-height|letter-spacing|text-transform|border-(?:top|right|bottom|left)-color)\b/);
+  assert.doesNotMatch(settings, /id:\s*h[1-6]-vt-align-center\b/);
+  assert.doesNotMatch(settings, /id:\s*(?:zero-tab-anim|zero-popup-popdown|file-header-hover|file-header-title-hover)\b/);
   assert.doesNotMatch(settings, /id:\s*bookmark-folder-\d+-/);
+  assert.doesNotMatch(settings, /id:\s*colorful-folders_/);
   assert.doesNotMatch(settings, /id:\s*(?:star|note|location|info|amount|quote|idea|pro|con|bookmark|up|down|law|language|clock|telephone)-chbx-/);
 
   // Style Settings is restricted to toggles, selects, and structural entries —
@@ -131,15 +144,29 @@ test("Style Settings metadata is normalized and all ids are unique", () => {
     assert.ok(["heading", "info-text", "class-toggle", "class-select"].includes(type),
       `Style Settings control type "${type}" requires manual entry; only toggles/selects are allowed`);
   }
+
+  assert.ok(styleSettingControls(settings).length <= 22, "Style Settings should stay compact");
+  assert.match(settings, /id:\s*essentials\b[\s\S]*title:\s*Theme settings/);
+  assert.doesNotMatch(settings, /id:\s*readme-guide\b/);
+  for (const category of ["Appearance", "Motion and performance", "Workspace", "Editor and notes", "Folders and bookmarks"]) {
+    assert.match(settings, new RegExp(`title:\\s*${category}`));
+  }
 });
 
 test("Style Settings exposes every theme-owned body class", () => {
   const exposedClasses = settingClassNames(settings);
   const appClasses = new Set(["is-mobile", "is-phone", "theme-dark", "theme-light"]);
-  const orphanClasses = scssBodyClasses(allScssSource())
+  const allBodyClasses = scssBodyClasses(allScssSource());
+  const orphanClasses = allBodyClasses
     .filter((className) => !exposedClasses.has(className) && !appClasses.has(className));
 
   assert.deepEqual(orphanClasses, []);
+
+  const missingPresetClasses = classSelectValues(settings)
+    .filter((className) => !className.endsWith("-default"))
+    .filter((className) => !allBodyClasses.includes(className));
+
+  assert.deepEqual(missingPresetClasses, []);
 });
 
 test("Obsidian 1.13 callout colors are valid CSS colors", () => {

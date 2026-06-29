@@ -52,9 +52,9 @@ Primary Simplified intentionally keeps Style Settings focused. Use Obsidian's bu
 - accent color
 - editor font size
 
-Use the optional Style Settings plugin for theme-specific controls such as motion, popup blur, ribbon and status bar layout, editor background, heading colors, emphasis and link colors, alternative checkboxes, embeds, Canvas, Graph, and colorful folders.
+Use the optional Style Settings plugin for theme-specific controls such as curated accent palettes, density, heading scale, system-font fallback, reduced motion, popup blur, ribbon and status bar layout, editor background, active-line highlighting, link underlines, alternative checkboxes, embeds, and folder/bookmark color presets.
 
-This release removes the previous collapsed legacy section and many low-level color or border controls. Existing saved Style Settings values for removed IDs will no longer apply.
+This release removes the previous collapsed legacy section and many low-level color, border, animation, heading-alignment, and folder-color controls. Existing saved Style Settings values for removed IDs will no longer apply.
 
 ## Design Direction
 

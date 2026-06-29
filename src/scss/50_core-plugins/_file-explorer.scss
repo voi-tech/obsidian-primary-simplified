@@ -71,8 +71,8 @@ body {
     color: var(--nav-folder-collapse-color);
 }
 
-// Toggle to Color Collapse Icons
-body.colorful-folders_collapse-indicator {
+// Full preset: color collapse icons
+body.folder-color_full {
     .nav-folder-children > .nav-folder,
     .nav-files-container > div > .nav-folder {
         &:nth-child(12n+2) {
@@ -125,8 +125,9 @@ body.colorful-folders_collapse-indicator {
     }
 }
 
-// Toggle to Color Background
-body.colorful-folders_background {
+// Background and full presets: color folder backgrounds
+body.folder-color_background,
+body.folder-color_full {
     .nav-folder-children > .nav-folder,
     .nav-files-container > div > .nav-folder  {
         &:nth-child(12n+2) {
@@ -191,8 +192,9 @@ body.colorful-folders_background {
     }
 }
 
-// Toggle for Colored Folder Text
-body.colorful-folders_text {
+// Text and full presets: color folder text
+body.folder-color_text,
+body.folder-color_full {
     .nav-folder-children > .nav-folder,
     .nav-files-container > div > .nav-folder  {
         &:nth-child(12n+2) {
@@ -257,8 +259,8 @@ body.colorful-folders_text {
     }
 }
 
-// Toggle for Colored Indentation Guide
-body.colorful-folders_indentation-guide {
+// Full preset: color indentation guides
+body.folder-color_full {
     .nav-folder-children > .nav-folder,
     .nav-files-container > div > .nav-folder  {
         &:nth-child(12n+2) {
@@ -311,8 +313,8 @@ body.colorful-folders_indentation-guide {
     }
 }
 
-// Toggle to inheriting Parent Folder Color
-body.colorful-folders_inherit-color {
+// Full preset: inherit parent folder colors
+body.folder-color_full {
     .nav-files-container .nav-folder.nav-folder .nav-folder {
         --nav-folder-color: inherit;
         --nav-folder-bg-color: inherit;

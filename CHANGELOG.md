@@ -19,8 +19,9 @@ The project plans to use a SemVer-compatible CalVer scheme: `YY.M.MICRO`, where 
 - Reworked installation, contribution, issue, and pull request documentation for the independently maintained fork.
 - Removed fork funding links while retaining clearly labeled attribution and support links for the original author.
 - Hardened the draft-release workflow with an LTS Node.js build, artifact verification, explicit permissions, and tag-to-manifest version validation.
-- Preserved the existing `primary-theme` Style Settings namespace while reducing the visible settings surface to 100 core controls.
-- Removed the collapsed legacy Style Settings section and many low-level IDs for typography, heading borders, bookmark folders, checkbox icon colors, and hover-only color variants.
+- Preserved the existing `primary-theme` Style Settings namespace while reducing the visible settings surface to one compact `Theme settings` section with 17 core controls.
+- Removed the collapsed legacy Style Settings section and many low-level IDs for typography, heading borders, bookmark folders, checkbox icon colors, hover-only color variants, granular motion toggles, file-header hiding, per-heading vertical alignment, and individual folder-color toggles.
+- Replaced individual folder and bookmark color toggles with one folder color preset and added a system-font fallback toggle.
 - Rewrote the README around manual installation, core customization, Community Themes readiness, and the current fork approval gate.
 - Replaced Grunt with a deterministic Node.js and Dart Sass build.
 - Split the classic palette into shared, light, and dark token partials.

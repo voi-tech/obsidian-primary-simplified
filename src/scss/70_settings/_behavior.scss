@@ -2,23 +2,14 @@
 
 /*────────── Style Settings: Interface ──────────*/
 
-/* Animations */
-body.zero-tab-anim {
-    .workspace-tab-header.workspace-tab-header:not(.is-active),
-    .workspace-tab-header.workspace-tab-header:not(.is-active):hover,
-    .workspace-tab-header.workspace-tab-header:not(.is-active):active {
-        transition: transform none;
-        transform: unset;
-    }
-}
-
-body.zero-popup-popdown {
-    --anim-popup: none;
-    --anim-popdown: none;
-}
-
 body.zero-popup-blur {
     --popup-bg-blur: 0px;
+}
+
+body.use-system-fonts {
+    --font-interface-theme: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-text-theme: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-monospace-theme: ui-monospace, SFMono-Regular, "SF Mono", Consolas, monospace;
 }
 
 /* Editor */
@@ -39,39 +30,6 @@ body.editor-bgpattern-dotgrid {
     }
 }
 
-body.file-header-hover {
-    .view-header {
-        height: 10px;
-        border-bottom-color: transparent;
-        transition: var(--anim-duration-moderate) var(--anim-motion-smooth);
-        
-        > div {
-            opacity: 0;
-            transition: var(--anim-duration-moderate) var(--anim-motion-smooth);
-        }
-    
-        &:hover {
-            height: var(--header-height);
-            border-bottom-color: var(--background-modifier-border);
-    
-            > div {
-                opacity: 1;
-            }
-        }
-    }
-}
-
-body.file-header-title-hover {
-    .view-header-title-container {
-        opacity: 0;
-        transition: var(--anim-duration-moderate) var(--anim-motion-smooth);
-
-        &:hover {
-            opacity: 1;
-        }
-    }
-}
-
 body.active-line-highlight {
     .cm-active {
         background: var(--active-line-bg);
@@ -82,66 +40,16 @@ body.active-line-highlight {
 /*────────── Style Settings: Notes and Files ──────────*/
 
 /* Headings */
-body.h1-vt-align-center {
-    .cm-s-obsidian .cm-line.HyperMD-header {
-        padding: unset;
-    }
-
-    .cm-s-obsidian .cm-line.HyperMD-header-1 {
-        padding-top: calc(var(--p-spacing) / 2);
-        padding-bottom: calc(var(--p-spacing) / 2);
-    }
-}
-
-body.h2-vt-align-center {
+body.headings-vertical-center {
     .cm-s-obsidian .cm-line.HyperMD-header {
         padding: unset;
     }
     
-    .cm-s-obsidian .cm-line.HyperMD-header-2 {
-        padding-top: calc(var(--p-spacing) / 2);
-        padding-bottom: calc(var(--p-spacing) / 2);
-    }
-}
-
-body.h3-vt-align-center {
-    .cm-s-obsidian .cm-line.HyperMD-header {
-        padding: unset;
-    }
-    
-    .cm-s-obsidian .cm-line.HyperMD-header-3 {
-        padding-top: calc(var(--p-spacing) / 2);
-        padding-bottom: calc(var(--p-spacing) / 2);
-    }
-}
-
-body.h4-vt-align-center {
-    .cm-s-obsidian .cm-line.HyperMD-header {
-        padding: unset;
-    }
-    
-    .cm-s-obsidian .cm-line.HyperMD-header-4 {
-        padding-top: calc(var(--p-spacing) / 2);
-        padding-bottom: calc(var(--p-spacing) / 2);
-    }
-}
-
-body.h5-vt-align-center {
-    .cm-s-obsidian .cm-line.HyperMD-header {
-        padding: unset;
-    }
-    
-    .cm-s-obsidian .cm-line.HyperMD-header-5 {
-        padding-top: calc(var(--p-spacing) / 2);
-        padding-bottom: calc(var(--p-spacing) / 2);
-    }
-}
-
-body.h6-vt-align-center {
-    .cm-s-obsidian .cm-line.HyperMD-header {
-        padding: unset;
-    }
-    
+    .cm-s-obsidian .cm-line.HyperMD-header-1,
+    .cm-s-obsidian .cm-line.HyperMD-header-2,
+    .cm-s-obsidian .cm-line.HyperMD-header-3,
+    .cm-s-obsidian .cm-line.HyperMD-header-4,
+    .cm-s-obsidian .cm-line.HyperMD-header-5,
     .cm-s-obsidian .cm-line.HyperMD-header-6 {
         padding-top: calc(var(--p-spacing) / 2);
         padding-bottom: calc(var(--p-spacing) / 2);
