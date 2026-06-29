@@ -1,5 +1,5 @@
 /*────────── Primary: Alternative Checkboxes ──────────*/
-body.enable-alternative-checkboxes {
+body:not(.disable-alternative-checkboxes) {
     input[type=checkbox]:checked {
         border-color: var(--checked-border-color);
 

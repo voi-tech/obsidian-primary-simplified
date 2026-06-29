@@ -135,17 +135,16 @@ settings:
   type: class-toggle
   title: Highlight active line
   description: Adds background color to the active editor line.
-- id: headings-vertical-center
+- id: show-heading-title-lines
   type: class-toggle
-  title: Vertically center headings
-  description: Uses the previous per-heading vertical alignment behavior for all heading levels.
+  title: Show lines under titles
+  description: Adds a subtle horizontal line under H1 headings and the inline note title.
 - id: no-decor-link
   type: class-toggle
   title: Remove link underline
-- id: enable-alternative-checkboxes
-  title: Enable alternative checkboxes
-  description: Disable this if you are using your own implementation via a CSS snippet.
-  default: true
+- id: disable-alternative-checkboxes
+  title: Disable alternative checkboxes
+  description: Turns off the theme's default checkbox icons if you use your own CSS snippet.
   type: class-toggle
 - id: embed-hide-title
   type: class-toggle

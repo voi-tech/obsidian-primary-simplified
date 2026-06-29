@@ -39,20 +39,13 @@ body.active-line-highlight {
 
 /*────────── Style Settings: Notes and Files ──────────*/
 
-/* Headings */
-body.headings-vertical-center {
-    .cm-s-obsidian .cm-line.HyperMD-header {
-        padding: unset;
-    }
-    
-    .cm-s-obsidian .cm-line.HyperMD-header-1,
-    .cm-s-obsidian .cm-line.HyperMD-header-2,
-    .cm-s-obsidian .cm-line.HyperMD-header-3,
-    .cm-s-obsidian .cm-line.HyperMD-header-4,
-    .cm-s-obsidian .cm-line.HyperMD-header-5,
-    .cm-s-obsidian .cm-line.HyperMD-header-6 {
-        padding-top: calc(var(--p-spacing) / 2);
-        padding-bottom: calc(var(--p-spacing) / 2);
+/* Titles */
+body.show-heading-title-lines {
+    .inline-title,
+    .markdown-rendered h1,
+    .HyperMD-header-1.cm-line {
+        border-bottom: 1px solid var(--background-modifier-border);
+        padding-bottom: var(--size-4-2);
     }
 }
 

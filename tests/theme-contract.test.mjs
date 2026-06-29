@@ -8,6 +8,7 @@ const read = (path) => readFileSync(new URL(path, root), "utf8");
 const manifest = JSON.parse(read("manifest.json"));
 const packageJson = JSON.parse(read("package.json"));
 const settings = read("src/css/style-settings.css");
+const readme = read("README.md");
 const lightPalette = read("src/scss/10_foundations/palettes/classic/_light.scss");
 const scss = read("src/scss/index.scss") +
   read("src/scss/40_editor/_callout.scss") +
@@ -132,6 +133,10 @@ test("Style Settings metadata is normalized and all ids are unique", () => {
   assert.doesNotMatch(settings, /id:\s*font-ui-/);
   assert.doesNotMatch(settings, /id:\s*h[1-6]-(?:font|line-height|letter-spacing|text-transform|border-(?:top|right|bottom|left)-color)\b/);
   assert.doesNotMatch(settings, /id:\s*h[1-6]-vt-align-center\b/);
+  assert.doesNotMatch(settings, /id:\s*headings-vertical-center\b/);
+  assert.doesNotMatch(settings, /id:\s*enable-alternative-checkboxes\b/);
+  assert.match(settings, /id:\s*show-heading-title-lines\b/);
+  assert.match(settings, /id:\s*disable-alternative-checkboxes\b/);
   assert.doesNotMatch(settings, /id:\s*(?:zero-tab-anim|zero-popup-popdown|file-header-hover|file-header-title-hover)\b/);
   assert.doesNotMatch(settings, /id:\s*bookmark-folder-\d+-/);
   assert.doesNotMatch(settings, /id:\s*colorful-folders_/);
@@ -152,6 +157,18 @@ test("Style Settings metadata is normalized and all ids are unique", () => {
   for (const category of ["Appearance", "Motion and performance", "Workspace", "Editor and notes", "Folders and bookmarks"]) {
     assert.match(settings, new RegExp(`title:\\s*${category}`));
   }
+});
+
+test("theme defaults do not require Style Settings plugin classes", () => {
+  const allScss = allScssSource();
+
+  assert.doesNotMatch(allScss, /body\.enable-alternative-checkboxes\b/);
+  assert.match(allScss, /body:not\(\.disable-alternative-checkboxes\)/);
+  assert.doesNotMatch(allScss, /body\.headings-vertical-center\b/);
+  assert.match(allScss, /body\.show-heading-title-lines\b/);
+  assert.match(allScss, /\.inline-title/);
+  assert.match(allScss, /\.markdown-rendered h1/);
+  assert.match(allScss, /\.HyperMD-header-1\.cm-line/);
 });
 
 test("Style Settings exposes every theme-owned body class", () => {
@@ -232,6 +249,15 @@ test("release repository contains only the supported compact asset set", () => {
   }
   assert.ok(existsSync(new URL("licenses/OFL-Inter.txt", root)));
   assert.ok(existsSync(new URL("licenses/OFL-Cascadia-Code.txt", root)));
+});
+
+test("README is written for Community Themes users", () => {
+  assert.doesNotMatch(readme, /^## Community Themes Status$/m);
+  assert.doesNotMatch(readme, /^## Preview$/m);
+  assert.doesNotMatch(readme, /^## Release Readiness$/m);
+  assert.doesNotMatch(readme, /^## Development$/m);
+  assert.match(readme, /assets\/primary-simplified-checkboxes-callouts\.png/);
+  assert.ok(existsSync(new URL("assets/primary-simplified-checkboxes-callouts.png", root)));
 });
 
 test("compiled theme stays offline and below the release size budget", () => {
