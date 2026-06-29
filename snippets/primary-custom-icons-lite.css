@@ -1,0 +1,27 @@
+/* Primary Simplified snippet: tiny icon polish.
+   This intentionally avoids the full upstream icon replacement set. */
+
+svg.lucide-calendar,
+svg.lucide-bookmark,
+svg.lucide-folder-closed,
+svg.lucide-folder-open,
+svg.lucide-search {
+  stroke-width: 2.15;
+}
+
+.side-dock-ribbon-action[aria-label="Open today's daily note"] svg.lucide-calendar,
+.workspace-tab-header[data-type="calendar"] svg {
+  color: var(--interactive-accent);
+}
+
+.nav-folder .tree-item-icon svg {
+  color: var(--nav-collapse-icon-color, var(--icon-color));
+}
+
+.nav-folder.is-collapsed .tree-item-icon svg {
+  opacity: 0.85;
+}
+
+.nav-folder:not(.is-collapsed) .tree-item-icon svg {
+  opacity: 1;
+}

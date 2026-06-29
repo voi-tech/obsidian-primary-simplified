@@ -1,0 +1,70 @@
+/* Primary Simplified snippet: Calendar plugin polish for Obsidian 1.13+. */
+
+.workspace-tab-header[data-type="calendar"] svg.lucide-calendar-check {
+  color: currentColor;
+}
+
+#calendar-container {
+  --pmr-cal-td-padding: var(--size-4-1);
+  --pmr-cal-td-radius: calc(var(--radius-s) + 1px);
+  --pmr-cal-month-color: var(--text-normal);
+  --pmr-cal-year-color: var(--text-muted);
+  --pmr-cal-day-shadow: inset 0 0 0 1px var(--background-modifier-border);
+  --pmr-cal-day-shadow-hover: inset 0 0 0 1px var(--background-modifier-border-hover);
+  --pmr-cal-day-color-active: var(--text-muted);
+  --pmr-cal-day-background-active: var(--background-modifier-active-hover);
+  --pmr-cal-day-dot-opacity-active: 0.55;
+  --pmr-cal-active-day-color: var(--text-normal);
+  --pmr-cal-active-day-background: var(--background-primary-alt);
+  --pmr-cal-active-day-shadow: inset 0 0 0 1px var(--interactive-accent);
+  padding: 0;
+}
+
+#calendar-container .nav {
+  padding: 0 0 var(--size-4-2);
+  margin: 0 0 var(--size-4-2);
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+
+#calendar-container .title .month {
+  color: var(--pmr-cal-month-color);
+  font-weight: var(--font-semibold);
+}
+
+#calendar-container .title .year {
+  color: var(--pmr-cal-year-color);
+  font-weight: var(--font-normal);
+}
+
+#calendar-container th {
+  font-weight: var(--font-medium);
+}
+
+#calendar-container td .day,
+#calendar-container td .week-num {
+  padding: var(--pmr-cal-td-padding);
+  border-radius: var(--pmr-cal-td-radius);
+  font-variant-numeric: tabular-nums;
+}
+
+#calendar-container .day:hover,
+#calendar-container .week-num:hover {
+  box-shadow: var(--pmr-cal-day-shadow-hover);
+}
+
+#calendar-container .day:active,
+#calendar-container .week-num:active {
+  color: var(--pmr-cal-day-color-active);
+  background: var(--pmr-cal-day-background-active);
+}
+
+#calendar-container .today {
+  font-weight: var(--font-semibold);
+  box-shadow: var(--pmr-cal-day-shadow);
+}
+
+#calendar-container .active {
+  color: var(--pmr-cal-active-day-color);
+  background: var(--pmr-cal-active-day-background);
+  box-shadow: var(--pmr-cal-active-day-shadow);
+}

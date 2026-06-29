@@ -1,0 +1,37 @@
+/* Primary Simplified snippet: decimal nested ordered lists.
+   Works best in Reading View and rendered Markdown surfaces. */
+
+.markdown-rendered ol {
+  list-style: none;
+  counter-reset: primary-decimal-list;
+  padding-inline-start: 0;
+}
+
+.markdown-rendered ol > li {
+  counter-increment: primary-decimal-list;
+  display: table;
+  margin-block: 0 0.45em;
+}
+
+.markdown-rendered ol > li::before {
+  content: counters(primary-decimal-list, ".") ". ";
+  display: table-cell;
+  padding-inline-end: 0.65em;
+  color: var(--text-faint);
+  font-family: var(--font-monospace-theme, var(--font-code));
+  font-size: 0.88em;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.markdown-rendered li > ol {
+  margin-block-start: 0.35em;
+}
+
+.markdown-rendered li > ol > li {
+  margin-block-end: 0.2em;
+}
+
+.markdown-rendered ol .list-collapse-indicator {
+  margin-inline-start: -1ch;
+}

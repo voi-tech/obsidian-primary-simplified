@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { test } from "node:test";
+import { compileString } from "sass";
 
 const root = new URL("../", import.meta.url);
 const read = (path) => readFileSync(new URL(path, root), "utf8");
@@ -219,6 +220,16 @@ test("release repository contains only the supported compact asset set", () => {
   assert.deepEqual(pngDimensions("screenshot.png"), { width: 512, height: 288 });
   assert.equal(existsSync(new URL("assets/archive", root)), false);
   assert.equal(existsSync(new URL("snippets/list-style_decimal.css", root)), false);
+  for (const snippet of [
+    "primary-calendar-plugin.css",
+    "primary-callout-showcase.css",
+    "primary-checkbox-icons.css",
+    "primary-custom-icons-lite.css",
+    "primary-decimal-lists.css",
+    "primary-kanban-plugin.css",
+  ]) {
+    assert.ok(existsSync(new URL(`snippets/${snippet}`, root)), `${snippet} should exist`);
+  }
   assert.ok(existsSync(new URL("licenses/OFL-Inter.txt", root)));
   assert.ok(existsSync(new URL("licenses/OFL-Cascadia-Code.txt", root)));
 });
@@ -227,4 +238,15 @@ test("compiled theme stays offline and below the release size budget", () => {
   const theme = read("theme.css");
   assert.doesNotMatch(theme, /url\(\s*["']?https?:\/\//i);
   assert.ok(Buffer.byteLength(theme) < 1_000_000, "theme.css must be smaller than 1 MB");
+});
+
+test("optional snippets are static local CSS", () => {
+  const snippets = filesBelow("snippets/").filter((file) => file.pathname.endsWith(".css"));
+  assert.equal(snippets.length, 6);
+  for (const file of snippets) {
+    const source = readFileSync(file, "utf8");
+    assert.doesNotMatch(source, /url\(\s*["']?https?:\/\//i);
+    assert.doesNotMatch(source, /@import/i);
+    compileString(source, { syntax: "css" });
+  }
 });

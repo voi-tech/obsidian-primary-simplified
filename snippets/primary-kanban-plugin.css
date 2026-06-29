@@ -1,0 +1,68 @@
+/* Primary Simplified snippet: Kanban plugin polish for Obsidian 1.13+. */
+
+.kanban-plugin {
+  --kanban-lane-bg: color-mix(in srgb, var(--background-primary-alt) 55%, var(--background-secondary));
+  --kanban-lane-border: 1px solid var(--background-modifier-border);
+  --kanban-lane-shadow: none;
+  --kanban-title-count-color: var(--text-muted);
+  --kanban-title-count-bg: var(--background-modifier-hover);
+  --kanban-title-count-radius: var(--radius-l);
+  --kanban-item-bg: var(--background-primary);
+  --kanban-item-border: 1px solid var(--background-modifier-border);
+  --kanban-item-shadow: var(--shadow-s);
+  --kanban-new-item-color: var(--text-faint);
+  --kanban-new-item-color-hover: var(--text-muted);
+}
+
+.kanban-plugin__lane {
+  background: var(--kanban-lane-bg);
+  border: var(--kanban-lane-border);
+  border-radius: var(--radius-m);
+  box-shadow: var(--kanban-lane-shadow);
+}
+
+.kanban-plugin__lane-header-wrapper {
+  padding: var(--size-4-2) var(--size-4-3) var(--size-2-3);
+  border-bottom: 0;
+}
+
+.kanban-plugin__lane-title-count {
+  color: var(--kanban-title-count-color);
+  background: var(--kanban-title-count-bg);
+  border-radius: var(--kanban-title-count-radius);
+  padding: var(--size-2-2) var(--size-4-2);
+  font-size: 0.8em;
+  font-weight: var(--font-semibold);
+  font-variant-numeric: tabular-nums;
+}
+
+.kanban-plugin__item {
+  border: var(--kanban-item-border);
+  overflow: visible;
+}
+
+.kanban-plugin__item-title-wrapper,
+.kanban-plugin__item-input:is(.kanban-plugin__item-title-wrapper textarea) {
+  background: var(--kanban-item-bg);
+  border-radius: var(--radius-m);
+}
+
+.kanban-plugin__item-title-wrapper {
+  padding: var(--size-2-3) var(--size-4-3);
+  box-shadow: var(--kanban-item-shadow);
+}
+
+.kanban-plugin__new-item-button:is(button) {
+  display: flex;
+  justify-content: flex-start;
+  gap: var(--size-2-2);
+  color: var(--kanban-new-item-color);
+  background: transparent;
+  padding: var(--size-4-2) var(--size-4-3);
+}
+
+.kanban-plugin__new-item-button:is(button):hover {
+  color: var(--kanban-new-item-color-hover);
+  background: var(--background-primary);
+  box-shadow: inset 0 0 0 1px var(--background-modifier-border);
+}

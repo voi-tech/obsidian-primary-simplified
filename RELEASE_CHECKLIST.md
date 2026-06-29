@@ -7,6 +7,8 @@
 - [ ] The GitHub release contains `manifest.json` and `theme.css` as binary attachments.
 - [ ] `screenshot.png` is current, legible, 512 × 288, and represents the released theme.
 - [ ] README, changelog, attribution, GPL license, and both OFL notices are current.
+- [ ] README clearly explains that Primary Simplified is a fork, why it exists, how it differs from Primary, and whether the fork policy gate is satisfied.
+- [ ] Optional snippets in `snippets/` are documented as manual CSS snippets and are not implied to be bundled into `theme.css`.
 - [ ] A clean install from the GitHub release and an update from the previous version both succeed.
 
 ## Platform matrix
@@ -39,6 +41,7 @@
 - [ ] Fresh settings, migrated settings after removed legacy IDs, each core toggle/select, themed colors, individual reset, and full reset work.
 - [ ] The Style Settings surface contains only the supported core controls; removed legacy IDs do not reappear.
 - [ ] Style Settings reports no parse errors and applies the same values in main and pop-out windows.
+- [ ] Optional snippets are checked for parse errors, remote URLs, and regressions in the surfaces they target.
 - [ ] A large vault and large Canvas remain responsive while scrolling, switching themes, and idling.
 - [ ] Developer tools show no theme-caused errors, repeated layout warnings, remote requests, or missing resources.
 - [ ] `npm ci`, `npm test`, `npm run build`, and the clean-tree artifact check all pass.

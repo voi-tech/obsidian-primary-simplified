@@ -1,0 +1,74 @@
+/* Primary Simplified snippet: expressive callout aliases for preview notes.
+   These styles are optional and are not bundled into theme.css. */
+
+body {
+  --ps-callout-soft-opacity: 18%;
+}
+
+.callout[data-callout="help"] {
+  --callout-icon: life-buoy;
+  --callout-color: rgb(250 128 96);
+}
+
+.callout[data-callout="decision"] {
+  --callout-icon: milestone;
+  --callout-color: rgb(138 128 230);
+}
+
+.callout[data-callout="source"] {
+  --callout-icon: book-marked;
+  --callout-color: rgb(237 217 162);
+}
+
+.callout[data-callout="method"] {
+  --callout-icon: route;
+  --callout-color: rgb(124 180 206);
+}
+
+.callout[data-callout="risk"] {
+  --callout-icon: shield-alert;
+  --callout-color: rgb(226 72 86);
+}
+
+.callout[data-callout="ship"] {
+  --callout-icon: package-check;
+  --callout-color: rgb(87 200 83);
+}
+
+.callout[data-callout="help"],
+.callout[data-callout="decision"],
+.callout[data-callout="source"],
+.callout[data-callout="method"],
+.callout[data-callout="risk"],
+.callout[data-callout="ship"] {
+  background-color: color-mix(in srgb, var(--callout-color) var(--ps-callout-soft-opacity), var(--background-primary));
+  border: 1px solid color-mix(in srgb, var(--callout-color) 42%, transparent);
+}
+
+.callout[data-callout="help"] .callout-title,
+.callout[data-callout="decision"] .callout-title,
+.callout[data-callout="source"] .callout-title,
+.callout[data-callout="method"] .callout-title,
+.callout[data-callout="risk"] .callout-title,
+.callout[data-callout="ship"] .callout-title {
+  background-color: color-mix(in srgb, var(--callout-color) 12%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--callout-color) 32%, transparent);
+}
+
+.callout[data-callout="help"] .callout-title-inner,
+.callout[data-callout="decision"] .callout-title-inner,
+.callout[data-callout="source"] .callout-title-inner,
+.callout[data-callout="method"] .callout-title-inner,
+.callout[data-callout="risk"] .callout-title-inner,
+.callout[data-callout="ship"] .callout-title-inner {
+  font-weight: var(--font-semibold);
+}
+
+.callout[data-callout="help"] code,
+.callout[data-callout="decision"] code,
+.callout[data-callout="source"] code,
+.callout[data-callout="method"] code,
+.callout[data-callout="risk"] code,
+.callout[data-callout="ship"] code {
+  background-color: color-mix(in srgb, var(--callout-color) 16%, transparent);
+}
