@@ -23,6 +23,10 @@ The theme includes:
 - optional layout density and accent palette choices
 - reduced-motion and forced-colors support
 - Obsidian 1.13+ surfaces, including Bases
+- per-note helper classes compatible with Minimal's `cssclasses` contract
+  (image grids, block widths, table styling, cards) — see
+  [minimal.guide/features/helper-classes](https://minimal.guide/features/helper-classes)
+  for the full class reference
 
 ## Install
 
@@ -78,8 +82,13 @@ The original Primary theme remains available from Obsidian's Community Themes
 directory. If you want to support Cecilia May's original work, visit the
 author's [Ko-fi page](https://ko-fi.com/ceciliamay).
 
+The image grid, cards, and list-cards helper classes are adapted from
+[Minimal](https://github.com/kepano/obsidian-minimal) by Steph Ango (@kepano),
+used under Minimal's MIT license (notice included in `theme.css`).
+
 ## License
 
 Primary Simplified is licensed under the
 [GNU General Public License v3.0](./LICENSE). The repository keeps the original
-copyright and license notices from Primary.
+copyright and license notices from Primary, and the MIT license notice for
+the Minimal-derived helper-class rules noted above.
