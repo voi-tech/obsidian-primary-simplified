@@ -43,11 +43,15 @@ https://forum.obsidian.md/t/primary-theme/26687
 ────────────────────────────────────
 
 CODE STRUCTURE
-    1. General (overrides, spacing, sizing, radius, shape, typography, animation)
-    2. Specific (usually colors, icons)
-    3. Mobile Styling
-    4. Light Theme
-    5. Dark Theme
+    1. Base rules and keyframes (icon sizing, font features, animations)
+    2. `body` defaults (spacing, sizing, radius, typography, motion)
+    3. `.theme-light` color tokens (desktop and mobile)
+    4. `.theme-dark` color tokens (desktop, mobile, tablet)
+    5. Component rules (workspace, editor, callouts, checkboxes, metadata)
+    6. Style Settings class overrides
+    7. Accessibility (prefers-reduced-motion, forced-colors)
+    8. Helper classes applied through the `cssclasses` property
+    9. Style Settings `@settings` schema
 
 ────────────────────────────────────
 
@@ -62,6 +66,16 @@ Original Primary repository:
 https://github.com/primary-theme/obsidian
 
 ────────────────────────────────────*/
+
+/*────────────────────────────────────
+
+  1. BASE RULES AND KEYFRAMES
+
+  Icon sizing, font-feature settings and the animations that the
+  variables in section 2 refer to.
+
+────────────────────────────────────*/
+
 body:not(.is-phone, .is-mobile)
   .mod-left-split
   .workspace-tab-header-inner-icon
@@ -159,7 +173,6 @@ span.code-block-flair {
 .sync-history-preview {
   font-feature-settings: var(--text-font-feature);
 }
-div:not(.list-bullet::after),
 .HyperMD-codeblock,
 .cm-inline-code,
 pre,
@@ -221,6 +234,16 @@ code {
     opacity: 1;
   }
 }
+
+/*────────────────────────────────────
+
+  2. `BODY` DEFAULTS
+
+  Spacing, sizing, radius, typography and motion. Values that are
+  the same in both colour schemes belong here, not in section 3/4.
+
+────────────────────────────────────*/
+
 body {
   --anim-popup: 0.3s slideUp forwards;
   --anim-popup-alt: 0.335s slideUpAlt forwards;
@@ -244,18 +267,6 @@ body {
   --font-smallest: 0.8em;
   --font-smaller: 0.875em;
   --font-small: 0.933em;
-  --font-nav-item-size: ;
-  --font-tree-item-size: ;
-  --font-blockquote-size: ;
-  --font-callout-title-size: ;
-  --font-callout-size: ;
-  --font-inlinecode-size: ;
-  --font-codeblock-size: ;
-  --font-codeblock-btn-size: ;
-  --font-footnotes-title-size: ;
-  --font-footnotes-flag-size: ;
-  --font-footnotes-size: ;
-  --font-blockid-size: ;
   font-weight: var(--font-normal);
   --font-thin: 150;
   --font-extralight: 250;
@@ -285,7 +296,6 @@ body {
   --divider-width-hover: 4px;
   --divider-radius: var(--radius-m);
   --ribbon-border-width: 1px;
-  --ribbon-radius: var(--editor-border-radius);
   --ribbon-radius: var(--editor-border-radius);
   --ribbon-margin-bottom: var(--editor-pane-margin);
   --ribbon-icon-spacing: var(--size-2-2);
@@ -482,6 +492,16 @@ body.is-mobile {
   --input-font-weight: var(--font-normal);
   --mobile-folder-icon-size: 16px;
 }
+
+/*────────────────────────────────────
+
+  3. LIGHT THEME TOKENS
+
+  Colours only, per Obsidian's theme guidelines. The --color-l-*
+  palette is the source; everything else maps onto it.
+
+────────────────────────────────────*/
+
 .theme-light {
   color-scheme: light;
   --color-l-gray-10: hsla(36, 38%, 98%, 1);
@@ -623,9 +643,10 @@ body.is-mobile {
   --background-modifier-error-hover: var(--color-l-red-20);
   --background-modifier-success-rgb: var(--color-green-rgb);
   --background-modifier-success: var(--color-l-green-30);
+  --hr-color: var(--background-modifier-border-hover);
   --text-normal: var(--color-l-gray-130);
   --text-muted: var(--color-l-gray-100);
-  --text-faint: var(--color-l-gray-100);
+  --text-faint: var(--color-l-gray-90);
   --text-on-accent: var(--color-l-gray-10);
   --text-on-accent-inverted: var(--color-l-gray-140);
   --text-error: var(--color-l-red-30);
@@ -634,8 +655,16 @@ body.is-mobile {
   --text-selection: var(--color-l-alpha-gray);
   --text-highlight-bg-rgb: var(--color-yellow-rgb);
   --text-highlight-bg: var(--color-l-alpha-yellow);
-  --text-accent: var(--color-accent);
-  --text-accent-hover: var(--color-accent-2);
+  --text-accent: hsl(
+    var(--accent-h),
+    var(--accent-s),
+    min(var(--accent-l), 38%)
+  );
+  --text-accent-hover: hsl(
+    var(--accent-h),
+    var(--accent-s),
+    min(var(--accent-l), 30%)
+  );
   --text-selection-theme-text-color: color-mix(
     in srgb,
     currentColor 70%,
@@ -675,7 +704,7 @@ body.is-mobile {
   --status-bar-floating-bg: var(--color-l-gray-30);
   --status-bar-floating-shadow:
     8px 7px 21px -4px rgba(0, 0, 0, 0.12), 0px 5px 5px -5px rgba(0, 0, 0, 0.15);
-  --status-bar-item-color: var(--color-l-gray-80);
+  --status-bar-item-color: var(--color-l-gray-90);
   --status-bar-item-color-hover: var(--color-l-gray-100);
   --status-bar-item-bg-hover: transparent;
   --status-bar-item-clickable-color-active: var(--color-l-gray-70);
@@ -749,7 +778,7 @@ body.is-mobile {
   --checkbox-border-color-hover: var(--color-l-gray-70);
   --checklist-bg: var(--color-l-gray-10);
   --checklist-shadow-hover: 0px 0px 0px 3px rgba(0, 0, 0, 0.07);
-  --checklist-done-color: var(--color-l-gray-80);
+  --checklist-done-color: var(--color-l-gray-90);
   --inprogress-chbx-color: hsla(34, 82%, 57%, 1);
   --inprogress-chbx-color-hover: hsla(34, 82%, 64%, 1);
   --inprogress-chbx-border-color: color-mix(
@@ -914,7 +943,6 @@ body.is-mobile {
     var(--background-secondary)
   );
   --prompt-separator-border: 1px solid var(--color-l-gray-40);
-  --prompt-border-color: var(--background-modifier-border-focus);
   --search-icon-color: var(--color-l-gray-80);
   --search-clear-button-color: var(--icon-color);
   --search-clear-button-color-hover: var(--background-modifier-error-hover);
@@ -926,12 +954,12 @@ body.is-mobile {
   --slider-thumb-border-width: 0px;
   --slider-thumb-shadow:
     inset 0px 0px 0px 1px rgba(0, 0, 0, 0.15),
-    inset 0pc 1px 0px 1px rgba(255, 255, 255, 1),
+    inset 0px 1px 0px 1px rgba(255, 255, 255, 1),
     inset 0px -1px 0px 1px rgba(0, 0, 0, 0.09),
     0px 1px 2px 0px rgba(0, 0, 0, 0.1);
   --slider-thumb-shadow-hover:
     inset 0px 0px 0px 1px rgba(0, 0, 0, 0.15),
-    inset 0pc 1px 0px 1px rgba(255, 255, 255, 1),
+    inset 0px 1px 0px 1px rgba(255, 255, 255, 1),
     inset 0px -1px 0px 1px rgba(0, 0, 0, 0.09),
     0px 1px 2px 0px rgba(0, 0, 0, 0.1), 0px 0px 0px 6px rgba(0, 0, 0, 0.05);
   --tab-background-active: var(--background-primary);
@@ -943,7 +971,6 @@ body.is-mobile {
   --tab-text-color-focused-active-current: var(--text-normal);
   --tab-container-background: var(--background-secondary);
   --tab-divider-color: var(--background-modifier-border-hover);
-  --tab-outline-color: var(--color-l-gray-70);
   --tab-bg: transparent;
   --tab-active-bg: var(--background-primary);
   --tab-active-shadow:
@@ -1615,6 +1642,16 @@ body.is-mobile {
   );
   --pcr-btn-shadow: inset 0px 0px 0px 1.5px rgba(0, 0, 0, 0.2);
 }
+
+/*────────────────────────────────────
+
+  4. DARK THEME TOKENS
+
+  Mirror of section 3. A token set in only one of the two sections
+  silently falls back to Obsidian's default in the other mode.
+
+────────────────────────────────────*/
+
 .theme-dark {
   color-scheme: dark;
   --color-d-gray-10: hsla(32, 48%, 85%, 1);
@@ -1768,8 +1805,16 @@ body.is-mobile {
   --text-selection: var(--color-d-alpha-gray);
   --text-highlight-bg-rgb: var(--color-yellow-rgb);
   --text-highlight-bg: var(--color-d-alpha-yellow);
-  --text-accent: var(--color-accent);
-  --text-accent-hover: var(--color-accent-2);
+  --text-accent: hsl(
+    var(--accent-h),
+    var(--accent-s),
+    max(var(--accent-l), 62%)
+  );
+  --text-accent-hover: hsl(
+    var(--accent-h),
+    var(--accent-s),
+    max(var(--accent-l), 72%)
+  );
   --text-selection-theme-text-color: color-mix(
     in srgb,
     currentColor 70%,
@@ -1806,7 +1851,6 @@ body.is-mobile {
   --sync-icon-success: var(--color-d-green-40);
   --sync-icon-success-hover: var(--color-d-green-30);
   --sync-icon-success-active: var(--status-bar-item-clickable-color-active);
-  --search-icon-color: var(--icon-color);
   --divider-color: var(--background-modifier-border);
   --divider-color-hover: var(--background-modifier-border-hover);
   --ribbon-slideout-background: var(--color-d-gray-110);
@@ -1948,14 +1992,12 @@ body.is-mobile {
   --menu-item-icon-color-active: var(--color-d-gray-60);
   --menu-item-color-active: var(--color-d-gray-60);
   --menu-item-bg-active: var(--color-d-gray-130);
-  --modal-background: var(--background-primary);
   --modal-border-color: var(--background-modifier-border-hover);
   --settings-nav-group-title-color: var(--color-d-gray-60);
   --settings-nav-item-text-color: var(--color-d-gray-40);
   --settings-nav-item-text-color-hover: var(--color-d-gray-20);
   --settings-nav-item-bg-hover: transparent;
   --settings-nav-item-text-color-active: var(--color-d-gray-70);
-  --settings-nav-item-bg-active: var(--color-d-gray-130);
   --settings-nav-item-active-color: var(--color-d-gray-100);
   --community-item-flair-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   --community-item-shadow: inset 0px 0px 0px 1px rgba(255, 255, 255, 0.03);
@@ -2054,7 +2096,6 @@ body.is-mobile {
   );
   --prompt-separator-border: 1px solid var(--color-d-gray-90);
   --prompt-border-color: var(--background-modifier-border-focus);
-  --search-icon-color: var(--color-d-gray-60);
   --search-clear-button-color: var(--icon-color);
   --search-clear-button-color-hover: var(--background-modifier-error-hover);
   --search-icon-color: var(--icon-color);
@@ -2066,12 +2107,12 @@ body.is-mobile {
   --slider-thumb-border-width: 0px;
   --slider-thumb-shadow:
     inset 0px 0px 0px 1px rgba(0, 0, 0, 0.35),
-    inset 0pc 1px 0px 1px rgba(255, 255, 255, 0.3),
+    inset 0px 1px 0px 1px rgba(255, 255, 255, 0.3),
     inset 0px -1px 0px 1px rgba(0, 0, 0, 0.29),
     0px 1px 2px 0px rgba(0, 0, 0, 0.5);
   --slider-thumb-shadow-hover:
     inset 0px 0px 0px 1px rgba(0, 0, 0, 0.35),
-    inset 0pc 1px 0px 1px rgba(255, 255, 255, 0.3),
+    inset 0px 1px 0px 1px rgba(255, 255, 255, 0.3),
     inset 0px -1px 0px 1px rgba(0, 0, 0, 0.29),
     0px 1px 2px 0px rgba(0, 0, 0, 0.5),
     0px 0px 0px 6px rgba(255, 255, 255, 0.08);
@@ -2084,7 +2125,6 @@ body.is-mobile {
   --tab-text-color-focused-active-current: var(--text-normal);
   --tab-container-background: var(--background-secondary);
   --tab-divider-color: var(--background-modifier-border-hover);
-  --tab-outline-color: var(--color-d-gray-70);
   --tab-bg: transparent;
   --tab-active-bg: var(--background-primary);
   --tab-active-shadow:
@@ -2702,17 +2742,6 @@ body.is-mobile {
     0px 3px 17px -4.3px rgba(0, 0, 0, 0.3),
     0px 7px 30px -5.5px rgba(0, 0, 0, 0.2);
 }
-.theme-dark.is-tablet {
-  --titlebar-background: var(--background-secondary);
-  --titlebar-background-focused: var(--background-secondary);
-  --interactive-normal: var(--color-d-gray-120);
-  --interactive-hover: color-mix(
-    in hsl,
-    var(--color-d-gray-100) 50%,
-    var(--interactive-normal)
-  );
-  --modal-background: var(--background-primary);
-}
 .theme-dark {
   --canvas-background: var(--editor-bg-color);
   --canvas-color: var(--color-gray-rgb);
@@ -2774,6 +2803,17 @@ body.is-mobile {
   );
   --pcr-btn-shadow: inset 0px 0px 0px 1.5px rgba(255, 255, 255, 0.2);
 }
+
+/*────────────────────────────────────
+
+  5. COMPONENT RULES
+
+  Everything that is not a token: workspace, tabs, ribbon, modals,
+  editor, callouts, checkboxes, metadata, Bases, search, canvas.
+  Component-scoped token groups live in `body` blocks inside here.
+
+────────────────────────────────────*/
+
 .workspace-split.mod-vertical > * > .workspace-leaf-resize-handle,
 .workspace-split.mod-horizontal > * > .workspace-leaf-resize-handle,
 .workspace-split.mod-left-split > .workspace-leaf-resize-handle,
@@ -3122,8 +3162,7 @@ button:not(button.clickable-icon) {
   font-weight: var(--component-font-weight);
   padding: var(--button-padding);
   border-radius: var(--button-radius);
-  transition: var(--button-anim);
-  transition: var(--background-anim);
+  transition: var(--button-anim), var(--background-anim);
   cursor: var(--cursor);
 }
 .is-mobile button:not(button.clickable-icon):active,
@@ -3135,7 +3174,7 @@ button:not(button.clickable-icon):active {
 }
 .is-mobile button:not(button.clickable-icon):focus-visible,
 button:not(button.clickable-icon):focus-visible {
-  background: var(--interactive-normal-hover);
+  background: var(--interactive-hover);
   box-shadow: var(--button-shadow-focus);
 }
 .is-mobile button:not(button.clickable-icon).mod-cta,
@@ -3255,8 +3294,7 @@ button[disabled="true"] {
   border-radius: var(--button-s-radius);
   margin-inline-start: var(--size-2-2);
   box-shadow: var(--button-accent-shadow);
-  transition: var(--button-anim);
-  transition: var(--background-anim);
+  transition: var(--button-anim), var(--background-anim);
 }
 .metadata-container .metadata-add-button:hover {
   color: var(--text-on-accent);
@@ -3496,8 +3534,9 @@ span.setting-hotkey {
   padding: var(--settings-nav-item-padding);
   border-radius: var(--settings-nav-item-radius);
   margin-bottom: var(--size-2-1);
-  transition: box-shadow var(--button-anim);
-  transition: padding-left var(--anim-duration-fast) var(--anim-motion-swing);
+  transition:
+    box-shadow var(--button-anim),
+    padding-left var(--anim-duration-fast) var(--anim-motion-swing);
 }
 .modal
   .vertical-tab-nav-item:hover:not(.is-active):not(
@@ -3560,9 +3599,9 @@ span.setting-hotkey {
 .community-item {
   border: none;
   box-shadow: var(--community-item-shadow);
-  transition: background var(--anim-duration-superfast)
-    var(--anim-motion-smooth);
-  transition: box-shadow var(--anim-duration-fast) var(--anim-motion-swing);
+  transition:
+    background var(--anim-duration-superfast) var(--anim-motion-smooth),
+    box-shadow var(--anim-duration-fast) var(--anim-motion-swing);
 }
 .community-item:hover {
   box-shadow: var(--community-item-shadow-hover);
@@ -3629,7 +3668,7 @@ body:not(.is-grabbing) .tree-item-self.is-clickable:hover .tree-item-flair {
   color: var(--nav-item-color-selected);
   background: var(--nav-item-background-selected-hover);
 }
-.nav-folder-title.is-selected .nav-folder-collapse-indicator svg.svg-icon {
+.nav-folder-title.is-selected .collapse-icon svg.svg-icon {
   color: var(--nav-item-color-selected);
 }
 .notice-container {
@@ -3766,7 +3805,6 @@ input.prompt-input:focus-visible {
   border-bottom: var(--prompt-separator-border);
 }
 .suggestion-container:not([data-popper-placement]),
-.suggestion-popover,
 .popover {
   animation: var(--anim-popup);
 }
@@ -6345,6 +6383,7 @@ body {
   --callout-color: var(--callout-done);
 }
 .callout[data-callout="question"] {
+  --callout-icon: var(--callout-icon-question);
   --callout-color: var(--callout-question);
 }
 .callout[data-callout="help"] {
@@ -6352,9 +6391,11 @@ body {
   --callout-color: var(--callout-help);
 }
 .callout[data-callout="faq"] {
+  --callout-icon: var(--callout-icon-faq);
   --callout-color: var(--callout-faq);
 }
 .callout[data-callout="warning"] {
+  --callout-icon: var(--callout-icon-warning);
   --callout-color: var(--callout-warning);
 }
 .callout[data-callout="caution"] {
@@ -6391,6 +6432,7 @@ body {
   --callout-color: var(--callout-example);
 }
 .callout[data-callout="quote"] {
+  --callout-icon: var(--callout-icon-quote);
   --callout-color: var(--callout-quote);
 }
 .callout[data-callout="cite"] {
@@ -7430,6 +7472,31 @@ body {
   --bases-table-cell-radius-focus: var(--radius-s);
   --bases-cards-radius: var(--radius-m);
   --bases-cards-border-width: 1px;
+  --bases-table-header-background: var(--table-header-background);
+  --bases-table-header-background-hover: var(--table-header-background-hover);
+  --bases-table-header-color: var(--text-muted);
+  --bases-table-header-weight: var(--font-medium);
+  --bases-table-border-color: var(--background-modifier-border);
+  --bases-table-row-background-hover: var(--background-modifier-hover);
+  --bases-table-group-background: var(--background-secondary);
+  --bases-table-summary-background: var(--background-secondary);
+  --bases-table-summary-background-hover: var(--background-modifier-hover);
+  --bases-table-cell-background-active: var(--background-primary);
+  --bases-table-cell-background-selected: var(--text-selection);
+  --bases-table-cell-shadow-active: inset 0 0 0 1px
+    var(--background-modifier-border-focus);
+  --bases-table-cell-shadow-focus: inset 0 0 0 1px
+    var(--background-modifier-border-focus);
+  --bases-cards-background: var(--background-primary);
+  --bases-cards-container-background: transparent;
+  --bases-cards-cover-background: var(--background-secondary);
+  --bases-cards-shadow: var(--community-item-shadow);
+  --bases-cards-shadow-hover: var(--community-item-shadow-hover);
+  --bases-group-heading-value-color: var(--text-normal);
+  --bases-group-heading-value-weight: var(--font-semibold);
+  --bases-group-heading-property-color: var(--text-muted);
+  --bases-group-heading-property-weight: var(--font-normal);
+  --bases-filter-input-background: var(--background-modifier-form-field);
 }
 .canvas-menu {
   border-radius: var(--radius-m);
@@ -8115,10 +8182,6 @@ body.alt-folder-icons
   color: var(--icon-color-hover);
   background: var(--icon-bg-hover);
 }
-.clickable-icon.search-result-count.has-active-menu {
-  color: var(--icon-color-active);
-  background: var(--icon-bg-active);
-}
 .search-results-info select.dropdown {
   color: var(--icon-color);
 }
@@ -8189,6 +8252,16 @@ body.alt-folder-icons
   outline: 2px solid var(--interactive-accent);
   outline-offset: 2px;
 }
+
+/*────────────────────────────────────
+
+  6. STYLE SETTINGS CLASS OVERRIDES
+
+  Every class here is offered in the @settings schema at the end of
+  this file. Adding one without the other leaves a dead switch.
+
+────────────────────────────────────*/
+
 body.zero-popup-blur {
   --popup-bg-blur: 0px;
 }
@@ -8315,6 +8388,16 @@ body.reduce-motion {
   --background-anim: none;
   --button-anim: none;
 }
+
+/*────────────────────────────────────
+
+  7. ACCESSIBILITY
+
+  System-level preferences. The reduce-motion class above is the
+  opt-in equivalent of the query below.
+
+────────────────────────────────────*/
+
 @media (prefers-reduced-motion: reduce) {
   body {
     --anim-popup: none;
@@ -8343,7 +8426,7 @@ body.reduce-motion {
 
 /*───────────────────────────────────
 
-HELPER CLASSES (cssclasses)
+8. HELPER CLASSES (cssclasses)
 
 Per-note utility classes applied via the `cssclasses` frontmatter property.
 These follow the class-name contract documented at
@@ -8457,18 +8540,10 @@ already-unconstrained note. */
 /* "max" breaks a single block out to the width of the pane (not the OS
 window) using a container query scoped to the workspace leaf, so it can't
 render on top of a sidebar in a split layout the way a 100vw-based
-breakout would. Opt-in only: container-type is added to the leaf only
-when a *-max class is actually present in it. */
-.workspace-leaf-content:has(
-  .markdown-rendered.table-max,
-  .markdown-rendered.img-max,
-  .markdown-rendered.iframe-max,
-  .markdown-source-view.mod-cm6.is-live-preview.table-max,
-  .markdown-source-view.mod-cm6.is-live-preview.img-max,
-  .markdown-source-view.mod-cm6.is-live-preview.iframe-max
-) {
-  container-type: inline-size;
-}
+breakout would. The container itself is established once for every leaf by
+the ".workspace-leaf-content { container-type: inline-size }" rule earlier
+in this file, which the empty-state and properties container queries rely
+on as well - no per-class opt-in rule is needed here. */
 :is(
     .markdown-rendered.table-max,
     .markdown-source-view.mod-cm6.is-live-preview.table-max
@@ -8869,6 +8944,12 @@ underscore separators (e.g. accent-palette_warm vs ribbon-slideout, and
 editor-bg-default vs editor-bgpattern-linegrid). These names are kept as-is
 for backwards compatibility with vaults/snippets already referencing them;
 new classes added going forward should prefer plain hyphens. */
+
+/* 9. STYLE SETTINGS SCHEMA
+Read by the Style Settings plugin. The comment below has to begin
+literally with "@settings" or the plugin will not find it, so the
+section marker lives in its own comment here. Every class name it
+offers must have a matching rule in section 6. */
 
 /* @settings
 
