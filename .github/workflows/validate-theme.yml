@@ -1,0 +1,39 @@
+name: Validate theme
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # scripts/obsidian-api.json is a local artifact produced from an
+      # installed Obsidian, so the checks that compare against the app's own
+      # variables and classes are skipped here and reported as warnings. Run
+      # the same command locally before a release to get the full set.
+      - name: Structural and accessibility checks
+        run: node scripts/validate-theme.mjs
+
+      - name: Theme files present
+        run: |
+          test -f theme.css
+          test -f manifest.json
+          test -f screenshot.png
+
+      - name: manifest.json version matches the release tag
+        if: startsWith(github.ref, 'refs/tags/')
+        run: |
+          tag="${GITHUB_REF#refs/tags/}"
+          version=$(node -p "require('./manifest.json').version")
+          if [ "$tag" != "$version" ]; then
+            echo "tag $tag does not match manifest version $version" >&2
+            exit 1
+          fi

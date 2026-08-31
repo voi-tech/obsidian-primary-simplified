@@ -1,0 +1,8 @@
+# macOS
+.DS_Store
+
+# Local artifact of scripts/snapshot-obsidian-api.sh: a dump of the CSS
+# variables and class names the installed Obsidian ships. Regenerate it after
+# every Obsidian update rather than committing it - it is derived data, it is
+# large, and it is only meaningful for the version installed on this machine.
+scripts/obsidian-api.json
