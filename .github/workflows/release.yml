@@ -1,0 +1,51 @@
+name: Release theme
+
+# Push a tag equal to manifest.json "version" (e.g. 26.10.0). The job checks
+# the theme, attests where theme.css and manifest.json came from, and opens a
+# draft release with both files attached. Publishing the draft is manual.
+
+on:
+  push:
+    tags:
+      - "*"
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+      attestations: write
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+
+      - name: Structural and accessibility checks
+        run: node scripts/validate-theme.mjs
+
+      - name: manifest.json version matches the tag
+        run: |
+          tag="${GITHUB_REF#refs/tags/}"
+          version=$(node -p "require('./manifest.json').version")
+          if [ "$tag" != "$version" ]; then
+            echo "tag $tag does not match manifest version $version" >&2
+            exit 1
+          fi
+
+      - name: Attest build provenance
+        uses: actions/attest-build-provenance@v4
+        with:
+          subject-path: |
+            theme.css
+            manifest.json
+
+      - name: Create draft release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag="${GITHUB_REF#refs/tags/}"
+          gh release create "$tag" --draft --title "$tag" --generate-notes \
+            theme.css manifest.json

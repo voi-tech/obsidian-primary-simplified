@@ -10,6 +10,9 @@ less busy than the original Primary, while still keeping its recognizable feel.
 
 Requires **Obsidian 1.13 or newer** — the theme styles 1.13+ surfaces
 (including Bases) and relies on CSS variables introduced in that release.
+It also supports Obsidian 1.14: coloured highlights, the Bases kanban
+layout, the redesigned empty tab and the ribbon's new logical-side class
+names.
 
 ## What It Feels Like
 
@@ -25,7 +28,10 @@ The theme includes:
 - folder and bookmark color presets
 - optional layout density and accent palette choices
 - reduced-motion and forced-colors support
-- Obsidian 1.13+ surfaces, including Bases
+- Obsidian 1.13+ surfaces, including Bases (and the 1.14 kanban layout)
+- 1.14 coloured highlights keep their chosen colour
+- 1.14 corner shapes (squircles on macOS) on the surfaces the theme rounds
+  itself, and right-to-left layouts for the ribbon and status bar
 - per-note helper classes compatible with Minimal's `cssclasses` contract
   (image grids, block widths, embeds, table styling, cards) — see
   [minimal.guide/features/helper-classes](https://minimal.guide/features/helper-classes)

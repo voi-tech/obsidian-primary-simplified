@@ -21,7 +21,7 @@
  *   7. settings-class  - a class offered in @settings that no rule implements
  *   8. unknown-class   - a selector targeting a class Obsidian no longer ships
  *   9. contrast        - foreground/background pairs below WCAG thresholds
- *  10. manifest        - CalVer shape and required fields
+ *  10. manifest        - CalVer shape, required fields and versions.json
  *  11. redundant-block - a modifier block that only repeats its base
  *  12. unused-var      - a variable nothing reads, which is either a
  *                        leftover or a rule that was never written
@@ -29,6 +29,9 @@
  * Checks 5, 8 and 12 need scripts/obsidian-api.json, produced locally by
  * ./scripts/snapshot-obsidian-api.sh. When it is absent - as in CI, which has
  * no Obsidian install - those two checks are skipped and the rest still run.
+ * Snapshot the newest build you run, Catalyst included: the theme keeps
+ * selectors for classes that only newer builds ship (the 1.14 .mod-primary
+ * ribbon, for instance), and an older snapshot reports those as unknown.
  */
 
 import { readFileSync, existsSync } from "node:fs";
@@ -543,8 +546,11 @@ if (api) {
     [...bare.matchAll(/var\(\s*(--[\w-]+)/g)].map((m) => m[1]),
   );
   const obsidian = new Set(api.variables);
+  // The --color-l-*/--color-d-* palettes are full scales on purpose; an
+  // unused step is not a leftover.
   const orphans = [...themeVariables]
     .filter((name) => !read.has(name) && !obsidian.has(name))
+    .filter((name) => !palette(name))
     .sort();
   if (orphans.length) {
     warn(
@@ -567,6 +573,24 @@ if (!/^\d{2}\.([1-9]|1[0-2])\.\d+$/.test(manifest.version ?? "")) {
     `version "${manifest.version}" is not CalVer YY.M.PATCH ` +
       `(month without a leading zero)`,
   );
+}
+
+// versions.json maps each release to the oldest Obsidian it supports. When
+// the running app is older than manifest.minAppVersion, Obsidian reads it to
+// install the newest release that still fits, so the current release must
+// be listed with the same minimum as the manifest.
+const versionsPath = join(root, "versions.json");
+if (!existsSync(versionsPath)) {
+  fail("manifest", "versions.json is missing");
+} else {
+  const versions = JSON.parse(readFileSync(versionsPath, "utf8"));
+  if (versions[manifest.version] !== manifest.minAppVersion) {
+    fail(
+      "manifest",
+      `versions.json must map "${manifest.version}" to ` +
+        `"${manifest.minAppVersion}" (found ${JSON.stringify(versions[manifest.version])})`,
+    );
+  }
 }
 
 /* --------------------------------------------------------------- reporting */

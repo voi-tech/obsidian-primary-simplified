@@ -285,14 +285,8 @@ body {
   --icon-m: 16px;
   --icon-l: 18px;
   --icon-xl: 24px;
-  --icon-container-radius: 0px;
   --clickable-icon-radius: calc(var(--radius-s) + 1px);
   --ribbon-icon: var(--icon-s);
-  --sidebar-tab-icon: var(--icon-s);
-  --sidebar-nav-icon: var(--icon-s);
-  --editor-tab-icon: var(--icon-s);
-  --editor-header-icon: var(--icon-s);
-  --radius-xs: 2px;
   --divider-width-hover: 4px;
   --divider-radius: var(--radius-m);
   --ribbon-border-width: 1px;
@@ -334,12 +328,7 @@ body {
     var(--size-4-2);
   --button-anim: var(--anim-duration-fast) var(--anim-motion-jumpy);
   --close-button-radius: var(--radius-l);
-  --copy-code-button-radius: var(--radius-s);
   --button-opacity-active: 0.5;
-  --dropdown-height: calc(
-    var(--font-ui-small) +
-      calc(var(--size-4-4) + var(--button-inset-shadow-size))
-  );
   --menu-item-radius: calc(var(--radius-m) - 1px);
   --modal-radius: var(--radius-xl);
   --modal-close-button-size: 20px;
@@ -414,54 +403,62 @@ body {
   --embed-title-letter-spacing: normal;
   --embed-title-text-transform: none;
   --embed-media-border-radius: var(--radius-m);
+  /* Obsidian 1.14 colour highlights (==🔴 text==) mix --color-<name> at this
+  opacity; 20% matches the alpha of the theme's own plain highlight. */
+  --highlight-opacity: 20%;
+  /* Obsidian 1.14 reads these natively; the .notice and .tooltip rules in
+  section 5 repeat them for 1.13 and can go once 1.13 is no longer
+  supported. */
+  --notice-radius: var(--radius-l);
+  --tooltip-radius: var(--radius-m);
+  --tooltip-color: var(--notice-color);
+  --hotkey-background: var(--kbd-background);
   --underline-decoration-opacity: 22%;
   --editor-border-width: 1px;
   --file-header-border-width: 1px;
   --file-line-width: 40rem;
-  --file-max-line-width: 88%;
   --header-height: 46px;
-  --file-tab-gap: 0px;
   --tab-status-radius: var(--radius-s);
   --new-tab-btn-radius: 2em;
   --editor-pane-margin: 10px;
   --editor-border-radius: var(--radius-l);
   --h1-weight: var(--font-semibold);
-  --h1-text-align: left;
+  --h1-text-align: start;
   --h1-letter-spacing: unset;
   --h1-text-transform: normal;
   --h1-border-width: 0px;
   --h1-border-style: solid;
   --h1-border-radius: 0px;
   --h2-weight: var(--font-semibold);
-  --h2-text-align: left;
+  --h2-text-align: start;
   --h2-letter-spacing: unset;
   --h2-text-transform: normal;
   --h2-border-width: 0px;
   --h2-border-style: solid;
   --h2-border-radius: 0px;
   --h3-weight: var(--font-semibold);
-  --h3-text-align: left;
+  --h3-text-align: start;
   --h3-letter-spacing: unset;
   --h3-text-transform: normal;
   --h3-border-width: 0px;
   --h3-border-style: solid;
   --h3-border-radius: 0px;
   --h4-weight: var(--font-semibold);
-  --h4-text-align: left;
+  --h4-text-align: start;
   --h4-letter-spacing: unset;
   --h4-text-transform: normal;
   --h4-border-width: 0px;
   --h4-border-style: solid;
   --h4-border-radius: 0px;
   --h5-weight: var(--font-semibold);
-  --h5-text-align: left;
+  --h5-text-align: start;
   --h5-letter-spacing: unset;
   --h5-text-transform: normal;
   --h5-border-width: 0px;
   --h5-border-style: solid;
   --h5-border-radius: 0px;
   --h6-weight: var(--font-semibold);
-  --h6-text-align: left;
+  --h6-text-align: start;
   --h6-letter-spacing: unset;
   --h6-text-transform: normal;
   --h6-border-width: 0px;
@@ -578,7 +575,7 @@ body.is-mobile {
   );
   --interactive-normal: var(--color-l-gray-30);
   --interactive-hover: color-mix(
-    in hsl,
+    in oklch,
     var(--color-l-gray-10) 50%,
     var(--interactive-normal)
   );
@@ -594,7 +591,6 @@ body.is-mobile {
   --alternating-color-3: var(--color-l-blue-30);
   --alternating-color-3-hover-active: var(--color-l-blue-40);
   --color-gray-rgb: 182, 175, 166;
-  --color-gray: hsla(34, 9.9%, 68.2%, 1);
   --color-red-rgb: 223, 90, 90;
   --color-red: hsla(0, 58%, 53%, 1);
   --color-orange-rgb: 231, 130, 63;
@@ -625,12 +621,12 @@ body.is-mobile {
   --background-modifier-active-hover: var(--color-l-gray-60);
   --background-modifier-border: var(--color-l-gray-60);
   --background-modifier-border-hover: color-mix(
-    in hsl,
+    in oklch,
     var(--color-l-gray-70) 60%,
     var(--color-l-gray-60)
   );
   --background-modifier-border-focus: color-mix(
-    in hsl,
+    in oklch,
     var(--color-l-gray-70) 60%,
     var(--color-l-gray-60)
   );
@@ -653,7 +649,6 @@ body.is-mobile {
   --text-warning: var(--color-l-orange-30);
   --text-success: var(--color-l-green-30);
   --text-selection: var(--color-l-alpha-gray);
-  --text-highlight-bg-rgb: var(--color-yellow-rgb);
   --text-highlight-bg: var(--color-l-alpha-yellow);
   --text-accent: hsl(
     var(--accent-h),
@@ -716,12 +711,12 @@ body.is-mobile {
   --vault-profile-color: var(--vault-name-color);
   --vault-name-color: var(--color-l-gray-100);
   --vault-name-color-hover: var(--color-l-gray-120);
+  --vault-profile-color-hover: var(--vault-name-color-hover);
   --vault-name-background: var(--color-l-gray-30);
   --vault-name-border: var(--vault-name-border-width) solid
     var(--background-modifier-border);
   --disabled-component-opacity: 0.3;
   --button-shadow: var(--input-shadow);
-  --button-shadow-hover: var(--input-shadow-hover);
   --button-shadow-active: var(--input-shadow-active);
   --button-shadow-focus:
     inset 0px 1px 0px 0px rgba(255, 255, 255, 0.2),
@@ -938,7 +933,7 @@ body.is-mobile {
     inset 0px 0px 0px 1px rgba(0, 0, 0, 0.08),
     0px 2px 6px 0px rgba(0, 0, 0, 0.03);
   --prompt-instructions-background: color-mix(
-    in hsl,
+    in oklch,
     var(--background-primary) 60%,
     var(--background-secondary)
   );
@@ -1009,7 +1004,7 @@ body.is-mobile {
   --text-input-color: var(--color-l-gray-130);
   --text-input-color-focused: var(--color-l-gray-130);
   --text-input-bg-active: color-mix(
-    in hsl,
+    in oklch,
     var(--background-modifier-form-field) 40%,
     var(--color-l-gray-10)
   );
@@ -1020,7 +1015,7 @@ body.is-mobile {
     0px 1px 6px 0px rgba(0, 0, 0, 0.07);
   --toggle-thumb-color: var(--color-l-gray-10);
   --toggle-bg: color-mix(
-    in hsl,
+    in oklch,
     var(--color-l-gray-60) 80%,
     var(--color-l-gray-70)
   );
@@ -1369,7 +1364,7 @@ body.is-mobile {
     transparent
   );
   --gutter-color: color-mix(
-    in hsl,
+    in oklch,
     var(--color-l-gray-60) 40%,
     var(--color-l-gray-70)
   );
@@ -1516,10 +1511,6 @@ body.is-mobile {
   --metadata-input-background-hover: transparent;
   --metadata-input-background-active: rgba(255, 255, 255, 0.45);
   --metadata-label-background-active: var(--metadata-input-background-active);
-  --metadata-input-shadow-hover: none;
-  --metadata-input-shadow-active:
-    inset 0px 0px 0px 1px var(--background-modifier-border),
-    0px 0px 0px 1px var(--background-modifier-border);
   --metadata-key-input-color: var(--color-l-gray-100);
   --metadata-key-input-color-active: var(--color-l-gray-120);
   --metadata-divider-color: var(--background-modifier-border);
@@ -1558,16 +1549,6 @@ body.is-mobile {
 .theme-light.is-mobile {
   --mobile-sidebar-background: var(--background-secondary);
   --nav-item-color: var(--text-muted);
-  --mobile-sidebar-left-shadow:
-    5px 0px 14px -0.6px rgba(0, 0, 0, 0.09),
-    10px 0px 20px -4.9px rgba(0, 0, 0, 0.02);
-  --mobile-sidebar-right-shadow:
-    -5px 0px 14px -0.6px rgba(0, 0, 0, 0.09),
-    -10px 0px 20px -4.9px rgba(0, 0, 0, 0.02);
-  --mobile-sidebar-tablet-shadow:
-    0px 2px 6px -0.3px rgba(0, 0, 0, 0.1),
-    0px 5px 14px -0.6px rgba(0, 0, 0, 0.09),
-    0px 10px 20px -4.9px rgba(0, 0, 0, 0.02);
   --mobile-toolbar-bg: color-mix(
     in srgb,
     var(--background-primary) 50%,
@@ -1594,7 +1575,7 @@ body.is-mobile {
   --canvas-icon-color-hover: var(--color-l-gray-120);
   --canvas-icon-color-disabled: var(--color-l-gray-60);
   --canvas-menu-bg: color-mix(
-    in hsl,
+    in oklch,
     var(--color-l-gray-10) 50%,
     var(--color-l-gray-20)
   );
@@ -1635,12 +1616,6 @@ body.is-mobile {
     inset 0px 0px 0px 1px rgba(0, 0, 0, 0.1),
     inset 0px -2px 0px 0px rgba(0, 0, 0, 0.05),
     0px 2px 3px 0px rgba(0, 0, 0, 0.09);
-  --style-settings-container-bg: color-mix(
-    in srgb,
-    var(--background-primary-alt) 50%,
-    transparent
-  );
-  --pcr-btn-shadow: inset 0px 0px 0px 1.5px rgba(0, 0, 0, 0.2);
 }
 
 /*────────────────────────────────────
@@ -1728,7 +1703,7 @@ body.is-mobile {
   );
   --interactive-normal: var(--color-d-gray-120);
   --interactive-hover: color-mix(
-    in hsl,
+    in oklch,
     var(--color-d-gray-100) 50%,
     var(--interactive-normal)
   );
@@ -1736,7 +1711,6 @@ body.is-mobile {
   --interactive-accent: var(--color-accent-1);
   --interactive-accent-hover: var(--color-accent-2);
   --color-gray-rgb: 166, 150, 142;
-  --color-gray: rgb(166, 150, 141);
   --color-red-rgb: 228, 87, 78;
   --color-red: rgb(192, 78, 78);
   --color-orange-rgb: 238, 163, 89;
@@ -1803,7 +1777,6 @@ body.is-mobile {
   --text-warning: var(--color-d-orange-30);
   --text-success: var(--color-d-green-30);
   --text-selection: var(--color-d-alpha-gray);
-  --text-highlight-bg-rgb: var(--color-yellow-rgb);
   --text-highlight-bg: var(--color-d-alpha-yellow);
   --text-accent: hsl(
     var(--accent-h),
@@ -1874,11 +1847,11 @@ body.is-mobile {
   --vault-profile-color: var(--vault-name-color);
   --vault-name-color: var(--color-d-gray-40);
   --vault-name-color-hover: var(--color-d-gray-30);
+  --vault-profile-color-hover: var(--vault-name-color-hover);
   --vault-name-background: var(--color-d-gray-110);
   --vault-name-border: 1px solid var(--background-modifier-border);
   --disabled-component-opacity: 0.3;
   --button-shadow: var(--input-shadow);
-  --button-shadow-hover: var(--input-shadow-hover);
   --button-shadow-active: var(--input-shadow-active);
   --button-shadow-focus:
     inset 0px 1px 0px 0px rgba(255, 255, 255, 0.05),
@@ -2090,7 +2063,7 @@ body.is-mobile {
     inset 0px 0px 0px 1px rgba(0, 0, 0, 0.14),
     0px 2px 6px 0px rgba(0, 0, 0, 0.12);
   --prompt-instructions-background: color-mix(
-    in hsl,
+    in oklch,
     var(--editor-bg-color) 60%,
     var(--background-secondary)
   );
@@ -2668,10 +2641,6 @@ body.is-mobile {
   --metadata-input-background-hover: transparent;
   --metadata-input-background-active: rgba(0, 0, 0, 0.2);
   --metadata-label-background-active: var(--metadata-input-background-active);
-  --metadata-input-shadow-hover: none;
-  --metadata-input-shadow-active:
-    inset 0px 0px 0px 1px var(--background-modifier-border),
-    0px 0px 0px 1px var(--background-modifier-border);
   --metadata-key-input-color: var(--color-d-gray-50);
   --metadata-key-input-color-active: var(--color-d-gray-30);
   --metadata-divider-color: var(--background-modifier-border);
@@ -2716,19 +2685,8 @@ body.is-mobile {
   --background-modifier-form-field: var(--color-d-gray-130);
   --background-modifier-cover: rgba(10, 10, 10, 0.4);
   --background-modifier-hover: rgba(0, 0, 0, 0.3);
-  --settings-home-background: var(--background-primary);
   --mobile-sidebar-background: var(--background-secondary);
   --nav-item-color: var(--text-muted);
-  --mobile-sidebar-left-shadow:
-    5px 0px 14px -0.6px rgba(0, 0, 0, 0.29),
-    10px 0px 20px -4.9px rgba(0, 0, 0, 0.22);
-  --mobile-sidebar-right-shadow:
-    -5px 0px 14px -0.6px rgba(0, 0, 0, 0.29),
-    -10px 0px 20px -4.9px rgba(0, 0, 0, 0.22);
-  --mobile-sidebar-tablet-shadow:
-    0px 2px 6px -0.3px rgba(0, 0, 0, 0.2),
-    0px 5px 14px -0.6px rgba(0, 0, 0, 0.19),
-    0px 10px 20px -4.9px rgba(0, 0, 0, 0.12);
   --mobile-toolbar-bg: color-mix(
     in srgb,
     var(--editor-bg-color) 50%,
@@ -2796,12 +2754,6 @@ body.is-mobile {
     inset 0px 0px 0px 1px rgba(0, 0, 0, 0.3),
     inset 0px -2px 0px 0px rgba(0, 0, 0, 0.25),
     0px 2px 3px 0px rgba(0, 0, 0, 0.29);
-  --style-settings-container-bg: color-mix(
-    in srgb,
-    var(--background-primary-alt) 50%,
-    transparent
-  );
-  --pcr-btn-shadow: inset 0px 0px 0px 1.5px rgba(255, 255, 255, 0.2);
 }
 
 /*────────────────────────────────────
@@ -2971,16 +2923,23 @@ body:not(.is-phone)
 .workspace-ribbon .side-dock-settings .clickable-icon:nth-child(3n + 3):active {
   color: var(--alternating-color-3-hover-active);
 }
-.workspace-ribbon.mod-left:before {
+/* Obsidian 1.14 names the ribbon by its logical side (.mod-primary) and no
+longer adds .mod-left; 1.13 only has .mod-left. Logical properties keep the
+open edge against the window when the workspace is flipped for RTL. */
+.workspace-ribbon:is(.mod-left, .mod-primary):before {
   border-bottom: none;
 }
-.workspace-ribbon.mod-left {
+.workspace-ribbon:is(.mod-left, .mod-primary) {
   border: var(--ribbon-border-width) solid var(--divider-color);
-  border-left: none;
-  border-radius: 0px var(--ribbon-radius) var(--ribbon-radius) 0px;
+  border-inline-start: none;
+  border-start-start-radius: 0px;
+  border-end-start-radius: 0px;
+  border-start-end-radius: var(--ribbon-radius);
+  border-end-end-radius: var(--ribbon-radius);
   margin-bottom: var(--ribbon-margin-bottom);
 }
-body.ribbon-slideout:not(.is-mobile) .workspace-ribbon.mod-left:before {
+body.ribbon-slideout:not(.is-mobile)
+  .workspace-ribbon:is(.mod-left, .mod-primary):before {
   visibility: hidden;
 }
 body.ribbon-slideout:not(.is-mobile) .workspace-ribbon.workspace-ribbon {
@@ -2988,25 +2947,32 @@ body.ribbon-slideout:not(.is-mobile) .workspace-ribbon.workspace-ribbon {
   --titlebar-background-focused: var(--ribbon-background);
   --ribbon-background-collapsed: var(--ribbon-background);
   position: absolute;
-  left: calc(-1 * var(--ribbon-width) / 4);
+  inset-inline-start: calc(-1 * var(--ribbon-width) / 4);
   opacity: 0;
   transition: var(--anim-motion-jumpy) var(--anim-duration-moderate);
   box-shadow: var(--ribbon-slideout-shadow);
 }
 body.ribbon-slideout:not(.is-mobile) .workspace-ribbon.workspace-ribbon:hover {
-  left: 0px;
+  inset-inline-start: 0px;
   opacity: 1;
   transition: var(--anim-motion-jumpy) var(--anim-duration-moderate);
 }
-body.ribbon-slideout:not(.is-mobile) .sidebar-toggle-button.mod-left {
+/* 1.14 gives the toggle both a logical and a physical class, and in RTL the
+secondary toggle is the one on the left. */
+body.ribbon-slideout:not(.is-mobile)
+  .sidebar-toggle-button:is(.mod-primary, .mod-left:not(.mod-secondary)) {
   background: var(--ribbon-background);
   --tab-container-background: var(--ribbon-background);
+  --sidebar-tab-container-background: var(--ribbon-background);
 }
 body.ribbon-slideout:not(.is-mobile).is-hidden-frameless:not(.is-fullscreen)
   .workspace-tabs.mod-top-left-space
   .workspace-tab-header-container {
+  /* Physical left, like Obsidian's own .mod-top-left-space rule. 1.14 moves
+  the ribbon to the right in RTL and reports that in --frame-ribbon-left. */
   padding-left: calc(
-    var(--size-4-2) + var(--frame-left-space) + var(--ribbon-width)
+    var(--size-4-2) + var(--frame-left-space) +
+      var(--frame-ribbon-left, var(--ribbon-width))
   );
 }
 body.ribbon-slideout:not(.is-mobile):not(.is-hidden-frameless.is-frameless)
@@ -3018,7 +2984,7 @@ body.ribbon-slideout:not(.is-mobile):not(.is-hidden-frameless.is-frameless)
 }
 .nav-buttons-container {
   gap: var(--size-4-1);
-  justify-content: left;
+  justify-content: flex-start;
   padding-inline-start: var(--size-2-3);
   margin-top: var(--size-4-1);
   margin-bottom: var(--size-4-1);
@@ -3036,6 +3002,11 @@ body:not(.is-mobile)
   border-radius: var(--radius-m);
   margin: 0px var(--size-4-2) var(--editor-pane-margin);
   color: var(--vault-name-color);
+}
+body:not(.is-mobile)
+  .workspace-split
+  .workspace-sidedock-vault-profile.workspace-sidedock-vault-profile:hover {
+  color: var(--vault-profile-color-hover);
 }
 .status-bar-item {
   color: var(--status-bar-item-color);
@@ -3065,7 +3036,7 @@ body:not(.is-mobile)
   color: var(--sync-icon-working);
 }
 .status-bar-item.plugin-sync .mod-working:hover {
-  color: var(--sync-icon-working-active);
+  color: var(--sync-icon-working-hover);
 }
 .status-bar-item.plugin-sync .mod-working:active {
   color: var(--sync-icon-working-active);
@@ -3097,7 +3068,7 @@ body.sb-style-slideupfull .status-bar:hover .status-bar-item {
 body.sb-style-slideout .status-bar {
   --status-bar-position: absolute;
   --status-bar-background: var(--status-bar-floating-bg);
-  right: -40px;
+  inset-inline-end: -40px;
   bottom: var(--size-2-3);
   --status-bar-border-width: 1px;
   --status-bar-radius: var(--radius-m) 0 0 var(--radius-m);
@@ -3106,7 +3077,7 @@ body.sb-style-slideout .status-bar {
   transition: var(--anim-motion-jumpy) var(--anim-duration-slow);
 }
 body.sb-style-slideout .status-bar:hover {
-  right: 0;
+  inset-inline-end: 0;
   bottom: var(--size-2-3);
   opacity: 1;
   transition: var(--anim-motion-jumpy) var(--anim-duration-slow);
@@ -3114,7 +3085,7 @@ body.sb-style-slideout .status-bar:hover {
 body.sb-style-slideout.sb-sync-only .status-bar {
   --status-bar-position: absolute;
   --status-bar-background: var(--status-bar-floating-bg);
-  right: -12px;
+  inset-inline-end: -12px;
   bottom: var(--size-2-3);
   --status-bar-border-width: 1px;
   --status-bar-radius: var(--radius-m) 0 0 var(--radius-m);
@@ -3122,8 +3093,14 @@ body.sb-style-slideout.sb-sync-only .status-bar {
   opacity: 0;
   transition: var(--anim-motion-jumpy) var(--anim-duration-slow);
 }
+/* The slide-out bar hangs off the inline-end edge, so its rounded side
+flips with the workspace in a right-to-left interface. */
+body.mod-rtl:is(.sb-style-slideout, .sb-style-slideout.sb-sync-only)
+  .status-bar {
+  --status-bar-radius: 0 var(--radius-m) var(--radius-m) 0;
+}
 body.sb-style-slideout.sb-sync-only .status-bar:hover {
-  right: 0;
+  inset-inline-end: 0;
   bottom: var(--size-2-3);
   opacity: 1;
   transition: var(--anim-motion-jumpy) var(--anim-duration-slow);
@@ -3131,7 +3108,7 @@ body.sb-style-slideout.sb-sync-only .status-bar:hover {
 body.sb-style-floating .status-bar {
   --status-bar-position: absolute;
   --status-bar-background: var(--status-bar-floating-bg);
-  right: var(--status-bar-floating-offset);
+  inset-inline-end: var(--status-bar-floating-offset);
   bottom: var(--status-bar-floating-offset);
   --status-bar-border-width: 1px;
   --status-bar-radius: calc(var(--radius-m) - 2px);
@@ -3150,7 +3127,7 @@ body.sb-word-count-only .status-bar-item:not(.plugin-word-count) {
   display: none;
 }
 .workspace,
-.workspace-ribbon.mod-left.is-collapsed,
+.workspace-ribbon:is(.mod-left, .mod-primary).is-collapsed,
 .mod-root.workspace-split,
 .mod-root .workspace-tabs .workspace-leaf,
 .workspace-tab-container,
@@ -3677,7 +3654,7 @@ body:not(.is-grabbing) .tree-item-self.is-clickable:hover .tree-item-flair {
 .notice,
 .is-phone .notice {
   color: var(--notice-color);
-  border-radius: var(--radius-l);
+  border-radius: var(--notice-radius);
   box-shadow: var(--notice-shadow);
 }
 .markdown-rendered progress,
@@ -3696,8 +3673,8 @@ body:not(.is-grabbing) .tree-item-self.is-clickable:hover .tree-item-flair {
 .markdown-rendered progress[value]::-webkit-progress-value,
 .markdown-source-view.is-live-preview progress[value]::-webkit-progress-value,
 .markdown-preview-view progress[value]::-webkit-progress-value {
-  border-top-right-radius: var(--progress-value-radius);
-  border-bottom-right-radius: var(--progress-value-radius);
+  border-start-end-radius: var(--progress-value-radius);
+  border-end-end-radius: var(--progress-value-radius);
   box-shadow: inset 0px 0px 0px var(--progress-border-width)
     var(--progress-value-outline);
 }
@@ -4425,8 +4402,8 @@ body:not(.is-phone) .mod-root .workspace-tab-header-container-inner {
   .workspace-tabs.mod-stacked
   .workspace-tab-container
   .workspace-tab-header:first-child {
-  border-top-left-radius: var(--editor-border-radius);
-  border-bottom-left-radius: var(--editor-border-radius);
+  border-start-start-radius: var(--editor-border-radius);
+  border-end-start-radius: var(--editor-border-radius);
 }
 .mod-root .workspace-tabs.mod-stacked .workspace-leaf-content {
   border: unset;
@@ -4868,8 +4845,8 @@ input[type="number"]:focus-visible {
   box-shadow: var(--toggle-thumb-shadow);
 }
 .tooltip {
-  color: var(--notice-color);
-  border-radius: var(--radius-m);
+  color: var(--tooltip-color);
+  border-radius: var(--tooltip-radius);
   box-shadow: var(--tooltip-shadow);
 }
 ::selection {
@@ -6630,10 +6607,18 @@ body.embed-hide-title .embed-title {
   .workspace-leaf-content .empty-state-container {
     max-width: 100%;
   }
+  /* A wide pane lays the actions out as one row docked at the bottom.
+  Obsidian 1.14 stacks them in a column of full-width pills, so the
+  direction and the pill width are set here rather than inherited. */
   .workspace-leaf-content .empty-state-action-list {
     margin-top: 0;
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
+  }
+  .workspace-leaf-content .empty-state-action-list > .empty-state-action {
+    width: auto;
   }
   .workspace-leaf-content .empty-state-action:hover {
     transform: translateY(-4px);
@@ -6645,7 +6630,7 @@ body.embed-hide-title .embed-title {
 .mod-root .empty-state-title {
   display: none;
 }
-.empty-state-title body.is-mobile {
+body.is-mobile .empty-state-title {
   display: none;
 }
 body.is-mobile .empty-state-action {
@@ -6888,27 +6873,39 @@ body em strong {
   color: var(--bold-italic-color);
   font-weight: var(--bold-italic-weight);
 }
-body .cm-highlight,
-body .markdown-rendered mark {
+/* Only plain ==highlights== get the per-emphasis colours. Obsidian 1.14 lets
+a highlight pick its own colour (mark[data-highlight="red"] etc. in reading
+view, .cm-highlight-<color> in the editor); those keep Obsidian's
+--highlight-background-<color> so the chosen colour is not repainted.
+A plain highlight is rendered as mark[data-highlight=""] in 1.14 and as a
+bare <mark> in 1.13, so both forms count as plain. */
+body .cm-highlight:not([class*="cm-highlight-"]),
+body .markdown-rendered mark:is(:not([data-highlight]), [data-highlight=""]) {
   color: var(--normal-highlight-color);
   background-color: var(--normal-highlight-bg);
 }
-body .cm-highlight.cm-strong,
-body .markdown-rendered strong mark {
+body .cm-highlight.cm-strong:not([class*="cm-highlight-"]),
+body .markdown-rendered strong mark:is(:not([data-highlight]), [data-highlight=""]) {
   color: var(--bold-highlight-color);
   background-color: var(--bold-highlight-bg);
 }
-body .cm-highlight.cm-em,
-body .markdown-rendered em mark {
+body .cm-highlight.cm-em:not([class*="cm-highlight-"]),
+body .markdown-rendered em mark:is(:not([data-highlight]), [data-highlight=""]) {
   color: var(--italic-highlight-color);
   background-color: var(--italic-highlight-bg);
 }
-body .cm-highlight.cm-em.cm-strong,
-body .markdown-rendered em > mark > strong,
-body .markdown-rendered strong > mark > em,
-body .markdown-rendered strong > em > mark {
+body .cm-highlight.cm-em.cm-strong:not([class*="cm-highlight-"]),
+body .markdown-rendered em > mark:is(:not([data-highlight]), [data-highlight=""]) > strong,
+body .markdown-rendered strong > mark:is(:not([data-highlight]), [data-highlight=""]) > em,
+body .markdown-rendered strong > em > mark:is(:not([data-highlight]), [data-highlight=""]) {
   color: var(--bold-italic-highlight-color);
   background-color: var(--bold-italic-highlight-bg);
+}
+body .cm-highlight.cm-strikethrough:not([class*="cm-highlight-"]),
+body .markdown-rendered del mark:is(:not([data-highlight]), [data-highlight=""]),
+body .markdown-rendered mark:is(:not([data-highlight]), [data-highlight=""]) del {
+  color: var(--strikethrough-highlight-color);
+  background-color: var(--strikethrough-highlight-bg);
 }
 body span.cm-quote.cm-strong {
   color: var(--bold-color);
@@ -7492,6 +7489,13 @@ body {
   --bases-cards-cover-background: var(--background-secondary);
   --bases-cards-shadow: var(--community-item-shadow);
   --bases-cards-shadow-hover: var(--community-item-shadow-hover);
+  /* Kanban layout (Obsidian 1.14): cards match the cards layout above. */
+  --bases-kanban-card-background: var(--bases-cards-background);
+  --bases-kanban-card-radius: var(--bases-cards-radius);
+  --bases-kanban-card-shadow: var(--bases-cards-shadow);
+  --bases-kanban-card-shadow-hover: var(--bases-cards-shadow-hover);
+  --bases-kanban-cover-background: var(--bases-cards-cover-background);
+  --bases-kanban-column-radius: var(--radius-l);
   --bases-group-heading-value-color: var(--text-normal);
   --bases-group-heading-value-weight: var(--font-semibold);
   --bases-group-heading-property-color: var(--text-muted);
@@ -8253,6 +8257,26 @@ body.alt-folder-icons
   outline-offset: 2px;
 }
 
+/* Obsidian 1.14 draws its own controls with --corner-shape (a squircle on
+macOS, a plain arc elsewhere). The surfaces this theme rounds itself follow
+the same shape so they do not look softer than the native ones beside them.
+Builds without corner-shape support ignore the property. */
+body:not(.is-phone) .mod-root .workspace-leaf,
+body:not(.is-phone) .mod-root .workspace-leaf-content,
+.mod-root .workspace-tabs.mod-stacked .workspace-tab-container,
+.workspace-ribbon:is(.mod-left, .mod-primary),
+.workspace-sidedock-vault-profile,
+.callout,
+.callout-title,
+.status-bar,
+.mobile-toolbar,
+.pull-down-action,
+.is-mobile .modal,
+kbd,
+span.setting-hotkey {
+  corner-shape: var(--corner-shape);
+}
+
 /*────────────────────────────────────
 
   6. STYLE SETTINGS CLASS OVERRIDES
@@ -8331,7 +8355,6 @@ body.accent-palette_cool.theme-dark {
   --checkbox-color-hover: hsl(205, 55%, 50%);
 }
 body.layout-density_compact {
-  --nav-item-height: 22px;
   --nav-item-padding: var(--size-2-2) var(--size-4-2);
   --line-height-normal: 1.4;
   --line-height-tight: 1.2;
@@ -8460,7 +8483,7 @@ vault-wide toggles.
 a blank line between images starts a new row (= a new paragraph). */
 .img-grid .image-embed.is-loaded {
   line-height: 0;
-  display: flex;
+  display: inline-flex;
   align-items: stretch;
 }
 .img-grid .markdown-preview-section > div:has(img) p:empty,
@@ -8496,6 +8519,8 @@ a blank line between images starts a new row (= a new paragraph). */
 }
 
 /* Block widths: whole-note (wide/max) and per-block (table/img/iframe).
+The img variants skip the inline highlight colour swatch (Obsidian 1.14) and
+images the note sized explicitly with ![[image|300]].
 Scoped to .markdown-preview-view (not .markdown-reading-view - cssclasses
 land on the mode-root element, same as .cards/.list-cards above) and
 extended to Live Preview (.is-live-preview) to match this theme's own
@@ -8521,7 +8546,7 @@ already-unconstrained note. */
     .markdown-rendered.is-readable-line-width.img-wide,
     .markdown-source-view.mod-cm6.is-live-preview.is-readable-line-width.img-wide
   )
-  img,
+  img:not(.highlight-swatch, [width]),
 :is(
     .markdown-rendered.is-readable-line-width.iframe-wide,
     .markdown-source-view.mod-cm6.is-live-preview.is-readable-line-width.iframe-wide
@@ -8553,7 +8578,7 @@ on as well - no per-class opt-in rule is needed here. */
     .markdown-rendered.img-max,
     .markdown-source-view.mod-cm6.is-live-preview.img-max
   )
-  img,
+  img:not(.highlight-swatch, [width]),
 :is(
     .markdown-rendered.iframe-max,
     .markdown-source-view.mod-cm6.is-live-preview.iframe-max
@@ -8572,7 +8597,7 @@ on as well - no per-class opt-in rule is needed here. */
     .markdown-rendered.img-100,
     .markdown-source-view.mod-cm6.is-live-preview.img-100
   )
-  img,
+  img:not(.highlight-swatch, [width]),
 :is(
     .markdown-rendered.iframe-100,
     .markdown-source-view.mod-cm6.is-live-preview.iframe-100

@@ -9,11 +9,11 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
-          node-version: 22
+          node-version: 24
 
       # scripts/obsidian-api.json is a local artifact produced from an
       # installed Obsidian, so the checks that compare against the app's own
@@ -26,14 +26,5 @@ jobs:
         run: |
           test -f theme.css
           test -f manifest.json
+          test -f versions.json
           test -f screenshot.png
-
-      - name: manifest.json version matches the release tag
-        if: startsWith(github.ref, 'refs/tags/')
-        run: |
-          tag="${GITHUB_REF#refs/tags/}"
-          version=$(node -p "require('./manifest.json').version")
-          if [ "$tag" != "$version" ]; then
-            echo "tag $tag does not match manifest version $version" >&2
-            exit 1
-          fi

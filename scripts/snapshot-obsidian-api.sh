@@ -8,10 +8,19 @@
 # recognises. It cannot run in CI: it reads the locally installed app.
 #
 #   ./scripts/snapshot-obsidian-api.sh [/path/to/obsidian.asar]
+#
+# Without an argument it reads the build Obsidian actually runs. The in-app
+# updater (including Catalyst/insider builds) downloads newer versions to
+# ~/Library/Application Support/obsidian/obsidian-<version>.asar and loads
+# the newest one found there in preference to the asar bundled in the app,
+# which stays at whatever version the installer shipped.
 
 set -euo pipefail
 
-ASAR="${1:-/Applications/Obsidian.app/Contents/Resources/obsidian.asar}"
+BUNDLED=/Applications/Obsidian.app/Contents/Resources/obsidian.asar
+UPDATED="$(ls "$HOME/Library/Application Support/obsidian"/obsidian-*.asar 2>/dev/null \
+  | sort -V | tail -n 1 || true)"
+ASAR="${1:-${UPDATED:-$BUNDLED}}"
 OUT="$(cd "$(dirname "$0")" && pwd)/obsidian-api.json"
 
 if [ ! -f "$ASAR" ]; then
@@ -22,7 +31,9 @@ fi
 
 VERSION=unknown
 INFO="$(dirname "$(dirname "$ASAR")")/Info.plist"
-if [ -f "$INFO" ] && command -v /usr/libexec/PlistBuddy >/dev/null 2>&1; then
+if [[ "$(basename "$ASAR")" =~ ^obsidian-([0-9][0-9.]*[0-9])\.asar$ ]]; then
+  VERSION="${BASH_REMATCH[1]}"
+elif [ -f "$INFO" ] && command -v /usr/libexec/PlistBuddy >/dev/null 2>&1; then
   VERSION="$(/usr/libexec/PlistBuddy -c 'Print :CFBundleShortVersionString' "$INFO" 2>/dev/null || echo unknown)"
 fi
 
@@ -38,6 +49,16 @@ strings "$ASAR" | grep -o -- '--[a-z][a-z0-9-]\{2,\}' | sort -u > "$OUT.vars.tmp
   strings "$ASAR" | grep -o '\.[a-z][a-zA-Z0-9_-]\{2,\}' | sed 's/^\.//' \
     | grep -E '^[a-z][a-z0-9_-]*$'
   strings "$ASAR" | grep -oE '\b[a-z][a-z0-9]*(-[a-z0-9]+)+\b'
+  # Since 1.14 the sidebars are named from templates such as
+  # "mod-{side}-split", filled in at runtime with both the logical side
+  # (primary/secondary) and the physical one (left/right).
+  # Builds before 1.14 have no templates, so an empty grep is not an error.
+  { strings "$ASAR" | grep -oE '[a-z][a-z-]*\{side\}[a-z-]*' || true; } | sort -u \
+    | while read -r template; do
+        for side in left right primary secondary; do
+          echo "${template//\{side\}/$side}"
+        done
+      done
 } | sort -u > "$OUT.cls.tmp"
 
 python3 - "$OUT" "$VERSION" <<'PY'
