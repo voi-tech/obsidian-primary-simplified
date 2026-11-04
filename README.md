@@ -79,6 +79,31 @@ The theme includes:
   (image grids, block widths, embeds, table variants, cards/list-cards) — a
   feature the original Primary doesn't offer.
 
+- **One palette file as the single source of colour.** Every colour in
+  `theme.css` (callouts, links, accents, task icons, alpha tints) is a step of
+  `tokens/palette.tokens.json` (W3C Design Tokens format): 9 hues × 14 steps,
+  light and dark. Steps share their OKLCH lightness with the gray of the same
+  number, so step 110 is readable text in every hue, step 60 a line, step 30 a
+  tint. The original scales had 4 steps per hue, too few for text-safe
+  yellows and greens, which is why hand-picked colours kept creeping in.
+  Projects that follow the theme (the nietech brand, site and apps) copy the
+  same file instead of keeping their own colours.
+
+## Palette workflow
+
+Edit colours only in `tokens/palette.tokens.json`, then:
+
+```sh
+node scripts/palette.mjs check          # every scale complete, lightness and WCAG contrast rules
+node scripts/build-palette.mjs          # rewrites the generated block in theme.css
+node scripts/build-palette.mjs --check  # CI: block current, no colour literal outside it
+node scripts/palette.mjs sheet out.html # preview sheet of all scales with contrast
+```
+
+Outside the generated block a colour may only be `var(--color-l|d-<hue>-<step>)`
+or a `color-mix()` of it. Allowed exceptions: black/white with alpha in
+shadows and bevels, and the user's own accent under *Accent palette > Custom*.
+
 Net effect: a smaller, easier-to-maintain theme (`theme.css` dropped from
 roughly 1.7&nbsp;MB to about 325&nbsp;KB) that keeps Primary's recognizable
 palette and visual language.

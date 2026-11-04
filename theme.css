@@ -499,53 +499,309 @@ body.is-mobile {
 
 ────────────────────────────────────*/
 
+/* @generated palette: node scripts/build-palette.mjs (source: tokens/palette.tokens.json), do not edit by hand */
+body {
+  --color-l-gray-10: #FCFAF8;
+  --color-l-gray-20: #F8F5F1;
+  --color-l-gray-30: #F2ECE3;
+  --color-l-gray-40: #EEE7DD;
+  --color-l-gray-50: #EBE3D6;
+  --color-l-gray-60: #E4D7C3;
+  --color-l-gray-70: #CFB696;
+  --color-l-gray-80: #B79D7B;
+  --color-l-gray-90: #9D8062;
+  --color-l-gray-100: #836B49;
+  --color-l-gray-110: #7B6242;
+  --color-l-gray-120: #655134;
+  --color-l-gray-130: #593E22;
+  --color-l-gray-140: #432E14;
+  --color-l-red-10: #FFF9F8;
+  --color-l-red-20: #FFF3F0;
+  --color-l-red-30: #FFE7E2;
+  --color-l-red-40: #FFE0DA;
+  --color-l-red-50: #FFDAD3;
+  --color-l-red-60: #FFCBC2;
+  --color-l-red-70: #FF9A96;
+  --color-l-red-80: #F77271;
+  --color-l-red-90: #E24752;
+  --color-l-red-100: #BC3D34;
+  --color-l-red-110: #B1352B;
+  --color-l-red-120: #992119;
+  --color-l-red-130: #7F140E;
+  --color-l-red-140: #640503;
+  --color-l-orange-10: #FFF9F6;
+  --color-l-orange-20: #FFF3EC;
+  --color-l-orange-30: #FFE8D9;
+  --color-l-orange-40: #FFE1CF;
+  --color-l-orange-50: #FFDCC6;
+  --color-l-orange-60: #FFCDAF;
+  --color-l-orange-70: #FF9F6B;
+  --color-l-orange-80: #E98247;
+  --color-l-orange-90: #D65B27;
+  --color-l-orange-100: #BA4210;
+  --color-l-orange-110: #B03805;
+  --color-l-orange-120: #942C00;
+  --color-l-orange-130: #792200;
+  --color-l-orange-140: #5C1800;
+  --color-l-yellow-10: #FFFAF2;
+  --color-l-yellow-20: #FDF5E6;
+  --color-l-yellow-30: #FAEBCF;
+  --color-l-yellow-40: #F8E6C4;
+  --color-l-yellow-50: #F7E1B8;
+  --color-l-yellow-60: #F2D69C;
+  --color-l-yellow-70: #E7B131;
+  --color-l-yellow-80: #D39417;
+  --color-l-yellow-90: #B47800;
+  --color-l-yellow-100: #966300;
+  --color-l-yellow-110: #8B5C00;
+  --color-l-yellow-120: #734C00;
+  --color-l-yellow-130: #5E3D00;
+  --color-l-yellow-140: #462C00;
+  --color-l-green-10: #F8FDF3;
+  --color-l-green-20: #F1F9EA;
+  --color-l-green-30: #E4F3D5;
+  --color-l-green-40: #DCF0CC;
+  --color-l-green-50: #D5EDC2;
+  --color-l-green-60: #C3E6AA;
+  --color-l-green-70: #84D26F;
+  --color-l-green-80: #45BD68;
+  --color-l-green-90: #359C66;
+  --color-l-green-100: #228355;
+  --color-l-green-110: #19794E;
+  --color-l-green-120: #00663E;
+  --color-l-green-130: #005231;
+  --color-l-green-140: #003D24;
+  --color-l-cyan-10: #F7FCF8;
+  --color-l-cyan-20: #F0F8F2;
+  --color-l-cyan-30: #E1F2E6;
+  --color-l-cyan-40: #D9EEE1;
+  --color-l-cyan-50: #D1ECDB;
+  --color-l-cyan-60: #BEE4CE;
+  --color-l-cyan-70: #75CEB7;
+  --color-l-cyan-80: #2CB9A5;
+  --color-l-cyan-90: #009C8A;
+  --color-l-cyan-100: #008172;
+  --color-l-cyan-110: #00786A;
+  --color-l-cyan-120: #006357;
+  --color-l-cyan-130: #005046;
+  --color-l-cyan-140: #003C34;
+  --color-l-blue-10: #F7FBFE;
+  --color-l-blue-20: #F0F7FC;
+  --color-l-blue-30: #E1EFF9;
+  --color-l-blue-40: #D8EBF8;
+  --color-l-blue-50: #D0E8F8;
+  --color-l-blue-60: #BDDFF5;
+  --color-l-blue-70: #77C3FD;
+  --color-l-blue-80: #37AAF8;
+  --color-l-blue-90: #298FCA;
+  --color-l-blue-100: #2377A3;
+  --color-l-blue-110: #206F97;
+  --color-l-blue-120: #135A86;
+  --color-l-blue-130: #084774;
+  --color-l-blue-140: #00355A;
+  --color-l-purple-10: #FEF9FD;
+  --color-l-purple-20: #FCF3FA;
+  --color-l-purple-30: #F8E7F6;
+  --color-l-purple-40: #F6E0F4;
+  --color-l-purple-50: #F4DBF3;
+  --color-l-purple-60: #EECDEF;
+  --color-l-purple-70: #D8A4E9;
+  --color-l-purple-80: #BF8BCE;
+  --color-l-purple-90: #9E70BA;
+  --color-l-purple-100: #8658A5;
+  --color-l-purple-110: #7D4F9E;
+  --color-l-purple-120: #683B91;
+  --color-l-purple-130: #522788;
+  --color-l-purple-140: #3C1176;
+  --color-l-pink-10: #FEF9FA;
+  --color-l-pink-20: #FDF3F4;
+  --color-l-pink-30: #FAE8EA;
+  --color-l-pink-40: #F7E1E6;
+  --color-l-pink-50: #F6DCE2;
+  --color-l-pink-60: #F1CFD7;
+  --color-l-pink-70: #E1A4D1;
+  --color-l-pink-80: #C78BB6;
+  --color-l-pink-90: #AC7099;
+  --color-l-pink-100: #945880;
+  --color-l-pink-110: #8B5077;
+  --color-l-pink-120: #763F65;
+  --color-l-pink-130: #613152;
+  --color-l-pink-140: #4B223E;
+  --color-d-gray-10: #EBDAC6;
+  --color-d-gray-20: #D7C0A3;
+  --color-d-gray-30: #C7B194;
+  --color-d-gray-40: #AB916D;
+  --color-d-gray-50: #917959;
+  --color-d-gray-60: #6B563D;
+  --color-d-gray-70: #51402F;
+  --color-d-gray-80: #3B3026;
+  --color-d-gray-90: #342C23;
+  --color-d-gray-100: #2E261F;
+  --color-d-gray-110: #2A241E;
+  --color-d-gray-120: #26211C;
+  --color-d-gray-130: #211B17;
+  --color-d-gray-140: #1C1712;
+  --color-d-red-10: #FFD1C5;
+  --color-d-red-20: #FFAB9C;
+  --color-d-red-30: #FF9182;
+  --color-d-red-40: #F55B50;
+  --color-d-red-50: #E02F29;
+  --color-d-red-60: #AA0E06;
+  --color-d-red-70: #772311;
+  --color-d-red-80: #512216;
+  --color-d-red-90: #482115;
+  --color-d-red-100: #3E1D14;
+  --color-d-red-110: #381C14;
+  --color-d-red-120: #341A13;
+  --color-d-red-130: #2C150F;
+  --color-d-red-140: #26120B;
+  --color-d-orange-10: #FFD3B8;
+  --color-d-orange-20: #FFAE81;
+  --color-d-orange-30: #FF955B;
+  --color-d-orange-40: #E1732F;
+  --color-d-orange-50: #CB5315;
+  --color-d-orange-60: #973700;
+  --color-d-orange-70: #6F2D04;
+  --color-d-orange-80: #4D2612;
+  --color-d-orange-90: #442412;
+  --color-d-orange-100: #3B2012;
+  --color-d-orange-110: #361E12;
+  --color-d-orange-120: #311C11;
+  --color-d-orange-130: #2A170E;
+  --color-d-orange-140: #24130A;
+  --color-d-yellow-10: #F9D8A3;
+  --color-d-yellow-20: #EBBC65;
+  --color-d-yellow-30: #E5A91F;
+  --color-d-yellow-40: #C5881A;
+  --color-d-yellow-50: #A97000;
+  --color-d-yellow-60: #7B5100;
+  --color-d-yellow-70: #5E3C00;
+  --color-d-yellow-80: #452C0A;
+  --color-d-yellow-90: #3D290C;
+  --color-d-yellow-100: #35240E;
+  --color-d-yellow-110: #31220E;
+  --color-d-yellow-120: #2D1F0E;
+  --color-d-yellow-130: #261A0C;
+  --color-d-yellow-140: #211608;
+  --color-d-green-10: #CCE6C3;
+  --color-d-green-20: #98D5A5;
+  --color-d-green-30: #79C996;
+  --color-d-green-40: #58AA77;
+  --color-d-green-50: #1F9462;
+  --color-d-green-60: #126C3C;
+  --color-d-green-70: #2D4D2A;
+  --color-d-green-80: #2B3721;
+  --color-d-green-90: #26321F;
+  --color-d-green-100: #232B1B;
+  --color-d-green-110: #20281A;
+  --color-d-green-120: #1E2519;
+  --color-d-green-130: #1A1E14;
+  --color-d-green-140: #161A10;
+  --color-d-cyan-10: #C8E6D1;
+  --color-d-cyan-20: #8FD5BC;
+  --color-d-cyan-30: #45CDB8;
+  --color-d-cyan-40: #0AAE9A;
+  --color-d-cyan-50: #009281;
+  --color-d-cyan-60: #006A59;
+  --color-d-cyan-70: #254D3B;
+  --color-d-cyan-80: #27372A;
+  --color-d-cyan-90: #243226;
+  --color-d-cyan-100: #212B21;
+  --color-d-cyan-110: #1F281F;
+  --color-d-cyan-120: #1C251D;
+  --color-d-cyan-130: #191E18;
+  --color-d-cyan-140: #141A13;
+  --color-d-blue-10: #CCE2E2;
+  --color-d-blue-20: #98CFDB;
+  --color-d-blue-30: #7BC1D4;
+  --color-d-blue-40: #46A3C4;
+  --color-d-blue-50: #3D87A9;
+  --color-d-blue-60: #2C617B;
+  --color-d-blue-70: #304852;
+  --color-d-blue-80: #2C3437;
+  --color-d-blue-90: #272F31;
+  --color-d-blue-100: #24292A;
+  --color-d-blue-110: #212627;
+  --color-d-blue-120: #1F2324;
+  --color-d-blue-130: #1B1D1E;
+  --color-d-blue-140: #161919;
+  --color-d-purple-10: #DDD8FB;
+  --color-d-purple-20: #BDBCFF;
+  --color-d-purple-30: #A9AAFF;
+  --color-d-purple-40: #8B8AE6;
+  --color-d-purple-50: #7370CD;
+  --color-d-purple-60: #4649B7;
+  --color-d-purple-70: #3E3E68;
+  --color-d-purple-80: #322F43;
+  --color-d-purple-90: #2D2C3B;
+  --color-d-purple-100: #282632;
+  --color-d-purple-110: #25232E;
+  --color-d-purple-120: #22212B;
+  --color-d-purple-130: #1D1B23;
+  --color-d-purple-140: #18171E;
+  --color-d-pink-10: #F5D3D9;
+  --color-d-pink-20: #EAAEDB;
+  --color-d-pink-30: #DB9ECA;
+  --color-d-pink-40: #BC7FA9;
+  --color-d-pink-50: #A3678F;
+  --color-d-pink-60: #7A4764;
+  --color-d-pink-70: #5B3842;
+  --color-d-pink-80: #412B2E;
+  --color-d-pink-90: #3A2829;
+  --color-d-pink-100: #322324;
+  --color-d-pink-110: #2E2122;
+  --color-d-pink-120: #2B1E1F;
+  --color-d-pink-130: #25191A;
+  --color-d-pink-140: #1F1515;
+}
+.theme-light {
+  --color-gray-rgb: 207, 182, 150;
+  --color-red: var(--color-l-red-90);
+  --color-red-rgb: 226, 71, 82;
+  --color-orange: var(--color-l-orange-90);
+  --color-orange-rgb: 214, 91, 39;
+  --color-yellow: var(--color-l-yellow-90);
+  --color-yellow-rgb: 180, 120, 0;
+  --color-green: var(--color-l-green-90);
+  --color-green-rgb: 53, 156, 102;
+  --color-cyan: var(--color-l-cyan-90);
+  --color-cyan-rgb: 0, 156, 138;
+  --color-blue: var(--color-l-blue-90);
+  --color-blue-rgb: 41, 143, 202;
+  --color-purple: var(--color-l-purple-90);
+  --color-purple-rgb: 158, 112, 186;
+  --color-pink: var(--color-l-pink-90);
+  --color-pink-rgb: 172, 112, 153;
+}
+.theme-dark {
+  --color-gray-rgb: 171, 145, 109;
+  --color-red: var(--color-d-red-40);
+  --color-red-rgb: 245, 91, 80;
+  --color-orange: var(--color-d-orange-40);
+  --color-orange-rgb: 225, 115, 47;
+  --color-yellow: var(--color-d-yellow-40);
+  --color-yellow-rgb: 197, 136, 26;
+  --color-green: var(--color-d-green-40);
+  --color-green-rgb: 88, 170, 119;
+  --color-cyan: var(--color-d-cyan-40);
+  --color-cyan-rgb: 10, 174, 154;
+  --color-blue: var(--color-d-blue-40);
+  --color-blue-rgb: 70, 163, 196;
+  --color-purple: var(--color-d-purple-40);
+  --color-purple-rgb: 139, 138, 230;
+  --color-pink: var(--color-d-pink-40);
+  --color-pink-rgb: 188, 127, 169;
+}
+/* @end palette */
 .theme-light {
   color-scheme: light;
-  --color-l-gray-10: hsla(36, 38%, 98%, 1);
-  --color-l-gray-20: hsla(35, 36%, 96%, 1);
-  --color-l-gray-30: hsla(35, 37%, 92%, 1);
-  --color-l-gray-40: hsla(34, 34%, 90%, 1);
-  --color-l-gray-50: hsla(36, 35%, 88%, 1);
-  --color-l-gray-60: hsla(37, 38%, 83%, 1);
-  --color-l-gray-70: hsla(34, 37%, 70%, 1);
-  --color-l-gray-80: hsla(34, 29%, 60%, 1);
-  --color-l-gray-90: hsla(31, 23%, 50%, 1);
-  --color-l-gray-100: hsla(35, 28%, 40%, 1);
-  --color-l-gray-110: hsla(34, 30%, 37%, 1);
-  --color-l-gray-120: hsla(36, 32%, 30%, 1);
-  --color-l-gray-130: hsla(31, 45%, 24%, 1);
-  --color-l-gray-140: hsla(33, 54%, 17%, 1);
-  --color-l-alpha-gray: hsla(34, 37%, 70%, 0.15);
-  --color-l-red-10: hsla(4, 59%, 64%, 1);
-  --color-l-red-20: hsla(4, 72%, 55%, 1);
-  --color-l-red-30: hsla(4, 56%, 48%, 1);
-  --color-l-red-40: hsla(4, 72%, 35%, 1);
-  --color-l-alpha-red: hsla(350, 84%, 63%, 0.2);
-  --color-l-orange-10: hsla(26, 70%, 63%, 1);
-  --color-l-orange-20: hsla(21, 81%, 59%, 1);
-  --color-l-orange-30: hsla(18, 69%, 50%, 1);
-  --color-l-orange-40: hsla(18, 96%, 35%, 1);
-  --color-l-alpha-orange: hsla(27, 100%, 50%, 0.2);
-  --color-l-yellow-10: hsla(43, 71%, 67%, 1);
-  --color-l-yellow-20: hsla(43, 83%, 57%, 1);
-  --color-l-yellow-30: hsla(40, 79%, 47%, 1);
-  --color-l-yellow-40: hsla(40, 98%, 36%, 1);
-  --color-l-alpha-yellow: hsla(44, 100%, 50%, 0.2);
-  --color-l-green-10: hsla(148, 30%, 65%, 1);
-  --color-l-green-20: hsla(148, 48%, 47%, 1);
-  --color-l-green-30: hsla(149, 50%, 39%, 1);
-  --color-l-green-40: hsla(153, 65%, 29%, 1);
-  --color-l-alpha-green: hsla(74, 69%, 44%, 0.2);
-  --color-l-blue-10: hsla(197, 39%, 56%, 1);
-  --color-l-blue-20: hsla(202, 66%, 48%, 1);
-  --color-l-blue-30: hsla(200, 64%, 37%, 1);
-  --color-l-blue-40: hsla(205, 85%, 25%, 1);
-  --color-l-alpha-blue: hsla(186, 64%, 46%, 0.2);
-  --color-l-purple-10: hsla(280, 43%, 76%, 1);
-  --color-l-purple-20: hsla(277, 35%, 59%, 1);
-  --color-l-purple-30: hsla(275, 37%, 43%, 1);
-  --color-l-purple-40: hsla(265, 70%, 30%, 1);
-  --color-l-alpha-purple: hsla(236, 100%, 72%, 0.2);
+  --color-l-alpha-gray: color-mix(in srgb, var(--color-l-gray-70) 15%, transparent);
+  --color-l-alpha-red: color-mix(in srgb, var(--color-l-red-90) 20%, transparent);
+  --color-l-alpha-orange: color-mix(in srgb, var(--color-l-orange-80) 20%, transparent);
+  --color-l-alpha-yellow: color-mix(in srgb, var(--color-l-yellow-70) 20%, transparent);
+  --color-l-alpha-green: color-mix(in srgb, var(--color-l-green-70) 20%, transparent);
+  --color-l-alpha-blue: color-mix(in srgb, var(--color-l-cyan-80) 20%, transparent);
+  --color-l-alpha-purple: color-mix(in srgb, var(--color-l-purple-90) 20%, transparent);
   --color-base-00: var(--color-l-gray-10);
   --color-base-05: var(--color-l-gray-20);
   --color-base-10: var(--color-l-gray-30);
@@ -562,17 +818,16 @@ body.is-mobile {
   --accent-s: 23%;
   --accent-l: 50%;
   --color-accent-hsl: var(--accent-h), var(--accent-s), var(--accent-l);
-  --color-accent: hsl(var(--accent-h), var(--accent-s), var(--accent-l));
-  --color-accent-1: hsl(
-    calc(var(--accent-h) - 1),
-    calc(var(--accent-s) * 1.01),
-    calc(var(--accent-l) * 1.075)
-  );
-  --color-accent-2: hsl(
-    calc(var(--accent-h) - 3),
-    calc(var(--accent-s) * 1.33),
-    calc(var(--accent-l) * 1.19)
-  );
+  /* Accent from palette steps, switched by the Accent palette setting. --accent-h/s/l
+     hold the same colour as numbers, for plugins and the Custom option. */
+  --ps-accent-fill: var(--color-l-gray-90);
+  --ps-accent-fill-hover: var(--color-l-gray-80);
+  --ps-accent-text: var(--color-l-gray-110);
+  --ps-accent-text-hover: var(--color-l-gray-120);
+  --ps-accent-link: var(--color-l-yellow-110);
+  --color-accent: var(--ps-accent-fill);
+  --color-accent-1: var(--ps-accent-fill);
+  --color-accent-2: var(--ps-accent-fill-hover);
   --interactive-normal: var(--color-l-gray-30);
   --interactive-hover: color-mix(
     in oklch,
@@ -584,29 +839,12 @@ body.is-mobile {
   --interactive-accent-hover: var(--color-accent-2);
   --non-alternating-color: var(--color-l-gray-70);
   --non-alternating-color-hover-active: var(--color-l-gray-60);
-  --alternating-color-1: var(--color-l-yellow-30);
-  --alternating-color-1-hover-active: var(--color-l-yellow-40);
-  --alternating-color-2: var(--color-l-red-30);
-  --alternating-color-2-hover-active: var(--color-l-red-40);
-  --alternating-color-3: var(--color-l-blue-30);
-  --alternating-color-3-hover-active: var(--color-l-blue-40);
-  --color-gray-rgb: 182, 175, 166;
-  --color-red-rgb: 223, 90, 90;
-  --color-red: hsla(0, 58%, 53%, 1);
-  --color-orange-rgb: 231, 130, 63;
-  --color-orange: hsla(30, 66%, 52%, 1);
-  --color-yellow-rgb: 248, 197, 46;
-  --color-yellow: hsla(42, 89%, 46%, 1);
-  --color-green-rgb: 87, 185, 132;
-  --color-green: hsla(146, 37%, 49%, 1);
-  --color-cyan-rgb: 124, 180, 206;
-  --color-cyan: hsla(178, 39%, 49%, 1);
-  --color-blue-rgb: 99, 164, 198;
-  --color-blue: hsla(206, 57%, 44%, 1);
-  --color-purple-rgb: 135, 106, 193;
-  --color-purple: hsla(249, 39%, 60%, 1);
-  --color-pink-rgb: 217, 102, 122;
-  --color-pink: hsla(351, 44%, 61%, 1);
+  --alternating-color-1: var(--color-l-yellow-80);
+  --alternating-color-1-hover-active: var(--color-l-yellow-90);
+  --alternating-color-2: var(--color-l-red-100);
+  --alternating-color-2-hover-active: var(--color-l-red-120);
+  --alternating-color-3: var(--color-l-blue-110);
+  --alternating-color-3-hover-active: var(--color-l-blue-130);
   --shadow-s:
     0px 1px 2px rgba(0, 0, 0, 0.028), 0px 3.4px 6.7px rgba(0, 0, 0, 0.042),
     0px 15px 30px rgba(0, 0, 0, 0.07);
@@ -631,35 +869,27 @@ body.is-mobile {
     var(--color-l-gray-60)
   );
   --background-modifier-box-shadow: rgba(0, 0, 0, 0.1);
-  --background-modifier-cover: rgba(220, 220, 220, 0.4);
-  --background-modifier-warning: var(--color-l-orange-30);
-  --background-modifier-warning-hover: var(--color-l-orange-20);
+  --background-modifier-cover: color-mix(in srgb, var(--color-l-gray-50) 40%, transparent);
+  --background-modifier-warning: var(--color-l-orange-90);
+  --background-modifier-warning-hover: var(--color-l-orange-80);
   --background-modifier-error-rgb: var(--color-red-rgb);
-  --background-modifier-error: var(--color-l-red-30);
-  --background-modifier-error-hover: var(--color-l-red-20);
+  --background-modifier-error: var(--color-l-red-100);
+  --background-modifier-error-hover: var(--color-l-red-90);
   --background-modifier-success-rgb: var(--color-green-rgb);
-  --background-modifier-success: var(--color-l-green-30);
+  --background-modifier-success: var(--color-l-green-90);
   --hr-color: var(--background-modifier-border-hover);
   --text-normal: var(--color-l-gray-130);
   --text-muted: var(--color-l-gray-100);
   --text-faint: var(--color-l-gray-90);
   --text-on-accent: var(--color-l-gray-10);
   --text-on-accent-inverted: var(--color-l-gray-140);
-  --text-error: var(--color-l-red-30);
-  --text-warning: var(--color-l-orange-30);
-  --text-success: var(--color-l-green-30);
+  --text-error: var(--color-l-red-100);
+  --text-warning: var(--color-l-orange-90);
+  --text-success: var(--color-l-green-90);
   --text-selection: var(--color-l-alpha-gray);
   --text-highlight-bg: var(--color-l-alpha-yellow);
-  --text-accent: hsl(
-    var(--accent-h),
-    var(--accent-s),
-    min(var(--accent-l), 38%)
-  );
-  --text-accent-hover: hsl(
-    var(--accent-h),
-    var(--accent-s),
-    min(var(--accent-l), 30%)
-  );
+  --text-accent: var(--ps-accent-text);
+  --text-accent-hover: var(--ps-accent-text-hover);
   --text-selection-theme-text-color: color-mix(
     in srgb,
     currentColor 70%,
@@ -682,11 +912,11 @@ body.is-mobile {
   --icon-opacity-active: 1;
   --icon-bg-active: var(--color-l-gray-60);
   --icon-bg-active-menu: transparent;
-  --sync-icon-working: var(--color-l-orange-10);
-  --sync-icon-working-hover: var(--color-l-orange-20);
+  --sync-icon-working: var(--color-l-orange-70);
+  --sync-icon-working-hover: var(--color-l-orange-80);
   --sync-icon-working-active: var(--status-bar-item-clickable-color-active);
-  --sync-icon-success: var(--color-l-green-30);
-  --sync-icon-success-hover: var(--color-l-green-20);
+  --sync-icon-success: var(--color-l-green-90);
+  --sync-icon-success-hover: var(--color-l-green-80);
   --sync-icon-success-active: var(--status-bar-item-clickable-color-active);
   --divider-color: var(--background-modifier-border);
   --divider-color-hover: var(--background-modifier-border-hover);
@@ -765,8 +995,8 @@ body.is-mobile {
   --caret-color: var(--color-l-gray-80);
   --swatch-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
   --checkbox-marker-color: white;
-  --checkbox-color: var(--color-l-green-30);
-  --checkbox-color-hover: var(--color-l-green-20);
+  --checkbox-color: var(--color-l-green-90);
+  --checkbox-color-hover: var(--color-l-green-80);
   --checked-border-color: rgba(0, 0, 0, 0.15);
   --checked-border-color-hover: rgba(0, 0, 0, 0.1);
   --checkbox-border-color: var(--color-l-gray-60);
@@ -774,47 +1004,47 @@ body.is-mobile {
   --checklist-bg: var(--color-l-gray-10);
   --checklist-shadow-hover: 0px 0px 0px 3px rgba(0, 0, 0, 0.07);
   --checklist-done-color: var(--color-l-gray-90);
-  --inprogress-chbx-color: hsla(34, 82%, 57%, 1);
-  --inprogress-chbx-color-hover: hsla(34, 82%, 64%, 1);
+  --inprogress-chbx-color: var(--color-l-yellow-70);
+  --inprogress-chbx-color-hover: var(--color-l-yellow-70);
   --inprogress-chbx-border-color: color-mix(
     in srgb,
     var(--inprogress-chbx-color) 65%,
     var(--color-base-60)
   );
-  --resched-chbx-color: hsla(178, 18%, 59%, 1);
-  --sched-chbx-color: hsla(32, 10%, 68%, 1);
-  --important-chbx-color: hsla(17, 83%, 52%, 1);
-  --cancelled-chbx-color: hsla(32, 10%, 68%, 1);
+  --resched-chbx-color: var(--color-l-cyan-80);
+  --sched-chbx-color: var(--color-l-gray-70);
+  --important-chbx-color: var(--color-l-orange-90);
+  --cancelled-chbx-color: var(--color-l-gray-70);
   --cancelled-chbx-text-color: var(--text-faint);
   --cancelled-chbx-text-decoration: line-through;
-  --question-chbx-color: hsla(281, 33%, 54%, 1);
-  --star-chbx-color: hsla(40, 93%, 51%, 1);
-  --note-chbx-color: hsla(8, 51%, 53%, 1);
-  --location-chbox-color: hsla(0, 56%, 48%, 1);
-  --info-chbx-color: hsla(178, 29%, 45%, 1);
-  --amount-chbx-color: hsla(152, 42%, 41%, 1);
-  --quote-chbx-color: hsla(206, 47%, 48%, 1);
-  --idea-chbx-color: hsla(30, 72%, 62%, 1);
-  --pro-chbx-color: hsla(149, 34%, 44%, 1);
-  --con-chbx-color: hsla(12, 62%, 45%, 1);
-  --bookmark-chbx-color: hsla(21, 81%, 59%, 1);
-  --fire-chbx-color: hsla(14, 80%, 53%, 1);
-  --win-chbx-color: hsla(45, 75%, 48%, 1);
-  --key-chbx-color: hsla(45, 50%, 45%, 1);
-  --up-chbx-color: hsla(146, 37%, 49%, 1);
-  --down-chbx-color: hsla(4, 56%, 48%, 1);
-  --law-chbx-color: hsla(34, 34%, 52%, 1);
-  --language-chbx-color: hsla(7, 59%, 64%, 1);
-  --clock-chbx-color: hsla(210, 39%, 49%, 1);
-  --telephone-chbx-color: hsla(148, 47%, 47%, 1);
-  --milestone-chbx-color: hsla(265, 40%, 58%, 1);
-  --deadline-chbx-color: hsla(8, 75%, 55%, 1);
-  --blocked-chbx-color: hsla(0, 70%, 50%, 1);
-  --delegated-chbx-color: hsla(210, 60%, 55%, 1);
-  --health-chbx-color: hsla(350, 65%, 58%, 1);
-  --shopping-chbx-color: hsla(140, 45%, 45%, 1);
-  --home-chbx-color: hsla(28, 45%, 45%, 1);
-  --recurring-chbx-color: hsla(185, 45%, 45%, 1);
+  --question-chbx-color: var(--color-l-purple-90);
+  --star-chbx-color: var(--color-l-yellow-70);
+  --note-chbx-color: var(--color-l-orange-90);
+  --location-chbox-color: var(--color-l-red-100);
+  --info-chbx-color: var(--color-l-cyan-90);
+  --amount-chbx-color: var(--color-l-green-90);
+  --quote-chbx-color: var(--color-l-blue-90);
+  --idea-chbx-color: var(--color-l-orange-70);
+  --pro-chbx-color: var(--color-l-green-90);
+  --con-chbx-color: var(--color-l-orange-100);
+  --bookmark-chbx-color: var(--color-l-orange-80);
+  --fire-chbx-color: var(--color-l-orange-90);
+  --win-chbx-color: var(--color-l-yellow-70);
+  --key-chbx-color: var(--color-l-yellow-90);
+  --up-chbx-color: var(--color-l-green-90);
+  --down-chbx-color: var(--color-l-red-100);
+  --law-chbx-color: var(--color-l-gray-90);
+  --language-chbx-color: var(--color-l-red-80);
+  --clock-chbx-color: var(--color-l-blue-100);
+  --telephone-chbx-color: var(--color-l-green-80);
+  --milestone-chbx-color: var(--color-l-purple-90);
+  --deadline-chbx-color: var(--color-l-red-90);
+  --blocked-chbx-color: var(--color-l-red-100);
+  --delegated-chbx-color: var(--color-l-blue-90);
+  --health-chbx-color: var(--color-l-red-90);
+  --shopping-chbx-color: var(--color-l-green-90);
+  --home-chbx-color: var(--color-l-gray-90);
+  --recurring-chbx-color: var(--color-l-cyan-90);
   --task-progress-track: var(--background-modifier-border);
   --task-progress-track-border: var(--background-modifier-border-hover);
   --task-progress-fill: var(--interactive-accent);
@@ -827,7 +1057,7 @@ body.is-mobile {
   --drag-ghost-background: var(--interactive-accent);
   --drag-ghost-text-color: var(--text-on-accent);
   --loading-line-bg-color: var(--background-secondary);
-  --loading-line-color: var(--color-l-blue-10);
+  --loading-line-color: var(--color-l-blue-90);
   --loading-line-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   --menu-item-icon-color: var(--color-l-gray-80);
   --menu-item-bg-hover: rgba(255, 255, 255, 0.35);
@@ -855,8 +1085,8 @@ body.is-mobile {
   --nav-item-color-highlighted: var(--text-accent-hover);
   --nav-item-background-hover: rgba(255, 255, 255, 0.25);
   --nav-item-background-active: rgba(255, 255, 255, 0.25);
-  --nav-item-background-selected: hsla(197, 82%, 27%, 0.5);
-  --nav-item-background-selected-hover: hsla(197, 82%, 27%, 0.4);
+  --nav-item-background-selected: color-mix(in srgb, var(--color-l-blue-120) 50%, transparent);
+  --nav-item-background-selected-hover: color-mix(in srgb, var(--color-l-blue-120) 40%, transparent);
   --nav-indentation-guide-color: var(--indentation-guide-color);
   --nav-collapse-icon-color: var(--collapse-icon-color);
   --nav-collapse-icon-color-collapsed: var(--text-faint);
@@ -904,19 +1134,19 @@ body.is-mobile {
   --progress-background: var(--color-l-gray-40);
   --progress-bar-outline: rgba(0, 0, 0, 0.1);
   --progress-value-outline: rgba(0, 0, 0, 0.18);
-  --progress-color-1: var(--color-l-red-20);
-  --progress-color-2: var(--color-l-orange-20);
-  --progress-color-3: var(--color-l-yellow-20);
-  --progress-color-4: var(--color-l-green-30);
+  --progress-color-1: var(--color-l-red-90);
+  --progress-color-2: var(--color-l-orange-80);
+  --progress-color-3: var(--color-l-yellow-70);
+  --progress-color-4: var(--color-l-green-90);
   --progress-color-5: linear-gradient(
     45deg,
     var(--progress-gradient-1),
     var(--progress-gradient-2),
     var(--progress-gradient-3)
   );
-  --progress-gradient-1: var(--color-l-red-10);
-  --progress-gradient-2: var(--color-l-yellow-10);
-  --progress-gradient-3: var(--color-l-blue-10);
+  --progress-gradient-1: var(--color-l-red-80);
+  --progress-gradient-2: var(--color-l-yellow-70);
+  --progress-gradient-3: var(--color-l-blue-90);
   --prompt-input-background: var(--background-primary);
   --prompt-border-color: var(--background-modifier-border-focus);
   --prompt-results-background: var(--background-primary);
@@ -1019,7 +1249,7 @@ body.is-mobile {
     var(--color-l-gray-60) 80%,
     var(--color-l-gray-70)
   );
-  --toggle-bg-enabled: var(--color-l-green-30);
+  --toggle-bg-enabled: var(--color-l-green-90);
   --toggle-shadow:
     inset 0 4px 10px rgba(0, 0, 0, 0.09),
     inset 0px 0px 0px 1px rgba(0, 0, 0, 0.06), inset 0 0 1px rgba(0, 0, 0, 0.28);
@@ -1060,7 +1290,7 @@ body.is-mobile {
   --callout-content-shadow:
     inset 0px 0px 0px 1px rgba(0, 0, 0, 0.08),
     inset 0px calc(-1 * var(--callout-shadow-offset))
-      var(--callout-content-shadow-blur) 0px rgba(100, 100, 100, 0.13);
+      var(--callout-content-shadow-blur) 0px color-mix(in srgb, var(--color-l-gray-110) 13%, transparent);
   --embed-background: var(--embed-bg-color-mix);
   --embed-bg-color-mix: color-mix(
     in srgb,
@@ -1091,8 +1321,8 @@ body.is-mobile {
     inset 0px 0px 0px 1px rgba(0, 0, 0, 0.1),
     inset 0px -2px 1px 1px rgba(0, 0, 0, 0.1),
     0px 1px 2px 0px rgba(0, 0, 0, 0.1);
-  --bold-color: var(--color-l-red-30);
-  --italic-color: var(--color-l-blue-30);
+  --bold-color: var(--color-l-red-100);
+  --italic-color: var(--color-l-blue-110);
   --bold-italic-color: var(--color-l-gray-140);
   --underline-color: var(--text-normal);
   --underline-decoration-color: color-mix(
@@ -1111,7 +1341,7 @@ body.is-mobile {
   --breadcrumb-bg-hover: var(--color-l-gray-40);
   --breadcrumb-separator-color: var(--background-modifier-border);
   --file-header-title-color: var(--color-l-gray-120);
-  --nav-folder-1-color: var(--color-l-red-30);
+  --nav-folder-1-color: var(--color-l-red-100);
   --nav-folder-1-bg-color: color-mix(
     in srgb,
     var(--color-l-alpha-red) 60%,
@@ -1132,7 +1362,7 @@ body.is-mobile {
     var(--nav-folder-1-color) 25%,
     transparent
   );
-  --nav-folder-2-color: var(--color-l-orange-30);
+  --nav-folder-2-color: var(--color-l-orange-90);
   --nav-folder-2-bg-color: color-mix(
     in srgb,
     var(--color-l-alpha-orange) 60%,
@@ -1153,7 +1383,7 @@ body.is-mobile {
     var(--nav-folder-2-color) 25%,
     transparent
   );
-  --nav-folder-3-color: var(--color-l-yellow-40);
+  --nav-folder-3-color: var(--color-l-yellow-90);
   --nav-folder-3-bg-color: color-mix(
     in srgb,
     var(--color-l-alpha-yellow) 60%,
@@ -1174,7 +1404,7 @@ body.is-mobile {
     var(--nav-folder-3-color) 25%,
     transparent
   );
-  --nav-folder-4-color: var(--color-l-green-40);
+  --nav-folder-4-color: var(--color-l-green-110);
   --nav-folder-4-bg-color: color-mix(
     in srgb,
     var(--color-l-alpha-green) 60%,
@@ -1195,7 +1425,7 @@ body.is-mobile {
     var(--nav-folder-4-color) 25%,
     transparent
   );
-  --nav-folder-5-color: var(--color-l-blue-30);
+  --nav-folder-5-color: var(--color-l-blue-110);
   --nav-folder-5-bg-color: color-mix(
     in srgb,
     var(--color-l-alpha-blue) 60%,
@@ -1216,7 +1446,7 @@ body.is-mobile {
     var(--nav-folder-5-color) 25%,
     transparent
   );
-  --nav-folder-6-color: var(--color-l-purple-30);
+  --nav-folder-6-color: var(--color-l-purple-110);
   --nav-folder-6-bg-color: color-mix(
     in srgb,
     var(--color-l-alpha-purple) 60%,
@@ -1237,7 +1467,7 @@ body.is-mobile {
     var(--nav-folder-6-color) 25%,
     transparent
   );
-  --nav-folder-7-color: var(--color-l-red-30);
+  --nav-folder-7-color: var(--color-l-red-100);
   --nav-folder-7-bg-color: color-mix(
     in srgb,
     var(--color-l-alpha-red) 60%,
@@ -1258,7 +1488,7 @@ body.is-mobile {
     var(--nav-folder-7-color) 25%,
     transparent
   );
-  --nav-folder-8-color: var(--color-l-orange-30);
+  --nav-folder-8-color: var(--color-l-orange-90);
   --nav-folder-8-bg-color: color-mix(
     in srgb,
     var(--color-l-alpha-orange) 60%,
@@ -1279,7 +1509,7 @@ body.is-mobile {
     var(--nav-folder-8-color) 25%,
     transparent
   );
-  --nav-folder-9-color: var(--color-l-yellow-40);
+  --nav-folder-9-color: var(--color-l-yellow-90);
   --nav-folder-9-bg-color: color-mix(
     in srgb,
     var(--color-l-alpha-yellow) 60%,
@@ -1300,7 +1530,7 @@ body.is-mobile {
     var(--nav-folder-9-color) 25%,
     transparent
   );
-  --nav-folder-10-color: var(--color-l-green-40);
+  --nav-folder-10-color: var(--color-l-green-110);
   --nav-folder-10-bg-color: color-mix(
     in srgb,
     var(--color-l-alpha-green) 60%,
@@ -1321,7 +1551,7 @@ body.is-mobile {
     var(--nav-folder-10-color) 25%,
     transparent
   );
-  --nav-folder-11-color: var(--color-l-blue-30);
+  --nav-folder-11-color: var(--color-l-blue-110);
   --nav-folder-11-bg-color: color-mix(
     in srgb,
     var(--color-l-alpha-blue) 60%,
@@ -1342,7 +1572,7 @@ body.is-mobile {
     var(--nav-folder-11-color) 25%,
     transparent
   );
-  --nav-folder-12-color: var(--color-l-purple-30);
+  --nav-folder-12-color: var(--color-l-purple-110);
   --nav-folder-12-bg-color: color-mix(
     in srgb,
     var(--color-l-alpha-purple) 60%,
@@ -1415,7 +1645,7 @@ body.is-mobile {
   --strikethrough-highlight-bg: var(--color-l-alpha-yellow);
   --bold-italic-highlight-color: var(--bold-italic-color);
   --bold-italic-highlight-bg: var(--color-l-alpha-green);
-  --inline-code-color: var(--color-l-red-10);
+  --inline-code-color: var(--color-l-red-80);
   --inline-code-bg: var(--color-l-gray-10);
   --inline-title-color: var(--color-l-gray-140);
   --inline-query-bg: color-mix(
@@ -1424,7 +1654,7 @@ body.is-mobile {
     var(--editor-bg-color)
   );
   --inline-query-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.06);
-  --kbd-color: var(--color-l-red-10);
+  --kbd-color: var(--color-l-red-80);
   --kbd-background: var(--color-l-gray-40);
   --kbd-shadow:
     inset 0px 0px 0px 1px rgba(0, 0, 0, 0.03),
@@ -1433,7 +1663,7 @@ body.is-mobile {
   --list-marker-color: var(--color-l-gray-80);
   --list-marker-color-hover: var(--color-l-gray-100);
   --list-marker-color-collapsed: var(--color-l-gray-90);
-  --link-ahref-color: var(--color-l-red-30);
+  --link-ahref-color: var(--color-l-red-100);
   --link-ahref-decoration-color: color-mix(
     in srgb,
     currentColor var(--link-decoration-opacity),
@@ -1465,7 +1695,7 @@ body.is-mobile {
     var(--link-unresolved-color-hover) var(--link-decoration-opacity),
     transparent
   );
-  --link-color: hsl(40 90% 29%);
+  --link-color: var(--ps-accent-link);
   --link-decoration-color: color-mix(
     in srgb,
     var(--link-color) var(--link-decoration-opacity),
@@ -1481,7 +1711,7 @@ body.is-mobile {
     var(--link-color-hover) var(--link-decoration-opacity),
     transparent
   );
-  --link-external-color: var(--color-l-green-40);
+  --link-external-color: var(--color-l-green-110);
   --link-external-decoration-color: color-mix(
     in srgb,
     var(--link-external-color) var(--link-decoration-opacity),
@@ -1516,18 +1746,18 @@ body.is-mobile {
   --metadata-divider-color: var(--background-modifier-border);
   --metadata-divider-color-hover: transparent;
   --metadata-divider-color-focus: transparent;
-  --yaml-base-color: var(--color-l-red-10);
+  --yaml-base-color: var(--color-l-red-80);
   --yaml-def-meta-color: var(--color-l-gray-70);
-  --yaml-atom-color: var(--color-l-blue-10);
-  --yaml-keyword-color: var(--color-l-yellow-30);
-  --yaml-number-color: var(--color-l-red-10);
-  --yaml-string-color: var(--color-l-yellow-30);
+  --yaml-atom-color: var(--color-l-blue-90);
+  --yaml-keyword-color: var(--color-l-yellow-80);
+  --yaml-number-color: var(--color-l-red-80);
+  --yaml-string-color: var(--color-l-yellow-80);
   --table-background: var(--color-l-gray-10);
   --table-header-background: var(--color-l-gray-30);
   --table-header-background-hover: var(--table-header-background);
   --table-column-alt-background: var(--color-l-gray-30);
-  --tag-color: var(--color-l-blue-30);
-  --tag-color-hover: var(--color-l-blue-20);
+  --tag-color: var(--color-l-blue-110);
+  --tag-color-hover: var(--color-l-blue-90);
   --tag-background: rgba(255, 255, 255, 0.5);
   --tag-background-hover: rgba(255, 255, 255, 0.8);
   --tag-border-width: 1px;
@@ -1538,11 +1768,11 @@ body.is-mobile {
     inset 0px -0.1em 0px 0px rgba(0, 0, 0, 0.1),
     0px 0px 0px 3px rgba(0, 0, 0, 0.03);
   --tag-shadow-active: inset 0px -0.1em 0px 0px rgba(0, 0, 0, 0.1);
-  --pill-tag-color-1: var(--color-l-yellow-40);
+  --pill-tag-color-1: var(--color-l-yellow-90);
   --pill-tag-bg-1: var(--color-l-alpha-yellow);
-  --pill-tag-color-2: var(--color-l-red-40);
+  --pill-tag-color-2: var(--color-l-red-120);
   --pill-tag-bg-2: var(--color-l-alpha-red);
-  --pill-tag-color-3: var(--color-l-blue-40);
+  --pill-tag-color-3: var(--color-l-blue-130);
   --pill-tag-bg-3: var(--color-l-alpha-blue);
   --pill-tag-shadow-hover: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.05);
 }
@@ -1584,11 +1814,11 @@ body.is-mobile {
   --canvas-menu-shadow:
     0px 1px 2px 1px rgba(0, 0, 0, 0.02), 0px 1px 4px -2.1px rgba(0, 0, 0, 0.1),
     0px 2px 8px -1.2px rgba(0, 0, 0, 0.03);
-  --graph-node: var(--color-l-blue-20);
-  --graph-node-unresolved: var(--color-l-yellow-20);
+  --graph-node: var(--color-l-blue-90);
+  --graph-node-unresolved: var(--color-l-yellow-70);
   --graph-node-unresolved-opacity: 1;
-  --graph-node-tag: var(--color-l-red-20);
-  --graph-node-attachment: var(--color-l-green-10);
+  --graph-node-tag: var(--color-l-red-90);
+  --graph-node-attachment: var(--color-l-green-70);
   --graph-node-focused: var(--color-l-gray-130);
   --graph-node-highlight-fill: var(--color-l-gray-90);
   --graph-node-highlight-line: var(--color-l-gray-70);
@@ -1629,51 +1859,13 @@ body.is-mobile {
 
 .theme-dark {
   color-scheme: dark;
-  --color-d-gray-10: hsla(32, 48%, 85%, 1);
-  --color-d-gray-20: hsla(34, 39%, 74%, 1);
-  --color-d-gray-30: hsla(34, 31%, 68%, 1);
-  --color-d-gray-40: hsla(35, 27%, 55%, 1);
-  --color-d-gray-50: hsla(34, 24%, 46%, 1);
-  --color-d-gray-60: hsla(33, 27%, 33%, 1);
-  --color-d-gray-70: hsla(31, 27%, 25%, 1);
-  --color-d-gray-80: hsla(28, 22%, 19%, 1);
-  --color-d-gray-90: hsla(33, 20%, 17%, 1);
-  --color-d-gray-100: hsla(30, 19%, 15%, 1);
-  --color-d-gray-110: hsla(30, 17%, 14%, 1);
-  --color-d-gray-120: hsla(29, 16%, 13%, 1);
-  --color-d-gray-130: hsla(24, 18%, 11%, 1);
-  --color-d-gray-140: hsla(32, 21%, 9%, 1);
-  --color-d-alpha-gray: hsla(34, 24%, 40%, 0.2);
-  --color-d-red-10: hsla(5, 94%, 73%, 1);
-  --color-d-red-20: hsla(4, 91%, 67%, 1);
-  --color-d-red-30: hsla(4, 88%, 61%, 1);
-  --color-d-red-40: hsla(2, 75%, 52%, 1);
-  --color-d-alpha-red: hsla(350, 84%, 63%, 0.2);
-  --color-d-orange-10: hsla(26, 85%, 58%, 1);
-  --color-d-orange-20: hsla(24, 84%, 50%, 1);
-  --color-d-orange-30: hsla(22, 82%, 47%, 1);
-  --color-d-orange-40: hsla(19, 81%, 41%, 1);
-  --color-d-alpha-orange: hsla(27, 100%, 50%, 0.2);
-  --color-d-yellow-10: hsla(43, 69%, 63%, 1);
-  --color-d-yellow-20: hsla(42, 79%, 51%, 1);
-  --color-d-yellow-30: hsla(40, 78%, 48%, 1);
-  --color-d-yellow-40: hsla(38, 76%, 42%, 1);
-  --color-d-alpha-yellow: hsla(44, 100%, 50%, 0.2);
-  --color-d-green-10: hsla(152, 51%, 54%, 1);
-  --color-d-green-20: hsla(154, 57%, 42%, 1);
-  --color-d-green-30: hsla(155, 78%, 29%, 1);
-  --color-d-green-40: hsla(154, 75%, 26%, 1);
-  --color-d-alpha-green: hsla(74, 69%, 44%, 0.2);
-  --color-d-blue-10: hsla(191, 54%, 62%, 1);
-  --color-d-blue-20: hsla(194, 59%, 56%, 1);
-  --color-d-blue-30: hsla(197, 48%, 49%, 1);
-  --color-d-blue-40: hsla(201, 45%, 40%, 1);
-  --color-d-alpha-blue: hsla(186, 64%, 46%, 0.2);
-  --color-d-purple-10: hsla(242, 52%, 69%, 1);
-  --color-d-purple-20: hsla(241, 45%, 57%, 1);
-  --color-d-purple-30: hsla(239, 45%, 51%, 1);
-  --color-d-purple-40: hsla(238, 47%, 48%, 1);
-  --color-d-alpha-purple: hsla(236, 100%, 72%, 0.2);
+  --color-d-alpha-gray: color-mix(in srgb, var(--color-d-gray-50) 20%, transparent);
+  --color-d-alpha-red: color-mix(in srgb, var(--color-d-red-40) 20%, transparent);
+  --color-d-alpha-orange: color-mix(in srgb, var(--color-d-orange-40) 20%, transparent);
+  --color-d-alpha-yellow: color-mix(in srgb, var(--color-d-yellow-20) 20%, transparent);
+  --color-d-alpha-green: color-mix(in srgb, var(--color-d-green-30) 20%, transparent);
+  --color-d-alpha-blue: color-mix(in srgb, var(--color-d-blue-40) 20%, transparent);
+  --color-d-alpha-purple: color-mix(in srgb, var(--color-d-purple-40) 20%, transparent);
   --color-base-00: var(--color-d-gray-140);
   --color-base-05: var(--color-d-gray-120);
   --color-base-10: var(--color-d-gray-100);
@@ -1690,17 +1882,16 @@ body.is-mobile {
   --accent-s: 27%;
   --accent-l: 24%;
   --color-accent-hsl: var(--accent-h), var(--accent-s), var(--accent-l);
-  --color-accent: hsl(var(--accent-h), var(--accent-s), var(--accent-l));
-  --color-accent-1: hsl(
-    calc(var(--accent-h) - 3),
-    calc(var(--accent-s) * 1.02),
-    calc(var(--accent-l) * 1.15)
-  );
-  --color-accent-2: hsl(
-    calc(var(--accent-h) - 5),
-    calc(var(--accent-s) * 1.16),
-    calc(var(--accent-l) * 1.34)
-  );
+  /* Accent from palette steps, switched by the Accent palette setting. --accent-h/s/l
+     hold the same colour as numbers, for plugins and the Custom option. */
+  --ps-accent-fill: var(--color-d-gray-70);
+  --ps-accent-fill-hover: var(--color-d-gray-60);
+  --ps-accent-text: var(--color-d-gray-40);
+  --ps-accent-text-hover: var(--color-d-gray-30);
+  --ps-accent-link: var(--color-d-yellow-30);
+  --color-accent: var(--ps-accent-fill);
+  --color-accent-1: var(--ps-accent-fill);
+  --color-accent-2: var(--ps-accent-fill-hover);
   --interactive-normal: var(--color-d-gray-120);
   --interactive-hover: color-mix(
     in oklch,
@@ -1710,31 +1901,14 @@ body.is-mobile {
   --interactive-accent-hsl: var(--color-accent-hsl);
   --interactive-accent: var(--color-accent-1);
   --interactive-accent-hover: var(--color-accent-2);
-  --color-gray-rgb: 166, 150, 142;
-  --color-red-rgb: 228, 87, 78;
-  --color-red: rgb(192, 78, 78);
-  --color-orange-rgb: 238, 163, 89;
-  --color-orange: rgb(203, 128, 53);
-  --color-yellow-rgb: 249, 207, 81;
-  --color-yellow: rgb(225, 178, 67);
-  --color-green-rgb: 100, 194, 113;
-  --color-green: rgb(80, 196, 101);
-  --color-cyan-rgb: 91, 175, 183;
-  --color-cyan: rgb(70, 169, 180);
-  --color-blue-rgb: 99, 156, 192;
-  --color-blue: rgb(63, 137, 176);
-  --color-purple-rgb: 139, 113, 185;
-  --color-purple: rgb(113, 97, 194);
-  --color-pink-rgb: 224, 108, 138;
-  --color-pink: rgb(180, 100, 100);
   --non-alternating-color: var(--color-d-gray-60);
   --non-alternating-color-hover-active: var(--color-d-gray-70);
   --alternating-color-1: var(--color-d-yellow-30);
   --alternating-color-1-hover-active: var(--color-d-yellow-40);
-  --alternating-color-2: var(--color-d-red-30);
-  --alternating-color-2-hover-active: var(--color-d-red-40);
-  --alternating-color-3: var(--color-d-blue-30);
-  --alternating-color-3-hover-active: var(--color-d-blue-40);
+  --alternating-color-2: var(--color-d-red-40);
+  --alternating-color-2-hover-active: var(--color-d-red-50);
+  --alternating-color-3: var(--color-d-blue-50);
+  --alternating-color-3-hover-active: var(--color-d-blue-60);
   --shadow-s:
     0px 1px 2px rgba(0, 0, 0, 0.228), 0px 3.4px 6.7px rgba(0, 0, 0, 0.242),
     0px 15px 30px rgba(0, 0, 0, 0.27);
@@ -1760,34 +1934,26 @@ body.is-mobile {
   );
   --hr-color: var(--background-modifier-border-hover);
   --background-modifier-box-shadow: rgba(0, 0, 0, 0.3);
-  --background-modifier-cover: rgba(10, 10, 10, 0.4);
-  --background-modifier-warning: var(--color-d-orange-40);
-  --background-modifier-warning-hover: var(--color-d-orange-30);
+  --background-modifier-cover: rgba(0, 0, 0, 0.4);
+  --background-modifier-warning: var(--color-d-orange-50);
+  --background-modifier-warning-hover: var(--color-d-orange-40);
   --background-modifier-error-rgb: var(--color-red-rgb);
-  --background-modifier-error: var(--color-d-red-40);
-  --background-modifier-error-hover: var(--color-d-red-30);
+  --background-modifier-error: var(--color-d-red-50);
+  --background-modifier-error-hover: var(--color-d-red-40);
   --background-modifier-success-rgb: var(--color-green-rgb);
-  --background-modifier-success: var(--color-d-green-30);
+  --background-modifier-success: var(--color-d-green-50);
   --text-normal: var(--color-d-gray-20);
   --text-muted: var(--color-d-gray-40);
   --text-faint: var(--color-d-gray-50);
   --text-on-accent: var(--color-d-gray-10);
   --text-on-accent-inverted: var(--color-d-gray-140);
-  --text-error: var(--color-d-red-30);
-  --text-warning: var(--color-d-orange-30);
-  --text-success: var(--color-d-green-30);
+  --text-error: var(--color-d-red-40);
+  --text-warning: var(--color-d-orange-40);
+  --text-success: var(--color-d-green-50);
   --text-selection: var(--color-d-alpha-gray);
   --text-highlight-bg: var(--color-d-alpha-yellow);
-  --text-accent: hsl(
-    var(--accent-h),
-    var(--accent-s),
-    max(var(--accent-l), 62%)
-  );
-  --text-accent-hover: hsl(
-    var(--accent-h),
-    var(--accent-s),
-    max(var(--accent-l), 72%)
-  );
+  --text-accent: var(--ps-accent-text);
+  --text-accent-hover: var(--ps-accent-text-hover);
   --text-selection-theme-text-color: color-mix(
     in srgb,
     currentColor 70%,
@@ -1818,11 +1984,11 @@ body.is-mobile {
   --icon-opacity-active: 1;
   --icon-bg-active: var(--color-d-gray-80);
   --icon-bg-active-menu: transparent;
-  --sync-icon-working: var(--color-d-orange-40);
-  --sync-icon-working-hover: var(--color-d-orange-30);
+  --sync-icon-working: var(--color-d-orange-50);
+  --sync-icon-working-hover: var(--color-d-orange-40);
   --sync-icon-working-active: var(--status-bar-item-clickable-color-active);
-  --sync-icon-success: var(--color-d-green-40);
-  --sync-icon-success-hover: var(--color-d-green-30);
+  --sync-icon-success: var(--color-d-green-60);
+  --sync-icon-success-hover: var(--color-d-green-50);
   --sync-icon-success-active: var(--status-bar-item-clickable-color-active);
   --divider-color: var(--background-modifier-border);
   --divider-color-hover: var(--background-modifier-border-hover);
@@ -1896,8 +2062,8 @@ body.is-mobile {
   --caret-color: var(--color-d-gray-50);
   --swatch-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.3);
   --checkbox-marker-color: white;
-  --checkbox-color: var(--color-d-green-40);
-  --checkbox-color-hover: var(--color-d-green-30);
+  --checkbox-color: var(--color-d-green-60);
+  --checkbox-color-hover: var(--color-d-green-50);
   --checked-border-color: rgba(255, 255, 255, 0.15);
   --checked-border-color-hover: rgba(255, 255, 255, 0.1);
   --checkbox-border-color: var(--color-d-gray-70);
@@ -1905,47 +2071,47 @@ body.is-mobile {
   --checklist-bg: var(--color-d-gray-110);
   --checklist-shadow-hover: 0px 0px 0px 3px rgba(0, 0, 0, 0.3);
   --checklist-done-color: var(--color-d-gray-50);
-  --inprogress-chbx-color: hsla(31, 85%, 59%, 1);
-  --inprogress-chbx-color-hover: hsla(32, 95%, 65%, 1);
+  --inprogress-chbx-color: var(--color-d-orange-30);
+  --inprogress-chbx-color-hover: var(--color-d-yellow-20);
   --inprogress-chbx-border-color: color-mix(
     in srgb,
     var(--inprogress-chbx-color) 15%,
     var(--color-base-60)
   );
-  --resched-chbx-color: hsla(178, 19%, 55%, 1);
-  --sched-chbx-color: hsla(32, 10%, 58%, 1);
-  --important-chbx-color: hsla(17, 83%, 47%);
-  --cancelled-chbx-color: hsla(32, 10%, 58%, 1);
+  --resched-chbx-color: var(--color-d-blue-40);
+  --sched-chbx-color: var(--color-d-gray-40);
+  --important-chbx-color: var(--color-d-orange-50);
+  --cancelled-chbx-color: var(--color-d-gray-40);
   --cancelled-chbx-text-color: var(--text-faint);
   --cancelled-chbx-text-decoration: line-through;
-  --question-chbx-color: hsla(281, 37%, 54%, 1);
-  --star-chbx-color: hsla(40, 95%, 46%, 1);
-  --note-chbx-color: hsla(8, 51%, 53%, 1);
-  --location-chbox-color: hsla(0, 56%, 48%, 1);
-  --info-chbx-color: hsla(178, 31%, 41%, 1);
-  --amount-chbx-color: hsla(152, 46%, 38%, 1);
-  --quote-chbx-color: hsla(206, 47%, 48%, 1);
-  --idea-chbx-color: hsla(30, 72%, 62%, 1);
-  --pro-chbx-color: hsla(149, 36%, 47%, 1);
-  --con-chbx-color: hsla(12, 64%, 47%, 1);
-  --bookmark-chbx-color: hsla(21, 81%, 54%, 1);
-  --fire-chbx-color: hsla(14, 82%, 58%, 1);
-  --win-chbx-color: hsla(45, 78%, 53%, 1);
-  --key-chbx-color: hsla(45, 50%, 55%, 1);
-  --up-chbx-color: hsla(146, 38%, 51%, 1);
-  --down-chbx-color: hsla(4, 56%, 54%, 1);
-  --law-chbx-color: hsla(34, 34%, 52%, 1);
-  --language-chbx-color: hsla(7, 63%, 62%, 1);
-  --clock-chbx-color: hsla(210, 39%, 52%, 1);
-  --telephone-chbx-color: hsla(148, 48%, 42%, 1);
-  --milestone-chbx-color: hsla(265, 45%, 62%, 1);
-  --deadline-chbx-color: hsla(8, 80%, 58%, 1);
-  --blocked-chbx-color: hsla(0, 70%, 55%, 1);
-  --delegated-chbx-color: hsla(210, 65%, 60%, 1);
-  --health-chbx-color: hsla(350, 65%, 62%, 1);
-  --shopping-chbx-color: hsla(140, 50%, 50%, 1);
-  --home-chbx-color: hsla(28, 45%, 50%, 1);
-  --recurring-chbx-color: hsla(185, 45%, 50%, 1);
+  --question-chbx-color: var(--color-d-pink-50);
+  --star-chbx-color: var(--color-d-yellow-30);
+  --note-chbx-color: var(--color-d-orange-50);
+  --location-chbox-color: var(--color-d-red-50);
+  --info-chbx-color: var(--color-d-cyan-50);
+  --amount-chbx-color: var(--color-d-green-50);
+  --quote-chbx-color: var(--color-d-blue-50);
+  --idea-chbx-color: var(--color-d-orange-30);
+  --pro-chbx-color: var(--color-d-green-40);
+  --con-chbx-color: var(--color-d-orange-50);
+  --bookmark-chbx-color: var(--color-d-orange-40);
+  --fire-chbx-color: var(--color-d-red-40);
+  --win-chbx-color: var(--color-d-yellow-30);
+  --key-chbx-color: var(--color-d-yellow-30);
+  --up-chbx-color: var(--color-d-green-40);
+  --down-chbx-color: var(--color-d-orange-50);
+  --law-chbx-color: var(--color-d-gray-40);
+  --language-chbx-color: var(--color-d-red-40);
+  --clock-chbx-color: var(--color-d-blue-50);
+  --telephone-chbx-color: var(--color-d-green-50);
+  --milestone-chbx-color: var(--color-d-purple-50);
+  --deadline-chbx-color: var(--color-d-red-40);
+  --blocked-chbx-color: var(--color-d-red-50);
+  --delegated-chbx-color: var(--color-d-blue-40);
+  --health-chbx-color: var(--color-d-red-40);
+  --shopping-chbx-color: var(--color-d-green-40);
+  --home-chbx-color: var(--color-d-yellow-40);
+  --recurring-chbx-color: var(--color-d-blue-40);
   --task-progress-track: var(--background-modifier-border);
   --task-progress-track-border: var(--background-modifier-border-hover);
   --task-progress-fill: var(--interactive-accent);
@@ -1958,7 +2124,7 @@ body.is-mobile {
   --drag-ghost-background: var(--interactive-accent);
   --drag-ghost-text-color: var(--text-on-accent);
   --loading-line-bg-color: var(--background-secondary);
-  --loading-line-color: var(--color-d-blue-10);
+  --loading-line-color: var(--color-d-blue-30);
   --loading-line-shadow: inset 0px 0px 0px 1px rgba(255, 255, 255, 0.1);
   --menu-item-icon-color: var(--color-d-gray-50);
   --menu-item-bg-hover: rgba(0, 0, 0, 0.25);
@@ -1986,8 +2152,8 @@ body.is-mobile {
   --nav-item-color-highlighted: var(--text-accent-hover);
   --nav-item-background-hover: rgba(0, 0, 0, 0.125);
   --nav-item-background-active: rgba(0, 0, 0, 0.125);
-  --nav-item-background-selected: hsla(197, 45%, 29%, 0.5);
-  --nav-item-background-selected-hover: hsla(197, 45%, 29%, 0.4);
+  --nav-item-background-selected: color-mix(in srgb, var(--color-d-blue-60) 50%, transparent);
+  --nav-item-background-selected-hover: color-mix(in srgb, var(--color-d-blue-60) 40%, transparent);
   --nav-indentation-guide-color: var(--indentation-guide-color);
   --nav-collapse-icon-color: var(--collapse-icon-color);
   --nav-collapse-icon-color-collapsed: var(--text-faint);
@@ -2035,19 +2201,19 @@ body.is-mobile {
   --progress-background: var(--color-d-gray-120);
   --progress-bar-outline: rgba(255, 255, 255, 0.1);
   --progress-value-outline: rgba(255, 255, 255, 0.21);
-  --progress-color-1: var(--color-d-red-30);
-  --progress-color-2: var(--color-d-orange-30);
+  --progress-color-1: var(--color-d-red-40);
+  --progress-color-2: var(--color-d-orange-40);
   --progress-color-3: var(--color-d-yellow-30);
-  --progress-color-4: var(--color-d-green-40);
+  --progress-color-4: var(--color-d-green-60);
   --progress-color-5: linear-gradient(
     45deg,
     var(--progress-gradient-1),
     var(--progress-gradient-2),
     var(--progress-gradient-3)
   );
-  --progress-gradient-1: var(--color-d-red-30);
-  --progress-gradient-2: var(--color-d-yellow-20);
-  --progress-gradient-3: var(--color-d-blue-20);
+  --progress-gradient-1: var(--color-d-red-40);
+  --progress-gradient-2: var(--color-d-yellow-30);
+  --progress-gradient-3: var(--color-d-blue-40);
   --prompt-input-background: var(--background-primary);
   --prompt-results-background: var(--background-primary);
   --prompt-suggestion-color: var(--color-d-gray-40);
@@ -2147,7 +2313,7 @@ body.is-mobile {
     var(--color-d-gray-70) 50%,
     var(--color-d-gray-60)
   );
-  --toggle-bg-enabled: var(--color-d-green-40);
+  --toggle-bg-enabled: var(--color-d-green-60);
   --toggle-shadow:
     inset 0 4px 10px rgba(0, 0, 0, 0.19),
     inset 0px 0px 0px 1px rgba(255, 255, 255, 0.09),
@@ -2221,8 +2387,8 @@ body.is-mobile {
     inset 0px 0px 0px 1px rgba(0, 0, 0, 0.5),
     inset 0px -2px 1px 1px rgba(0, 0, 0, 0.5),
     0px 1px 2px 0px rgba(0, 0, 0, 0.5);
-  --bold-color: var(--color-d-red-30);
-  --italic-color: var(--color-d-blue-20);
+  --bold-color: var(--color-d-red-40);
+  --italic-color: var(--color-d-blue-40);
   --underline-color: var(--text-normal);
   --underline-decoration-color: color-mix(
     in srgb,
@@ -2241,7 +2407,7 @@ body.is-mobile {
   --breadcrumb-bg-hover: var(--color-d-gray-80);
   --breadcrumb-separator-color: var(--background-modifier-border);
   --file-header-title-color: var(--color-d-gray-40);
-  --nav-folder-1-color: var(--color-d-red-30);
+  --nav-folder-1-color: var(--color-d-red-40);
   --nav-folder-1-bg-color: color-mix(
     in srgb,
     var(--color-d-alpha-red) 60%,
@@ -2262,7 +2428,7 @@ body.is-mobile {
     var(--nav-folder-1-color) 25%,
     transparent
   );
-  --nav-folder-2-color: var(--color-d-orange-20);
+  --nav-folder-2-color: var(--color-d-orange-40);
   --nav-folder-2-bg-color: color-mix(
     in srgb,
     var(--color-d-alpha-orange) 60%,
@@ -2283,7 +2449,7 @@ body.is-mobile {
     var(--nav-folder-2-color) 25%,
     transparent
   );
-  --nav-folder-3-color: var(--color-d-yellow-20);
+  --nav-folder-3-color: var(--color-d-yellow-30);
   --nav-folder-3-bg-color: color-mix(
     in srgb,
     var(--color-d-alpha-yellow) 60%,
@@ -2304,7 +2470,7 @@ body.is-mobile {
     var(--nav-folder-3-color) 25%,
     transparent
   );
-  --nav-folder-4-color: var(--color-d-green-20);
+  --nav-folder-4-color: var(--color-d-green-40);
   --nav-folder-4-bg-color: color-mix(
     in srgb,
     var(--color-d-alpha-green) 60%,
@@ -2325,7 +2491,7 @@ body.is-mobile {
     var(--nav-folder-4-color) 25%,
     transparent
   );
-  --nav-folder-5-color: var(--color-d-blue-20);
+  --nav-folder-5-color: var(--color-d-blue-40);
   --nav-folder-5-bg-color: color-mix(
     in srgb,
     var(--color-d-alpha-blue) 60%,
@@ -2346,7 +2512,7 @@ body.is-mobile {
     var(--nav-folder-5-color) 25%,
     transparent
   );
-  --nav-folder-6-color: var(--color-d-purple-10);
+  --nav-folder-6-color: var(--color-d-purple-40);
   --nav-folder-6-bg-color: color-mix(
     in srgb,
     var(--color-d-alpha-purple) 60%,
@@ -2367,7 +2533,7 @@ body.is-mobile {
     var(--nav-folder-6-color) 25%,
     transparent
   );
-  --nav-folder-7-color: var(--color-d-red-30);
+  --nav-folder-7-color: var(--color-d-red-40);
   --nav-folder-7-bg-color: color-mix(
     in srgb,
     var(--color-d-alpha-red) 60%,
@@ -2388,7 +2554,7 @@ body.is-mobile {
     var(--nav-folder-7-color) 25%,
     transparent
   );
-  --nav-folder-8-color: var(--color-d-orange-20);
+  --nav-folder-8-color: var(--color-d-orange-40);
   --nav-folder-8-bg-color: color-mix(
     in srgb,
     var(--color-d-alpha-orange) 60%,
@@ -2409,7 +2575,7 @@ body.is-mobile {
     var(--nav-folder-8-color) 25%,
     transparent
   );
-  --nav-folder-9-color: var(--color-d-yellow-20);
+  --nav-folder-9-color: var(--color-d-yellow-30);
   --nav-folder-9-bg-color: color-mix(
     in srgb,
     var(--color-d-alpha-yellow) 60%,
@@ -2430,7 +2596,7 @@ body.is-mobile {
     var(--nav-folder-9-color) 25%,
     transparent
   );
-  --nav-folder-10-color: var(--color-d-green-20);
+  --nav-folder-10-color: var(--color-d-green-40);
   --nav-folder-10-bg-color: color-mix(
     in srgb,
     var(--color-d-alpha-green) 60%,
@@ -2451,7 +2617,7 @@ body.is-mobile {
     var(--nav-folder-10-color) 25%,
     transparent
   );
-  --nav-folder-11-color: var(--color-d-blue-20);
+  --nav-folder-11-color: var(--color-d-blue-40);
   --nav-folder-11-bg-color: color-mix(
     in srgb,
     var(--color-d-alpha-blue) 60%,
@@ -2472,7 +2638,7 @@ body.is-mobile {
     var(--nav-folder-11-color) 25%,
     transparent
   );
-  --nav-folder-12-color: var(--color-d-purple-10);
+  --nav-folder-12-color: var(--color-d-purple-40);
   --nav-folder-12-bg-color: color-mix(
     in srgb,
     var(--color-d-alpha-purple) 60%,
@@ -2545,7 +2711,7 @@ body.is-mobile {
   --bold-italic-highlight-bg: var(--color-d-alpha-green);
   --strikethrough-highlight-color: var(--strikethrough-color);
   --strikethrough-highlight-bg: var(--color-d-alpha-yellow);
-  --inline-code-color: var(--color-d-red-20);
+  --inline-code-color: var(--color-d-red-40);
   --inline-code-bg: var(--color-d-gray-130);
   --inline-title-color: var(--color-d-gray-10);
   --inline-query-bg: color-mix(
@@ -2554,7 +2720,7 @@ body.is-mobile {
     var(--background-primary)
   );
   --inline-query-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.26);
-  --kbd-color: var(--color-d-red-20);
+  --kbd-color: var(--color-d-red-40);
   --kbd-background: var(--color-d-gray-110);
   --kbd-shadow:
     inset 0px 0px 0px 1px rgba(0, 0, 0, 0.17),
@@ -2563,7 +2729,7 @@ body.is-mobile {
   --list-marker-color: var(--color-d-gray-50);
   --list-marker-color-hover: var(--color-d-gray-30);
   --list-marker-color-collapsed: var(--color-d-gray-40);
-  --link-ahref-color: var(--color-d-red-20);
+  --link-ahref-color: var(--color-d-red-40);
   --link-ahref-decoration-color: color-mix(
     in srgb,
     currentColor var(--link-decoration-opacity),
@@ -2595,7 +2761,7 @@ body.is-mobile {
     var(--link-unresolved-color-hover) var(--link-decoration-opacity),
     transparent
   );
-  --link-color: var(--color-d-yellow-20);
+  --link-color: var(--ps-accent-link);
   --link-decoration-color: color-mix(
     in srgb,
     var(--link-color) var(--link-decoration-opacity),
@@ -2611,7 +2777,7 @@ body.is-mobile {
     var(--link-color-hover) var(--link-decoration-opacity),
     transparent
   );
-  --link-external-color: var(--color-d-green-20);
+  --link-external-color: var(--color-d-green-40);
   --link-external-decoration-color: color-mix(
     in srgb,
     var(--link-external-color) var(--link-decoration-opacity),
@@ -2646,25 +2812,25 @@ body.is-mobile {
   --metadata-divider-color: var(--background-modifier-border);
   --metadata-divider-color-hover: transparent;
   --metadata-divider-color-focus: transparent;
-  --pill-tag-color-1: var(--color-d-yellow-20);
+  --pill-tag-color-1: var(--color-d-yellow-30);
   --pill-tag-bg-1: var(--color-d-alpha-yellow);
-  --pill-tag-color-2: var(--color-d-red-20);
+  --pill-tag-color-2: var(--color-d-red-40);
   --pill-tag-bg-2: var(--color-d-alpha-red);
-  --pill-tag-color-3: var(--color-d-blue-20);
+  --pill-tag-color-3: var(--color-d-blue-40);
   --pill-tag-bg-3: var(--color-d-alpha-blue);
   --pill-tag-shadow-hover: inset 0px 0px 0px 1px rgba(255, 255, 255, 0.05);
-  --yaml-base-color: var(--color-d-red-20);
+  --yaml-base-color: var(--color-d-red-40);
   --yaml-def-meta-color: var(--color-d-gray-50);
-  --yaml-atom-color: var(--color-d-blue-10);
+  --yaml-atom-color: var(--color-d-blue-30);
   --yaml-keyword-color: var(--color-d-yellow-30);
-  --yaml-number-color: var(--color-d-red-20);
+  --yaml-number-color: var(--color-d-red-40);
   --yaml-string-color: var(--color-d-yellow-30);
   --table-background: var(--color-d-gray-120);
   --table-header-background: var(--color-d-gray-130);
   --table-header-background-hover: var(--table-header-background);
   --table-column-alt-background: var(--color-d-gray-130);
-  --tag-color: var(--color-d-blue-30);
-  --tag-color-hover: var(--color-d-blue-20);
+  --tag-color: var(--color-d-blue-40);
+  --tag-color-hover: var(--color-d-blue-30);
   --tag-background: rgba(0, 0, 0, 0.3);
   --tag-background-hover: rgba(0, 0, 0, 0.2);
   --tag-border-width: 1px;
@@ -2683,7 +2849,7 @@ body.is-mobile {
   --tag-background: rgba(0, 0, 0, 0.3);
   --search-result-background: var(--background-primary-alt);
   --background-modifier-form-field: var(--color-d-gray-130);
-  --background-modifier-cover: rgba(10, 10, 10, 0.4);
+  --background-modifier-cover: rgba(0, 0, 0, 0.4);
   --background-modifier-hover: rgba(0, 0, 0, 0.3);
   --mobile-sidebar-background: var(--background-secondary);
   --nav-item-color: var(--text-muted);
@@ -2726,11 +2892,11 @@ body.is-mobile {
   --canvas-menu-shadow:
     0px 1px 2px 1px rgba(0, 0, 0, 0.14), 0px 1px 4px -2.1px rgba(0, 0, 0, 0.22),
     0px 2px 8px -1.2px rgba(0, 0, 0, 0.15);
-  --graph-node: var(--color-d-blue-30);
-  --graph-node-unresolved: var(--color-d-yellow-20);
+  --graph-node: var(--color-d-blue-50);
+  --graph-node-unresolved: var(--color-d-yellow-30);
   --graph-node-unresolved-opacity: 1;
-  --graph-node-tag: var(--color-d-red-30);
-  --graph-node-attachment: var(--color-d-green-30);
+  --graph-node-tag: var(--color-d-red-40);
+  --graph-node-attachment: var(--color-d-green-50);
   --graph-node-focused: var(--color-d-gray-20);
   --graph-node-highlight-fill: var(--color-d-gray-30);
   --graph-node-highlight-line: var(--color-d-gray-60);
@@ -6278,33 +6444,33 @@ body {
   --callout-icon-example: scroll-text;
   --callout-icon-quote: message-square-note;
   --callout-icon-cite: book-marked;
-  --callout-general: rgb(182 196 182);
-  --callout-note: rgb(200 175 155);
-  --callout-summary: rgb(234 181 52);
-  --callout-abstract: rgb(34 152 225);
-  --callout-tldr: rgb(240 180 225);
-  --callout-info: rgb(71 162 187);
-  --callout-todo: rgb(58 173 252);
-  --callout-tip: rgb(70 206 185);
-  --callout-hint: rgb(70 206 185);
-  --callout-important: rgb(246 113 118);
-  --callout-success: rgb(87 200 83);
-  --callout-check: rgb(87 200 83);
-  --callout-done: rgb(87 200 83);
-  --callout-question: rgb(130 190 235);
-  --callout-help: rgb(250 128 96);
-  --callout-faq: rgb(130 190 235);
-  --callout-warning: rgb(255 161 32);
-  --callout-caution: rgb(255 161 32);
-  --callout-attention: rgb(255 161 32);
-  --callout-fail: rgb(226 72 86);
-  --callout-missing: rgb(226 72 86);
-  --callout-danger: rgb(226 72 86);
-  --callout-error: rgb(226 72 86);
-  --callout-bug: rgb(153 93 133);
-  --callout-example: rgb(216 141 130);
-  --callout-quote: rgb(173 214 171);
-  --callout-cite: rgb(237 217 162);
+  --callout-general: var(--color-l-cyan-60);
+  --callout-note: var(--color-l-gray-70);
+  --callout-summary: var(--color-l-yellow-70);
+  --callout-abstract: var(--color-l-blue-90);
+  --callout-tldr: var(--color-l-pink-70);
+  --callout-info: var(--color-l-blue-80);
+  --callout-todo: var(--color-l-blue-80);
+  --callout-tip: var(--color-l-cyan-70);
+  --callout-hint: var(--color-l-cyan-70);
+  --callout-important: var(--color-l-red-80);
+  --callout-success: var(--color-l-green-80);
+  --callout-check: var(--color-l-green-80);
+  --callout-done: var(--color-l-green-80);
+  --callout-question: var(--color-l-blue-70);
+  --callout-help: var(--color-l-orange-80);
+  --callout-faq: var(--color-l-blue-70);
+  --callout-warning: var(--color-l-orange-70);
+  --callout-caution: var(--color-l-orange-70);
+  --callout-attention: var(--color-l-orange-70);
+  --callout-fail: var(--color-l-red-90);
+  --callout-missing: var(--color-l-red-90);
+  --callout-danger: var(--color-l-red-90);
+  --callout-error: var(--color-l-red-90);
+  --callout-bug: var(--color-l-pink-100);
+  --callout-example: var(--color-l-red-70);
+  --callout-quote: var(--color-l-green-60);
+  --callout-cite: var(--color-l-yellow-60);
 }
 .callout {
   --callout-icon: var(--callout-icon-general);
@@ -6843,7 +7009,7 @@ a:active {
 .external-link {
   background-image:
     linear-gradient(transparent, transparent),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgba(136, 136, 136)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='7' y1='17' x2='17' y2='7'%3E%3C/line%3E%3Cpolyline points='7 7 17 7 17 17'%3E%3C/polyline%3E%3C/svg%3E");
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%239D8062' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='7' y1='17' x2='17' y2='7'%3E%3C/line%3E%3Cpolyline points='7 7 17 7 17 17'%3E%3C/polyline%3E%3C/svg%3E");
   background-size: calc(var(--font-text-size) + 0.2em), 1em;
   background-position-x: right;
   background-position-y: center;
@@ -8331,28 +8497,67 @@ body.no-decor-link {
   --link-unresolved-decoration-style: none;
 }
 body.accent-palette_warm {
-  --interactive-accent: hsl(20, 75%, 45%);
-  --interactive-accent-hover: hsl(20, 75%, 40%);
-  --checkbox-color: hsl(20, 75%, 45%);
-  --checkbox-color-hover: hsl(20, 75%, 40%);
+  --ps-accent-fill: var(--color-l-orange-90);
+  --ps-accent-fill-hover: var(--color-l-orange-100);
+  --ps-accent-text: var(--color-l-orange-110);
+  --ps-accent-text-hover: var(--color-l-orange-120);
+  --checkbox-color: var(--color-l-orange-90);
+  --checkbox-color-hover: var(--color-l-orange-100);
 }
 body.accent-palette_warm.theme-dark {
-  --interactive-accent: hsl(20, 80%, 58%);
-  --interactive-accent-hover: hsl(20, 80%, 63%);
-  --checkbox-color: hsl(20, 70%, 45%);
-  --checkbox-color-hover: hsl(20, 70%, 50%);
+  --ps-accent-fill: var(--color-d-orange-40);
+  --ps-accent-fill-hover: var(--color-d-orange-30);
+  --ps-accent-text: var(--color-d-orange-30);
+  --ps-accent-text-hover: var(--color-d-orange-20);
+  --checkbox-color: var(--color-d-orange-50);
+  --checkbox-color-hover: var(--color-d-orange-40);
 }
 body.accent-palette_cool {
-  --interactive-accent: hsl(205, 65%, 42%);
-  --interactive-accent-hover: hsl(205, 65%, 37%);
-  --checkbox-color: hsl(205, 55%, 40%);
-  --checkbox-color-hover: hsl(205, 55%, 35%);
+  --ps-accent-fill: var(--color-l-blue-100);
+  --ps-accent-fill-hover: var(--color-l-blue-110);
+  --ps-accent-text: var(--color-l-blue-110);
+  --ps-accent-text-hover: var(--color-l-blue-120);
+  --checkbox-color: var(--color-l-blue-110);
+  --checkbox-color-hover: var(--color-l-blue-120);
 }
 body.accent-palette_cool.theme-dark {
-  --interactive-accent: hsl(205, 70%, 60%);
-  --interactive-accent-hover: hsl(205, 70%, 65%);
-  --checkbox-color: hsl(205, 55%, 45%);
-  --checkbox-color-hover: hsl(205, 55%, 50%);
+  --ps-accent-fill: var(--color-d-blue-40);
+  --ps-accent-fill-hover: var(--color-d-blue-30);
+  --ps-accent-text: var(--color-d-blue-30);
+  --ps-accent-text-hover: var(--color-d-blue-20);
+  --checkbox-color: var(--color-d-blue-50);
+  --checkbox-color-hover: var(--color-d-blue-40);
+}
+body.accent-palette_sea {
+  --ps-accent-fill: var(--color-l-cyan-110);
+  --ps-accent-fill-hover: var(--color-l-cyan-120);
+  --ps-accent-text: var(--color-l-cyan-110);
+  --ps-accent-text-hover: var(--color-l-cyan-120);
+  --ps-accent-link: var(--color-l-cyan-110);
+  --checkbox-color: var(--color-l-cyan-110);
+  --checkbox-color-hover: var(--color-l-cyan-120);
+}
+body.accent-palette_sea.theme-dark {
+  --ps-accent-fill: var(--color-d-cyan-60);
+  --ps-accent-fill-hover: var(--color-d-cyan-50);
+  --ps-accent-text: var(--color-d-cyan-30);
+  --ps-accent-text-hover: var(--color-d-cyan-20);
+  --ps-accent-link: var(--color-d-cyan-30);
+  --checkbox-color: var(--color-d-cyan-60);
+  --checkbox-color-hover: var(--color-d-cyan-50);
+}
+/* Custom: the accent colour from Obsidian's settings (the only colour outside the palette, chosen by the user). */
+body.accent-palette_custom {
+  --ps-accent-fill: hsl(calc(var(--accent-h) - 1), calc(var(--accent-s) * 1.01), calc(var(--accent-l) * 1.075));
+  --ps-accent-fill-hover: hsl(calc(var(--accent-h) - 3), calc(var(--accent-s) * 1.33), calc(var(--accent-l) * 1.19));
+  --ps-accent-text: hsl(var(--accent-h), var(--accent-s), min(var(--accent-l), 38%));
+  --ps-accent-text-hover: hsl(var(--accent-h), var(--accent-s), min(var(--accent-l), 30%));
+}
+body.accent-palette_custom.theme-dark {
+  --ps-accent-fill-hover: hsl(calc(var(--accent-h) - 5), calc(var(--accent-s) * 1.16), calc(var(--accent-l) * 1.34));
+  --ps-accent-fill: hsl(calc(var(--accent-h) - 3), calc(var(--accent-s) * 1.02), calc(var(--accent-l) * 1.15));
+  --ps-accent-text: hsl(var(--accent-h), var(--accent-s), max(var(--accent-l), 62%));
+  --ps-accent-text-hover: hsl(var(--accent-h), var(--accent-s), max(var(--accent-l), 72%));
 }
 body.layout-density_compact {
   --nav-item-padding: var(--size-2-2) var(--size-4-2);
@@ -8389,20 +8594,20 @@ body.heading-style_minimal {
   --h6-weight: 600;
 }
 body.colorful-headings.theme-light {
-  --h1-color: var(--color-l-red-30);
-  --h2-color: var(--color-l-orange-30);
-  --h3-color: var(--color-l-yellow-40);
-  --h4-color: var(--color-l-green-30);
-  --h5-color: var(--color-l-blue-30);
-  --h6-color: var(--color-l-purple-30);
+  --h1-color: var(--color-l-red-100);
+  --h2-color: var(--color-l-orange-90);
+  --h3-color: var(--color-l-yellow-90);
+  --h4-color: var(--color-l-green-90);
+  --h5-color: var(--color-l-blue-110);
+  --h6-color: var(--color-l-purple-110);
 }
 body.colorful-headings.theme-dark {
-  --h1-color: var(--color-d-red-20);
-  --h2-color: var(--color-d-orange-20);
-  --h3-color: var(--color-d-yellow-20);
-  --h4-color: var(--color-d-green-20);
-  --h5-color: var(--color-d-blue-20);
-  --h6-color: var(--color-d-purple-20);
+  --h1-color: var(--color-d-red-40);
+  --h2-color: var(--color-d-orange-40);
+  --h3-color: var(--color-d-yellow-30);
+  --h4-color: var(--color-d-green-40);
+  --h5-color: var(--color-d-blue-40);
+  --h6-color: var(--color-d-purple-50);
 }
 body.reduce-motion {
   --anim-popup: none;
@@ -8998,7 +9203,7 @@ settings:
 - id: accent-palette
   type: class-select
   title: Accent palette
-  description: Switches the accent and checked-checkbox color to a curated palette, in light and dark mode.
+  description: Switches the accent, link and checked-checkbox color to a curated palette, in light and dark mode. Custom follows the accent color from Settings > Appearance.
   allowEmpty: false
   default: accent-palette-default
   options:
@@ -9008,6 +9213,10 @@ settings:
     value: accent-palette_warm
   - label: Cool
     value: accent-palette_cool
+  - label: Sea
+    value: accent-palette_sea
+  - label: Custom (Obsidian accent color)
+    value: accent-palette_custom
 - id: layout-density
   type: class-select
   title: Layout density

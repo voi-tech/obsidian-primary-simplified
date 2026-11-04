@@ -22,6 +22,12 @@ jobs:
       - name: Structural and accessibility checks
         run: node scripts/validate-theme.mjs
 
+      - name: Palette rules (scales, contrast)
+        run: node scripts/palette.mjs check
+
+      - name: Palette block up to date, no colours outside the palette
+        run: node scripts/build-palette.mjs --check
+
       - name: Theme files present
         run: |
           test -f theme.css

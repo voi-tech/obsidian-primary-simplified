@@ -26,6 +26,11 @@ jobs:
       - name: Structural and accessibility checks
         run: node scripts/validate-theme.mjs
 
+      - name: Palette checks
+        run: |
+          node scripts/palette.mjs check
+          node scripts/build-palette.mjs --check
+
       - name: manifest.json version matches the tag
         run: |
           tag="${GITHUB_REF#refs/tags/}"
