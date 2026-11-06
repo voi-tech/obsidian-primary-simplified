@@ -6443,7 +6443,7 @@ body {
   --callout-icon-error: ban;
   --callout-icon-bug: bug;
   --callout-icon-example: scroll-text;
-  --callout-icon-quote: message-square-note;
+  --callout-icon-quote: quote;
   --callout-icon-cite: book-marked;
   --callout-general: var(--color-l-cyan-60);
   --callout-note: var(--color-l-gray-70);
