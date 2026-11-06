@@ -15,6 +15,17 @@ layout, the redesigned empty tab and the ribbon's new logical-side class
 names. Tested on Obsidian 1.15.1, whose Mermaid diagrams take the theme's
 colours natively.
 
+## Screenshots
+
+![Primary Simplified in light and dark mode](screenshot.png)
+
+| | |
+| --- | --- |
+| ![A note with a banner, heading labels and the editing area in light mode](screenshots/light-banner.png) | ![Reading view in dark mode with a quote, a callout, a table and code](screenshots/dark-reading.png) |
+| Banner with title, Colorful heading labels, the editing area frame and bold folder names. | Dark reading view: Subtle heading labels, quote, callout, table, code and footnotes. |
+| ![A journal note with a teal Custom accent](screenshots/custom-accent.png) | ![The theme's Style Settings, Appearance section](screenshots/style-settings.png) |
+| The Custom accent (here the nietech teal) on highlights, links, tags, checkboxes and the file tree. | Style Settings: every option has a short description and a default. |
+
 ## What It Feels Like
 
 Primary Simplified is meant for everyday writing and note work. It favors
@@ -27,10 +38,15 @@ The theme includes:
 - alternative checkbox icons enabled by default
 - tuned callout colors
 - folder and bookmark color presets
-- optional layout density and accent palette choices (every palette hue)
-- a marked editing area: the text column you can click into in Live Preview
-  and Source mode
-- optional heading backgrounds (subtle or one palette hue per level)
+- optional layout density; the Custom accent takes Obsidian's accent colour
+  and carries it through links, highlights, inline code, tags, active tabs
+  and the file tree
+- a marked editing area: a rounded frame around the text you can click into
+  in Live Preview and Source mode, from below the properties to the last line
+- optional heading backgrounds: rounded labels, neutral or one palette hue per
+  level
+- one corner-radius scale (4, 8, 12, 16 px, as in the nietech brand), rounded
+  tables, and one accent focus ring for keyboard navigation
 - note banners: a header image, icon and title per note through `cssclasses`
   (see [Banner](#banner))
 - focus mode: ribbon, tab bar, note header and status bar fade out until
@@ -143,14 +159,15 @@ If you install the optional
 Primary Simplified adds a small set of controls for the choices people are most
 likely to adjust:
 
-- accent palette (Default, the eight palette hues, or Obsidian's accent)
+- accent palette (Default or Obsidian's accent)
 - layout density
 - colorful headings and heading background
 - editing area (sheet, outline or off)
 - line width (narrow, normal, wide)
 - focus mode
 - dimmed images in dark mode
-- hidden properties heading and "Add property" button
+- hidden properties heading, "Add property" button shown on hover
+- bold folder names
 - banner height
 - reduced motion
 - popup blur

@@ -285,7 +285,7 @@ body {
   --icon-m: 16px;
   --icon-l: 18px;
   --icon-xl: 24px;
-  --clickable-icon-radius: calc(var(--radius-s) + 1px);
+  --clickable-icon-radius: var(--radius-m);
   --ribbon-icon: var(--icon-s);
   --divider-width-hover: 4px;
   --divider-radius: var(--radius-m);
@@ -294,7 +294,7 @@ body {
   --ribbon-margin-bottom: var(--editor-pane-margin);
   --ribbon-icon-spacing: var(--size-2-2);
   --nav-item-white-space: nowrap;
-  --nav-item-radius: 6px;
+  --nav-item-radius: var(--radius-m);
   --nav-item-padding: calc(var(--size-4-1) + 1px) var(--size-4-2)
     calc(var(--size-4-1) + 1px) var(--size-4-6);
   --nav-file-padding-active: calc(var(--size-4-1)) var(--size-4-2)
@@ -316,20 +316,20 @@ body {
     var(--size-4-3) var(--size-4-2) var(--size-4-3);
   --button-inset-shadow-size: 2px;
   --button-axis-offset: 2px;
-  --button-radius: var(--size-4-2);
+  --button-radius: var(--radius-m);
   --button-metadata-padding: var(--size-2-3) var(--size-4-2)
     calc(var(--size-2-3) + var(--button-inset-shadow-size)) var(--size-2-3);
   --button-metadata-padding-active: calc(
       var(--size-2-2) + var(--button-inset-shadow-size)
     )
     var(--size-4-2) var(--size-2-3) var(--size-2-3);
-  --button-s-radius: calc(var(--button-radius) * 0.8);
+  --button-s-radius: var(--radius-m);
   --button-s-padding: var(--size-2-2) var(--size-4-2) var(--size-2-2)
     var(--size-4-2);
   --button-anim: var(--anim-duration-fast) var(--anim-motion-jumpy);
   --close-button-radius: var(--radius-l);
   --button-opacity-active: 0.5;
-  --menu-item-radius: calc(var(--radius-m) - 1px);
+  --menu-item-radius: var(--radius-s);
   --modal-radius: var(--radius-xl);
   --modal-close-button-size: 20px;
   --settings-nav-item-padding: calc(var(--size-2-3) + 1px) var(--size-4-3)
@@ -338,9 +338,9 @@ body {
     calc(var(--size-2-3) + 1px) var(--size-4-5);
   --settings-nav-item-padding-active: var(--size-2-3) var(--size-4-3)
     calc(var(--size-2-3) + var(--button-inset-shadow-size)) var(--size-4-5);
-  --settings-nav-item-radius: calc(var(--radius-m) - 1px);
+  --settings-nav-item-radius: var(--radius-m);
   --flair-count-padding: 2px 4px;
-  --flair-count-radius: calc(var(--radius-s) + 1px);
+  --flair-count-radius: var(--radius-s);
   --pill-tag-weight: var(--component-font-weight);
   --progress-width: 220px;
   --progress-height: 8px;
@@ -350,8 +350,8 @@ body {
   --tab-font-size: var(--font-ui-small);
   --tab-outline-width: 1px;
   --tab-curve: 6px;
-  --tab-radius: var(--radius-s);
-  --tab-radius-active: 6px 6px 0 0;
+  --tab-radius: var(--radius-m);
+  --tab-radius-active: var(--radius-m) var(--radius-m) 0 0;
   --tab-width: 200px;
   --tab-max-width: 320px;
   --tab-stacked-pane-width: 700px;
@@ -376,7 +376,7 @@ body {
   --inline-code-radius: var(--radius-s);
   --embed-padding: var(--size-2-3) var(--embed-left-right-padding) 0px;
   --embed-left-right-padding: var(--size-4-4);
-  --embed-border-radius: var(--radius-l);
+  --embed-border-radius: var(--radius-m);
   --embed-border-top: var(--embed-border-top-width)
     var(--embed-border-top-style) var(--embed-border-top-color);
   --embed-border-top-width: 1px;
@@ -419,7 +419,7 @@ body {
   --file-line-width: 40rem;
   --header-height: 46px;
   --tab-status-radius: var(--radius-s);
-  --new-tab-btn-radius: 2em;
+  --new-tab-btn-radius: var(--radius-l);
   --editor-pane-margin: 10px;
   --editor-border-radius: var(--radius-l);
   --h1-weight: var(--font-semibold);
@@ -476,7 +476,7 @@ body {
   --metadata-border-width: 1px;
   --metadata-divider-width: 0px;
   --metadata-border-radius: var(--radius-m);
-  --metadata-property-radius: calc(var(--radius-m) - 1px);
+  --metadata-property-radius: var(--radius-s);
   --metadata-container-padding: var(--size-4-3) var(--size-4-3);
   --tag-padding-x: 0.6em;
   --tag-padding-y: 0.15em;
@@ -485,7 +485,7 @@ body {
 body.is-mobile {
   --metadata-container-padding: var(--size-4-2) var(--size-4-2);
   --clickable-icon-radius: var(--radius-m);
-  --button-radius: calc(var(--radius-l) - 2px);
+  --button-radius: var(--radius-l);
   --input-font-weight: var(--font-normal);
   --mobile-folder-icon-size: 16px;
 }
@@ -1271,7 +1271,9 @@ body {
   --editor-bg-color: var(--background-primary);
   --editor-bgpattern-color: var(--color-l-gray-60);
   --blockquote-border-color: var(--background-modifier-border);
-  --blockquote-background-color: var(--color-l-gray-10);
+  /* The callout body tint: a quote reads as a block, so its rounded corners
+  show (gray-10 matched the editing area and hid them). */
+  --blockquote-background-color: var(--callout-content-background);
   --callout-color-opacity: 32.5%;
   --callout-border-opacity: 0.2;
   --callout-icon-fold-filter: brightness(0.8);
@@ -2337,7 +2339,9 @@ body {
   --editor-bg-color: var(--background-primary);
   --editor-bgpattern-color: var(--color-d-gray-70);
   --blockquote-border-color: var(--background-modifier-border);
-  --blockquote-background-color: var(--color-d-gray-120);
+  /* The callout body tint: a quote reads as a block, so its rounded corners
+  show (gray-10 matched the editing area and hid them). */
+  --blockquote-background-color: var(--callout-content-background);
   --callout-color-opacity: 32.5%;
   --callout-border-opacity: 0.1;
   --callout-icon-fold-filter: brightness(1);
@@ -3277,7 +3281,7 @@ body.sb-style-floating .status-bar {
   inset-inline-end: var(--status-bar-floating-offset);
   bottom: var(--status-bar-floating-offset);
   --status-bar-border-width: 1px;
-  --status-bar-radius: calc(var(--radius-m) - 2px);
+  --status-bar-radius: var(--radius-m);
   opacity: var(--status-bar-floating-opacity);
   transition: var(--anim-motion-smooth) var(--anim-duration-fast);
   box-shadow: var(--status-bar-floating-shadow);
@@ -3958,7 +3962,7 @@ input.prompt-input:focus-visible {
 .suggestion-item:not(.mod-search-suggestion .suggestion-item) {
   font-size: calc(var(--font-ui-medium) - 1px);
   color: var(--prompt-suggestion-color);
-  border-radius: calc(var(--radius-m) - 1px);
+  border-radius: var(--radius-m);
   transition: padding var(--anim-duration-fast) var(--anim-motion-swing);
 }
 .suggestion-item:not(.mod-search-suggestion .suggestion-item).is-selected {
@@ -3995,7 +3999,7 @@ input.prompt-input:focus-visible {
   color: var(--inline-code-color);
   background-color: var(--background-secondary);
   padding: 2px 4px;
-  border-radius: 4px;
+  border-radius: var(--radius-s);
 }
 .prompt {
   animation: var(--anim-popup);
@@ -6078,7 +6082,7 @@ body:not(.disable-alternative-checkboxes)
   appearance: none;
   background: var(--task-progress-track);
   border: 1px solid var(--task-progress-track-border);
-  border-radius: 999px;
+  border-radius: calc(var(--checkbox-size, 1em) * 0.25);
   width: calc(var(--checkbox-size, 1em) * 2.4);
   height: calc(var(--checkbox-size, 1em) * 0.5);
   overflow: hidden;
@@ -6264,7 +6268,7 @@ body:not(.disable-alternative-checkboxes) .HyperMD-task-line[data-task="8"],
 body:not(.disable-alternative-checkboxes) .HyperMD-task-line[data-task="9"] {
   margin-inline-start: -15px;
   padding: 0.15em 0.6em;
-  border-radius: 1em;
+  border-radius: var(--tag-radius);
   border: none;
   max-width: fit-content;
   font-weight: var(--pill-tag-weight);
@@ -7110,7 +7114,7 @@ body span.cm-quote.cm-strong.cm-em.cm-strikethrough {
   --pill-border-width: 1px;
   --pill-padding-x: 0.5em;
   --pill-padding-y: 0.15em;
-  --pill-radius: 0.35em;
+  --pill-radius: var(--tag-radius);
 }
 .metadata-property[data-property-key="tags"] {
   --pill-padding-x: 0.6em;
@@ -7197,7 +7201,7 @@ body .metadata-property-icon svg {
 .multi-select-pill-remove-button {
   color: var(--pill-color-remove);
   margin-inline-end: calc(var(--pill-padding-x) / 2);
-  border-radius: 1em;
+  border-radius: 50%;
 }
 .multi-select-pill:hover .multi-select-pill-remove-button {
   color: var(--pill-color-remove-hover);
@@ -7717,7 +7721,7 @@ body {
   background: var(--vault-name-background);
   padding: var(--size-2-3) var(--size-4-2);
   border: var(--vault-name-border);
-  border-radius: calc(var(--radius-s) + 1px);
+  border-radius: var(--radius-s);
   margin-bottom: var(--size-4-2);
 }
 .nav-folder.mod-root > .nav-folder-title[data-path="/"]:hover {
@@ -8382,7 +8386,7 @@ body.alt-folder-icons
 .search-result-file-match:hover .search-result-file-match-destination-file {
   color: var(--search-result-dest-file-color);
   background: var(--search-result-dest-file-bg);
-  border-radius: calc(var(--radius-m) - 2px);
+  border-radius: var(--radius-s);
   box-shadow: var(--search-result-dest-file-shadow);
   transition:
     background,
@@ -8435,12 +8439,24 @@ body:not(.is-phone) .mod-root .workspace-leaf-content,
 .workspace-sidedock-vault-profile,
 .callout,
 .callout-title,
+.callout-content,
 .status-bar,
 .mobile-toolbar,
 .pull-down-action,
 .is-mobile .modal,
 kbd,
-span.setting-hotkey {
+span.setting-hotkey,
+.markdown-rendered :is(blockquote, pre, table, th, td, img, mark, code),
+.markdown-source-view.mod-cm6
+  :is(.HyperMD-quote, .HyperMD-codeblock, .cm-highlight, .cm-inline-code, table, th, td, img),
+.internal-embed,
+.markdown-embed,
+.metadata-container,
+.popover,
+.menu,
+.notice,
+.tooltip,
+.embed-actions {
   corner-shape: var(--corner-shape);
 }
 
@@ -8497,154 +8513,6 @@ body.no-decor-link {
   --link-external-decoration-hover: none;
   --link-unresolved-decoration-style: none;
 }
-/* Hue accents: one recipe for every palette hue, so each option has the same
-   contrast. Light: fill 110 (>= 5:1 under text-on-accent), text and link 110,
-   hover one step darker. Dark: fill 60, text and link 30, hover one step
-   lighter. Sea is the cyan option and the nietech brand accent. */
-body.accent-palette_red {
-  --ps-accent-fill: var(--color-l-red-110);
-  --ps-accent-fill-hover: var(--color-l-red-120);
-  --ps-accent-text: var(--color-l-red-110);
-  --ps-accent-text-hover: var(--color-l-red-120);
-  --ps-accent-link: var(--color-l-red-110);
-  --checkbox-color: var(--color-l-red-110);
-  --checkbox-color-hover: var(--color-l-red-120);
-}
-body.accent-palette_red.theme-dark {
-  --ps-accent-fill: var(--color-d-red-60);
-  --ps-accent-fill-hover: var(--color-d-red-50);
-  --ps-accent-text: var(--color-d-red-30);
-  --ps-accent-text-hover: var(--color-d-red-20);
-  --ps-accent-link: var(--color-d-red-30);
-  --checkbox-color: var(--color-d-red-60);
-  --checkbox-color-hover: var(--color-d-red-50);
-}
-body.accent-palette_orange {
-  --ps-accent-fill: var(--color-l-orange-110);
-  --ps-accent-fill-hover: var(--color-l-orange-120);
-  --ps-accent-text: var(--color-l-orange-110);
-  --ps-accent-text-hover: var(--color-l-orange-120);
-  --ps-accent-link: var(--color-l-orange-110);
-  --checkbox-color: var(--color-l-orange-110);
-  --checkbox-color-hover: var(--color-l-orange-120);
-}
-body.accent-palette_orange.theme-dark {
-  --ps-accent-fill: var(--color-d-orange-60);
-  --ps-accent-fill-hover: var(--color-d-orange-50);
-  --ps-accent-text: var(--color-d-orange-30);
-  --ps-accent-text-hover: var(--color-d-orange-20);
-  --ps-accent-link: var(--color-d-orange-30);
-  --checkbox-color: var(--color-d-orange-60);
-  --checkbox-color-hover: var(--color-d-orange-50);
-}
-body.accent-palette_yellow {
-  --ps-accent-fill: var(--color-l-yellow-110);
-  --ps-accent-fill-hover: var(--color-l-yellow-120);
-  --ps-accent-text: var(--color-l-yellow-110);
-  --ps-accent-text-hover: var(--color-l-yellow-120);
-  --ps-accent-link: var(--color-l-yellow-110);
-  --checkbox-color: var(--color-l-yellow-110);
-  --checkbox-color-hover: var(--color-l-yellow-120);
-}
-body.accent-palette_yellow.theme-dark {
-  --ps-accent-fill: var(--color-d-yellow-60);
-  --ps-accent-fill-hover: var(--color-d-yellow-50);
-  --ps-accent-text: var(--color-d-yellow-30);
-  --ps-accent-text-hover: var(--color-d-yellow-20);
-  --ps-accent-link: var(--color-d-yellow-30);
-  --checkbox-color: var(--color-d-yellow-60);
-  --checkbox-color-hover: var(--color-d-yellow-50);
-}
-body.accent-palette_green {
-  --ps-accent-fill: var(--color-l-green-110);
-  --ps-accent-fill-hover: var(--color-l-green-120);
-  --ps-accent-text: var(--color-l-green-110);
-  --ps-accent-text-hover: var(--color-l-green-120);
-  --ps-accent-link: var(--color-l-green-110);
-  --checkbox-color: var(--color-l-green-110);
-  --checkbox-color-hover: var(--color-l-green-120);
-}
-body.accent-palette_green.theme-dark {
-  --ps-accent-fill: var(--color-d-green-60);
-  --ps-accent-fill-hover: var(--color-d-green-50);
-  --ps-accent-text: var(--color-d-green-30);
-  --ps-accent-text-hover: var(--color-d-green-20);
-  --ps-accent-link: var(--color-d-green-30);
-  --checkbox-color: var(--color-d-green-60);
-  --checkbox-color-hover: var(--color-d-green-50);
-}
-body.accent-palette_sea {
-  --ps-accent-fill: var(--color-l-cyan-110);
-  --ps-accent-fill-hover: var(--color-l-cyan-120);
-  --ps-accent-text: var(--color-l-cyan-110);
-  --ps-accent-text-hover: var(--color-l-cyan-120);
-  --ps-accent-link: var(--color-l-cyan-110);
-  --checkbox-color: var(--color-l-cyan-110);
-  --checkbox-color-hover: var(--color-l-cyan-120);
-}
-body.accent-palette_sea.theme-dark {
-  --ps-accent-fill: var(--color-d-cyan-60);
-  --ps-accent-fill-hover: var(--color-d-cyan-50);
-  --ps-accent-text: var(--color-d-cyan-30);
-  --ps-accent-text-hover: var(--color-d-cyan-20);
-  --ps-accent-link: var(--color-d-cyan-30);
-  --checkbox-color: var(--color-d-cyan-60);
-  --checkbox-color-hover: var(--color-d-cyan-50);
-}
-body.accent-palette_blue {
-  --ps-accent-fill: var(--color-l-blue-110);
-  --ps-accent-fill-hover: var(--color-l-blue-120);
-  --ps-accent-text: var(--color-l-blue-110);
-  --ps-accent-text-hover: var(--color-l-blue-120);
-  --ps-accent-link: var(--color-l-blue-110);
-  --checkbox-color: var(--color-l-blue-110);
-  --checkbox-color-hover: var(--color-l-blue-120);
-}
-body.accent-palette_blue.theme-dark {
-  --ps-accent-fill: var(--color-d-blue-60);
-  --ps-accent-fill-hover: var(--color-d-blue-50);
-  --ps-accent-text: var(--color-d-blue-30);
-  --ps-accent-text-hover: var(--color-d-blue-20);
-  --ps-accent-link: var(--color-d-blue-30);
-  --checkbox-color: var(--color-d-blue-60);
-  --checkbox-color-hover: var(--color-d-blue-50);
-}
-body.accent-palette_purple {
-  --ps-accent-fill: var(--color-l-purple-110);
-  --ps-accent-fill-hover: var(--color-l-purple-120);
-  --ps-accent-text: var(--color-l-purple-110);
-  --ps-accent-text-hover: var(--color-l-purple-120);
-  --ps-accent-link: var(--color-l-purple-110);
-  --checkbox-color: var(--color-l-purple-110);
-  --checkbox-color-hover: var(--color-l-purple-120);
-}
-body.accent-palette_purple.theme-dark {
-  --ps-accent-fill: var(--color-d-purple-60);
-  --ps-accent-fill-hover: var(--color-d-purple-50);
-  --ps-accent-text: var(--color-d-purple-30);
-  --ps-accent-text-hover: var(--color-d-purple-20);
-  --ps-accent-link: var(--color-d-purple-30);
-  --checkbox-color: var(--color-d-purple-60);
-  --checkbox-color-hover: var(--color-d-purple-50);
-}
-body.accent-palette_pink {
-  --ps-accent-fill: var(--color-l-pink-110);
-  --ps-accent-fill-hover: var(--color-l-pink-120);
-  --ps-accent-text: var(--color-l-pink-110);
-  --ps-accent-text-hover: var(--color-l-pink-120);
-  --ps-accent-link: var(--color-l-pink-110);
-  --checkbox-color: var(--color-l-pink-110);
-  --checkbox-color-hover: var(--color-l-pink-120);
-}
-body.accent-palette_pink.theme-dark {
-  --ps-accent-fill: var(--color-d-pink-60);
-  --ps-accent-fill-hover: var(--color-d-pink-50);
-  --ps-accent-text: var(--color-d-pink-30);
-  --ps-accent-text-hover: var(--color-d-pink-20);
-  --ps-accent-link: var(--color-d-pink-30);
-  --checkbox-color: var(--color-d-pink-60);
-  --checkbox-color-hover: var(--color-d-pink-50);
-}
 /* Custom: the accent colour from Obsidian's settings (the only colour outside the palette, chosen by the user). */
 body.accent-palette_custom {
   --ps-accent-fill: hsl(calc(var(--accent-h) - 1), calc(var(--accent-s) * 1.01), calc(var(--accent-l) * 1.075));
@@ -8657,6 +8525,143 @@ body.accent-palette_custom.theme-dark {
   --ps-accent-fill: hsl(calc(var(--accent-h) - 3), calc(var(--accent-s) * 1.02), calc(var(--accent-l) * 1.15));
   --ps-accent-text: hsl(var(--accent-h), var(--accent-s), max(var(--accent-l), 62%));
   --ps-accent-text-hover: hsl(var(--accent-h), var(--accent-s), max(var(--accent-l), 72%));
+}
+/* Custom also carries the accent through the note and the app: every
+==highlight== (plain, bold, italic), inline code, every kind of link, tags
+and tag pills, checked boxes, active tabs and icons and the file tree (open note in accent text, selected
+items on an accent fill). Text steps are clamped to 38% lightness (dark:
+62%) so they stay readable. Default keeps Primary's yellow/red/blue
+rotation, blue tags, red code, red bold, blue italics and the per-emphasis
+highlight colours. */
+body.accent-palette_custom {
+  --text-highlight-bg: color-mix(in srgb, var(--ps-accent-fill) 22%, transparent);
+  --normal-highlight-bg: var(--text-highlight-bg);
+  --strikethrough-highlight-bg: var(--text-highlight-bg);
+  --bold-highlight-bg: var(--text-highlight-bg);
+  --italic-highlight-bg: var(--text-highlight-bg);
+  --bold-italic-highlight-bg: var(--text-highlight-bg);
+  /* >= 5.1:1 on the code background (dark >= 7.8:1). */
+  --inline-code-color: var(--ps-accent-text);
+  /* External links and links in the app (settings, dialogs) take the link
+  colour too; the external-link icon still tells them apart. */
+  --link-external-color: var(--ps-accent-link);
+  --link-ahref-color: var(--ps-accent-link);
+  /* Bold and italic drop Primary's red and blue: weight and slant mark
+  them, the accent is the only colour in the text. */
+  --bold-color: var(--text-normal);
+  --italic-color: var(--text-normal);
+  /* The yellow/red/blue rotation of active tabs, ribbon icons and settings
+  pages becomes the one accent. */
+  --alternating-color-1: var(--ps-accent-text);
+  --alternating-color-2: var(--ps-accent-text);
+  --alternating-color-3: var(--ps-accent-text);
+  /* Links, checked boxes and tag pills in properties: the accent instead of
+  Primary's yellow links, green boxes and yellow/red/blue pill rotation. */
+  --ps-accent-link: var(--ps-accent-text);
+  --checkbox-color: var(--ps-accent-fill);
+  --checkbox-color-hover: var(--ps-accent-fill-hover);
+  --pill-tag-color-1: var(--ps-accent-text);
+  --pill-tag-color-2: var(--ps-accent-text);
+  --pill-tag-color-3: var(--ps-accent-text);
+  --pill-tag-bg-1: color-mix(in srgb, var(--ps-accent-fill) 14%, transparent);
+  --pill-tag-bg-2: var(--pill-tag-bg-1);
+  --pill-tag-bg-3: var(--pill-tag-bg-1);
+  --alternating-color-1-hover-active: var(--ps-accent-text-hover);
+  --alternating-color-2-hover-active: var(--ps-accent-text-hover);
+  --alternating-color-3-hover-active: var(--ps-accent-text-hover);
+  --tag-color: var(--ps-accent-text);
+  --tag-color-hover: var(--ps-accent-text-hover);
+  --nav-item-color-active: var(--ps-accent-text);
+  --nav-item-color-selected: var(--text-on-accent);
+  --nav-item-background-selected: var(--ps-accent-fill);
+  --nav-item-background-selected-hover: var(--ps-accent-fill-hover);
+}
+body.accent-palette_custom.theme-dark {
+  --text-highlight-bg: color-mix(in srgb, var(--ps-accent-fill) 40%, transparent);
+}
+/* Corner radii follow the nietech scale, one step per size of element:
+xs 2px (highlights), s 4px (menu items, checkboxes, property rows, inline
+code, kbd), m 8px (buttons, inputs, icons, nav items, list rows, tabs,
+menus, popovers, notices, tooltips, callouts, quotes, code blocks, tables,
+embeds, images, editing area, heading labels), l 12px (panes, ribbon,
+command palette, setting groups, banners, new tab button), xl 16px
+(modals). Every rounded surface also takes Obsidian's --corner-shape (a
+squircle on macOS), see the list under "Obsidian 1.14 draws its own
+controls". Tags, property values and task labels are pills
+(--tag-radius, 1em); round things (progress tracks, remove buttons) are
+round by shape, not by a 999px radius. Obsidian's desktop xl is 24px. */
+body:not(.is-mobile) {
+  --radius-xl: 16px;
+}
+/* Obsidian 1.15 sets some radii on .mod-macos, so these need its
+specificity. Search fields were 100px pills; they are fields like any other.
+Images are content blocks (m), notices are small layers like menus and
+popovers (m), hotkeys match <kbd> (s), close buttons match icon buttons
+(m), property rows keep one radius when hovered or focused. The embed
+toolbar stays at m + 2px: it wraps m buttons with a 2px padding, and nested
+corners stay concentric only when outer = inner + padding. */
+body,
+body.mod-macos {
+  --ps-radius-xs: 2px;
+  --search-input-radius: var(--input-radius);
+  --search-input-corner-shape: var(--corner-shape);
+  --image-radius: var(--radius-m);
+  --embed-media-border-radius: var(--radius-m);
+  --notice-radius: var(--radius-m);
+  --hotkey-radius: var(--radius-s);
+  --close-button-radius: var(--radius-m);
+  --canvas-controls-radius: var(--radius-m);
+  --metadata-property-radius-hover: var(--metadata-property-radius);
+  --metadata-property-radius-focus: var(--metadata-property-radius);
+}
+
+/* Quotes are blocks like callouts and code: --radius-m. In Live Preview a
+quote is a run of lines, so the first line takes the top corners and the
+last one the bottom corners. */
+.markdown-rendered blockquote {
+  /* A start border would bend along the rounded corners into a "(" shape,
+  so the bar is drawn as a straight background stripe inside the box, in
+  the border's place, inset from the corners. */
+  --ps-quote-bar-inset: var(--size-4-2);
+  border-radius: var(--radius-m);
+  border-inline-start-width: 0;
+  padding-block: var(--size-4-2);
+  padding-inline: calc(var(--size-4-6) + var(--blockquote-border-thickness))
+    var(--size-4-4);
+  background-image: linear-gradient(
+    var(--blockquote-border-color),
+    var(--blockquote-border-color)
+  );
+  background-repeat: no-repeat;
+  background-size: var(--blockquote-border-thickness)
+    calc(100% - 2 * var(--ps-quote-bar-inset));
+  background-position: var(--ps-quote-bar-inset) center;
+}
+.markdown-rendered blockquote blockquote {
+  /* A nested quote sits on its parent's fill: only its bar, running its
+  full height, as in Live Preview. */
+  --ps-quote-bar-inset: 0px;
+  background-color: transparent;
+  padding-block: 0;
+  padding-inline-end: 0;
+  border-radius: 0;
+}
+.markdown-rendered blockquote:dir(rtl) {
+  background-position: calc(100% - var(--ps-quote-bar-inset)) center;
+}
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-quote:not(.HyperMD-quote + .HyperMD-quote) {
+  border-start-start-radius: var(--radius-m);
+  border-start-end-radius: var(--radius-m);
+}
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-quote:not(:has(+ .HyperMD-quote)) {
+  border-end-start-radius: var(--radius-m);
+  border-end-end-radius: var(--radius-m);
+}
+/* Highlights are inline marks: the brand's xs step, so a highlight broken
+by bold or a link inside it does not show notches. */
+.markdown-rendered mark,
+.markdown-source-view.mod-cm6 .cm-highlight {
+  border-radius: var(--ps-radius-xs);
 }
 body.layout-density_compact {
   --nav-item-padding: var(--size-2-2) var(--size-4-2);
@@ -8681,109 +8686,178 @@ body.colorful-headings.theme-dark {
   --h5-color: var(--color-d-blue-40);
   --h6-color: var(--color-d-purple-50);
 }
-/* Heading background. Subtle: one neutral tint for every level. Colorful:
-each level gets the step-30 tint of the colorful-headings hue and the
-step-120 text of the same hue, >= 6:1 on it (dark: tint 90, text 30). It
-overrides Colorful headings, whose text colours are too light on a tint. */
+/* Heading background: each heading becomes a label (tint, 1px edge,
+--radius-m like callouts and tables), sized to the heading text. Flat, no
+lip: in the nietech style shadows belong to layers and buttons. Subtle: one
+neutral tint for every level. Colorful: each level gets the step-30 tint
+and a step-60 edge of its hue (dark: tint 90, edge 70), the text stays in
+the normal colour (nietech: category colours are markers, never text on a
+tint), so it also turns off Colorful headings' coloured text. The
+chip hangs into the margin by its padding, so heading text stays aligned
+with body text (Obsidian zeroes line margins in the editor, so there the
+::before reaches out instead). In Live Preview the chip is a ::before at z-index -3 in the
+scroller: a background on the line itself would cover CodeMirror's
+selection layer (-2) and fill the spacing above the heading. */
 body:is(.heading-bg_subtle, .heading-bg_colorful) {
-  --h1-border-radius: var(--radius-s);
-  --h2-border-radius: var(--radius-s);
-  --h3-border-radius: var(--radius-s);
-  --h4-border-radius: var(--radius-s);
-  --h5-border-radius: var(--radius-s);
-  --h6-border-radius: var(--radius-s);
+  --ps-hchip-pad-x: 0.4em;
+  --ps-hchip-pad-y: 0.06em;
+  --ps-hchip-radius: var(--radius-m);
+  --ps-hchip-shadow: inset 0 0 0 1px var(--ps-hchip-edge, var(--background-modifier-border));
 }
 body:is(.heading-bg_subtle, .heading-bg_colorful)
-  :is(.markdown-rendered :is(h1, h2, h3, h4, h5, h6), .cm-line.HyperMD-header) {
-  padding-inline: var(--size-4-2);
-}
-/* Live Preview spaces a heading with padding-top, which the band would
-fill. Turn that space into a transparent border so the band hugs the text,
-and keep the band on the active line. */
-body:is(.heading-bg_subtle, .heading-bg_colorful) .cm-s-obsidian .cm-line.HyperMD-header {
-  padding-top: 0;
-  border-top: var(--p-spacing) solid transparent;
-  background-clip: padding-box;
+  .markdown-rendered
+  :is(h1, h2, h3, h4, h5, h6) {
+  width: fit-content;
+  max-width: calc(100% + var(--ps-hchip-pad-x));
+  padding: var(--ps-hchip-pad-y) var(--ps-hchip-pad-x);
+  margin-inline-start: calc(-1 * var(--ps-hchip-pad-x));
+  border-radius: var(--ps-hchip-radius);
+  corner-shape: var(--corner-shape);
+  box-shadow: var(--ps-hchip-shadow);
 }
 body:is(.heading-bg_subtle, .heading-bg_colorful)
-  .cm-s-obsidian
+  .markdown-source-view.mod-cm6
+  .cm-line.HyperMD-header {
+  --ps-hchip-gap: var(--p-spacing);
+  width: fit-content;
+  max-width: 100%;
+  padding: calc(var(--ps-hchip-gap) + var(--ps-hchip-pad-y)) var(--ps-hchip-pad-x)
+    var(--ps-hchip-pad-y) 0;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+/* Obsidian drops the spacing of a heading that follows a heading and one
+empty line; the chip follows. */
+body:is(.heading-bg_subtle, .heading-bg_colorful)
+  .markdown-source-view.mod-cm6
   .cm-line.HyperMD-header
-  + .cm-line:has(> br:only-child)
+  + .cm-line:not(.HyperMD-header):has(> br:only-child)
   + .cm-line.HyperMD-header {
-  border-top-width: 0;
+  --ps-hchip-gap: 0px;
 }
-body:is(.heading-bg_subtle, .heading-bg_colorful) .cm-line.HyperMD-header-1.cm-active {
-  background-color: var(--h1-bg-color);  box-shadow: none;
+body:is(.heading-bg_subtle, .heading-bg_colorful)
+  .markdown-source-view.mod-cm6
+  .cm-line.HyperMD-header::before {
+  content: "";
+  position: absolute;
+  z-index: -3;
+  inset: var(--ps-hchip-gap) 0 0 calc(-1 * var(--ps-hchip-pad-x));
+  background: var(--ps-hchip-bg);
+  border-radius: var(--ps-hchip-radius);
+  corner-shape: var(--corner-shape);
+  box-shadow: var(--ps-hchip-shadow);
+  pointer-events: none;
 }
-body:is(.heading-bg_subtle, .heading-bg_colorful) .cm-line.HyperMD-header-2.cm-active {
-  background-color: var(--h2-bg-color);  box-shadow: none;
+body:is(.heading-bg_subtle, .heading-bg_colorful) .cm-line.HyperMD-header-1 {
+  --ps-hchip-bg: var(--h1-bg-color);
 }
-body:is(.heading-bg_subtle, .heading-bg_colorful) .cm-line.HyperMD-header-3.cm-active {
-  background-color: var(--h3-bg-color);  box-shadow: none;
+body:is(.heading-bg_subtle, .heading-bg_colorful) .cm-line.HyperMD-header-2 {
+  --ps-hchip-bg: var(--h2-bg-color);
 }
-body:is(.heading-bg_subtle, .heading-bg_colorful) .cm-line.HyperMD-header-4.cm-active {
-  background-color: var(--h4-bg-color);  box-shadow: none;
+body:is(.heading-bg_subtle, .heading-bg_colorful) .cm-line.HyperMD-header-3 {
+  --ps-hchip-bg: var(--h3-bg-color);
 }
-body:is(.heading-bg_subtle, .heading-bg_colorful) .cm-line.HyperMD-header-5.cm-active {
-  background-color: var(--h5-bg-color);  box-shadow: none;
+body:is(.heading-bg_subtle, .heading-bg_colorful) .cm-line.HyperMD-header-4 {
+  --ps-hchip-bg: var(--h4-bg-color);
 }
-body:is(.heading-bg_subtle, .heading-bg_colorful) .cm-line.HyperMD-header-6.cm-active {
-  background-color: var(--h6-bg-color);  box-shadow: none;
+body:is(.heading-bg_subtle, .heading-bg_colorful) .cm-line.HyperMD-header-5 {
+  --ps-hchip-bg: var(--h5-bg-color);
+}
+body:is(.heading-bg_subtle, .heading-bg_colorful) .cm-line.HyperMD-header-6 {
+  --ps-hchip-bg: var(--h6-bg-color);
 }
 body.heading-bg_subtle.theme-light {
-  --h1-bg-color: var(--color-l-gray-30);
-  --h2-bg-color: var(--color-l-gray-30);
-  --h3-bg-color: var(--color-l-gray-30);
-  --h4-bg-color: var(--color-l-gray-30);
-  --h5-bg-color: var(--color-l-gray-30);
-  --h6-bg-color: var(--color-l-gray-30);
+  --h1-bg-color: var(--color-l-gray-40);
+  --h2-bg-color: var(--color-l-gray-40);
+  --h3-bg-color: var(--color-l-gray-40);
+  --h4-bg-color: var(--color-l-gray-40);
+  --h5-bg-color: var(--color-l-gray-40);
+  --h6-bg-color: var(--color-l-gray-40);
 }
 body.heading-bg_subtle.theme-dark {
-  --h1-bg-color: var(--color-d-gray-90);
-  --h2-bg-color: var(--color-d-gray-90);
-  --h3-bg-color: var(--color-d-gray-90);
-  --h4-bg-color: var(--color-d-gray-90);
-  --h5-bg-color: var(--color-d-gray-90);
-  --h6-bg-color: var(--color-d-gray-90);
+  --h1-bg-color: var(--color-d-gray-80);
+  --h2-bg-color: var(--color-d-gray-80);
+  --h3-bg-color: var(--color-d-gray-80);
+  --h4-bg-color: var(--color-d-gray-80);
+  --h5-bg-color: var(--color-d-gray-80);
+  --h6-bg-color: var(--color-d-gray-80);
+}
+body.heading-bg_colorful {
+  --h1-color: var(--text-normal);
+  --h2-color: var(--text-normal);
+  --h3-color: var(--text-normal);
+  --h4-color: var(--text-normal);
+  --h5-color: var(--text-normal);
+  --h6-color: var(--text-normal);
 }
 body.heading-bg_colorful.theme-light {
   --h1-bg-color: var(--color-l-red-30);
-  --h1-color: var(--color-l-red-120);
   --h2-bg-color: var(--color-l-orange-30);
-  --h2-color: var(--color-l-orange-120);
   --h3-bg-color: var(--color-l-yellow-30);
-  --h3-color: var(--color-l-yellow-120);
   --h4-bg-color: var(--color-l-green-30);
-  --h4-color: var(--color-l-green-120);
   --h5-bg-color: var(--color-l-blue-30);
-  --h5-color: var(--color-l-blue-120);
   --h6-bg-color: var(--color-l-purple-30);
-  --h6-color: var(--color-l-purple-120);
+}
+body.heading-bg_colorful.theme-light :is(.markdown-rendered h1, .cm-line.HyperMD-header-1) {
+  --ps-hchip-edge: var(--color-l-red-60);
+}
+body.heading-bg_colorful.theme-light :is(.markdown-rendered h2, .cm-line.HyperMD-header-2) {
+  --ps-hchip-edge: var(--color-l-orange-60);
+}
+body.heading-bg_colorful.theme-light :is(.markdown-rendered h3, .cm-line.HyperMD-header-3) {
+  --ps-hchip-edge: var(--color-l-yellow-60);
+}
+body.heading-bg_colorful.theme-light :is(.markdown-rendered h4, .cm-line.HyperMD-header-4) {
+  --ps-hchip-edge: var(--color-l-green-60);
+}
+body.heading-bg_colorful.theme-light :is(.markdown-rendered h5, .cm-line.HyperMD-header-5) {
+  --ps-hchip-edge: var(--color-l-blue-60);
+}
+body.heading-bg_colorful.theme-light :is(.markdown-rendered h6, .cm-line.HyperMD-header-6) {
+  --ps-hchip-edge: var(--color-l-purple-60);
 }
 body.heading-bg_colorful.theme-dark {
   --h1-bg-color: var(--color-d-red-90);
-  --h1-color: var(--color-d-red-30);
   --h2-bg-color: var(--color-d-orange-90);
-  --h2-color: var(--color-d-orange-30);
   --h3-bg-color: var(--color-d-yellow-90);
-  --h3-color: var(--color-d-yellow-30);
   --h4-bg-color: var(--color-d-green-90);
-  --h4-color: var(--color-d-green-30);
   --h5-bg-color: var(--color-d-blue-90);
-  --h5-color: var(--color-d-blue-30);
   --h6-bg-color: var(--color-d-purple-90);
-  --h6-color: var(--color-d-purple-30);
+}
+body.heading-bg_colorful.theme-dark :is(.markdown-rendered h1, .cm-line.HyperMD-header-1) {
+  --ps-hchip-edge: var(--color-d-red-70);
+}
+body.heading-bg_colorful.theme-dark :is(.markdown-rendered h2, .cm-line.HyperMD-header-2) {
+  --ps-hchip-edge: var(--color-d-orange-70);
+}
+body.heading-bg_colorful.theme-dark :is(.markdown-rendered h3, .cm-line.HyperMD-header-3) {
+  --ps-hchip-edge: var(--color-d-yellow-70);
+}
+body.heading-bg_colorful.theme-dark :is(.markdown-rendered h4, .cm-line.HyperMD-header-4) {
+  --ps-hchip-edge: var(--color-d-green-70);
+}
+body.heading-bg_colorful.theme-dark :is(.markdown-rendered h5, .cm-line.HyperMD-header-5) {
+  --ps-hchip-edge: var(--color-d-blue-70);
+}
+body.heading-bg_colorful.theme-dark :is(.markdown-rendered h6, .cm-line.HyperMD-header-6) {
+  --ps-hchip-edge: var(--color-d-purple-70);
 }
 
-/* Editing area: marks the column that takes clicks in Live Preview and
-Source mode of a main pane, so it is clear where the caret can go. The
-column is a background of the scroller sized like .cm-sizer (so it never
-covers the selection layer, which CodeMirror paints at z-index -2), and the
-note content is widened by --ps-edit-gutter into the scroller's side padding
-with the text left in place: a click anywhere inside the column places the
-caret. Outside it the pointer is an arrow. Reading view is not marked. */
+/* Editing area: marks the editable text of a Live Preview or Source note in
+a main pane, from the first line under the properties to just past the last
+line, with --ps-edit-gutter of room on each side. The content is widened
+into the margins, so a click anywhere inside the area places the caret and
+nowhere outside it does (pointer: arrow). The mark is a ::before of the
+scroller, anchored to the content box with CSS anchor positioning, so it can
+sit at z-index -4, under the heading chips (-3) and CodeMirror's selection
+layer (-2). Obsidian pads the end of the content inline (scroll past end);
+that space moves to the sizer, so the area ends at the last line. Reading
+view is not marked. */
 body:is(.editing-area_outline, .editing-area_sheet) {
   --ps-edit-gutter: calc(var(--file-margins-x, var(--size-4-8)) / 2);
+  --ps-edit-pad-y: var(--size-4-3);
+  --ps-edit-radius: var(--radius-m);
 }
 body.editing-area_outline {
   --ps-edit-fill: transparent;
@@ -8799,18 +8873,6 @@ body.editing-area_sheet.theme-dark {
   /* The default active line (gray 90) would vanish on the sheet. */
   --active-line-bg: var(--color-d-gray-80);
 }
-.mod-root .view-content > .markdown-source-view.mod-cm6 {
-  --ps-edit-column: 100vw;
-}
-.mod-root .view-content > .markdown-source-view.mod-cm6.is-readable-line-width {
-  --ps-edit-column: var(--file-line-width);
-}
-.mod-root .view-content > .markdown-source-view.mod-cm6.is-readable-line-width.wide {
-  --ps-edit-column: var(--line-width-wide, calc(var(--file-line-width) * 1.5));
-}
-.mod-root .view-content > .markdown-source-view.mod-cm6.max {
-  --ps-edit-column: 100vw;
-}
 body:is(.editing-area_outline, .editing-area_sheet)
   .mod-root
   .view-content
@@ -8818,20 +8880,31 @@ body:is(.editing-area_outline, .editing-area_sheet)
   > .cm-editor
   > .cm-scroller {
   cursor: default;
-  background-image: linear-gradient(
-    to right,
-    var(--ps-edit-line) 0 1px,
-    var(--ps-edit-fill) 1px calc(100% - 1px),
-    var(--ps-edit-line) calc(100% - 1px)
-  );
-  background-size:
-    calc(
-        min(var(--ps-edit-column), 100% - 2 * var(--file-margins-x, var(--size-4-8))) + 2 *
-          var(--ps-edit-gutter)
-      )
-    100%;
-  background-position: center top;
-  background-repeat: no-repeat;
+  anchor-scope: --ps-edit;
+}
+body:is(.editing-area_outline, .editing-area_sheet)
+  .mod-root
+  .view-content
+  > .markdown-source-view.mod-cm6
+  > .cm-editor
+  > .cm-scroller::before {
+  content: "";
+  position: absolute;
+  z-index: -4;
+  position-anchor: --ps-edit;
+  inset: anchor(top) anchor(right) anchor(bottom) anchor(left);
+  background: var(--ps-edit-fill);
+  border: 1px solid var(--ps-edit-line);
+  border-radius: var(--ps-edit-radius);
+  corner-shape: var(--corner-shape);
+  pointer-events: none;
+}
+body:is(.editing-area_outline, .editing-area_sheet)
+  .mod-root
+  .view-content
+  > .markdown-source-view.mod-cm6
+  .cm-sizer {
+  padding-bottom: calc(50vh - var(--header-height));
 }
 body:is(.editing-area_outline, .editing-area_sheet)
   .mod-root
@@ -8839,6 +8912,7 @@ body:is(.editing-area_outline, .editing-area_sheet)
   > .markdown-source-view.mod-cm6
   .cm-contentContainer {
   margin-inline: calc(-1 * var(--ps-edit-gutter));
+  anchor-name: --ps-edit;
 }
 body:is(.editing-area_outline, .editing-area_sheet)
   .mod-root
@@ -8846,7 +8920,7 @@ body:is(.editing-area_outline, .editing-area_sheet)
   > .markdown-source-view.mod-cm6
   .cm-content {
   max-width: none;
-  padding-inline: var(--ps-edit-gutter);
+  padding: var(--ps-edit-pad-y) var(--ps-edit-gutter) !important;
   cursor: text;
 }
 body:is(.editing-area_outline, .editing-area_sheet)
@@ -8856,7 +8930,7 @@ body:is(.editing-area_outline, .editing-area_sheet)
   .inline-title {
   cursor: text;
 }
-/* The active line normally bleeds 25vw past the text; stop it at the column. */
+/* The active line normally bleeds 25vw past the text; stop it at the area. */
 body.active-line-highlight:is(.editing-area_outline, .editing-area_sheet)
   .mod-root
   .view-content
@@ -8866,6 +8940,74 @@ body.active-line-highlight:is(.editing-area_outline, .editing-area_sheet)
     calc(-1 * var(--ps-edit-gutter)) 0 var(--active-line-bg),
     var(--ps-edit-gutter) 0 var(--active-line-bg);
 }
+/* A heading chip already marks its line. */
+body.active-line-highlight:is(.heading-bg_subtle, .heading-bg_colorful)
+  .markdown-source-view.mod-cm6
+  .cm-line.HyperMD-header.cm-active {
+  background: none;
+  box-shadow: none;
+}
+/* Tables: rounded outer corners (--radius-m, like callouts, code blocks and
+the editing area). Collapsed borders cannot be rounded, so tables use
+separate borders with no spacing: the frame on the table, inner lines on
+each cell's end and bottom edge, and the corner cells clipped to the
+radius so header and alternating backgrounds stay inside. */
+:is(.markdown-rendered, .markdown-source-view.mod-cm6 .cm-table-widget, .cm-html-embed) table {
+  --ps-table-radius: var(--radius-m);
+  border-collapse: separate;
+  border-spacing: 0;
+  border: var(--table-border-width) solid var(--table-border-color);
+  border-radius: var(--ps-table-radius);
+}
+:is(.markdown-rendered, .markdown-source-view.mod-cm6 .cm-table-widget, .cm-html-embed)
+  table
+  :is(th, td) {
+  border-width: 0 var(--table-border-width) var(--table-border-width) 0;
+  border-style: solid;
+  border-color: var(--table-border-color);
+}
+:is(.markdown-rendered, .markdown-source-view.mod-cm6 .cm-table-widget, .cm-html-embed)
+  table
+  tr
+  > :last-child {
+  border-inline-end-width: 0;
+}
+:is(.markdown-rendered, .markdown-source-view.mod-cm6 .cm-table-widget, .cm-html-embed)
+  table
+  > :last-child
+  > tr:last-child
+  > * {
+  border-bottom-width: 0;
+}
+:is(.markdown-rendered, .markdown-source-view.mod-cm6 .cm-table-widget, .cm-html-embed)
+  table
+  > :first-child
+  > tr:first-child
+  > :first-child {
+  border-start-start-radius: calc(var(--ps-table-radius) - var(--table-border-width));
+}
+:is(.markdown-rendered, .markdown-source-view.mod-cm6 .cm-table-widget, .cm-html-embed)
+  table
+  > :first-child
+  > tr:first-child
+  > :last-child {
+  border-start-end-radius: calc(var(--ps-table-radius) - var(--table-border-width));
+}
+:is(.markdown-rendered, .markdown-source-view.mod-cm6 .cm-table-widget, .cm-html-embed)
+  table
+  > :last-child
+  > tr:last-child
+  > :first-child {
+  border-end-start-radius: calc(var(--ps-table-radius) - var(--table-border-width));
+}
+:is(.markdown-rendered, .markdown-source-view.mod-cm6 .cm-table-widget, .cm-html-embed)
+  table
+  > :last-child
+  > tr:last-child
+  > :last-child {
+  border-end-end-radius: calc(var(--ps-table-radius) - var(--table-border-width));
+}
+
 /* Line width: the readable column (Settings > Editor > Readable line
 length) in three sizes. Editing area, banners and the wide/max helper
 classes all follow --file-line-width. */
@@ -8895,16 +9037,28 @@ body.theme-dark.dim-images-dark
   }
 }
 
-/* Properties: hide the "Properties" heading and the "Add property" button
-(still reachable with the Add file property command). */
+/* Properties: hide the "Properties" heading; show the "Add property" button
+only while the pointer is over the properties or focus is in them. */
 body.hide-properties-heading .metadata-properties-heading {
   display: none;
 }
 body.hide-properties-heading .metadata-container {
   --metadata-container-padding: var(--size-4-2) var(--size-4-3);
 }
-body.hide-add-property .mod-root .metadata-add-button {
-  display: none;
+/* Hidden, the button takes no room (an invisible button left an empty row
+under the properties); it stays in the tab order, and focusing it opens
+the row like hovering does. */
+body.hide-add-property .mod-root .metadata-container:not(:hover, :focus-within) .metadata-add-button {
+  position: absolute;
+  height: 0;
+  padding-block: 0;
+  overflow: hidden;
+  opacity: 0;
+}
+
+/* Bold folder names in the file explorer. */
+body.bold-folders .nav-folder-title {
+  font-weight: var(--font-semibold);
 }
 
 /* Focus mode (desktop): the ribbon icons, the main tab bar, the note header
@@ -8971,15 +9125,41 @@ body.reduce-motion {
     --button-anim: none;
   }
 }
-:where(
-  button,
-  input,
-  textarea,
-  select,
-  [tabindex]:not([tabindex="-1"])
-):focus-visible {
-  outline: 2px solid var(--interactive-accent);
-  outline-offset: 2px;
+/* One focus ring for keyboard focus (nietech: 3px in the accent with a 2px
+gap, >= 4.9:1 on the page in every palette). It replaces Obsidian's grey
+box-shadow rings, which go transparent on the focused element so there is
+never a double ring; !important beats Obsidian's per-control outlines.
+Text in notes (editor, title, properties) shows its caret instead. Tree
+rows moved with the arrow keys keep Obsidian's 2px ring, in the accent. */
+body {
+  --ps-focus-ring: var(--ps-accent-text);
+}
+:is(
+    button,
+    select,
+    a,
+    .dropdown,
+    .clickable-icon,
+    .checkbox-container,
+    .combobox-button,
+    .text-icon-button,
+    .vertical-tab-nav-item,
+    .setting-item,
+    .community-item,
+    .modal-sidebar-list-item,
+    input:is([type="checkbox"], [type="radio"], [type="range"], [type="color"]),
+    :is(textarea, input:is([type="text"], [type="search"], [type="email"], [type="password"], [type="number"], [type="date"], [type="datetime-local"])):not(
+        .prompt-input,
+        .metadata-container *
+      ),
+    [tabindex]:not([tabindex="-1"], [contenteditable], .cm-content, .cm-scroller, .metadata-container *)
+  ):focus-visible {
+  --background-modifier-border-focus: transparent;
+  outline: 3px solid var(--ps-focus-ring) !important;
+  outline-offset: 2px !important;
+}
+:is(.has-focus, .has-active-menu, .is-being-renamed) {
+  --background-modifier-border-focus: var(--ps-focus-ring);
 }
 @media (forced-colors: active) {
   :focus-visible {
@@ -9535,7 +9715,7 @@ body {
   --banner-image-inset: var(--size-4-2);
   --banner-image-height: 320px;
   --banner-image-height-s: 240px;
-  --banner-image-radius: var(--radius-s);
+  --banner-image-radius: var(--radius-l);
   --banner-fade-height: 80px;
   --banner-icon-size: 3rem;
   --banner-mobile-offset: 0px;
@@ -9686,6 +9866,15 @@ body.is-phone .banner-icon.banner-title .inline-title ~ .metadata-container {
   .cm-line:has(.image-embed[alt="banner"]) {
   position: static;
 }
+/* The banner line holds no text once the image is lifted out: collapse it
+so the note starts right under the title, and give it its height back while
+the cursor is on it (arrow keys reach it, the source shows up there). */
+.mod-root .view-content:not(.pixel-banner, .has-banner)
+  .is-live-preview.banner
+  .cm-line:has(.image-embed[alt="banner"]):not(.cm-active) {
+  height: 0;
+  padding-block: 0;
+}
 .mod-root .view-content:not(.pixel-banner, .has-banner)
   :is(.markdown-preview-view, .is-live-preview).banner
   :is(
@@ -9834,7 +10023,7 @@ body.is-phone .banner-icon.banner-title .inline-title ~ .metadata-container {
 }
 
 /* Known inconsistency: Style Settings variant class names mix hyphen and
-underscore separators (e.g. accent-palette_sea vs ribbon-slideout, and
+underscore separators (e.g. accent-palette_custom vs ribbon-slideout, and
 editor-bg-default vs editor-bgpattern-linegrid). These names are kept as-is
 for backwards compatibility with vaults/snippets already referencing them;
 new classes added going forward should prefer plain hyphens. */
@@ -9867,28 +10056,12 @@ settings:
 - id: accent-palette
   type: class-select
   title: Accent palette
-  description: Switches the accent, link and checked-checkbox color to a hue from the theme palette, in light and dark mode. Default is the warm neutral with yellow links. Custom follows the accent color from Settings > Appearance.
+  description: Default is Primary's warm neutral accent with yellow links. Custom takes the accent color from Settings > Appearance and uses it for links, highlights, inline code, tags, checkboxes, active tabs and the file tree.
   allowEmpty: false
   default: accent-palette-default
   options:
   - label: Default
     value: accent-palette-default
-  - label: Red
-    value: accent-palette_red
-  - label: Orange
-    value: accent-palette_orange
-  - label: Yellow
-    value: accent-palette_yellow
-  - label: Green
-    value: accent-palette_green
-  - label: Sea (cyan)
-    value: accent-palette_sea
-  - label: Blue
-    value: accent-palette_blue
-  - label: Purple
-    value: accent-palette_purple
-  - label: Pink
-    value: accent-palette_pink
   - label: Custom (Obsidian accent color)
     value: accent-palette_custom
 - id: layout-density
@@ -9909,7 +10082,7 @@ settings:
 - id: heading-bg
   type: class-select
   title: Heading background
-  description: Puts H1-H6 on a tinted band. Colorful gives each level its own palette hue (red to purple) with matching dark text and takes precedence over Colorful headings.
+  description: Puts each heading on a rounded label. Subtle uses one neutral tint for all levels. Colorful tints H1-H6 with their own palette hue (red to purple); the heading text keeps the normal colour.
   allowEmpty: false
   default: heading-bg-default
   options:
@@ -9987,7 +10160,7 @@ settings:
 - id: editing-area
   type: class-select
   title: Editing area
-  description: Marks the text column in Live Preview and Source mode. A click anywhere inside it places the cursor; outside it the pointer is an arrow. Sheet fills the column, Outline only draws its edges. Reading view is not marked.
+  description: Draws a rounded frame around the text you can edit in Live Preview and Source mode, from below the properties to just after the last line. A click anywhere inside places the cursor. Sheet also fills the frame. Reading view is not marked.
   allowEmpty: false
   default: editing-area_sheet
   options:
@@ -10051,8 +10224,8 @@ settings:
   description: Hides the "Properties" label above note properties.
 - id: hide-add-property
   type: class-toggle
-  title: Hide "Add property" button
-  description: The Add file property command still works.
+  title: Hide "Add property" button until hover
+  description: The button appears when the pointer is over the properties.
 - id: essential-banner
   type: heading
   level: 2
@@ -10061,10 +10234,23 @@ settings:
 - id: banner-info
   type: info-text
   markdown: true
-  description: "Per note: add `banner` to `cssclasses` and `|banner` to an image link, e.g. `![[image.jpg|banner]]`. Optional classes: `banner-fade`, `banner-icon` (with a `> [!banner-icon] 🌊` callout), `banner-title`, `y0` to `y100` for the image position, `banner-image-contain`."
+  description: |-
+    A banner is a wide image at the top of a note. To add one:
+
+    1. In the note's properties, add `banner` to **cssclasses**.
+    2. Put an image link with `|banner` on the first line: `![[mountains.jpg|banner]]`.
+
+    Optional, also in **cssclasses**:
+
+    - `banner-fade`: the image fades into the page.
+    - `y0` ... `y100`: which part of the image shows, `y0` is the top, `y50` the middle.
+    - `banner-image-contain`: shows the whole image instead of cropping it.
+    - `banner-title`: moves the note title onto the banner.
+    - `banner-icon`: shows an icon on the banner; write it in a callout `> [!banner-icon] 🌊`.
 - id: banner-height
   type: class-select
   title: Banner height
+  description: Height of the banner image in every note that has one.
   allowEmpty: false
   default: banner-height-default
   options:
@@ -10094,6 +10280,10 @@ settings:
     value: folder-color_background
   - label: Full color
     value: folder-color_full
+- id: bold-folders
+  type: class-toggle
+  title: Bold folder names
+  description: Folder names in the file explorer are semibold, notes stay regular.
 - id: alt-folder-icons
   type: class-toggle
   title: Use folder icons as collapse indicators
