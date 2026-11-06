@@ -3286,10 +3286,11 @@ body.sb-style-floating .status-bar:hover {
   opacity: var(--status-bar-floating-opacity-hover);
   transition: var(--anim-motion-smooth) var(--anim-duration-fast);
 }
-body.sb-sync-only .status-bar-item:not(.plugin-sync) {
+/* .mod-loading is the 1.15 start-up progress item; keep it visible. */
+body.sb-sync-only .status-bar-item:not(.plugin-sync, .mod-loading) {
   display: none;
 }
-body.sb-word-count-only .status-bar-item:not(.plugin-word-count) {
+body.sb-word-count-only .status-bar-item:not(.plugin-word-count, .mod-loading) {
   display: none;
 }
 .workspace,
@@ -8496,37 +8497,81 @@ body.no-decor-link {
   --link-external-decoration-hover: none;
   --link-unresolved-decoration-style: none;
 }
-body.accent-palette_warm {
-  --ps-accent-fill: var(--color-l-orange-90);
-  --ps-accent-fill-hover: var(--color-l-orange-100);
+/* Hue accents: one recipe for every palette hue, so each option has the same
+   contrast. Light: fill 110 (>= 5:1 under text-on-accent), text and link 110,
+   hover one step darker. Dark: fill 60, text and link 30, hover one step
+   lighter. Sea is the cyan option and the nietech brand accent. */
+body.accent-palette_red {
+  --ps-accent-fill: var(--color-l-red-110);
+  --ps-accent-fill-hover: var(--color-l-red-120);
+  --ps-accent-text: var(--color-l-red-110);
+  --ps-accent-text-hover: var(--color-l-red-120);
+  --ps-accent-link: var(--color-l-red-110);
+  --checkbox-color: var(--color-l-red-110);
+  --checkbox-color-hover: var(--color-l-red-120);
+}
+body.accent-palette_red.theme-dark {
+  --ps-accent-fill: var(--color-d-red-60);
+  --ps-accent-fill-hover: var(--color-d-red-50);
+  --ps-accent-text: var(--color-d-red-30);
+  --ps-accent-text-hover: var(--color-d-red-20);
+  --ps-accent-link: var(--color-d-red-30);
+  --checkbox-color: var(--color-d-red-60);
+  --checkbox-color-hover: var(--color-d-red-50);
+}
+body.accent-palette_orange {
+  --ps-accent-fill: var(--color-l-orange-110);
+  --ps-accent-fill-hover: var(--color-l-orange-120);
   --ps-accent-text: var(--color-l-orange-110);
   --ps-accent-text-hover: var(--color-l-orange-120);
-  --checkbox-color: var(--color-l-orange-90);
-  --checkbox-color-hover: var(--color-l-orange-100);
+  --ps-accent-link: var(--color-l-orange-110);
+  --checkbox-color: var(--color-l-orange-110);
+  --checkbox-color-hover: var(--color-l-orange-120);
 }
-body.accent-palette_warm.theme-dark {
-  --ps-accent-fill: var(--color-d-orange-40);
-  --ps-accent-fill-hover: var(--color-d-orange-30);
+body.accent-palette_orange.theme-dark {
+  --ps-accent-fill: var(--color-d-orange-60);
+  --ps-accent-fill-hover: var(--color-d-orange-50);
   --ps-accent-text: var(--color-d-orange-30);
   --ps-accent-text-hover: var(--color-d-orange-20);
-  --checkbox-color: var(--color-d-orange-50);
-  --checkbox-color-hover: var(--color-d-orange-40);
+  --ps-accent-link: var(--color-d-orange-30);
+  --checkbox-color: var(--color-d-orange-60);
+  --checkbox-color-hover: var(--color-d-orange-50);
 }
-body.accent-palette_cool {
-  --ps-accent-fill: var(--color-l-blue-100);
-  --ps-accent-fill-hover: var(--color-l-blue-110);
-  --ps-accent-text: var(--color-l-blue-110);
-  --ps-accent-text-hover: var(--color-l-blue-120);
-  --checkbox-color: var(--color-l-blue-110);
-  --checkbox-color-hover: var(--color-l-blue-120);
+body.accent-palette_yellow {
+  --ps-accent-fill: var(--color-l-yellow-110);
+  --ps-accent-fill-hover: var(--color-l-yellow-120);
+  --ps-accent-text: var(--color-l-yellow-110);
+  --ps-accent-text-hover: var(--color-l-yellow-120);
+  --ps-accent-link: var(--color-l-yellow-110);
+  --checkbox-color: var(--color-l-yellow-110);
+  --checkbox-color-hover: var(--color-l-yellow-120);
 }
-body.accent-palette_cool.theme-dark {
-  --ps-accent-fill: var(--color-d-blue-40);
-  --ps-accent-fill-hover: var(--color-d-blue-30);
-  --ps-accent-text: var(--color-d-blue-30);
-  --ps-accent-text-hover: var(--color-d-blue-20);
-  --checkbox-color: var(--color-d-blue-50);
-  --checkbox-color-hover: var(--color-d-blue-40);
+body.accent-palette_yellow.theme-dark {
+  --ps-accent-fill: var(--color-d-yellow-60);
+  --ps-accent-fill-hover: var(--color-d-yellow-50);
+  --ps-accent-text: var(--color-d-yellow-30);
+  --ps-accent-text-hover: var(--color-d-yellow-20);
+  --ps-accent-link: var(--color-d-yellow-30);
+  --checkbox-color: var(--color-d-yellow-60);
+  --checkbox-color-hover: var(--color-d-yellow-50);
+}
+body.accent-palette_green {
+  --ps-accent-fill: var(--color-l-green-110);
+  --ps-accent-fill-hover: var(--color-l-green-120);
+  --ps-accent-text: var(--color-l-green-110);
+  --ps-accent-text-hover: var(--color-l-green-120);
+  --ps-accent-link: var(--color-l-green-110);
+  --checkbox-color: var(--color-l-green-110);
+  --checkbox-color-hover: var(--color-l-green-120);
+}
+body.accent-palette_green.theme-dark {
+  --ps-accent-fill: var(--color-d-green-60);
+  --ps-accent-fill-hover: var(--color-d-green-50);
+  --ps-accent-text: var(--color-d-green-30);
+  --ps-accent-text-hover: var(--color-d-green-20);
+  --ps-accent-link: var(--color-d-green-30);
+  --checkbox-color: var(--color-d-green-60);
+  --checkbox-color-hover: var(--color-d-green-50);
 }
 body.accent-palette_sea {
   --ps-accent-fill: var(--color-l-cyan-110);
@@ -8546,6 +8591,60 @@ body.accent-palette_sea.theme-dark {
   --checkbox-color: var(--color-d-cyan-60);
   --checkbox-color-hover: var(--color-d-cyan-50);
 }
+body.accent-palette_blue {
+  --ps-accent-fill: var(--color-l-blue-110);
+  --ps-accent-fill-hover: var(--color-l-blue-120);
+  --ps-accent-text: var(--color-l-blue-110);
+  --ps-accent-text-hover: var(--color-l-blue-120);
+  --ps-accent-link: var(--color-l-blue-110);
+  --checkbox-color: var(--color-l-blue-110);
+  --checkbox-color-hover: var(--color-l-blue-120);
+}
+body.accent-palette_blue.theme-dark {
+  --ps-accent-fill: var(--color-d-blue-60);
+  --ps-accent-fill-hover: var(--color-d-blue-50);
+  --ps-accent-text: var(--color-d-blue-30);
+  --ps-accent-text-hover: var(--color-d-blue-20);
+  --ps-accent-link: var(--color-d-blue-30);
+  --checkbox-color: var(--color-d-blue-60);
+  --checkbox-color-hover: var(--color-d-blue-50);
+}
+body.accent-palette_purple {
+  --ps-accent-fill: var(--color-l-purple-110);
+  --ps-accent-fill-hover: var(--color-l-purple-120);
+  --ps-accent-text: var(--color-l-purple-110);
+  --ps-accent-text-hover: var(--color-l-purple-120);
+  --ps-accent-link: var(--color-l-purple-110);
+  --checkbox-color: var(--color-l-purple-110);
+  --checkbox-color-hover: var(--color-l-purple-120);
+}
+body.accent-palette_purple.theme-dark {
+  --ps-accent-fill: var(--color-d-purple-60);
+  --ps-accent-fill-hover: var(--color-d-purple-50);
+  --ps-accent-text: var(--color-d-purple-30);
+  --ps-accent-text-hover: var(--color-d-purple-20);
+  --ps-accent-link: var(--color-d-purple-30);
+  --checkbox-color: var(--color-d-purple-60);
+  --checkbox-color-hover: var(--color-d-purple-50);
+}
+body.accent-palette_pink {
+  --ps-accent-fill: var(--color-l-pink-110);
+  --ps-accent-fill-hover: var(--color-l-pink-120);
+  --ps-accent-text: var(--color-l-pink-110);
+  --ps-accent-text-hover: var(--color-l-pink-120);
+  --ps-accent-link: var(--color-l-pink-110);
+  --checkbox-color: var(--color-l-pink-110);
+  --checkbox-color-hover: var(--color-l-pink-120);
+}
+body.accent-palette_pink.theme-dark {
+  --ps-accent-fill: var(--color-d-pink-60);
+  --ps-accent-fill-hover: var(--color-d-pink-50);
+  --ps-accent-text: var(--color-d-pink-30);
+  --ps-accent-text-hover: var(--color-d-pink-20);
+  --ps-accent-link: var(--color-d-pink-30);
+  --checkbox-color: var(--color-d-pink-60);
+  --checkbox-color-hover: var(--color-d-pink-50);
+}
 /* Custom: the accent colour from Obsidian's settings (the only colour outside the palette, chosen by the user). */
 body.accent-palette_custom {
   --ps-accent-fill: hsl(calc(var(--accent-h) - 1), calc(var(--accent-s) * 1.01), calc(var(--accent-l) * 1.075));
@@ -8563,35 +8662,8 @@ body.layout-density_compact {
   --nav-item-padding: var(--size-2-2) var(--size-4-2);
   --line-height-normal: 1.4;
   --line-height-tight: 1.2;
-  --file-margins: var(--size-4-4);
-}
-body.heading-style_bold {
-  --h1-size: 2.1em;
-  --h1-weight: 800;
-  --h2-size: 1.75em;
-  --h2-weight: 750;
-  --h3-size: 1.5em;
-  --h3-weight: 700;
-  --h4-size: 1.3em;
-  --h4-weight: 700;
-  --h5-size: 1.15em;
-  --h5-weight: 700;
-  --h6-size: 1em;
-  --h6-weight: 700;
-}
-body.heading-style_minimal {
-  --h1-size: 1.4em;
-  --h1-weight: 600;
-  --h2-size: 1.25em;
-  --h2-weight: 600;
-  --h3-size: 1.15em;
-  --h3-weight: 600;
-  --h4-size: 1.05em;
-  --h4-weight: 600;
-  --h5-size: 1em;
-  --h5-weight: 600;
-  --h6-size: 0.95em;
-  --h6-weight: 600;
+  --file-margins-x: var(--size-4-4);
+  --file-margins-y: var(--size-4-4);
 }
 body.colorful-headings.theme-light {
   --h1-color: var(--color-l-red-100);
@@ -8608,6 +8680,270 @@ body.colorful-headings.theme-dark {
   --h4-color: var(--color-d-green-40);
   --h5-color: var(--color-d-blue-40);
   --h6-color: var(--color-d-purple-50);
+}
+/* Heading background. Subtle: one neutral tint for every level. Colorful:
+each level gets the step-30 tint of the colorful-headings hue and the
+step-120 text of the same hue, >= 6:1 on it (dark: tint 90, text 30). It
+overrides Colorful headings, whose text colours are too light on a tint. */
+body:is(.heading-bg_subtle, .heading-bg_colorful) {
+  --h1-border-radius: var(--radius-s);
+  --h2-border-radius: var(--radius-s);
+  --h3-border-radius: var(--radius-s);
+  --h4-border-radius: var(--radius-s);
+  --h5-border-radius: var(--radius-s);
+  --h6-border-radius: var(--radius-s);
+}
+body:is(.heading-bg_subtle, .heading-bg_colorful)
+  :is(.markdown-rendered :is(h1, h2, h3, h4, h5, h6), .cm-line.HyperMD-header) {
+  padding-inline: var(--size-4-2);
+}
+/* Live Preview spaces a heading with padding-top, which the band would
+fill. Turn that space into a transparent border so the band hugs the text,
+and keep the band on the active line. */
+body:is(.heading-bg_subtle, .heading-bg_colorful) .cm-s-obsidian .cm-line.HyperMD-header {
+  padding-top: 0;
+  border-top: var(--p-spacing) solid transparent;
+  background-clip: padding-box;
+}
+body:is(.heading-bg_subtle, .heading-bg_colorful)
+  .cm-s-obsidian
+  .cm-line.HyperMD-header
+  + .cm-line:has(> br:only-child)
+  + .cm-line.HyperMD-header {
+  border-top-width: 0;
+}
+body:is(.heading-bg_subtle, .heading-bg_colorful) .cm-line.HyperMD-header-1.cm-active {
+  background-color: var(--h1-bg-color);  box-shadow: none;
+}
+body:is(.heading-bg_subtle, .heading-bg_colorful) .cm-line.HyperMD-header-2.cm-active {
+  background-color: var(--h2-bg-color);  box-shadow: none;
+}
+body:is(.heading-bg_subtle, .heading-bg_colorful) .cm-line.HyperMD-header-3.cm-active {
+  background-color: var(--h3-bg-color);  box-shadow: none;
+}
+body:is(.heading-bg_subtle, .heading-bg_colorful) .cm-line.HyperMD-header-4.cm-active {
+  background-color: var(--h4-bg-color);  box-shadow: none;
+}
+body:is(.heading-bg_subtle, .heading-bg_colorful) .cm-line.HyperMD-header-5.cm-active {
+  background-color: var(--h5-bg-color);  box-shadow: none;
+}
+body:is(.heading-bg_subtle, .heading-bg_colorful) .cm-line.HyperMD-header-6.cm-active {
+  background-color: var(--h6-bg-color);  box-shadow: none;
+}
+body.heading-bg_subtle.theme-light {
+  --h1-bg-color: var(--color-l-gray-30);
+  --h2-bg-color: var(--color-l-gray-30);
+  --h3-bg-color: var(--color-l-gray-30);
+  --h4-bg-color: var(--color-l-gray-30);
+  --h5-bg-color: var(--color-l-gray-30);
+  --h6-bg-color: var(--color-l-gray-30);
+}
+body.heading-bg_subtle.theme-dark {
+  --h1-bg-color: var(--color-d-gray-90);
+  --h2-bg-color: var(--color-d-gray-90);
+  --h3-bg-color: var(--color-d-gray-90);
+  --h4-bg-color: var(--color-d-gray-90);
+  --h5-bg-color: var(--color-d-gray-90);
+  --h6-bg-color: var(--color-d-gray-90);
+}
+body.heading-bg_colorful.theme-light {
+  --h1-bg-color: var(--color-l-red-30);
+  --h1-color: var(--color-l-red-120);
+  --h2-bg-color: var(--color-l-orange-30);
+  --h2-color: var(--color-l-orange-120);
+  --h3-bg-color: var(--color-l-yellow-30);
+  --h3-color: var(--color-l-yellow-120);
+  --h4-bg-color: var(--color-l-green-30);
+  --h4-color: var(--color-l-green-120);
+  --h5-bg-color: var(--color-l-blue-30);
+  --h5-color: var(--color-l-blue-120);
+  --h6-bg-color: var(--color-l-purple-30);
+  --h6-color: var(--color-l-purple-120);
+}
+body.heading-bg_colorful.theme-dark {
+  --h1-bg-color: var(--color-d-red-90);
+  --h1-color: var(--color-d-red-30);
+  --h2-bg-color: var(--color-d-orange-90);
+  --h2-color: var(--color-d-orange-30);
+  --h3-bg-color: var(--color-d-yellow-90);
+  --h3-color: var(--color-d-yellow-30);
+  --h4-bg-color: var(--color-d-green-90);
+  --h4-color: var(--color-d-green-30);
+  --h5-bg-color: var(--color-d-blue-90);
+  --h5-color: var(--color-d-blue-30);
+  --h6-bg-color: var(--color-d-purple-90);
+  --h6-color: var(--color-d-purple-30);
+}
+
+/* Editing area: marks the column that takes clicks in Live Preview and
+Source mode of a main pane, so it is clear where the caret can go. The
+column is a background of the scroller sized like .cm-sizer (so it never
+covers the selection layer, which CodeMirror paints at z-index -2), and the
+note content is widened by --ps-edit-gutter into the scroller's side padding
+with the text left in place: a click anywhere inside the column places the
+caret. Outside it the pointer is an arrow. Reading view is not marked. */
+body:is(.editing-area_outline, .editing-area_sheet) {
+  --ps-edit-gutter: calc(var(--file-margins-x, var(--size-4-8)) / 2);
+}
+body.editing-area_outline {
+  --ps-edit-fill: transparent;
+  --ps-edit-line: var(--background-modifier-border-hover);
+}
+body.editing-area_sheet.theme-light {
+  --ps-edit-fill: var(--color-l-gray-10);
+  --ps-edit-line: var(--color-l-gray-60);
+}
+body.editing-area_sheet.theme-dark {
+  --ps-edit-fill: var(--color-d-gray-90);
+  --ps-edit-line: var(--color-d-gray-80);
+  /* The default active line (gray 90) would vanish on the sheet. */
+  --active-line-bg: var(--color-d-gray-80);
+}
+.mod-root .view-content > .markdown-source-view.mod-cm6 {
+  --ps-edit-column: 100vw;
+}
+.mod-root .view-content > .markdown-source-view.mod-cm6.is-readable-line-width {
+  --ps-edit-column: var(--file-line-width);
+}
+.mod-root .view-content > .markdown-source-view.mod-cm6.is-readable-line-width.wide {
+  --ps-edit-column: var(--line-width-wide, calc(var(--file-line-width) * 1.5));
+}
+.mod-root .view-content > .markdown-source-view.mod-cm6.max {
+  --ps-edit-column: 100vw;
+}
+body:is(.editing-area_outline, .editing-area_sheet)
+  .mod-root
+  .view-content
+  > .markdown-source-view.mod-cm6
+  > .cm-editor
+  > .cm-scroller {
+  cursor: default;
+  background-image: linear-gradient(
+    to right,
+    var(--ps-edit-line) 0 1px,
+    var(--ps-edit-fill) 1px calc(100% - 1px),
+    var(--ps-edit-line) calc(100% - 1px)
+  );
+  background-size:
+    calc(
+        min(var(--ps-edit-column), 100% - 2 * var(--file-margins-x, var(--size-4-8))) + 2 *
+          var(--ps-edit-gutter)
+      )
+    100%;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+body:is(.editing-area_outline, .editing-area_sheet)
+  .mod-root
+  .view-content
+  > .markdown-source-view.mod-cm6
+  .cm-contentContainer {
+  margin-inline: calc(-1 * var(--ps-edit-gutter));
+}
+body:is(.editing-area_outline, .editing-area_sheet)
+  .mod-root
+  .view-content
+  > .markdown-source-view.mod-cm6
+  .cm-content {
+  max-width: none;
+  padding-inline: var(--ps-edit-gutter);
+  cursor: text;
+}
+body:is(.editing-area_outline, .editing-area_sheet)
+  .mod-root
+  .view-content
+  > .markdown-source-view.mod-cm6
+  .inline-title {
+  cursor: text;
+}
+/* The active line normally bleeds 25vw past the text; stop it at the column. */
+body.active-line-highlight:is(.editing-area_outline, .editing-area_sheet)
+  .mod-root
+  .view-content
+  > .markdown-source-view.mod-cm6
+  .cm-active {
+  box-shadow:
+    calc(-1 * var(--ps-edit-gutter)) 0 var(--active-line-bg),
+    var(--ps-edit-gutter) 0 var(--active-line-bg);
+}
+/* Line width: the readable column (Settings > Editor > Readable line
+length) in three sizes. Editing area, banners and the wide/max helper
+classes all follow --file-line-width. */
+body.line-width_narrow {
+  --file-line-width: 34rem;
+}
+body.line-width_wide {
+  --file-line-width: 48rem;
+}
+
+/* Dim images in dark mode: images in notes drop to 80% opacity, back to
+full on hover. Idea from Minimal's image-muted option. */
+body.theme-dark.dim-images-dark
+  :is(.markdown-source-view, .markdown-preview-view)
+  img:not(.emoji) {
+  opacity: 0.8;
+  transition: opacity var(--anim-duration-fast) linear;
+}
+body.theme-dark.dim-images-dark
+  :is(.markdown-source-view, .markdown-preview-view)
+  img:not(.emoji):hover {
+  opacity: 1;
+}
+@media print {
+  body.theme-dark.dim-images-dark img {
+    opacity: 1;
+  }
+}
+
+/* Properties: hide the "Properties" heading and the "Add property" button
+(still reachable with the Add file property command). */
+body.hide-properties-heading .metadata-properties-heading {
+  display: none;
+}
+body.hide-properties-heading .metadata-container {
+  --metadata-container-padding: var(--size-4-2) var(--size-4-3);
+}
+body.hide-add-property .mod-root .metadata-add-button {
+  display: none;
+}
+
+/* Focus mode (desktop): the ribbon icons, the main tab bar, the note header
+and the status bar fade out while you write and come back on hover or
+keyboard focus. Nothing changes size, so the note does not jump. The
+sidebar toggle buttons stay visible, sidebars keep their own tab bars. Idea from Minimal's and Baseline's focus modes. */
+body.focus-mode:not(.is-mobile) {
+  --ps-focus-fade: opacity var(--anim-duration-moderate) ease-in-out;
+}
+body.focus-mode:not(.is-mobile)
+  .workspace-ribbon
+  :is(.side-dock-actions, .side-dock-settings),
+body.focus-mode:not(.is-mobile)
+  .mod-root
+  .workspace-tab-header-container
+  > :not(.sidebar-toggle-button),
+body.focus-mode:not(.is-mobile) .mod-root .view-header > *,
+body.focus-mode:not(.is-mobile) .status-bar {
+  opacity: 0;
+  transition: var(--ps-focus-fade);
+}
+body.focus-mode:not(.is-mobile)
+  .workspace-ribbon:is(:hover, :focus-within)
+  :is(.side-dock-actions, .side-dock-settings),
+body.focus-mode:not(.is-mobile)
+  .mod-root
+  .workspace-tab-header-container:is(:hover, :focus-within)
+  > *,
+body.focus-mode:not(.is-mobile)
+  .mod-root
+  .workspace-tabs:has(> .workspace-tab-header-container:hover)
+  .view-header
+  > *,
+body.focus-mode:not(.is-mobile)
+  .mod-root
+  .view-header:is(:hover, :focus-within)
+  > *,
+body.focus-mode:not(.is-mobile) .status-bar:is(:hover, :focus-within) {
+  opacity: 1;
 }
 body.reduce-motion {
   --anim-popup: none;
@@ -9169,8 +9505,336 @@ being left behind next to each card. */
   margin-inline-start: 0;
 }
 
+/*────────────────────────────────────
+
+  BANNER
+
+  A header image, an icon and a title per note, driven by cssclasses and the
+  image's alt text. Adapted from Baseline (src/features/banners.scss),
+  compiled to plain CSS and remapped onto this theme's variables:
+  MIT License | Copyright (c) 2026 svnaxis
+  Permission is hereby granted, free of charge, to any person obtaining a
+  copy of this software and associated documentation files (the "Software"),
+  to deal in the Software without restriction, subject to the above
+  copyright notice and this permission notice being included in all copies
+  or substantial portions of the Software. THE SOFTWARE IS PROVIDED "AS IS",
+  WITHOUT WARRANTY OF ANY KIND.
+  Full text: https://github.com/aaaaalexis/obsidian-baseline/blob/main/LICENSE.txt
+
+    cssclasses: [banner]        ![[image.jpg|banner]] becomes the header image
+    banner-fade                 fades the image's lower edge into the page
+    banner-icon                 > [!banner-icon] 🌊 becomes the note icon
+    banner-title                inline title next to the icon (needs banner-icon)
+    y0, y5 ... y100             vertical position of the image (needs banner)
+    banner-image-contain/-fill  image fit (default cover)
+
+────────────────────────────────────*/
+
+body {
+  --banner-image-object-fit: cover;
+  --banner-image-inset: var(--size-4-2);
+  --banner-image-height: 320px;
+  --banner-image-height-s: 240px;
+  --banner-image-radius: var(--radius-s);
+  --banner-fade-height: 80px;
+  --banner-icon-size: 3rem;
+  --banner-mobile-offset: 0px;
+}
+body.banner-height_small {
+  --banner-image-height: 200px;
+  --banner-image-height-s: 160px;
+}
+body.banner-height_large {
+  --banner-image-height: 440px;
+  --banner-image-height-s: 320px;
+}
+body.is-mobile {
+  --banner-image-height: var(--banner-image-height-s);
+}
+body.is-mobile .banner,
+body.is-mobile .banner-icon {
+  --banner-mobile-offset: 1.5rem;
+}
+body:not(.is-mobile):not(.show-view-header) {
+  --banner-image-inset: 0px;
+}
+body:not(.is-phone) .banner-icon.banner-title .inline-title ~ .metadata-container {
+  padding-top: 0;
+}
+body.is-mobile .banner-icon .inline-title {
+  padding-top: 0;
+}
+body.is-phone .banner-icon.banner-title .inline-title ~ .metadata-container {
+  padding-top: var(--size-4-2);
+}
+.banner.y0 img[alt="banner"] {
+  object-position: center 0%;
+}
+.banner.y5 img[alt="banner"] {
+  object-position: center 5%;
+}
+.banner.y10 img[alt="banner"] {
+  object-position: center 10%;
+}
+.banner.y15 img[alt="banner"] {
+  object-position: center 15%;
+}
+.banner.y20 img[alt="banner"] {
+  object-position: center 20%;
+}
+.banner.y25 img[alt="banner"] {
+  object-position: center 25%;
+}
+.banner.y30 img[alt="banner"] {
+  object-position: center 30%;
+}
+.banner.y35 img[alt="banner"] {
+  object-position: center 35%;
+}
+.banner.y40 img[alt="banner"] {
+  object-position: center 40%;
+}
+.banner.y45 img[alt="banner"] {
+  object-position: center 45%;
+}
+.banner.y50 img[alt="banner"] {
+  object-position: center 50%;
+}
+.banner.y55 img[alt="banner"] {
+  object-position: center 55%;
+}
+.banner.y60 img[alt="banner"] {
+  object-position: center 60%;
+}
+.banner.y65 img[alt="banner"] {
+  object-position: center 65%;
+}
+.banner.y70 img[alt="banner"] {
+  object-position: center 70%;
+}
+.banner.y75 img[alt="banner"] {
+  object-position: center 75%;
+}
+.banner.y80 img[alt="banner"] {
+  object-position: center 80%;
+}
+.banner.y85 img[alt="banner"] {
+  object-position: center 85%;
+}
+.banner.y90 img[alt="banner"] {
+  object-position: center 90%;
+}
+.banner.y95 img[alt="banner"] {
+  object-position: center 95%;
+}
+.banner.y100 img[alt="banner"] {
+  object-position: center 100%;
+}
+.mod-root .view-content:not(.pixel-banner, .has-banner)
+  :is(.markdown-preview-view, .is-live-preview):is(.banner, .banner-icon) {
+  --ps-banner-top: var(--view-top-spacing-markdown, 0px);
+}
+.mod-root .view-content:not(.pixel-banner, .has-banner)
+  :is(.markdown-preview-view, .is-live-preview):is(.banner, .banner-icon)
+  :is(.markdown-preview-sizer, .cm-editor > .cm-scroller > .cm-sizer) {
+  margin-top: calc(
+    var(--banner-image-height) + var(--banner-icon-size) -
+      var(--banner-fade-height) + var(--banner-mobile-offset)
+  );
+}
+.mod-root .view-content :is(.markdown-preview-view, .is-live-preview):not(.banner) {
+  --banner-image-height: 0px;
+}
+.mod-root .view-content :is(.markdown-preview-view, .is-live-preview):not(.banner.banner-fade) {
+  --banner-fade-height: 0px;
+}
+.mod-root .view-content :is(.markdown-preview-view, .is-live-preview):not(.banner-icon) {
+  --banner-icon-size: 0px;
+}
+.mod-root .view-content :is(.markdown-preview-view, .is-live-preview).banner-icon:not(.banner) {
+  --banner-image-height: var(--banner-icon-size);
+}
+.mod-root .view-content :is(.markdown-preview-view, .is-live-preview).banner-icon:not(.banner.banner-fade) {
+  --banner-fade-height: var(--banner-icon-size);
+}
+.mod-root .view-content :is(.markdown-preview-view, .is-live-preview).banner.banner-icon.banner-title:not(.banner-fade) {
+  --banner-fade-height: 0px;
+}
+.mod-root .view-content :is(.markdown-preview-view, .is-live-preview).banner-image-contain {
+  --banner-image-object-fit: contain;
+}
+.mod-root .view-content :is(.markdown-preview-view, .is-live-preview).banner-image-fill {
+  --banner-image-object-fit: fill;
+}
+.mod-root .view-content:not(.pixel-banner, .has-banner)
+  :is(.markdown-preview-view, .is-live-preview).banner
+  img[alt="banner"]:not([contenteditable]) {
+  position: absolute;
+  inset: var(--ps-banner-top) var(--banner-image-inset) auto;
+  border-radius: var(--banner-image-radius);
+  corner-shape: var(--corner-shape);
+  width: stretch;
+  max-width: calc(100% - var(--banner-image-inset) * 2);
+  height: var(--banner-image-height);
+  padding: 0;
+  overflow: hidden;
+  object-fit: var(--banner-image-object-fit);
+  line-height: 0;
+}
+.mod-root .view-content:not(.pixel-banner, .has-banner)
+  .is-live-preview.banner
+  .cm-line:has(.image-embed[alt="banner"]) {
+  position: static;
+}
+.mod-root .view-content:not(.pixel-banner, .has-banner)
+  :is(.markdown-preview-view, .is-live-preview).banner
+  :is(
+    .image-embed[alt="banner"],
+    .image-embed[alt="banner"] > .image-wrapper
+  ) {
+  display: contents !important;
+}
+.mod-root .view-content:not(.pixel-banner, .has-banner)
+  :is(.markdown-preview-view, .is-live-preview).banner
+  :is(
+    .image-embed[alt="banner"],
+    .image-embed[alt="banner"] > .image-wrapper
+  )::before,
+.mod-root .view-content:not(.pixel-banner, .has-banner)
+  :is(.markdown-preview-view, .is-live-preview).banner
+  :is(
+    .image-embed[alt="banner"],
+    .image-embed[alt="banner"] > .image-wrapper
+  )::after,
+.mod-root .view-content:not(.pixel-banner, .has-banner)
+  :is(.markdown-preview-view, .is-live-preview).banner
+  .image-embed[alt="banner"]
+  .image-resize-corner {
+  display: none !important;
+}
+.mod-root .view-content:not(.pixel-banner, .has-banner)
+  :is(.markdown-preview-view, .is-live-preview).banner:not(.banner-icon.banner-title)
+  :is(.mod-header, .inline-title, .metadata-container) {
+  position: relative;
+  z-index: 1;
+}
+.mod-root .view-content:not(.pixel-banner, .has-banner)
+  :is(.markdown-preview-view, .is-live-preview).banner.banner-fade
+  img[alt="banner"] {
+  mask: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.951) 26.2%,
+    rgba(0, 0, 0, 0.825) 45.9%,
+    rgba(0, 0, 0, 0.648) 60.4%,
+    rgba(0, 0, 0, 0.45) 71.2%,
+    rgba(0, 0, 0, 0.259) 79.6%,
+    rgba(0, 0, 0, 0.104) 87.2%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+.mod-root .view-content:not(.pixel-banner, .has-banner)
+  :is(.markdown-preview-view, .is-live-preview).banner-icon
+  .cm-callout:has(.callout[data-callout="banner-icon"]) {
+  display: contents !important;
+}
+.mod-root .view-content:not(.pixel-banner, .has-banner)
+  :is(.markdown-preview-view, .is-live-preview).banner-icon
+  .callout[data-callout="banner-icon"] {
+  position: absolute;
+  z-index: 1;
+  top: calc(
+    var(--ps-banner-top) + var(--banner-image-height) -
+      var(--banner-fade-height) + 1rem
+  );
+  display: flex;
+  justify-content: center;
+  width: var(--banner-icon-size);
+  height: var(--banner-icon-size);
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: visible;
+  border: none !important;
+  background: none !important;
+  box-shadow: none;
+  font-size: var(--banner-icon-size);
+}
+.mod-root .view-content:not(.pixel-banner, .has-banner)
+  :is(.markdown-preview-view, .is-live-preview).banner-icon
+  .callout[data-callout="banner-icon"]
+  .callout-title {
+  padding: 0;
+  background: none;
+}
+.mod-root .view-content:not(.pixel-banner, .has-banner)
+  :is(.markdown-preview-view, .is-live-preview).banner-icon
+  .callout[data-callout="banner-icon"]
+  .callout-title-inner {
+  line-height: 1;
+}
+.mod-root .view-content:not(.pixel-banner, .has-banner)
+  :is(.markdown-preview-view, .is-live-preview).banner-icon
+  .callout[data-callout="banner-icon"]
+  :is(.callout-icon, .callout-content, .callout-fold) {
+  display: none;
+}
+@keyframes ps-banner-title-in {
+  from {
+    transform: translateY(-0.5rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes ps-banner-title-out {
+  from {
+    transform: translateY(0.5rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.mod-root .view-content:not(.pixel-banner, .has-banner)
+  :is(.markdown-preview-view, .is-live-preview).banner-icon.banner-title
+  .inline-title:focus-within {
+  animation: ps-banner-title-in var(--anim-duration-moderate)
+    var(--anim-motion-smooth) forwards;
+}
+.mod-root .view-content:not(.pixel-banner, .has-banner)
+  :is(.markdown-preview-view, .is-live-preview).banner-icon.banner-title
+  .inline-title:not(:focus-within) {
+  position: absolute;
+  z-index: 1;
+  top: calc(
+    var(--ps-banner-top) + var(--banner-image-height) -
+      var(--banner-fade-height) + 1rem
+  );
+  width: calc(var(--file-line-width) - var(--banner-icon-size) - 1rem);
+  max-width: calc(
+    100% - var(--file-margins-x, var(--size-4-8)) * 2 - var(--banner-icon-size) - 1rem
+  );
+  height: var(--banner-icon-size);
+  margin-bottom: 0;
+  margin-inline-start: calc(var(--banner-icon-size) + 1rem);
+  overflow: hidden;
+  line-height: var(--banner-icon-size);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  animation: ps-banner-title-out var(--anim-duration-moderate)
+    var(--anim-motion-smooth) forwards;
+}
+.mod-root .view-content:not(.pixel-banner, .has-banner)
+  :is(.markdown-preview-view, .is-live-preview).banner-icon.banner-title
+  .inline-title:not(:focus-within)::before {
+  content: none;
+}
+
 /* Known inconsistency: Style Settings variant class names mix hyphen and
-underscore separators (e.g. accent-palette_warm vs ribbon-slideout, and
+underscore separators (e.g. accent-palette_sea vs ribbon-slideout, and
 editor-bg-default vs editor-bgpattern-linegrid). These names are kept as-is
 for backwards compatibility with vaults/snippets already referencing them;
 new classes added going forward should prefer plain hyphens. */
@@ -9203,18 +9867,28 @@ settings:
 - id: accent-palette
   type: class-select
   title: Accent palette
-  description: Switches the accent, link and checked-checkbox color to a curated palette, in light and dark mode. Custom follows the accent color from Settings > Appearance.
+  description: Switches the accent, link and checked-checkbox color to a hue from the theme palette, in light and dark mode. Default is the warm neutral with yellow links. Custom follows the accent color from Settings > Appearance.
   allowEmpty: false
   default: accent-palette-default
   options:
   - label: Default
     value: accent-palette-default
-  - label: Warm
-    value: accent-palette_warm
-  - label: Cool
-    value: accent-palette_cool
-  - label: Sea
+  - label: Red
+    value: accent-palette_red
+  - label: Orange
+    value: accent-palette_orange
+  - label: Yellow
+    value: accent-palette_yellow
+  - label: Green
+    value: accent-palette_green
+  - label: Sea (cyan)
     value: accent-palette_sea
+  - label: Blue
+    value: accent-palette_blue
+  - label: Purple
+    value: accent-palette_purple
+  - label: Pink
+    value: accent-palette_pink
   - label: Custom (Obsidian accent color)
     value: accent-palette_custom
 - id: layout-density
@@ -9228,23 +9902,23 @@ settings:
     value: layout-density-default
   - label: Compact
     value: layout-density_compact
-- id: heading-style
-  type: class-select
-  title: Heading style
-  description: Switches the font size and weight scale used for H1-H6, in one preset.
-  allowEmpty: false
-  default: heading-style-default
-  options:
-  - label: Default
-    value: heading-style-default
-  - label: Bold
-    value: heading-style_bold
-  - label: Minimal
-    value: heading-style_minimal
 - id: colorful-headings
   type: class-toggle
   title: Colorful headings
   description: Uses the theme palette to color H1-H6 headings in reading and editing mode.
+- id: heading-bg
+  type: class-select
+  title: Heading background
+  description: Puts H1-H6 on a tinted band. Colorful gives each level its own palette hue (red to purple) with matching dark text and takes precedence over Colorful headings.
+  allowEmpty: false
+  default: heading-bg-default
+  options:
+  - label: None
+    value: heading-bg-default
+  - label: Subtle
+    value: heading-bg_subtle
+  - label: Colorful
+    value: heading-bg_colorful
 - id: essential-motion
   type: heading
   level: 2
@@ -9254,6 +9928,10 @@ settings:
   type: class-toggle
   title: Reduce theme motion
   description: Disables decorative tab, popup, and background animations without changing Obsidian's functional transitions.
+- id: focus-mode
+  type: class-toggle
+  title: Focus mode
+  description: Fades out the ribbon icons, main tab bar, note header and status bar while you write. They come back on hover. Desktop only.
 - id: zero-popup-blur
   type: class-toggle
   title: Remove popup background blur
@@ -9306,6 +9984,19 @@ settings:
   level: 2
   collapsed: true
   title: Editor and notes
+- id: editing-area
+  type: class-select
+  title: Editing area
+  description: Marks the text column in Live Preview and Source mode. A click anywhere inside it places the cursor; outside it the pointer is an arrow. Sheet fills the column, Outline only draws its edges. Reading view is not marked.
+  allowEmpty: false
+  default: editing-area_sheet
+  options:
+  - label: Sheet
+    value: editing-area_sheet
+  - label: Outline
+    value: editing-area_outline
+  - label: Off
+    value: editing-area-default
 - id: interface_editor-bg
   type: class-select
   title: Editor background
@@ -9318,6 +10009,19 @@ settings:
     value: editor-bgpattern-linegrid
   - label: Dot grid
     value: editor-bgpattern-dotgrid
+- id: line-width
+  type: class-select
+  title: Line width
+  description: Width of the text column when Settings > Editor > Readable line length is on.
+  allowEmpty: false
+  default: line-width-default
+  options:
+  - label: Narrow
+    value: line-width_narrow
+  - label: Normal
+    value: line-width-default
+  - label: Wide
+    value: line-width_wide
 - id: active-line-highlight
   type: class-toggle
   title: Highlight active line
@@ -9337,6 +10041,39 @@ settings:
   type: class-toggle
   title: Hide note embed title
   description: Hide the note's title when embedding notes.
+- id: dim-images-dark
+  type: class-toggle
+  title: Dim images in dark mode
+  description: Images in notes show at 80% opacity in dark mode and at full brightness on hover.
+- id: hide-properties-heading
+  type: class-toggle
+  title: Hide properties heading
+  description: Hides the "Properties" label above note properties.
+- id: hide-add-property
+  type: class-toggle
+  title: Hide "Add property" button
+  description: The Add file property command still works.
+- id: essential-banner
+  type: heading
+  level: 2
+  collapsed: true
+  title: Banner
+- id: banner-info
+  type: info-text
+  markdown: true
+  description: "Per note: add `banner` to `cssclasses` and `|banner` to an image link, e.g. `![[image.jpg|banner]]`. Optional classes: `banner-fade`, `banner-icon` (with a `> [!banner-icon] 🌊` callout), `banner-title`, `y0` to `y100` for the image position, `banner-image-contain`."
+- id: banner-height
+  type: class-select
+  title: Banner height
+  allowEmpty: false
+  default: banner-height-default
+  options:
+  - label: Small
+    value: banner-height_small
+  - label: Medium
+    value: banner-height-default
+  - label: Large
+    value: banner-height_large
 - id: essential-folders-and-bookmarks
   type: heading
   level: 2

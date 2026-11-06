@@ -12,7 +12,8 @@ Requires **Obsidian 1.13 or newer** — the theme styles 1.13+ surfaces
 (including Bases) and relies on CSS variables introduced in that release.
 It also supports Obsidian 1.14: coloured highlights, the Bases kanban
 layout, the redesigned empty tab and the ribbon's new logical-side class
-names.
+names. Tested on Obsidian 1.15.1, whose Mermaid diagrams take the theme's
+colours natively.
 
 ## What It Feels Like
 
@@ -26,7 +27,14 @@ The theme includes:
 - alternative checkbox icons enabled by default
 - tuned callout colors
 - folder and bookmark color presets
-- optional layout density and accent palette choices
+- optional layout density and accent palette choices (every palette hue)
+- a marked editing area: the text column you can click into in Live Preview
+  and Source mode
+- optional heading backgrounds (subtle or one palette hue per level)
+- note banners: a header image, icon and title per note through `cssclasses`
+  (see [Banner](#banner))
+- focus mode: ribbon, tab bar, note header and status bar fade out until
+  hovered
 - reduced-motion and forced-colors support
 - Obsidian 1.13+ surfaces, including Bases (and the 1.14 kanban layout)
 - 1.14 coloured highlights keep their chosen colour
@@ -46,8 +54,8 @@ The theme includes:
   Those plugins render with their own default appearance layered on this
   theme's base colors.
 - **Not a theme with manual per-element color/size controls.** Style Settings
-  offers curated presets (accent palette, layout density, heading style,
-  etc.) instead of free-form color pickers and sliders.
+  offers curated presets (accent palette, layout density, heading
+  background, etc.) instead of free-form color pickers and sliders.
 - **Not officially affiliated with or supported by** Cecilia May or the
   original Primary project.
 
@@ -57,7 +65,7 @@ The theme includes:
   The original panel had grown into hundreds of entries, including
   manual-entry color/size/slider controls and a YAML structure that didn't
   parse reliably. Primary Simplified replaces most of that with class-based
-  presets (accent palette, layout density, heading style, and similar) that
+  presets (accent palette, layout density, heading background, and similar) that
   cover the same visual range with far less fragile surface area.
 - **Checkbox icons unified to a single outline style.** Some states in the
   original mixed filled, hard-coded-color badges with outline icons, which
@@ -135,10 +143,15 @@ If you install the optional
 Primary Simplified adds a small set of controls for the choices people are most
 likely to adjust:
 
-- accent palette
+- accent palette (Default, the eight palette hues, or Obsidian's accent)
 - layout density
-- heading scale
-- colorful headings
+- colorful headings and heading background
+- editing area (sheet, outline or off)
+- line width (narrow, normal, wide)
+- focus mode
+- dimmed images in dark mode
+- hidden properties heading and "Add property" button
+- banner height
 - reduced motion
 - popup blur
 - ribbon and status bar behavior
@@ -152,6 +165,32 @@ likely to adjust:
 
 Use Obsidian's built-in **Appearance** settings for font families, accent color,
 and editor font size.
+
+## Banner
+
+Adapted from [Baseline](https://github.com/aaaaalexis/obsidian-baseline)
+(MIT). Add classes to a note's `cssclasses` and mark the image with the
+`banner` alt text:
+
+```markdown
+---
+cssclasses: [banner, banner-fade, banner-icon, banner-title, y40]
+---
+![[mountains.jpg|banner]]
+> [!banner-icon] 🌊
+```
+
+| Class | Effect |
+| --- | --- |
+| `banner` | the image with alt text `banner` becomes the header image |
+| `banner-fade` | fades the image's lower edge into the page |
+| `banner-icon` | the `banner-icon` callout becomes the note icon |
+| `banner-title` | puts the inline title next to the icon |
+| `y0` ... `y100` | vertical crop position of the image, in steps of 5 |
+| `banner-image-contain`, `banner-image-fill` | image fit instead of cover |
+
+Notes handled by the Pixel Banner or Banners plugins are left alone. Banner
+height is set under Style Settings > Banner.
 
 ## Attribution
 
@@ -168,9 +207,14 @@ The image grid, cards, and list-cards helper classes are adapted from
 [Minimal](https://github.com/kepano/obsidian-minimal) by Steph Ango (@kepano),
 used under Minimal's MIT license (notice included in `theme.css`).
 
+The banner feature is adapted from
+[Baseline](https://github.com/aaaaalexis/obsidian-baseline) by svnaxis, used
+under Baseline's MIT license (notice included in `theme.css`).
+
 ## License
 
 Primary Simplified is licensed under the
 [GNU General Public License v3.0](./LICENSE). The repository keeps the original
 copyright and license notices from Primary, and the MIT license notice for
-the Minimal-derived helper-class rules noted above.
+the Minimal-derived helper-class rules and the Baseline-derived banner rules
+noted above.

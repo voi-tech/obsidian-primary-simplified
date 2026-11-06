@@ -319,9 +319,15 @@ const ownClasses = new Set([
   "table-nowrap", "table-wrap", "table-center", "table-numbers",
   "table-tabular", "table-small", "table-tiny", "table-lines",
   "row-lines", "col-lines", "row-alt", "col-alt", "row-highlight",
+  // Banner, from Baseline's cssclasses contract.
+  "banner", "banner-fade", "banner-icon", "banner-title",
+  "banner-image-contain", "banner-image-fill",
+  ...Array.from({ length: 21 }, (_, i) => `y${i * 5}`),
   // Third-party surfaces the theme deliberately touches.
   "dataview", "style-settings-container", "style-settings-heading",
   "plugin-word-count",
+  // Banner plugins whose notes the Banner feature leaves alone.
+  "pixel-banner", "has-banner",
 ]);
 
 if (api) {
