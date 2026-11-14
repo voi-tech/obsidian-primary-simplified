@@ -51,6 +51,9 @@ The theme includes:
   (see [Banner](#banner))
 - focus mode: ribbon, tab bar, note header and status bar fade out until
   hovered
+- clear states: the open note, selected files, the chosen command or menu
+  item and the active settings page stand out from idle and hovered rows
+  (text at least 4.5:1, icons and state edges at least 3:1, light and dark)
 - reduced-motion and forced-colors support
 - Obsidian 1.13+ surfaces, including Bases (and the 1.14 kanban layout)
 - 1.14 coloured highlights keep their chosen colour

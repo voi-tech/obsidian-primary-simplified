@@ -837,10 +837,13 @@ body {
   --interactive-accent-hsl: var(--color-accent-hsl);
   --interactive-accent: var(--color-accent-1);
   --interactive-accent-hover: var(--color-accent-2);
-  --non-alternating-color: var(--color-l-gray-70);
+  --non-alternating-color: var(--color-l-gray-90);
   --non-alternating-color-hover-active: var(--color-l-gray-60);
-  --alternating-color-1: var(--color-l-yellow-80);
-  --alternating-color-1-hover-active: var(--color-l-yellow-90);
+  /* Yellow sits on step 100 like its red (100) and blue (110) siblings:
+  it is text and icons on the page and the fill under white text, so it
+  needs >= 4.5:1 both ways (step 80 was 2.1:1). */
+  --alternating-color-1: var(--color-l-yellow-100);
+  --alternating-color-1-hover-active: var(--color-l-yellow-120);
   --alternating-color-2: var(--color-l-red-100);
   --alternating-color-2-hover-active: var(--color-l-red-120);
   --alternating-color-3: var(--color-l-blue-110);
@@ -900,7 +903,7 @@ body {
     var(--color-l-gray-70) 30%,
     transparent
   );
-  --icon-color: var(--color-l-gray-80);
+  --icon-color: var(--color-l-gray-90);
   --icon-opacity: 1;
   --icon-bg: transparent;
   --icon-color-hover: var(--color-l-gray-90);
@@ -932,7 +935,7 @@ body {
   --status-bar-item-color: var(--color-l-gray-90);
   --status-bar-item-color-hover: var(--color-l-gray-100);
   --status-bar-item-bg-hover: transparent;
-  --status-bar-item-clickable-color-active: var(--color-l-gray-70);
+  --status-bar-item-clickable-color-active: var(--color-l-gray-130);
   --status-bar-item-clickable-bg-active: transparent;
   --titlebar-background: var(--background-secondary);
   --titlebar-background-focused: var(--background-secondary);
@@ -992,7 +995,7 @@ body {
   --copy-code-btn-shadow:
     inset 0px 0px 0px 1px rgba(0, 0, 0, 0.09),
     0px 2px 4px -2px rgba(0, 0, 0, 0.06);
-  --caret-color: var(--color-l-gray-80);
+  --caret-color: var(--color-l-gray-120);
   --swatch-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
   --checkbox-marker-color: white;
   --checkbox-color: var(--color-l-green-90);
@@ -1059,17 +1062,17 @@ body {
   --loading-line-bg-color: var(--background-secondary);
   --loading-line-color: var(--color-l-blue-90);
   --loading-line-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
-  --menu-item-icon-color: var(--color-l-gray-80);
-  --menu-item-bg-hover: rgba(255, 255, 255, 0.35);
-  --menu-item-icon-color-active: var(--color-l-gray-70);
-  --menu-item-color-active: var(--color-l-gray-70);
-  --menu-item-bg-active: var(--color-l-gray-50);
+  --menu-item-icon-color: var(--color-l-gray-90);
+  --menu-item-bg-hover: var(--color-l-gray-60);
+  --menu-item-icon-color-active: var(--color-l-gray-130);
+  --menu-item-color-active: var(--color-l-gray-130);
+  --menu-item-bg-active: var(--color-l-gray-70);
   --modal-border-color: var(--background-modifier-border-hover);
-  --settings-nav-group-title-color: var(--color-l-gray-70);
+  --settings-nav-group-title-color: var(--color-l-gray-110);
   --settings-nav-item-text-color: var(--color-l-gray-110);
   --settings-nav-item-text-color-hover: var(--color-l-gray-130);
   --settings-nav-item-bg-hover: transparent;
-  --settings-nav-item-text-color-active: var(--color-l-gray-80);
+  --settings-nav-item-text-color-active: var(--color-l-gray-140);
   --settings-nav-item-active-color: var(--color-l-gray-10);
   --community-item-flair-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   --community-item-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.08);
@@ -1080,13 +1083,16 @@ body {
     0px 2px 6px -4.2px rgba(0, 0, 0, 0.19), 0px 4px 12px -6px rgba(0, 0, 0, 0.9);
   --nav-item-color: var(--color-l-gray-110);
   --nav-item-color-hover: var(--color-l-gray-110);
-  --nav-item-color-active: var(--color-l-gray-110);
+  /* The open note: darker text, a tint and an edge in the active colour
+  (the one active tabs and ribbon icons use), so it reads apart from the
+  idle rows and from the hover state. */
+  --nav-item-color-active: var(--color-l-gray-140);
   --nav-item-color-selected: var(--color-l-gray-20);
   --nav-item-color-highlighted: var(--text-accent-hover);
-  --nav-item-background-hover: rgba(255, 255, 255, 0.25);
-  --nav-item-background-active: rgba(255, 255, 255, 0.25);
-  --nav-item-background-selected: color-mix(in srgb, var(--color-l-blue-120) 50%, transparent);
-  --nav-item-background-selected-hover: color-mix(in srgb, var(--color-l-blue-120) 40%, transparent);
+  --nav-item-background-hover: rgba(255, 255, 255, 0.5);
+  --nav-item-background-active: color-mix(in srgb, var(--alternating-color-1) 20%, transparent);
+  --nav-item-background-selected: var(--color-l-blue-120);
+  --nav-item-background-selected-hover: var(--color-l-blue-130);
   --nav-indentation-guide-color: var(--indentation-guide-color);
   --nav-collapse-icon-color: var(--collapse-icon-color);
   --nav-collapse-icon-color-collapsed: var(--text-faint);
@@ -1096,15 +1102,15 @@ body {
   --nav-heading-color-collapsed-hover: var(--color-l-gray-100);
   --nav-item-shadow-active: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.06);
   --nav-file-shadow-active:
-    inset 0px 0px 0px 1px rgba(0, 0, 0, 0.09),
+    inset 0px 0px 0px 1px color-mix(in srgb, var(--alternating-color-1) 45%, transparent),
     inset 0px calc(-1 * var(--button-axis-offset)) 0px var(--button-axis-offset)
       rgba(0, 0, 0, 0.07),
     0px 2px 3px 0px rgba(0, 0, 0, 0.05);
-  --nav-file-tag-color: var(--color-l-gray-90);
+  --nav-file-tag-color: var(--color-l-gray-110);
   --nav-file-tag-bg: transparent;
-  --collapse-icon-color: var(--color-l-gray-70);
-  --collapse-icon-color-collapsed: var(--color-l-gray-70);
-  --flair-count-color: var(--color-l-gray-80);
+  --collapse-icon-color: var(--color-l-gray-90);
+  --collapse-icon-color-collapsed: var(--color-l-gray-90);
+  --flair-count-color: var(--color-l-gray-110);
   --flair-count-bg-color: var(--color-l-gray-40);
   --indentation-guide-color: var(--background-modifier-border);
   --indentation-guide-color-active: var(--background-modifier-border-focus);
@@ -1117,8 +1123,8 @@ body {
     0px 7px 30px -5.5px rgba(0, 0, 0, 0.09);
   --pill-color: var(--color-l-gray-120);
   --pill-color-hover: var(--color-l-gray-140);
-  --pill-color-remove: var(--color-l-gray-70);
-  --pill-color-remove-hover: var(--color-l-gray-70);
+  --pill-color-remove: var(--color-l-gray-90);
+  --pill-color-remove-hover: var(--color-l-gray-120);
   --pill-background: rgba(255, 255, 255, 0.4);
   --pill-background-hover: var(--pill-background);
   --pill-border-color: color-mix(
@@ -1150,7 +1156,7 @@ body {
   --prompt-input-background: var(--background-primary);
   --prompt-border-color: var(--background-modifier-border-focus);
   --prompt-results-background: var(--background-primary);
-  --prompt-suggestion-color: var(--color-l-gray-90);
+  --prompt-suggestion-color: var(--color-l-gray-110);
   --prompt-suggestion-highlight-color: color-mix(
     in srgb,
     var(--prompt-suggestion-color) 70%,
@@ -1158,9 +1164,9 @@ body {
   );
   --prompt-suggestion-color-selected: var(--color-l-gray-130);
   --prompt-suggestion-highlight-color-selected: var(--color-l-gray-130);
-  --prompt-suggestion-background-selected: rgba(255, 255, 255, 0.35);
+  --prompt-suggestion-background-selected: color-mix(in srgb, var(--alternating-color-1) 14%, transparent);
   --prompt-suggestion-shadow-selected:
-    inset 0px 0px 0px 1px rgba(0, 0, 0, 0.08),
+    inset 0px 0px 0px 1px color-mix(in srgb, var(--alternating-color-1) 45%, transparent),
     0px 2px 6px 0px rgba(0, 0, 0, 0.03);
   --prompt-instructions-background: color-mix(
     in oklch,
@@ -1168,7 +1174,7 @@ body {
     var(--background-secondary)
   );
   --prompt-separator-border: 1px solid var(--color-l-gray-40);
-  --search-icon-color: var(--color-l-gray-80);
+  --search-icon-color: var(--color-l-gray-90);
   --search-clear-button-color: var(--icon-color);
   --search-clear-button-color-hover: var(--background-modifier-error-hover);
   --slider-track-background: var(--color-l-gray-60);
@@ -1647,7 +1653,7 @@ body {
   --strikethrough-highlight-bg: var(--color-l-alpha-yellow);
   --bold-italic-highlight-color: var(--bold-italic-color);
   --bold-italic-highlight-bg: var(--color-l-alpha-green);
-  --inline-code-color: var(--color-l-red-80);
+  --inline-code-color: var(--color-l-red-100);
   --inline-code-bg: var(--color-l-gray-10);
   --inline-title-color: var(--color-l-gray-140);
   --inline-query-bg: color-mix(
@@ -1656,13 +1662,13 @@ body {
     var(--editor-bg-color)
   );
   --inline-query-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.06);
-  --kbd-color: var(--color-l-red-80);
+  --kbd-color: var(--color-l-red-100);
   --kbd-background: var(--color-l-gray-40);
   --kbd-shadow:
     inset 0px 0px 0px 1px rgba(0, 0, 0, 0.03),
     inset 0px calc(-1 * var(--button-inset-shadow-size)) 0px 0px
       rgba(0, 0, 0, 0.06);
-  --list-marker-color: var(--color-l-gray-80);
+  --list-marker-color: var(--color-l-gray-90);
   --list-marker-color-hover: var(--color-l-gray-100);
   --list-marker-color-collapsed: var(--color-l-gray-90);
   --link-ahref-color: var(--color-l-red-100);
@@ -1735,9 +1741,9 @@ body {
     var(--background-primary-alt)
   );
   --metadata-tab-background: var(--background-secondary);
-  --metadata-properties-title-color-collapsed: var(--color-l-gray-70);
-  --metadata-properties-title-color-hover: var(--color-l-gray-80);
-  --metadata-properties-title-color: var(--color-l-gray-70);
+  --metadata-properties-title-color-collapsed: var(--color-l-gray-100);
+  --metadata-properties-title-color-hover: var(--color-l-gray-120);
+  --metadata-properties-title-color: var(--color-l-gray-100);
   --metadata-input-text-color: var(--color-l-gray-120);
   --metadata-input-background: transparent;
   --metadata-input-background-hover: transparent;
@@ -1759,7 +1765,7 @@ body {
   --table-header-background-hover: var(--table-header-background);
   --table-column-alt-background: var(--color-l-gray-30);
   --tag-color: var(--color-l-blue-110);
-  --tag-color-hover: var(--color-l-blue-90);
+  --tag-color-hover: var(--color-l-blue-130);
   --tag-background: rgba(255, 255, 255, 0.5);
   --tag-background-hover: rgba(255, 255, 255, 0.8);
   --tag-border-width: 1px;
@@ -1803,7 +1809,7 @@ body {
   --canvas-color-4: var(--color-green-rgb);
   --canvas-color-5: var(--color-blue-rgb);
   --canvas-color-6: var(--color-purple-rgb);
-  --canvas-icon-color: var(--color-l-gray-80);
+  --canvas-icon-color: var(--color-l-gray-90);
   --canvas-icon-color-hover: var(--color-l-gray-120);
   --canvas-icon-color-disabled: var(--color-l-gray-60);
   --canvas-menu-bg: color-mix(
@@ -1835,7 +1841,7 @@ body {
   );
   --search-result-dest-file-color: var(--color-l-gray-100);
   --search-result-dest-file-bg: var(--color-l-gray-20);
-  --search-result-dest-file-icon-color: var(--color-l-gray-70);
+  --search-result-dest-file-icon-color: var(--color-l-gray-90);
   --search-result-dest-file-shadow:
     inset 0px 0px 0px 1px rgba(0, 0, 0, 0.1),
     inset 0px -2px 0px 0px rgba(0, 0, 0, 0.05);
@@ -1903,7 +1909,7 @@ body {
   --interactive-accent-hsl: var(--color-accent-hsl);
   --interactive-accent: var(--color-accent-1);
   --interactive-accent-hover: var(--color-accent-2);
-  --non-alternating-color: var(--color-d-gray-60);
+  --non-alternating-color: var(--color-d-gray-50);
   --non-alternating-color-hover-active: var(--color-d-gray-70);
   --alternating-color-1: var(--color-d-yellow-30);
   --alternating-color-1-hover-active: var(--color-d-yellow-40);
@@ -2006,7 +2012,7 @@ body {
   --status-bar-item-color: var(--color-d-gray-50);
   --status-bar-item-color-hover: var(--color-d-gray-30);
   --status-bar-item-bg-hover: transparent;
-  --status-bar-item-clickable-color-active: var(--color-d-gray-60);
+  --status-bar-item-clickable-color-active: var(--color-d-gray-20);
   --status-bar-item-clickable-bg-active: transparent;
   --titlebar-background: var(--background-secondary);
   --titlebar-background-focused: var(--background-secondary);
@@ -2064,8 +2070,8 @@ body {
   --caret-color: var(--color-d-gray-50);
   --swatch-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.3);
   --checkbox-marker-color: white;
-  --checkbox-color: var(--color-d-green-60);
-  --checkbox-color-hover: var(--color-d-green-50);
+  --checkbox-color: var(--color-d-green-50);
+  --checkbox-color-hover: var(--color-d-green-40);
   --checked-border-color: rgba(255, 255, 255, 0.15);
   --checked-border-color-hover: rgba(255, 255, 255, 0.1);
   --checkbox-border-color: var(--color-d-gray-70);
@@ -2129,16 +2135,16 @@ body {
   --loading-line-color: var(--color-d-blue-30);
   --loading-line-shadow: inset 0px 0px 0px 1px rgba(255, 255, 255, 0.1);
   --menu-item-icon-color: var(--color-d-gray-50);
-  --menu-item-bg-hover: rgba(0, 0, 0, 0.25);
-  --menu-item-icon-color-active: var(--color-d-gray-60);
-  --menu-item-color-active: var(--color-d-gray-60);
+  --menu-item-bg-hover: rgba(255, 255, 255, 0.07);
+  --menu-item-icon-color-active: var(--color-d-gray-20);
+  --menu-item-color-active: var(--color-d-gray-20);
   --menu-item-bg-active: var(--color-d-gray-130);
   --modal-border-color: var(--background-modifier-border-hover);
-  --settings-nav-group-title-color: var(--color-d-gray-60);
+  --settings-nav-group-title-color: var(--color-d-gray-40);
   --settings-nav-item-text-color: var(--color-d-gray-40);
   --settings-nav-item-text-color-hover: var(--color-d-gray-20);
   --settings-nav-item-bg-hover: transparent;
-  --settings-nav-item-text-color-active: var(--color-d-gray-70);
+  --settings-nav-item-text-color-active: var(--color-d-gray-10);
   --settings-nav-item-active-color: var(--color-d-gray-100);
   --community-item-flair-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
   --community-item-shadow: inset 0px 0px 0px 1px rgba(255, 255, 255, 0.03);
@@ -2149,11 +2155,11 @@ body {
     0px 2px 6px -4.2px rgba(0, 0, 0, 0.29), 0px 4px 12px -6px rgba(0, 0, 0, 0.9);
   --nav-item-color: var(--color-d-gray-40);
   --nav-item-color-hover: var(--color-d-gray-40);
-  --nav-item-color-active: var(--color-d-gray-40);
+  --nav-item-color-active: var(--color-d-gray-10);
   --nav-item-color-selected: var(--color-d-gray-20);
   --nav-item-color-highlighted: var(--text-accent-hover);
-  --nav-item-background-hover: rgba(0, 0, 0, 0.125);
-  --nav-item-background-active: rgba(0, 0, 0, 0.125);
+  --nav-item-background-hover: rgba(255, 255, 255, 0.05);
+  --nav-item-background-active: color-mix(in srgb, var(--alternating-color-1) 22%, transparent);
   --nav-item-background-selected: color-mix(in srgb, var(--color-d-blue-60) 50%, transparent);
   --nav-item-background-selected-hover: color-mix(in srgb, var(--color-d-blue-60) 40%, transparent);
   --nav-indentation-guide-color: var(--indentation-guide-color);
@@ -2165,15 +2171,15 @@ body {
   --nav-heading-color-collapsed-hover: var(--color-d-gray-50);
   --nav-item-shadow-active: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.23);
   --nav-file-shadow-active:
-    inset 0px 0px 0px 1px rgba(0, 0, 0, 0.27),
+    inset 0px 0px 0px 1px color-mix(in srgb, var(--alternating-color-1) 45%, transparent),
     inset 0px calc(-1 * var(--button-axis-offset)) 0px var(--button-axis-offset)
       rgba(0, 0, 0, 0.24),
     0px 2px 3px 0px rgba(0, 0, 0, 0.22);
-  --nav-file-tag-color: var(--color-d-gray-60);
+  --nav-file-tag-color: var(--color-d-gray-40);
   --nav-file-tag-bg: transparent;
-  --collapse-icon-color: var(--color-d-gray-60);
-  --collapse-icon-color-collapsed: var(--color-d-gray-60);
-  --flair-count-color: var(--color-d-gray-60);
+  --collapse-icon-color: var(--color-d-gray-50);
+  --collapse-icon-color-collapsed: var(--color-d-gray-50);
+  --flair-count-color: var(--color-d-gray-40);
   --flair-count-bg-color: var(--color-d-gray-120);
   --indentation-guide-color: var(--background-modifier-border);
   --indentation-guide-color-active: var(--background-modifier-border-focus);
@@ -2186,8 +2192,8 @@ body {
     0px 7px 30px -5.5px rgba(0, 0, 0, 0.2);
   --pill-color: var(--color-d-gray-30);
   --pill-color-hover: var(--color-d-gray-20);
-  --pill-color-remove: var(--color-d-gray-60);
-  --pill-color-remove-hover: var(--color-d-gray-60);
+  --pill-color-remove: var(--color-d-gray-50);
+  --pill-color-remove-hover: var(--color-d-gray-20);
   --pill-background: rgba(0, 0, 0, 0.2);
   --pill-background-hover: var(--pill-background);
   --pill-border-color: color-mix(
@@ -2226,9 +2232,9 @@ body {
   );
   --prompt-suggestion-color-selected: var(--color-d-gray-20);
   --prompt-suggestion-highlight-color-selected: var(--color-d-gray-20);
-  --prompt-suggestion-background-selected: rgba(0, 0, 0, 0.1);
+  --prompt-suggestion-background-selected: color-mix(in srgb, var(--alternating-color-1) 16%, transparent);
   --prompt-suggestion-shadow-selected:
-    inset 0px 0px 0px 1px rgba(0, 0, 0, 0.14),
+    inset 0px 0px 0px 1px color-mix(in srgb, var(--alternating-color-1) 45%, transparent),
     0px 2px 6px 0px rgba(0, 0, 0, 0.12);
   --prompt-instructions-background: color-mix(
     in oklch,
@@ -2803,9 +2809,9 @@ body {
     var(--background-primary-alt)
   );
   --metadata-tab-background: var(--background-secondary);
-  --metadata-properties-title-color-collapsed: var(--color-d-gray-60);
-  --metadata-properties-title-color-hover: var(--color-d-gray-50);
-  --metadata-properties-title-color: var(--color-d-gray-60);
+  --metadata-properties-title-color-collapsed: var(--color-d-gray-40);
+  --metadata-properties-title-color-hover: var(--color-d-gray-20);
+  --metadata-properties-title-color: var(--color-d-gray-40);
   --metadata-input-text-color: var(--color-d-gray-40);
   --metadata-input-background: transparent;
   --metadata-input-background-hover: transparent;
@@ -2915,7 +2921,7 @@ body {
   );
   --search-result-dest-file-color: var(--color-d-gray-50);
   --search-result-dest-file-bg: var(--color-d-gray-120);
-  --search-result-dest-file-icon-color: var(--color-d-gray-70);
+  --search-result-dest-file-icon-color: var(--color-d-gray-50);
   --search-result-dest-file-shadow:
     inset 0px 0px 0px 1px rgba(0, 0, 0, 0.3),
     inset 0px -2px 0px 0px rgba(0, 0, 0, 0.25);
@@ -3728,6 +3734,18 @@ span.setting-hotkey {
   background: var(--alternating-color-3);
   box-shadow: var(--button-accent-shadow);
 }
+/* The page icon of the active item sits on the coloured fill too, so it
+takes the item's text colour instead of Obsidian's --text-muted. */
+.modal
+  .vertical-tab-nav-item.is-active:not(body.is-phone .vertical-tab-nav-item)
+  .vertical-tab-nav-item-icon {
+  color: inherit;
+}
+/* Room for the 3px focus ring of the autofocused settings search, which
+otherwise covers the first group title. */
+.vertical-tab-header .search-input-container {
+  margin-block-end: var(--size-4-2);
+}
 .is-mobile.theme-dark .vertical-tab-content {
   background: var(--background-primary);
 }
@@ -4056,7 +4074,7 @@ body {
   --tab-header-container-padding: 0 var(--editor-border-radius) var(--size-4-1)
     var(--editor-border-radius);
   --tab-header-container-border-bottom: none;
-  --tab-header-container-transition: padding-bottom none;
+  --tab-header-container-transition: none;
   --tab-header-container-inner-margin: default;
   --tab-header-container-inner-padding: var(--button-axis-offset);
   --tab-curves-display: none;
@@ -4094,8 +4112,8 @@ body:not(.is-phone) .mod-root .workspace-tab-header-container-inner {
   background: var(--tab-active-bg);
   box-shadow: var(--tab-active-shadow);
   transition:
-    border,
-    box-shadow,
+    border var(--button-anim),
+    box-shadow var(--button-anim),
     transform var(--button-anim);
 }
 .mod-left-split .workspace-tab-header.is-active:nth-child(3n + 1),
@@ -4295,9 +4313,9 @@ body:not(.is-phone) .mod-root .workspace-tab-header-container-inner {
   color: var(--icon-color);
   border: 1px solid rgba(0, 0, 0, 0);
   transition:
-    border,
-    border-color,
-    box-shadow,
+    border var(--button-anim),
+    border-color var(--button-anim),
+    box-shadow var(--button-anim),
     transform var(--button-anim);
 }
 .mod-left-split .workspace-tab-header:not(.is-active):hover,
@@ -4358,8 +4376,8 @@ body:not(.is-phone) .mod-root .workspace-tab-header-container-inner {
   background: var(--tab-active-bg);
   box-shadow: var(--tab-active-shadow);
   transition:
-    border,
-    box-shadow,
+    border var(--button-anim),
+    box-shadow var(--button-anim),
     transform var(--button-anim);
 }
 .mod-root
@@ -4515,9 +4533,9 @@ body:not(.is-phone) .mod-root .workspace-tab-header-container-inner {
   color: var(--icon-color);
   border: 1px solid rgba(0, 0, 0, 0);
   transition:
-    border,
-    border-color,
-    box-shadow,
+    border var(--button-anim),
+    border-color var(--button-anim),
+    box-shadow var(--button-anim),
     transform var(--button-anim);
 }
 .mod-root
@@ -4587,7 +4605,7 @@ body:not(.is-phone) .mod-root .workspace-tab-header-container-inner {
 .workspace-tabs.mod-stacked .workspace-tab-header.is-active {
   background: var(--tab-active-bg);
   transition:
-    border,
+    border var(--button-anim),
     transform var(--button-anim);
 }
 .workspace-tabs.mod-stacked .workspace-tab-header.is-active:nth-child(3n + 1) {
@@ -4710,7 +4728,7 @@ body:not(.is-phone) .mod-root .workspace-tab-header-container-inner {
 .workspace-tabs.mod-stacked .workspace-tab-header:not(.is-active) {
   color: var(--icon-color);
   transition:
-    border,
+    border var(--anim-duration-fast) var(--anim-motion-swing),
     border-color var(--anim-duration-fast) var(--anim-motion-swing);
 }
 .workspace-tabs.mod-stacked
@@ -4975,7 +4993,7 @@ input[type="number"]:focus-visible {
   border: 1px solid var(--text-input-border-color);
   box-shadow: var(--text-input-shadow-active);
   transition:
-    background,
+    background var(--anim-duration-superfast) var(--anim-motion-swing),
     box-shadow var(--anim-duration-superfast) var(--anim-motion-swing);
 }
 .nav-header .search-input-container {
@@ -7733,7 +7751,7 @@ body {
 }
 .nav-file-title {
   transition:
-    padding,
+    padding var(--anim-duration-fast) var(--anim-motion-smooth),
     transform var(--anim-duration-fast) var(--anim-motion-smooth);
 }
 .nav-file-title:active {
@@ -8389,7 +8407,7 @@ body.alt-folder-icons
   border-radius: var(--radius-s);
   box-shadow: var(--search-result-dest-file-shadow);
   transition:
-    background,
+    background var(--anim-duration-superfast) var(--anim-motion-smooth),
     box-shadow var(--anim-duration-superfast) var(--anim-motion-smooth);
 }
 .search-result-file-match-destination-file
@@ -8528,8 +8546,8 @@ body.accent-palette_custom.theme-dark {
 }
 /* Custom also carries the accent through the note and the app: every
 ==highlight== (plain, bold, italic), inline code, every kind of link, tags
-and tag pills, checked boxes, active tabs and icons and the file tree (open note in accent text, selected
-items on an accent fill). Text steps are clamped to 38% lightness (dark:
+and tag pills, checked boxes, active tabs and icons and the file tree (open note on an accent tint and edge,
+selected items on an accent fill). Text steps are clamped to 38% lightness (dark:
 62%) so they stay readable. Default keeps Primary's yellow/red/blue
 rotation, blue tags, red code, red bold, blue italics and the per-emphasis
 highlight colours. */
@@ -8571,7 +8589,6 @@ body.accent-palette_custom {
   --alternating-color-3-hover-active: var(--ps-accent-text-hover);
   --tag-color: var(--ps-accent-text);
   --tag-color-hover: var(--ps-accent-text-hover);
-  --nav-item-color-active: var(--ps-accent-text);
   --nav-item-color-selected: var(--text-on-accent);
   --nav-item-background-selected: var(--ps-accent-fill);
   --nav-item-background-selected-hover: var(--ps-accent-fill-hover);
@@ -9103,8 +9120,8 @@ body.reduce-motion {
   --anim-popup: none;
   --anim-popup-alt: none;
   --anim-popdown: none;
-  --background-anim: none;
-  --button-anim: none;
+  --background-anim: 0s;
+  --button-anim: 0s;
 }
 
 /*────────────────────────────────────
@@ -9121,8 +9138,8 @@ body.reduce-motion {
     --anim-popup: none;
     --anim-popup-alt: none;
     --anim-popdown: none;
-    --background-anim: none;
-    --button-anim: none;
+    --background-anim: 0s;
+    --button-anim: 0s;
   }
 }
 /* One focus ring for keyboard focus (nietech: 3px in the accent with a 2px
