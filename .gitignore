@@ -13,3 +13,4 @@ scripts/obsidian-api.json
 !.env.example
 *.pem
 *.key
+.worktrees/
