@@ -54,7 +54,10 @@ The theme includes:
 - clear states: the open note, selected files, the chosen command or menu
   item and the active settings page stand out from idle and hovered rows
   (text at least 4.5:1, icons and state edges at least 3:1, light and dark)
-- reduced-motion and forced-colors support
+- stable rows: file tree indents, list items and buttons never shift or
+  change height when opened, selected or pressed
+- reduced-motion (the theme option and the system setting turn off every
+  animation) and forced-colors support
 - Obsidian 1.13+ surfaces, including Bases (and the 1.14 kanban layout)
 - 1.14 coloured highlights keep their chosen colour
 - 1.14 corner shapes (squircles on macOS) on the surfaces the theme rounds

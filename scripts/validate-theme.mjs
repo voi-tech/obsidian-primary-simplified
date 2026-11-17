@@ -25,6 +25,10 @@
  *  11. redundant-block - a modifier block that only repeats its base
  *  12. unused-var      - a variable nothing reads, which is either a
  *                        leftover or a rule that was never written
+ *  13. layout-motion   - a transition on padding/margin of a row that
+ *                        Obsidian measures (file tree, settings nav,
+ *                        suggestions): the tree read an in-flight indent and
+ *                        nested notes drifted right when a folder opened
  *
  * Checks 5, 8 and 12 need scripts/obsidian-api.json, produced locally by
  * ./scripts/snapshot-obsidian-api.sh. When it is absent - as in CI, which has
@@ -178,6 +182,29 @@ for (const rule of rules) {
         rule.selector.slice(0, 90),
       rule.line,
     );
+  }
+}
+
+/* ------------------------------------------------------ 13. layout-motion */
+
+// Obsidian's virtual tree clears a row's inline indent, reads
+// getComputedStyle(row).paddingInlineStart and writes depth + that value
+// back. A running padding transition hands it a stale value, so rows that
+// Obsidian measures may never transition padding or margin (or "all").
+const measuredRow =
+  /\.(tree-item-self|nav-file-title|nav-folder-title|vertical-tab-nav-item|suggestion-item)\b/;
+for (const rule of rules) {
+  if (!measuredRow.test(rule.selector)) continue;
+  for (const { property, value } of readDeclarations(rule.body)) {
+    if (!/^transition(-property)?$/.test(property)) continue;
+    const hit = value.match(/\b(padding|margin)[a-z-]*|(^|,\s*)all\b/);
+    if (hit) {
+      fail(
+        "layout-motion",
+        `transition on ${hit[0].replace(/^,\s*/, "")} of a measured row: ${rule.selector.slice(0, 90)}`,
+        rule.line,
+      );
+    }
   }
 }
 

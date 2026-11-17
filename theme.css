@@ -320,7 +320,7 @@ body {
   --button-metadata-padding: var(--size-2-3) var(--size-4-2)
     calc(var(--size-2-3) + var(--button-inset-shadow-size)) var(--size-2-3);
   --button-metadata-padding-active: calc(
-      var(--size-2-2) + var(--button-inset-shadow-size)
+      var(--size-2-3) + var(--button-inset-shadow-size)
     )
     var(--size-4-2) var(--size-2-3) var(--size-2-3);
   --button-s-radius: var(--radius-m);
@@ -334,10 +334,10 @@ body {
   --modal-close-button-size: 20px;
   --settings-nav-item-padding: calc(var(--size-2-3) + 1px) var(--size-4-3)
     calc(var(--size-2-3) + 1px) var(--size-4-3);
-  --settings-nav-item-padding-hover: calc(var(--size-2-3) + 1px) var(--size-4-3)
-    calc(var(--size-2-3) + 1px) var(--size-4-5);
+  /* Same inline padding in every state: the label must not slide on hover. */
+  --settings-nav-item-padding-hover: var(--settings-nav-item-padding);
   --settings-nav-item-padding-active: var(--size-2-3) var(--size-4-3)
-    calc(var(--size-2-3) + var(--button-inset-shadow-size)) var(--size-4-5);
+    calc(var(--size-2-3) + var(--button-inset-shadow-size)) var(--size-4-3);
   --settings-nav-item-radius: var(--radius-m);
   --flair-count-padding: 2px 4px;
   --flair-count-radius: var(--radius-s);
@@ -1276,10 +1276,11 @@ body {
   --active-line-bg: var(--color-base-00);
   --editor-bg-color: var(--background-primary);
   --editor-bgpattern-color: var(--color-l-gray-60);
-  --blockquote-border-color: var(--background-modifier-border);
-  /* The callout body tint: a quote reads as a block, so its rounded corners
-  show (gray-10 matched the editing area and hid them). */
-  --blockquote-background-color: var(--callout-content-background);
+  /* The bar has to show on the quote tint, not only on the page. */
+  --blockquote-border-color: var(--color-l-gray-70);
+  /* One step of the gray scale away from the page (gray-20), so a quote
+  reads as a block and its rounded corners show. */
+  --blockquote-background-color: var(--color-l-gray-30);
   --callout-color-opacity: 32.5%;
   --callout-border-opacity: 0.2;
   --callout-icon-fold-filter: brightness(0.8);
@@ -2344,10 +2345,12 @@ body {
   --active-line-bg: var(--color-base-20);
   --editor-bg-color: var(--background-primary);
   --editor-bgpattern-color: var(--color-d-gray-70);
-  --blockquote-border-color: var(--background-modifier-border);
-  /* The callout body tint: a quote reads as a block, so its rounded corners
-  show (gray-10 matched the editing area and hid them). */
-  --blockquote-background-color: var(--callout-content-background);
+  /* The bar has to show on the quote tint, not only on the page. */
+  --blockquote-border-color: var(--color-d-gray-60);
+  /* One step of the gray scale away from the page (gray-100), lighter in
+  the dark: the callout body tint was darker than the page by 1% and the
+  quote box, with its rounded corners, disappeared. */
+  --blockquote-background-color: var(--color-d-gray-90);
   --callout-color-opacity: 32.5%;
   --callout-border-opacity: 0.1;
   --callout-icon-fold-filter: brightness(1);
@@ -3688,9 +3691,7 @@ span.setting-hotkey {
   padding: var(--settings-nav-item-padding);
   border-radius: var(--settings-nav-item-radius);
   margin-bottom: var(--size-2-1);
-  transition:
-    box-shadow var(--button-anim),
-    padding-left var(--anim-duration-fast) var(--anim-motion-swing);
+  transition: box-shadow var(--button-anim);
 }
 .modal
   .vertical-tab-nav-item:hover:not(.is-active):not(
@@ -3981,7 +3982,6 @@ input.prompt-input:focus-visible {
   font-size: calc(var(--font-ui-medium) - 1px);
   color: var(--prompt-suggestion-color);
   border-radius: var(--radius-m);
-  transition: padding var(--anim-duration-fast) var(--anim-motion-swing);
 }
 .suggestion-item:not(.mod-search-suggestion .suggestion-item).is-selected {
   color: var(--prompt-suggestion-color-selected);
@@ -4025,14 +4025,10 @@ input.prompt-input:focus-visible {
 .prompt-results {
   background: var(--prompt-results-background);
 }
+/* The selected row is marked by its fill and edge, not by an indent: text
+that jumps sideways while arrowing through results is harder to scan. */
 .prompt .suggestion-item {
   padding: var(--size-4-2) var(--size-4-3);
-}
-.prompt
-  .suggestion-item.is-selected:not(
-    body.is-phone .prompt .suggestion-item.is-selected
-  ) {
-  padding: var(--size-4-2) var(--size-4-3) var(--size-4-2) var(--size-4-6);
 }
 .prompt .suggestion-aux .suggestion-flair > svg.lucide-pin {
   transform: rotate(45deg);
@@ -4075,7 +4071,7 @@ body {
     var(--editor-border-radius);
   --tab-header-container-border-bottom: none;
   --tab-header-container-transition: none;
-  --tab-header-container-inner-margin: default;
+  --tab-header-container-inner-margin: 0;
   --tab-header-container-inner-padding: var(--button-axis-offset);
   --tab-curves-display: none;
   --tab-z-index: 1;
@@ -7614,8 +7610,7 @@ body.folder-color_full
   --nav-folder-collapse-color: inherit;
   --nav-indentation-guide-color: inherit;
 }
-body.alt-folder-icons
-  .is-mobile
+body.alt-folder-icons.is-mobile
   [data-type="bookmarks"]
   .tree-item-icon
   svg.right-triangle {
@@ -7749,10 +7744,13 @@ body {
 .nav-files-container {
   padding-top: var(--size-2-1);
 }
+/* Never transition padding or margin on tree rows: Obsidian's virtual tree
+clears the inline indent, reads getComputedStyle(row).paddingInlineStart and
+writes depth offset + that value back. Mid-transition the read returns the
+old indent, so nested notes drifted further right on every relayout (e.g.
+when a folder opened). Only the press offset is animated. */
 .nav-file-title {
-  transition:
-    padding var(--anim-duration-fast) var(--anim-motion-smooth),
-    transform var(--anim-duration-fast) var(--anim-motion-smooth);
+  transition: transform var(--anim-duration-fast) var(--anim-motion-smooth);
 }
 .nav-file-title:active {
   transform: translateY(2px);
@@ -8637,14 +8635,14 @@ quote is a run of lines, so the first line takes the top corners and the
 last one the bottom corners. */
 .markdown-rendered blockquote {
   /* A start border would bend along the rounded corners into a "(" shape,
-  so the bar is drawn as a straight background stripe inside the box, in
-  the border's place, inset from the corners. */
+  so the bar is drawn as a straight background stripe on the start edge,
+  stopping where the corners begin. Bar position and text offset match
+  Live Preview, where CodeMirror sets the line padding. */
   --ps-quote-bar-inset: var(--size-4-2);
   border-radius: var(--radius-m);
   border-inline-start-width: 0;
   padding-block: var(--size-4-2);
-  padding-inline: calc(var(--size-4-6) + var(--blockquote-border-thickness))
-    var(--size-4-4);
+  padding-inline: var(--size-4-3) var(--size-4-4);
   background-image: linear-gradient(
     var(--blockquote-border-color),
     var(--blockquote-border-color)
@@ -8652,19 +8650,28 @@ last one the bottom corners. */
   background-repeat: no-repeat;
   background-size: var(--blockquote-border-thickness)
     calc(100% - 2 * var(--ps-quote-bar-inset));
-  background-position: var(--ps-quote-bar-inset) center;
+  background-position: 0 center;
 }
 .markdown-rendered blockquote blockquote {
   /* A nested quote sits on its parent's fill: only its bar, running its
   full height, as in Live Preview. */
   --ps-quote-bar-inset: 0px;
   background-color: transparent;
+  margin-block: 0;
   padding-block: 0;
   padding-inline-end: 0;
   border-radius: 0;
 }
+/* No paragraph gap before or after a nested quote: Live Preview shows the
+same text as consecutive lines. */
+.markdown-rendered blockquote > :has(+ blockquote) {
+  margin-block-end: 0;
+}
+.markdown-rendered blockquote > blockquote + * {
+  margin-block-start: 0;
+}
 .markdown-rendered blockquote:dir(rtl) {
-  background-position: calc(100% - var(--ps-quote-bar-inset)) center;
+  background-position: 100% center;
 }
 .markdown-source-view.mod-cm6 .cm-line.HyperMD-quote:not(.HyperMD-quote + .HyperMD-quote) {
   border-start-start-radius: var(--radius-m);
@@ -8674,6 +8681,30 @@ last one the bottom corners. */
   border-end-start-radius: var(--radius-m);
   border-end-end-radius: var(--radius-m);
 }
+/* Live Preview gets the reading view's block padding, and its bar stops
+where the rounded corners begin, so it never runs into a curve. */
+.markdown-source-view.mod-cm6.is-live-preview
+  .cm-line.HyperMD-quote:not(.HyperMD-quote + .HyperMD-quote) {
+  padding-top: var(--size-4-2);
+}
+.markdown-source-view.mod-cm6.is-live-preview
+  .cm-line.HyperMD-quote:not(.HyperMD-quote + .HyperMD-quote)::before,
+.markdown-source-view.mod-cm6.is-live-preview
+  .cm-line.HyperMD-quote:not(.HyperMD-quote + .HyperMD-quote)
+  .cm-blockquote-border::before {
+  top: var(--size-4-2);
+}
+.markdown-source-view.mod-cm6.is-live-preview
+  .cm-line.HyperMD-quote:not(:has(+ .HyperMD-quote)) {
+  padding-bottom: var(--size-4-2);
+}
+.markdown-source-view.mod-cm6.is-live-preview
+  .cm-line.HyperMD-quote:not(:has(+ .HyperMD-quote))::before,
+.markdown-source-view.mod-cm6.is-live-preview
+  .cm-line.HyperMD-quote:not(:has(+ .HyperMD-quote))
+  .cm-blockquote-border::before {
+  bottom: var(--size-4-2);
+}
 /* Highlights are inline marks: the brand's xs step, so a highlight broken
 by bold or a link inside it does not show notches. */
 .markdown-rendered mark,
@@ -8682,6 +8713,10 @@ by bold or a link inside it does not show notches. */
 }
 body.layout-density_compact {
   --nav-item-padding: var(--size-2-2) var(--size-4-2);
+  /* The open note keeps the row height of its neighbours: the pressed
+  look moves 2px of bottom padding to the top, it does not add any. */
+  --nav-file-padding-active: calc(var(--size-2-2) - var(--button-inset-shadow-size) / 2) var(--size-4-2)
+    calc(var(--size-2-2) + var(--button-inset-shadow-size) / 2);
   --line-height-normal: 1.4;
   --line-height-tight: 1.2;
   --file-margins-x: var(--size-4-4);
@@ -8719,7 +8754,6 @@ body:is(.heading-bg_subtle, .heading-bg_colorful) {
   --ps-hchip-pad-x: 0.4em;
   --ps-hchip-pad-y: 0.06em;
   --ps-hchip-radius: var(--radius-m);
-  --ps-hchip-shadow: inset 0 0 0 1px var(--ps-hchip-edge, var(--background-modifier-border));
 }
 body:is(.heading-bg_subtle, .heading-bg_colorful)
   .markdown-rendered
@@ -8730,7 +8764,10 @@ body:is(.heading-bg_subtle, .heading-bg_colorful)
   margin-inline-start: calc(-1 * var(--ps-hchip-pad-x));
   border-radius: var(--ps-hchip-radius);
   corner-shape: var(--corner-shape);
-  box-shadow: var(--ps-hchip-shadow);
+  /* Built here, not in a body variable: a var() inside a custom property
+  resolves where that property is declared, so the per-level edges set on
+  each heading would never reach a shadow defined on body. */
+  box-shadow: inset 0 0 0 1px var(--ps-hchip-edge, var(--background-modifier-border));
 }
 body:is(.heading-bg_subtle, .heading-bg_colorful)
   .markdown-source-view.mod-cm6
@@ -8763,7 +8800,10 @@ body:is(.heading-bg_subtle, .heading-bg_colorful)
   background: var(--ps-hchip-bg);
   border-radius: var(--ps-hchip-radius);
   corner-shape: var(--corner-shape);
-  box-shadow: var(--ps-hchip-shadow);
+  /* Built here, not in a body variable: a var() inside a custom property
+  resolves where that property is declared, so the per-level edges set on
+  each heading would never reach a shadow defined on body. */
+  box-shadow: inset 0 0 0 1px var(--ps-hchip-edge, var(--background-modifier-border));
   pointer-events: none;
 }
 body:is(.heading-bg_subtle, .heading-bg_colorful) .cm-line.HyperMD-header-1 {
@@ -8968,61 +9008,110 @@ body.active-line-highlight:is(.heading-bg_subtle, .heading-bg_colorful)
 the editing area). Collapsed borders cannot be rounded, so tables use
 separate borders with no spacing: the frame on the table, inner lines on
 each cell's end and bottom edge, and the corner cells clipped to the
-radius so header and alternating backgrounds stay inside. */
-:is(.markdown-rendered, .markdown-source-view.mod-cm6 .cm-table-widget, .cm-html-embed) table {
+radius so header and alternating backgrounds stay inside. Obsidian gives
+every cell dir="auto", so a cell's own direction follows its text, not the
+table: sides are set physically and flipped with :dir() on the table.
+Dataview card grids (.cards) are excluded: they are not drawn as tables. */
+:is(.markdown-rendered, .markdown-source-view.mod-cm6 .cm-table-widget, .cm-html-embed)
+  table:not(.cards table) {
   --ps-table-radius: var(--radius-m);
+  --ps-table-cell-radius: calc(var(--ps-table-radius) - var(--table-border-width));
   border-collapse: separate;
   border-spacing: 0;
   border: var(--table-border-width) solid var(--table-border-color);
   border-radius: var(--ps-table-radius);
 }
 :is(.markdown-rendered, .markdown-source-view.mod-cm6 .cm-table-widget, .cm-html-embed)
-  table
+  table:not(.cards table)
   :is(th, td) {
   border-width: 0 var(--table-border-width) var(--table-border-width) 0;
   border-style: solid;
   border-color: var(--table-border-color);
 }
 :is(.markdown-rendered, .markdown-source-view.mod-cm6 .cm-table-widget, .cm-html-embed)
-  table
-  tr
-  > :last-child {
-  border-inline-end-width: 0;
+  table:not(.cards table):dir(rtl)
+  :is(th, td) {
+  border-width: 0 0 var(--table-border-width) var(--table-border-width);
 }
 :is(.markdown-rendered, .markdown-source-view.mod-cm6 .cm-table-widget, .cm-html-embed)
-  table
+  table:not(.cards table)
+  tr
+  > :last-child {
+  border-right-width: 0;
+}
+:is(.markdown-rendered, .markdown-source-view.mod-cm6 .cm-table-widget, .cm-html-embed)
+  table:not(.cards table):dir(rtl)
+  tr
+  > :last-child {
+  border-right-width: 0;
+  border-left-width: 0;
+}
+:is(.markdown-rendered, .markdown-source-view.mod-cm6 .cm-table-widget, .cm-html-embed)
+  table:not(.cards table)
   > :last-child
   > tr:last-child
   > * {
   border-bottom-width: 0;
 }
 :is(.markdown-rendered, .markdown-source-view.mod-cm6 .cm-table-widget, .cm-html-embed)
-  table
+  table:not(.cards table)
   > :first-child
   > tr:first-child
   > :first-child {
-  border-start-start-radius: calc(var(--ps-table-radius) - var(--table-border-width));
+  border-top-left-radius: var(--ps-table-cell-radius);
 }
 :is(.markdown-rendered, .markdown-source-view.mod-cm6 .cm-table-widget, .cm-html-embed)
-  table
+  table:not(.cards table)
   > :first-child
   > tr:first-child
   > :last-child {
-  border-start-end-radius: calc(var(--ps-table-radius) - var(--table-border-width));
+  border-top-right-radius: var(--ps-table-cell-radius);
 }
 :is(.markdown-rendered, .markdown-source-view.mod-cm6 .cm-table-widget, .cm-html-embed)
-  table
+  table:not(.cards table)
   > :last-child
   > tr:last-child
   > :first-child {
-  border-end-start-radius: calc(var(--ps-table-radius) - var(--table-border-width));
+  border-bottom-left-radius: var(--ps-table-cell-radius);
 }
 :is(.markdown-rendered, .markdown-source-view.mod-cm6 .cm-table-widget, .cm-html-embed)
-  table
+  table:not(.cards table)
   > :last-child
   > tr:last-child
   > :last-child {
-  border-end-end-radius: calc(var(--ps-table-radius) - var(--table-border-width));
+  border-bottom-right-radius: var(--ps-table-cell-radius);
+}
+:is(.markdown-rendered, .markdown-source-view.mod-cm6 .cm-table-widget, .cm-html-embed)
+  table:not(.cards table):dir(rtl)
+  > :first-child
+  > tr:first-child
+  > :first-child:not(:last-child) {
+  border-top-left-radius: 0;
+  border-top-right-radius: var(--ps-table-cell-radius);
+}
+:is(.markdown-rendered, .markdown-source-view.mod-cm6 .cm-table-widget, .cm-html-embed)
+  table:not(.cards table):dir(rtl)
+  > :first-child
+  > tr:first-child
+  > :last-child:not(:first-child) {
+  border-top-right-radius: 0;
+  border-top-left-radius: var(--ps-table-cell-radius);
+}
+:is(.markdown-rendered, .markdown-source-view.mod-cm6 .cm-table-widget, .cm-html-embed)
+  table:not(.cards table):dir(rtl)
+  > :last-child
+  > tr:last-child
+  > :first-child:not(:last-child) {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: var(--ps-table-cell-radius);
+}
+:is(.markdown-rendered, .markdown-source-view.mod-cm6 .cm-table-widget, .cm-html-embed)
+  table:not(.cards table):dir(rtl)
+  > :last-child
+  > tr:last-child
+  > :last-child:not(:first-child) {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: var(--ps-table-cell-radius);
 }
 
 /* Line width: the readable column (Settings > Editor > Readable line
@@ -9123,6 +9212,19 @@ body.reduce-motion {
   --background-anim: 0s;
   --button-anim: 0s;
 }
+/* The variables above cover the shared effects; banners, focus mode, the
+ribbon and status bar slides and the press offsets use their own
+durations, so every CSS animation and transition is cut as well. 0.01ms
+rather than none, so animationend/transitionend still fire for the app. */
+body.reduce-motion *,
+body.reduce-motion *::before,
+body.reduce-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  transition-delay: 0s !important;
+  scroll-behavior: auto !important;
+}
 
 /*────────────────────────────────────
 
@@ -9140,6 +9242,15 @@ body.reduce-motion {
     --anim-popdown: none;
     --background-anim: 0s;
     --button-anim: 0s;
+  }
+  body *,
+  body *::before,
+  body *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
+    scroll-behavior: auto !important;
   }
 }
 /* One focus ring for keyboard focus (nietech: 3px in the accent with a 2px
@@ -9180,8 +9291,8 @@ body {
 }
 @media (forced-colors: active) {
   :focus-visible {
-    outline: 2px solid Highlight;
-    outline-offset: 1px;
+    outline: 2px solid Highlight !important;
+    outline-offset: 1px !important;
   }
 }
 
@@ -9377,6 +9488,8 @@ theme's own base table rule so the helper classes aren't Reading-View-only. */
     .markdown-source-view.mod-cm6.is-live-preview.table-nowrap
   )
   table {
+  /* Obsidian sets cells to var(--table-white-space), not inherit. */
+  --table-white-space: nowrap;
   white-space: nowrap;
 }
 :is(
@@ -9384,6 +9497,7 @@ theme's own base table rule so the helper classes aren't Reading-View-only. */
     .markdown-source-view.mod-cm6.is-live-preview.table-wrap
   )
   table {
+  --table-white-space: normal;
   white-space: normal;
   word-break: break-word;
 }
@@ -9417,39 +9531,17 @@ theme's own base table rule so the helper classes aren't Reading-View-only. */
 }
 :is(
     .markdown-rendered.table-lines,
-    .markdown-source-view.mod-cm6.is-live-preview.table-lines
-  )
-  table,
-:is(
-    .markdown-rendered.table-lines,
-    .markdown-source-view.mod-cm6.is-live-preview.table-lines
-  )
-  th,
-:is(
-    .markdown-rendered.table-lines,
-    .markdown-source-view.mod-cm6.is-live-preview.table-lines
-  )
-  td {
-  border: 1px solid var(--background-modifier-border);
-}
-:is(
+    .markdown-source-view.mod-cm6.is-live-preview.table-lines,
     .markdown-rendered.row-lines,
-    .markdown-source-view.mod-cm6.is-live-preview.row-lines
-  )
-  tr {
-  border-bottom: 1px solid var(--background-modifier-border);
-}
-:is(
+    .markdown-source-view.mod-cm6.is-live-preview.row-lines,
     .markdown-rendered.col-lines,
     .markdown-source-view.mod-cm6.is-live-preview.col-lines
-  )
-  th,
-:is(
-    .markdown-rendered.col-lines,
-    .markdown-source-view.mod-cm6.is-live-preview.col-lines
-  )
-  td {
-  border-inline-end: 1px solid var(--background-modifier-border);
+  ) {
+  /* Tables use separate borders (for the rounded frame): every line is
+  drawn once, on a cell's end or bottom edge, never as a full cell border
+  or on a <tr>, which cannot paint in that model. The base table already
+  shows all lines, so these helpers only make sure they are visible. */
+  --table-border-width: 1px;
 }
 :is(
     .markdown-rendered.row-alt,
@@ -9504,7 +9596,9 @@ theme's own base table rule so the helper classes aren't Reading-View-only. */
   td:first-child::before {
   content: counter(primary-simplified-row-num);
   position: absolute;
-  inset-inline-start: var(--size-2-2);
+  inset-inline-start: 0;
+  inline-size: 3.5ch;
+  text-align: end;
   color: var(--text-faint);
   font-variant-numeric: tabular-nums;
 }
@@ -9515,7 +9609,8 @@ theme's own base table rule so the helper classes aren't Reading-View-only. */
   tbody
   tr
   td:first-child {
-  padding-inline-start: var(--size-4-4);
+  /* A gutter wide enough for three-digit row numbers. */
+  padding-inline-start: calc(3.5ch + var(--size-4-2));
 }
 
 /* Shared card-grid tuning, overridden per variant below. */
@@ -10117,7 +10212,7 @@ settings:
 - id: reduce-motion
   type: class-toggle
   title: Reduce theme motion
-  description: Disables decorative tab, popup, and background animations without changing Obsidian's functional transitions.
+  description: Turns off animations and transitions, the same as the system Reduce motion setting, which the theme always follows.
 - id: focus-mode
   type: class-toggle
   title: Focus mode
@@ -10262,7 +10357,7 @@ settings:
     - `banner-fade`: the image fades into the page.
     - `y0` ... `y100`: which part of the image shows, `y0` is the top, `y50` the middle.
     - `banner-image-contain`: shows the whole image instead of cropping it.
-    - `banner-title`: moves the note title onto the banner.
+    - `banner-title` (together with `banner-icon`): the note title sits on the banner next to the icon.
     - `banner-icon`: shows an icon on the banner; write it in a callout `> [!banner-icon] 🌊`.
 - id: banner-height
   type: class-select
