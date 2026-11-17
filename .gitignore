@@ -6,3 +6,10 @@
 # every Obsidian update rather than committing it - it is derived data, it is
 # large, and it is only meaningful for the version installed on this machine.
 scripts/obsidian-api.json
+
+# Secrets and local config (never commit)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
