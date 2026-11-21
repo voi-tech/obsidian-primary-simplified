@@ -498,9 +498,30 @@ const foregrounds = [
   ["--tag-color", 4.5, "var(--tag-background)"],
   ["--status-bar-item-color", 3],
   ["--checklist-done-color", 3],
-  ["--text-error", 3],
-  ["--text-warning", 3],
-  ["--text-success", 3],
+  ["--text-error", 4.5],
+  ["--text-warning", 4.5],
+  ["--text-success", 4.5],
+  ["--text-success", 4.4, "var(--background-secondary)"],
+  ["--graph-text", 4.5],
+  ["--titlebar-text-color", 4.5, "var(--titlebar-background)"],
+  ["--titlebar-text-color-focused", 4.5, "var(--titlebar-background-focused)"],
+  ["--sync-icon-working", 3, "var(--background-secondary)"],
+  ["--sync-icon-success", 3, "var(--background-secondary)"],
+  // Syntax colours are text on the code block, frontmatter is editor text.
+  ...["comment", "function", "important", "keyword", "operator", "property",
+    "punctuation", "string", "tag", "value"].map((part) =>
+    [`--code-${part}`, 4.5, "var(--code-background)"]),
+  ...["base", "def-meta", "atom", "keyword", "number", "string"].map((part) =>
+    [`--yaml-${part}-color`, 4.5]),
+  // Alternative checkbox icons are graphics (3:1); coloured folder names are
+  // sidebar text, their chevrons sidebar icons.
+  ...[...new Set([...lightMap.keys(), ...darkMap.keys()])]
+    .filter((name) => /^--[a-z]+-chbx-color$/.test(name))
+    .map((name) => [name, 3]),
+  ...Array.from({ length: 12 }, (_, i) => i + 1).flatMap((n) => [
+    [`--nav-folder-${n}-color`, 4.4, "var(--background-secondary)"],
+    [`--nav-folder-${n}-collapse-color`, 3, "var(--background-secondary)"],
+  ]),
 ];
 
 let contrastSkipped = 0;

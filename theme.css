@@ -886,9 +886,22 @@ body {
   --text-faint: var(--color-l-gray-90);
   --text-on-accent: var(--color-l-gray-10);
   --text-on-accent-inverted: var(--color-l-gray-140);
-  --text-error: var(--color-l-red-100);
-  --text-warning: var(--color-l-orange-90);
-  --text-success: var(--color-l-green-90);
+  --text-error: var(--color-l-red-110);
+  --text-warning: var(--color-l-orange-110);
+  --text-success: var(--color-l-green-110);
+  /* Syntax colours are text on --code-background (step 30), so they take the
+  hue text step 110 (>= 4.5:1). Obsidian's defaults point at --color-*,
+  which is the fill step 90 (about 3:1). */
+  --code-comment: var(--color-l-gray-110);
+  --code-function: var(--color-l-yellow-110);
+  --code-important: var(--color-l-orange-110);
+  --code-keyword: var(--color-l-pink-110);
+  --code-operator: var(--color-l-red-110);
+  --code-property: var(--color-l-cyan-110);
+  --code-punctuation: var(--color-l-gray-110);
+  --code-string: var(--color-l-green-110);
+  --code-tag: var(--color-l-red-110);
+  --code-value: var(--color-l-purple-110);
   --text-selection: var(--color-l-alpha-gray);
   --text-highlight-bg: var(--color-l-alpha-yellow);
   --text-accent: var(--ps-accent-text);
@@ -915,11 +928,11 @@ body {
   --icon-opacity-active: 1;
   --icon-bg-active: var(--color-l-gray-60);
   --icon-bg-active-menu: transparent;
-  --sync-icon-working: var(--color-l-orange-70);
-  --sync-icon-working-hover: var(--color-l-orange-80);
+  --sync-icon-working: var(--color-l-orange-100);
+  --sync-icon-working-hover: var(--color-l-orange-110);
   --sync-icon-working-active: var(--status-bar-item-clickable-color-active);
-  --sync-icon-success: var(--color-l-green-90);
-  --sync-icon-success-hover: var(--color-l-green-80);
+  --sync-icon-success: var(--color-l-green-100);
+  --sync-icon-success-hover: var(--color-l-green-110);
   --sync-icon-success-active: var(--status-bar-item-clickable-color-active);
   --divider-color: var(--background-modifier-border);
   --divider-color-hover: var(--background-modifier-border-hover);
@@ -939,8 +952,8 @@ body {
   --status-bar-item-clickable-bg-active: transparent;
   --titlebar-background: var(--background-secondary);
   --titlebar-background-focused: var(--background-secondary);
-  --titlebar-text-color: var(--color-l-gray-60);
-  --titlebar-text-color-focused: var(--color-l-gray-70);
+  --titlebar-text-color: var(--color-l-gray-110);
+  --titlebar-text-color-focused: var(--text-normal);
   --vault-profile-color: var(--vault-name-color);
   --vault-name-color: var(--color-l-gray-100);
   --vault-name-color-hover: var(--color-l-gray-120);
@@ -1007,47 +1020,47 @@ body {
   --checklist-bg: var(--color-l-gray-10);
   --checklist-shadow-hover: 0px 0px 0px 3px rgba(0, 0, 0, 0.07);
   --checklist-done-color: var(--color-l-gray-90);
-  --inprogress-chbx-color: var(--color-l-yellow-70);
-  --inprogress-chbx-color-hover: var(--color-l-yellow-70);
+  --inprogress-chbx-color: var(--color-l-yellow-100);
+  --inprogress-chbx-color-hover: var(--color-l-yellow-100);
   --inprogress-chbx-border-color: color-mix(
     in srgb,
     var(--inprogress-chbx-color) 65%,
     var(--color-base-60)
   );
-  --resched-chbx-color: var(--color-l-cyan-80);
-  --sched-chbx-color: var(--color-l-gray-70);
-  --important-chbx-color: var(--color-l-orange-90);
-  --cancelled-chbx-color: var(--color-l-gray-70);
+  --resched-chbx-color: var(--color-l-cyan-100);
+  --sched-chbx-color: var(--color-l-gray-100);
+  --important-chbx-color: var(--color-l-orange-100);
+  --cancelled-chbx-color: var(--color-l-gray-100);
   --cancelled-chbx-text-color: var(--text-faint);
   --cancelled-chbx-text-decoration: line-through;
-  --question-chbx-color: var(--color-l-purple-90);
-  --star-chbx-color: var(--color-l-yellow-70);
-  --note-chbx-color: var(--color-l-orange-90);
+  --question-chbx-color: var(--color-l-purple-100);
+  --star-chbx-color: var(--color-l-yellow-100);
+  --note-chbx-color: var(--color-l-orange-100);
   --location-chbox-color: var(--color-l-red-100);
-  --info-chbx-color: var(--color-l-cyan-90);
-  --amount-chbx-color: var(--color-l-green-90);
-  --quote-chbx-color: var(--color-l-blue-90);
-  --idea-chbx-color: var(--color-l-orange-70);
-  --pro-chbx-color: var(--color-l-green-90);
+  --info-chbx-color: var(--color-l-cyan-100);
+  --amount-chbx-color: var(--color-l-green-100);
+  --quote-chbx-color: var(--color-l-blue-100);
+  --idea-chbx-color: var(--color-l-orange-100);
+  --pro-chbx-color: var(--color-l-green-100);
   --con-chbx-color: var(--color-l-orange-100);
-  --bookmark-chbx-color: var(--color-l-orange-80);
-  --fire-chbx-color: var(--color-l-orange-90);
-  --win-chbx-color: var(--color-l-yellow-70);
-  --key-chbx-color: var(--color-l-yellow-90);
-  --up-chbx-color: var(--color-l-green-90);
+  --bookmark-chbx-color: var(--color-l-orange-100);
+  --fire-chbx-color: var(--color-l-orange-100);
+  --win-chbx-color: var(--color-l-yellow-100);
+  --key-chbx-color: var(--color-l-yellow-100);
+  --up-chbx-color: var(--color-l-green-100);
   --down-chbx-color: var(--color-l-red-100);
-  --law-chbx-color: var(--color-l-gray-90);
-  --language-chbx-color: var(--color-l-red-80);
+  --law-chbx-color: var(--color-l-gray-100);
+  --language-chbx-color: var(--color-l-red-100);
   --clock-chbx-color: var(--color-l-blue-100);
-  --telephone-chbx-color: var(--color-l-green-80);
-  --milestone-chbx-color: var(--color-l-purple-90);
-  --deadline-chbx-color: var(--color-l-red-90);
+  --telephone-chbx-color: var(--color-l-green-100);
+  --milestone-chbx-color: var(--color-l-purple-100);
+  --deadline-chbx-color: var(--color-l-red-100);
   --blocked-chbx-color: var(--color-l-red-100);
-  --delegated-chbx-color: var(--color-l-blue-90);
-  --health-chbx-color: var(--color-l-red-90);
-  --shopping-chbx-color: var(--color-l-green-90);
-  --home-chbx-color: var(--color-l-gray-90);
-  --recurring-chbx-color: var(--color-l-cyan-90);
+  --delegated-chbx-color: var(--color-l-blue-100);
+  --health-chbx-color: var(--color-l-red-100);
+  --shopping-chbx-color: var(--color-l-green-100);
+  --home-chbx-color: var(--color-l-gray-100);
+  --recurring-chbx-color: var(--color-l-cyan-100);
   --task-progress-track: var(--background-modifier-border);
   --task-progress-track-border: var(--background-modifier-border-hover);
   --task-progress-fill: var(--interactive-accent);
@@ -1350,7 +1363,7 @@ body {
   --breadcrumb-bg-hover: var(--color-l-gray-40);
   --breadcrumb-separator-color: var(--background-modifier-border);
   --file-header-title-color: var(--color-l-gray-120);
-  --nav-folder-1-color: var(--color-l-red-100);
+  --nav-folder-1-color: var(--color-l-red-110);
   --nav-folder-1-bg-color: color-mix(
     in srgb,
     var(--color-l-alpha-red) 60%,
@@ -1363,7 +1376,7 @@ body {
   );
   --nav-folder-1-collapse-color: color-mix(
     in srgb,
-    var(--nav-folder-1-color) 50%,
+    var(--nav-folder-1-color) 80%,
     transparent
   );
   --nav-folder-1-indent-color: color-mix(
@@ -1371,7 +1384,7 @@ body {
     var(--nav-folder-1-color) 25%,
     transparent
   );
-  --nav-folder-2-color: var(--color-l-orange-90);
+  --nav-folder-2-color: var(--color-l-orange-110);
   --nav-folder-2-bg-color: color-mix(
     in srgb,
     var(--color-l-alpha-orange) 60%,
@@ -1384,7 +1397,7 @@ body {
   );
   --nav-folder-2-collapse-color: color-mix(
     in srgb,
-    var(--nav-folder-2-color) 50%,
+    var(--nav-folder-2-color) 80%,
     transparent
   );
   --nav-folder-2-indent-color: color-mix(
@@ -1392,7 +1405,7 @@ body {
     var(--nav-folder-2-color) 25%,
     transparent
   );
-  --nav-folder-3-color: var(--color-l-yellow-90);
+  --nav-folder-3-color: var(--color-l-yellow-110);
   --nav-folder-3-bg-color: color-mix(
     in srgb,
     var(--color-l-alpha-yellow) 60%,
@@ -1405,7 +1418,7 @@ body {
   );
   --nav-folder-3-collapse-color: color-mix(
     in srgb,
-    var(--nav-folder-3-color) 50%,
+    var(--nav-folder-3-color) 80%,
     transparent
   );
   --nav-folder-3-indent-color: color-mix(
@@ -1426,7 +1439,7 @@ body {
   );
   --nav-folder-4-collapse-color: color-mix(
     in srgb,
-    var(--nav-folder-4-color) 50%,
+    var(--nav-folder-4-color) 80%,
     transparent
   );
   --nav-folder-4-indent-color: color-mix(
@@ -1447,7 +1460,7 @@ body {
   );
   --nav-folder-5-collapse-color: color-mix(
     in srgb,
-    var(--nav-folder-5-color) 50%,
+    var(--nav-folder-5-color) 80%,
     transparent
   );
   --nav-folder-5-indent-color: color-mix(
@@ -1468,7 +1481,7 @@ body {
   );
   --nav-folder-6-collapse-color: color-mix(
     in srgb,
-    var(--nav-folder-6-color) 50%,
+    var(--nav-folder-6-color) 80%,
     transparent
   );
   --nav-folder-6-indent-color: color-mix(
@@ -1476,7 +1489,7 @@ body {
     var(--nav-folder-6-color) 25%,
     transparent
   );
-  --nav-folder-7-color: var(--color-l-red-100);
+  --nav-folder-7-color: var(--color-l-red-110);
   --nav-folder-7-bg-color: color-mix(
     in srgb,
     var(--color-l-alpha-red) 60%,
@@ -1489,7 +1502,7 @@ body {
   );
   --nav-folder-7-collapse-color: color-mix(
     in srgb,
-    var(--nav-folder-7-color) 50%,
+    var(--nav-folder-7-color) 80%,
     transparent
   );
   --nav-folder-7-indent-color: color-mix(
@@ -1497,7 +1510,7 @@ body {
     var(--nav-folder-7-color) 25%,
     transparent
   );
-  --nav-folder-8-color: var(--color-l-orange-90);
+  --nav-folder-8-color: var(--color-l-orange-110);
   --nav-folder-8-bg-color: color-mix(
     in srgb,
     var(--color-l-alpha-orange) 60%,
@@ -1510,7 +1523,7 @@ body {
   );
   --nav-folder-8-collapse-color: color-mix(
     in srgb,
-    var(--nav-folder-8-color) 50%,
+    var(--nav-folder-8-color) 80%,
     transparent
   );
   --nav-folder-8-indent-color: color-mix(
@@ -1518,7 +1531,7 @@ body {
     var(--nav-folder-8-color) 25%,
     transparent
   );
-  --nav-folder-9-color: var(--color-l-yellow-90);
+  --nav-folder-9-color: var(--color-l-yellow-110);
   --nav-folder-9-bg-color: color-mix(
     in srgb,
     var(--color-l-alpha-yellow) 60%,
@@ -1531,7 +1544,7 @@ body {
   );
   --nav-folder-9-collapse-color: color-mix(
     in srgb,
-    var(--nav-folder-9-color) 50%,
+    var(--nav-folder-9-color) 80%,
     transparent
   );
   --nav-folder-9-indent-color: color-mix(
@@ -1552,7 +1565,7 @@ body {
   );
   --nav-folder-10-collapse-color: color-mix(
     in srgb,
-    var(--nav-folder-10-color) 50%,
+    var(--nav-folder-10-color) 80%,
     transparent
   );
   --nav-folder-10-indent-color: color-mix(
@@ -1573,7 +1586,7 @@ body {
   );
   --nav-folder-11-collapse-color: color-mix(
     in srgb,
-    var(--nav-folder-11-color) 50%,
+    var(--nav-folder-11-color) 80%,
     transparent
   );
   --nav-folder-11-indent-color: color-mix(
@@ -1594,7 +1607,7 @@ body {
   );
   --nav-folder-12-collapse-color: color-mix(
     in srgb,
-    var(--nav-folder-12-color) 50%,
+    var(--nav-folder-12-color) 80%,
     transparent
   );
   --nav-folder-12-indent-color: color-mix(
@@ -1755,12 +1768,12 @@ body {
   --metadata-divider-color: var(--background-modifier-border);
   --metadata-divider-color-hover: transparent;
   --metadata-divider-color-focus: transparent;
-  --yaml-base-color: var(--color-l-red-80);
-  --yaml-def-meta-color: var(--color-l-gray-70);
-  --yaml-atom-color: var(--color-l-blue-90);
-  --yaml-keyword-color: var(--color-l-yellow-80);
-  --yaml-number-color: var(--color-l-red-80);
-  --yaml-string-color: var(--color-l-yellow-80);
+  --yaml-base-color: var(--color-l-red-110);
+  --yaml-def-meta-color: var(--color-l-gray-110);
+  --yaml-atom-color: var(--color-l-blue-110);
+  --yaml-keyword-color: var(--color-l-yellow-110);
+  --yaml-number-color: var(--color-l-red-110);
+  --yaml-string-color: var(--color-l-yellow-110);
   --table-background: var(--color-l-gray-10);
   --table-header-background: var(--color-l-gray-30);
   --table-header-background-hover: var(--table-header-background);
@@ -1831,7 +1844,12 @@ body {
   --graph-node-focused: var(--color-l-gray-130);
   --graph-node-highlight-fill: var(--color-l-gray-90);
   --graph-node-highlight-line: var(--color-l-gray-70);
-  --graph-text: var(--color-l-gray-80);
+  --graph-text: var(--text-muted);
+  /* External-link arrow: data URIs cannot read variables, so the stroke is
+  --color-l-gray-100 (>= 3:1 on the page and sidebar), one
+  icon per direction. Update it with the palette. */
+  --ps-external-link-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23836B49' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='7' y1='17' x2='17' y2='7'/%3E%3Cpolyline points='7 7 17 7 17 17'/%3E%3C/svg%3E");
+  --ps-external-link-icon-rtl: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23836B49' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='17' y1='17' x2='7' y2='7'/%3E%3Cpolyline points='17 7 7 7 7 17'/%3E%3C/svg%3E");
   --graph-line: var(--background-modifier-border);
   --graph-arrow: var(--color-l-gray-90);
   --search-result-background: var(--background-primary-alt);
@@ -1958,7 +1976,19 @@ body {
   --text-on-accent-inverted: var(--color-d-gray-140);
   --text-error: var(--color-d-red-40);
   --text-warning: var(--color-d-orange-40);
-  --text-success: var(--color-d-green-50);
+  --text-success: var(--color-d-green-40);
+  /* Dark syntax colours: the muted text step 40 for every hue, so comments
+  are no fainter than the rest (Obsidian's --text-faint is about 3.6:1). */
+  --code-comment: var(--color-d-gray-40);
+  --code-function: var(--color-d-yellow-40);
+  --code-important: var(--color-d-orange-40);
+  --code-keyword: var(--color-d-pink-40);
+  --code-operator: var(--color-d-red-40);
+  --code-property: var(--color-d-cyan-40);
+  --code-punctuation: var(--color-d-gray-40);
+  --code-string: var(--color-d-green-40);
+  --code-tag: var(--color-d-red-40);
+  --code-value: var(--color-d-purple-40);
   --text-selection: var(--color-d-alpha-gray);
   --text-highlight-bg: var(--color-d-alpha-yellow);
   --text-accent: var(--ps-accent-text);
@@ -1996,8 +2026,8 @@ body {
   --sync-icon-working: var(--color-d-orange-50);
   --sync-icon-working-hover: var(--color-d-orange-40);
   --sync-icon-working-active: var(--status-bar-item-clickable-color-active);
-  --sync-icon-success: var(--color-d-green-60);
-  --sync-icon-success-hover: var(--color-d-green-50);
+  --sync-icon-success: var(--color-d-green-50);
+  --sync-icon-success-hover: var(--color-d-green-40);
   --sync-icon-success-active: var(--status-bar-item-clickable-color-active);
   --divider-color: var(--background-modifier-border);
   --divider-color-hover: var(--background-modifier-border-hover);
@@ -2017,8 +2047,8 @@ body {
   --status-bar-item-clickable-bg-active: transparent;
   --titlebar-background: var(--background-secondary);
   --titlebar-background-focused: var(--background-secondary);
-  --titlebar-text-color: var(--color-d-gray-70);
-  --titlebar-text-color-focused: var(--color-d-gray-60);
+  --titlebar-text-color: var(--text-muted);
+  --titlebar-text-color-focused: var(--text-normal);
   --vault-profile-color: var(--vault-name-color);
   --vault-name-color: var(--color-d-gray-40);
   --vault-name-color-hover: var(--color-d-gray-30);
@@ -2433,7 +2463,7 @@ body {
   );
   --nav-folder-1-collapse-color: color-mix(
     in srgb,
-    var(--nav-folder-1-color) 50%,
+    var(--nav-folder-1-color) 80%,
     transparent
   );
   --nav-folder-1-indent-color: color-mix(
@@ -2454,7 +2484,7 @@ body {
   );
   --nav-folder-2-collapse-color: color-mix(
     in srgb,
-    var(--nav-folder-2-color) 50%,
+    var(--nav-folder-2-color) 80%,
     transparent
   );
   --nav-folder-2-indent-color: color-mix(
@@ -2475,7 +2505,7 @@ body {
   );
   --nav-folder-3-collapse-color: color-mix(
     in srgb,
-    var(--nav-folder-3-color) 50%,
+    var(--nav-folder-3-color) 80%,
     transparent
   );
   --nav-folder-3-indent-color: color-mix(
@@ -2496,7 +2526,7 @@ body {
   );
   --nav-folder-4-collapse-color: color-mix(
     in srgb,
-    var(--nav-folder-4-color) 50%,
+    var(--nav-folder-4-color) 80%,
     transparent
   );
   --nav-folder-4-indent-color: color-mix(
@@ -2517,7 +2547,7 @@ body {
   );
   --nav-folder-5-collapse-color: color-mix(
     in srgb,
-    var(--nav-folder-5-color) 50%,
+    var(--nav-folder-5-color) 80%,
     transparent
   );
   --nav-folder-5-indent-color: color-mix(
@@ -2538,7 +2568,7 @@ body {
   );
   --nav-folder-6-collapse-color: color-mix(
     in srgb,
-    var(--nav-folder-6-color) 50%,
+    var(--nav-folder-6-color) 80%,
     transparent
   );
   --nav-folder-6-indent-color: color-mix(
@@ -2559,7 +2589,7 @@ body {
   );
   --nav-folder-7-collapse-color: color-mix(
     in srgb,
-    var(--nav-folder-7-color) 50%,
+    var(--nav-folder-7-color) 80%,
     transparent
   );
   --nav-folder-7-indent-color: color-mix(
@@ -2580,7 +2610,7 @@ body {
   );
   --nav-folder-8-collapse-color: color-mix(
     in srgb,
-    var(--nav-folder-8-color) 50%,
+    var(--nav-folder-8-color) 80%,
     transparent
   );
   --nav-folder-8-indent-color: color-mix(
@@ -2601,7 +2631,7 @@ body {
   );
   --nav-folder-9-collapse-color: color-mix(
     in srgb,
-    var(--nav-folder-9-color) 50%,
+    var(--nav-folder-9-color) 80%,
     transparent
   );
   --nav-folder-9-indent-color: color-mix(
@@ -2622,7 +2652,7 @@ body {
   );
   --nav-folder-10-collapse-color: color-mix(
     in srgb,
-    var(--nav-folder-10-color) 50%,
+    var(--nav-folder-10-color) 80%,
     transparent
   );
   --nav-folder-10-indent-color: color-mix(
@@ -2643,7 +2673,7 @@ body {
   );
   --nav-folder-11-collapse-color: color-mix(
     in srgb,
-    var(--nav-folder-11-color) 50%,
+    var(--nav-folder-11-color) 80%,
     transparent
   );
   --nav-folder-11-indent-color: color-mix(
@@ -2664,7 +2694,7 @@ body {
   );
   --nav-folder-12-collapse-color: color-mix(
     in srgb,
-    var(--nav-folder-12-color) 50%,
+    var(--nav-folder-12-color) 80%,
     transparent
   );
   --nav-folder-12-indent-color: color-mix(
@@ -2833,7 +2863,7 @@ body {
   --pill-tag-bg-3: var(--color-d-alpha-blue);
   --pill-tag-shadow-hover: inset 0px 0px 0px 1px rgba(255, 255, 255, 0.05);
   --yaml-base-color: var(--color-d-red-40);
-  --yaml-def-meta-color: var(--color-d-gray-50);
+  --yaml-def-meta-color: var(--color-d-gray-40);
   --yaml-atom-color: var(--color-d-blue-30);
   --yaml-keyword-color: var(--color-d-yellow-30);
   --yaml-number-color: var(--color-d-red-40);
@@ -2913,7 +2943,12 @@ body {
   --graph-node-focused: var(--color-d-gray-20);
   --graph-node-highlight-fill: var(--color-d-gray-30);
   --graph-node-highlight-line: var(--color-d-gray-60);
-  --graph-text: var(--color-d-gray-50);
+  --graph-text: var(--text-muted);
+  /* External-link arrow: data URIs cannot read variables, so the stroke is
+  --color-d-gray-50 (>= 3:1 on the page and sidebar), one
+  icon per direction. Update it with the palette. */
+  --ps-external-link-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23917959' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='7' y1='17' x2='17' y2='7'/%3E%3Cpolyline points='7 7 17 7 17 17'/%3E%3C/svg%3E");
+  --ps-external-link-icon-rtl: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23917959' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='17' y1='17' x2='7' y2='7'/%3E%3Cpolyline points='17 7 7 7 7 17'/%3E%3C/svg%3E");
   --graph-line: var(--background-modifier-border);
   --graph-arrow: var(--color-d-gray-50);
   --search-result-background: var(--background-primary-alt);
@@ -7028,10 +7063,17 @@ a:active {
 .external-link {
   background-image:
     linear-gradient(transparent, transparent),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%239D8062' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='7' y1='17' x2='17' y2='7'%3E%3C/line%3E%3Cpolyline points='7 7 17 7 17 17'%3E%3C/polyline%3E%3C/svg%3E");
+    var(--ps-external-link-icon);
   background-size: calc(var(--font-text-size) + 0.2em), 1em;
   background-position-x: right;
   background-position-y: center;
+}
+:dir(rtl) .external-link {
+  /* Obsidian swaps in its own RTL icon here; keep the theme's arrow. */
+  background-image:
+    linear-gradient(transparent, transparent),
+    var(--ps-external-link-icon-rtl);
+  background-position-x: left;
 }
 .markdown-rendered .list-bullet {
   margin-inline-start: var(--list-bullet-indent-reading);

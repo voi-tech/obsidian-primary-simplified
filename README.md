@@ -118,6 +118,13 @@ The theme includes:
   yellows and greens, which is why hand-picked colours kept creeping in.
   Projects that follow the theme (the nietech brand, site and apps) copy the
   same file instead of keeping their own colours.
+- **Every coloured foreground meets WCAG AA.** Text roles (status colours,
+  syntax highlighting, frontmatter, graph labels, window title, coloured
+  folder names) use the text step (110 light, 40 dark, at least 4.5:1); icons
+  (task icons, folder chevrons, sync, external-link arrow) at least 3:1. The
+  original inherits Obsidian's defaults, which point syntax colours at the
+  fill step (about 3:1), and its window title is close to invisible. The
+  validator checks all of these pairs in both modes.
 
 ## Palette workflow
 
