@@ -1816,13 +1816,13 @@ body {
 }
 .theme-light {
   --canvas-background: var(--editor-bg-color);
-  --canvas-color: var(--color-gray-rgb);
-  --canvas-color-1: var(--color-red-rgb);
-  --canvas-color-2: var(--color-orange-rgb);
-  --canvas-color-3: var(--color-yellow-rgb);
-  --canvas-color-4: var(--color-green-rgb);
-  --canvas-color-5: var(--color-blue-rgb);
-  --canvas-color-6: var(--color-purple-rgb);
+  --canvas-color: rgb(var(--color-gray-rgb));
+  --canvas-color-1: rgb(var(--color-red-rgb));
+  --canvas-color-2: rgb(var(--color-orange-rgb));
+  --canvas-color-3: rgb(var(--color-yellow-rgb));
+  --canvas-color-4: rgb(var(--color-green-rgb));
+  --canvas-color-5: rgb(var(--color-blue-rgb));
+  --canvas-color-6: rgb(var(--color-purple-rgb));
   --canvas-icon-color: var(--color-l-gray-90);
   --canvas-icon-color-hover: var(--color-l-gray-120);
   --canvas-icon-color-disabled: var(--color-l-gray-60);
@@ -2911,13 +2911,13 @@ body {
 }
 .theme-dark {
   --canvas-background: var(--editor-bg-color);
-  --canvas-color: var(--color-gray-rgb);
-  --canvas-color-1: var(--color-red-rgb);
-  --canvas-color-2: var(--color-orange-rgb);
-  --canvas-color-3: var(--color-yellow-rgb);
-  --canvas-color-4: var(--color-green-rgb);
-  --canvas-color-5: var(--color-blue-rgb);
-  --canvas-color-6: var(--color-purple-rgb);
+  --canvas-color: rgb(var(--color-gray-rgb));
+  --canvas-color-1: rgb(var(--color-red-rgb));
+  --canvas-color-2: rgb(var(--color-orange-rgb));
+  --canvas-color-3: rgb(var(--color-yellow-rgb));
+  --canvas-color-4: rgb(var(--color-green-rgb));
+  --canvas-color-5: rgb(var(--color-blue-rgb));
+  --canvas-color-6: rgb(var(--color-purple-rgb));
   --canvas-icon-color: var(--color-d-gray-50);
   --canvas-icon-color-hover: var(--color-d-gray-30);
   --canvas-icon-color-disabled: var(--color-d-gray-70);
