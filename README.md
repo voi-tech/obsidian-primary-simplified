@@ -8,7 +8,7 @@ typography, expressive checkboxes, and friendly callouts, but trims the theme
 down to the parts that make sense in a current Obsidian vault. The result is
 less busy than the original Primary, while still keeping its recognizable feel.
 
-Requires **Obsidian 1.13 or newer** — the theme styles 1.13+ surfaces
+Requires **Obsidian 1.13 or newer**: the theme styles 1.13+ surfaces
 (including Bases) and relies on CSS variables introduced in that release.
 It also supports Obsidian 1.14: coloured highlights, the Bases kanban
 layout, the redesigned empty tab and the ribbon's new logical-side class
@@ -43,6 +43,7 @@ The theme includes:
   and the file tree
 - a marked editing area: a rounded frame around the text you can click into
   in Live Preview and Source mode, from below the properties to the last line
+  (needs the Style Settings plugin, where it is on by default)
 - optional heading backgrounds: rounded labels, neutral or one palette hue per
   level
 - one corner-radius scale (4, 8, 12, 16 px, as in the nietech brand), rounded
@@ -53,7 +54,9 @@ The theme includes:
   hovered
 - clear states: the open note, selected files, the chosen command or menu
   item and the active settings page stand out from idle and hovered rows
-  (text at least 4.5:1, icons and state edges at least 3:1, light and dark)
+  (text at least 4.5:1, icons and state edges at least 3:1, light and dark;
+  done tasks and struck-through text stay at 4.5:1 too, set apart by colour
+  step and the line rather than by fading)
 - stable rows: file tree indents, list items and buttons never shift or
   change height when opened, selected or pressed
 - reduced-motion (the theme option and the system setting turn off every
@@ -63,7 +66,7 @@ The theme includes:
 - 1.14 corner shapes (squircles on macOS) on the surfaces the theme rounds
   itself, and right-to-left layouts for the ribbon and status bar
 - per-note helper classes compatible with Minimal's `cssclasses` contract
-  (image grids, block widths, embeds, table styling, cards) — see
+  (image grids, block widths, embeds, table styling, cards); see
   [minimal.guide/features/helper-classes](https://minimal.guide/features/helper-classes)
   for the full class reference
 
@@ -106,7 +109,7 @@ The theme includes:
 - **Added `prefers-reduced-motion` and `forced-colors` support**, which the
   original theme does not have.
 - **Added per-note helper classes** matching Minimal's `cssclasses` contract
-  (image grids, block widths, embeds, table variants, cards/list-cards) — a
+  (image grids, block widths, embeds, table variants, cards/list-cards), a
   feature the original Primary doesn't offer.
 
 - **One palette file as the single source of colour.** Every colour in
@@ -124,7 +127,10 @@ The theme includes:
   (task icons, folder chevrons, sync, external-link arrow) at least 3:1. The
   original inherits Obsidian's defaults, which point syntax colours at the
   fill step (about 3:1), and its window title is close to invisible. The
-  validator checks all of these pairs in both modes.
+  validator checks these pairs in both modes, and also the muted text,
+  tab titles and status bar on the sidebar colour, done and struck-through
+  text, and button text on the accent. Pairs that go through `color-mix()`
+  (callout title bands, tag pills) are checked in a running Obsidian.
 
 ## Palette workflow
 
@@ -133,7 +139,7 @@ Edit colours only in `tokens/palette.tokens.json`, then:
 ```sh
 node scripts/palette.mjs check          # every scale complete, lightness and WCAG contrast rules
 node scripts/build-palette.mjs          # rewrites the generated block in theme.css
-node scripts/build-palette.mjs --check  # CI: block current, no colour literal outside it
+node scripts/build-palette.mjs --check  # block current, no colour literal outside it
 node scripts/palette.mjs sheet out.html # preview sheet of all scales with contrast
 ```
 
@@ -142,7 +148,7 @@ or a `color-mix()` of it. Allowed exceptions: black/white with alpha in
 shadows and bevels, and the user's own accent under *Accent palette > Custom*.
 
 Net effect: a smaller, easier-to-maintain theme (`theme.css` dropped from
-roughly 1.7&nbsp;MB to about 325&nbsp;KB) that keeps Primary's recognizable
+roughly 1.7&nbsp;MB to about 385&nbsp;KB) that keeps Primary's recognizable
 palette and visual language.
 
 ## Install
@@ -165,7 +171,9 @@ For manual installation:
 ## Style Settings
 
 The theme works without the Style Settings plugin. The default look, including
-alternative checkbox icons, is built into the theme itself.
+alternative checkbox icons, is built into the theme itself. One exception: the
+editing area frame is a Style Settings option (Sheet by default), so without
+the plugin the editor has no frame.
 
 If you install the optional
 [Style Settings](https://github.com/mgmeyers/obsidian-style-settings) plugin,

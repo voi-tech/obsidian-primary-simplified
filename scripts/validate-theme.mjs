@@ -29,10 +29,13 @@
  *                        Obsidian measures (file tree, settings nav,
  *                        suggestions): the tree read an in-flight indent and
  *                        nested notes drifted right when a folder opened
+ *  14. unknown-icon    - an icon name (--callout-icon-*) the app does not
+ *                        ship renders as an empty icon, with no error: the
+ *                        quote callout had none until 26.11.7 (issue #8)
  *
- * Checks 5, 8 and 12 need scripts/obsidian-api.json, produced locally by
- * ./scripts/snapshot-obsidian-api.sh. When it is absent - as in CI, which has
- * no Obsidian install - those two checks are skipped and the rest still run.
+ * Checks 5, 8, 12 and 14 need scripts/obsidian-api.json, produced locally by
+ * ./scripts/snapshot-obsidian-api.sh. When it is absent (a machine without
+ * Obsidian), those checks are skipped and the rest still run.
  * Snapshot the newest build you run, Catalyst included: the theme keeps
  * selectors for classes that only newer builds ship (the 1.14 .mod-primary
  * ribbon, for instance), and an older snapshot reports those as unknown.
@@ -496,8 +499,17 @@ const foregrounds = [
   ["--link-external-color", 4.5],
   ["--link-unresolved-color", 3],
   ["--tag-color", 4.5, "var(--tag-background)"],
-  ["--status-bar-item-color", 3],
-  ["--checklist-done-color", 3],
+  ["--text-muted", 4.5, "var(--background-secondary)"],
+  ["--tab-text-color", 4.5, "var(--background-secondary)"],
+  ["--status-bar-item-color", 4.5, "var(--background-secondary)"],
+  // Done tasks and struck-through text stay readable (4.5:1); they are
+  // set apart from body text by colour step and the line, not by fading.
+  ["--checklist-done-color", 4.5],
+  ["--strikethrough-color", 4.5],
+  ["--cancelled-chbx-text-color", 4.5],
+  // Filled buttons (Add property, call-to-action) carry text on the accent.
+  ["--text-on-accent", 4.5, "var(--interactive-accent)"],
+  ["--text-on-accent", 4.5, "var(--interactive-accent-hover)"],
   ["--text-error", 4.5],
   ["--text-warning", 4.5],
   ["--text-success", 4.5],
@@ -645,6 +657,30 @@ if (!existsSync(versionsPath)) {
         `"${manifest.minAppVersion}" (found ${JSON.stringify(versions[manifest.version])})`,
     );
   }
+}
+
+/* --------------------------------------------------------- 14. unknown-icon */
+
+if (api?.icons) {
+  const icons = new Set(api.icons);
+  for (const match of bare.matchAll(/(--[\w-]*icon[\w-]*)\s*:\s*([a-z][a-z0-9-]*)\s*;/g)) {
+    const [, name, value] = match;
+    if (!name.startsWith("--callout-icon")) continue;
+    if (["none", "transparent", "inherit", "initial", "unset"].includes(value)) continue;
+    const icon = value.replace(/^lucide-/, "");
+    if (!icons.has(icon)) {
+      fail(
+        "unknown-icon",
+        `${name}: "${value}" is not an icon Obsidian ${api.obsidianVersion} ships ` +
+          `(it would render empty)`,
+        lineOf(match.index),
+      );
+    }
+  }
+} else if (api) {
+  warn("unknown-icon", "skipped: snapshot has no icon list, rerun snapshot-obsidian-api.sh");
+} else {
+  warn("unknown-icon", "skipped: scripts/obsidian-api.json not present");
 }
 
 /* --------------------------------------------------------------- reporting */

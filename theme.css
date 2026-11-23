@@ -820,8 +820,8 @@ body {
   --color-accent-hsl: var(--accent-h), var(--accent-s), var(--accent-l);
   /* Accent from palette steps, switched by the Accent palette setting. --accent-h/s/l
      hold the same colour as numbers, for plugins and the Custom option. */
-  --ps-accent-fill: var(--color-l-gray-90);
-  --ps-accent-fill-hover: var(--color-l-gray-80);
+  --ps-accent-fill: var(--color-l-gray-100);
+  --ps-accent-fill-hover: var(--color-l-gray-110);
   --ps-accent-text: var(--color-l-gray-110);
   --ps-accent-text-hover: var(--color-l-gray-120);
   --ps-accent-link: var(--color-l-yellow-110);
@@ -882,7 +882,7 @@ body {
   --background-modifier-success: var(--color-l-green-90);
   --hr-color: var(--background-modifier-border-hover);
   --text-normal: var(--color-l-gray-130);
-  --text-muted: var(--color-l-gray-100);
+  --text-muted: var(--color-l-gray-110);
   --text-faint: var(--color-l-gray-90);
   --text-on-accent: var(--color-l-gray-10);
   --text-on-accent-inverted: var(--color-l-gray-140);
@@ -945,7 +945,7 @@ body {
   --status-bar-floating-bg: var(--color-l-gray-30);
   --status-bar-floating-shadow:
     8px 7px 21px -4px rgba(0, 0, 0, 0.12), 0px 5px 5px -5px rgba(0, 0, 0, 0.15);
-  --status-bar-item-color: var(--color-l-gray-90);
+  --status-bar-item-color: var(--text-muted);
   --status-bar-item-color-hover: var(--color-l-gray-100);
   --status-bar-item-bg-hover: transparent;
   --status-bar-item-clickable-color-active: var(--color-l-gray-130);
@@ -955,7 +955,7 @@ body {
   --titlebar-text-color: var(--color-l-gray-110);
   --titlebar-text-color-focused: var(--text-normal);
   --vault-profile-color: var(--vault-name-color);
-  --vault-name-color: var(--color-l-gray-100);
+  --vault-name-color: var(--text-muted);
   --vault-name-color-hover: var(--color-l-gray-120);
   --vault-profile-color-hover: var(--vault-name-color-hover);
   --vault-name-background: var(--color-l-gray-30);
@@ -1019,7 +1019,7 @@ body {
   --checkbox-border-color-hover: var(--color-l-gray-70);
   --checklist-bg: var(--color-l-gray-10);
   --checklist-shadow-hover: 0px 0px 0px 3px rgba(0, 0, 0, 0.07);
-  --checklist-done-color: var(--color-l-gray-90);
+  --checklist-done-color: var(--text-muted);
   --inprogress-chbx-color: var(--color-l-yellow-100);
   --inprogress-chbx-color-hover: var(--color-l-yellow-100);
   --inprogress-chbx-border-color: color-mix(
@@ -1031,7 +1031,7 @@ body {
   --sched-chbx-color: var(--color-l-gray-100);
   --important-chbx-color: var(--color-l-orange-100);
   --cancelled-chbx-color: var(--color-l-gray-100);
-  --cancelled-chbx-text-color: var(--text-faint);
+  --cancelled-chbx-text-color: var(--text-muted);
   --cancelled-chbx-text-decoration: line-through;
   --question-chbx-color: var(--color-l-purple-100);
   --star-chbx-color: var(--color-l-yellow-100);
@@ -1207,7 +1207,7 @@ body {
     inset 0px -1px 0px 1px rgba(0, 0, 0, 0.09),
     0px 1px 2px 0px rgba(0, 0, 0, 0.1), 0px 0px 0px 6px rgba(0, 0, 0, 0.05);
   --tab-background-active: var(--background-primary);
-  --tab-text-color: var(--text-faint);
+  --tab-text-color: var(--text-muted);
   --tab-text-color-active: var(--text-muted);
   --tab-text-color-focused: var(--text-muted);
   --tab-text-color-focused-active: var(--text-muted);
@@ -1296,7 +1296,13 @@ body {
   --blockquote-background-color: var(--color-l-gray-30);
   --callout-color-opacity: 32.5%;
   --callout-border-opacity: 0.2;
-  --callout-icon-fold-filter: brightness(0.8);
+  --callout-icon-fold-filter: none;
+  /* Callout icon and fold arrow: the callout hue moved towards the title
+  text in OKLab, so the icon keeps its hue and reaches 3:1 on the band.
+  Mixed in the rule, not here: a variable holding var(--callout-color)
+  would resolve once on body, not per callout. */
+  --callout-icon-keep: 45%;
+  --callout-icon-target: var(--color-l-gray-130);
   --callout-title-color: var(--text-normal);
   --callout-content-background: color-mix(
     in srgb,
@@ -1352,8 +1358,8 @@ body {
     currentColor var(--underline-decoration-opacity),
     transparent
   );
-  --strikethrough-color: var(--color-l-gray-80);
-  --bold-italic-strikethrough-color: var(--color-l-gray-90);
+  --strikethrough-color: var(--text-muted);
+  --bold-italic-strikethrough-color: var(--text-muted);
   --editor-border-color: var(--background-modifier-border);
   --file-header-border: var(--file-header-border-width) solid
     var(--file-header-border-color);
@@ -1755,9 +1761,9 @@ body {
     var(--background-primary-alt)
   );
   --metadata-tab-background: var(--background-secondary);
-  --metadata-properties-title-color-collapsed: var(--color-l-gray-100);
+  --metadata-properties-title-color-collapsed: var(--color-l-gray-110);
   --metadata-properties-title-color-hover: var(--color-l-gray-120);
-  --metadata-properties-title-color: var(--color-l-gray-100);
+  --metadata-properties-title-color: var(--color-l-gray-110);
   --metadata-input-text-color: var(--color-l-gray-120);
   --metadata-input-background: transparent;
   --metadata-input-background-hover: transparent;
@@ -1790,7 +1796,7 @@ body {
     inset 0px -0.1em 0px 0px rgba(0, 0, 0, 0.1),
     0px 0px 0px 3px rgba(0, 0, 0, 0.03);
   --tag-shadow-active: inset 0px -0.1em 0px 0px rgba(0, 0, 0, 0.1);
-  --pill-tag-color-1: var(--color-l-yellow-90);
+  --pill-tag-color-1: var(--color-l-yellow-120);
   --pill-tag-bg-1: var(--color-l-alpha-yellow);
   --pill-tag-color-2: var(--color-l-red-120);
   --pill-tag-bg-2: var(--color-l-alpha-red);
@@ -1816,7 +1822,6 @@ body {
 }
 .theme-light {
   --canvas-background: var(--editor-bg-color);
-  --canvas-color: rgb(var(--color-gray-rgb));
   --canvas-color-1: rgb(var(--color-red-rgb));
   --canvas-color-2: rgb(var(--color-orange-rgb));
   --canvas-color-3: rgb(var(--color-yellow-rgb));
@@ -2040,7 +2045,7 @@ body {
   --status-bar-floating-bg: var(--color-d-gray-110);
   --status-bar-floating-shadow:
     8px 7px 21px -4px rgba(0, 0, 0, 0.35), 0px 5px 5px -5px rgba(0, 0, 0, 0.38);
-  --status-bar-item-color: var(--color-d-gray-50);
+  --status-bar-item-color: var(--text-muted);
   --status-bar-item-color-hover: var(--color-d-gray-30);
   --status-bar-item-bg-hover: transparent;
   --status-bar-item-clickable-color-active: var(--color-d-gray-20);
@@ -2109,7 +2114,7 @@ body {
   --checkbox-border-color-hover: var(--color-d-gray-60);
   --checklist-bg: var(--color-d-gray-110);
   --checklist-shadow-hover: 0px 0px 0px 3px rgba(0, 0, 0, 0.3);
-  --checklist-done-color: var(--color-d-gray-50);
+  --checklist-done-color: var(--text-muted);
   --inprogress-chbx-color: var(--color-d-orange-30);
   --inprogress-chbx-color-hover: var(--color-d-yellow-20);
   --inprogress-chbx-border-color: color-mix(
@@ -2121,7 +2126,7 @@ body {
   --sched-chbx-color: var(--color-d-gray-40);
   --important-chbx-color: var(--color-d-orange-50);
   --cancelled-chbx-color: var(--color-d-gray-40);
-  --cancelled-chbx-text-color: var(--text-faint);
+  --cancelled-chbx-text-color: var(--text-muted);
   --cancelled-chbx-text-decoration: line-through;
   --question-chbx-color: var(--color-d-pink-50);
   --star-chbx-color: var(--color-d-yellow-30);
@@ -2295,7 +2300,7 @@ body {
     0px 1px 2px 0px rgba(0, 0, 0, 0.5),
     0px 0px 0px 6px rgba(255, 255, 255, 0.08);
   --tab-background-active: var(--background-primary);
-  --tab-text-color: var(--text-faint);
+  --tab-text-color: var(--text-muted);
   --tab-text-color-active: var(--text-muted);
   --tab-text-color-focused: var(--text-muted);
   --tab-text-color-focused-active: var(--text-muted);
@@ -2381,10 +2386,14 @@ body {
   the dark: the callout body tint was darker than the page by 1% and the
   quote box, with its rounded corners, disappeared. */
   --blockquote-background-color: var(--color-d-gray-90);
-  --callout-color-opacity: 32.5%;
+  /* 28% (light: 32.5%): the light-scale callout hues lift the dark band,
+  and the title needs 4.5:1 on it. */
+  --callout-color-opacity: 28%;
   --callout-border-opacity: 0.1;
-  --callout-icon-fold-filter: brightness(1);
-  --callout-title-color: var(--text-normal);
+  --callout-icon-fold-filter: none;
+  --callout-icon-keep: 75%;
+  --callout-icon-target: var(--color-d-gray-10);
+  --callout-title-color: var(--color-d-gray-10);
   --callout-content-background: color-mix(
     in srgb,
     var(--background-primary-alt) 50%,
@@ -2438,7 +2447,7 @@ body {
     currentColor var(--link-decoration-opacity),
     transparent
   );
-  --strikethrough-color: var(--color-d-gray-50);
+  --strikethrough-color: var(--text-muted);
   --bold-italic-color: var(--color-d-gray-10);
   --bold-italic-strikethrough-color: var(--color-d-gray-40);
   --editor-border-color: var(--background-modifier-border);
@@ -2855,11 +2864,11 @@ body {
   --metadata-divider-color: var(--background-modifier-border);
   --metadata-divider-color-hover: transparent;
   --metadata-divider-color-focus: transparent;
-  --pill-tag-color-1: var(--color-d-yellow-30);
+  --pill-tag-color-1: var(--color-d-yellow-20);
   --pill-tag-bg-1: var(--color-d-alpha-yellow);
-  --pill-tag-color-2: var(--color-d-red-40);
+  --pill-tag-color-2: var(--color-d-red-30);
   --pill-tag-bg-2: var(--color-d-alpha-red);
-  --pill-tag-color-3: var(--color-d-blue-40);
+  --pill-tag-color-3: var(--color-d-blue-30);
   --pill-tag-bg-3: var(--color-d-alpha-blue);
   --pill-tag-shadow-hover: inset 0px 0px 0px 1px rgba(255, 255, 255, 0.05);
   --yaml-base-color: var(--color-d-red-40);
@@ -2911,7 +2920,6 @@ body {
 }
 .theme-dark {
   --canvas-background: var(--editor-bg-color);
-  --canvas-color: rgb(var(--color-gray-rgb));
   --canvas-color-1: rgb(var(--color-red-rgb));
   --canvas-color-2: rgb(var(--color-orange-rgb));
   --canvas-color-3: rgb(var(--color-yellow-rgb));
@@ -3479,7 +3487,6 @@ button[disabled="true"] {
 }
 .metadata-container .metadata-add-button {
   font-weight: var(--component-font-weight);
-  text-transform: capitalize;
   color: var(--text-on-accent);
   background: var(--interactive-accent);
   padding: var(--button-metadata-padding);
@@ -3720,7 +3727,6 @@ span.setting-hotkey {
   margin-top: var(--size-4-4);
 }
 .modal .vertical-tab-nav-item {
-  text-transform: capitalize;
   font-size: var(--font-ui-small);
   color: var(--settings-nav-item-text-color);
   padding: var(--settings-nav-item-padding);
@@ -3793,7 +3799,6 @@ otherwise covers the first group title. */
   border-radius: var(--size-4-4) var(--size-4-4) 0 0;
 }
 .is-phone .modal-title {
-  text-transform: capitalize;
 }
 .is-phone .mod-confirmation .modal:not(.mod-lg) {
   border: 1px solid var(--background-modifier-border-hover);
@@ -4390,6 +4395,11 @@ body:not(.is-phone) .mod-root .workspace-tab-header-container-inner {
 }
 .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header {
   --tab-radius-active: var(--radius-m);
+}
+/* Obsidian colours inactive editor tabs with --icon-color (a 3:1 icon step);
+their titles are text, so they take the tab text colour (4.5:1). */
+.workspace .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header:not(.is-active) {
+  color: var(--tab-text-color);
 }
 .workspace .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header {
   padding-bottom: 0px;
@@ -6444,9 +6454,27 @@ body:not(.disable-alternative-checkboxes) li.task-list-item[data-task="-"] {
   box-shadow: var(--callout-title-shadow);
   gap: var(--size-4-2);
 }
+/* Ordered list numbers and footnote back-links are text, not bullets:
+they get the muted text colour (4.5:1), not the marker step (about 3.4:1). */
+ol > li::marker,
+.cm-formatting-list-ol .list-number,
+.footnote-backref {
+  color: var(--text-muted);
+}
+ol > li.is-collapsed::marker {
+  color: var(--list-marker-color-collapsed);
+}
 .callout-title .callout-icon,
 .callout-title .callout-fold {
   filter: var(--callout-icon-fold-filter);
+}
+.callout-title .callout-icon .svg-icon,
+.callout-title .callout-fold .svg-icon {
+  color: color-mix(
+    in oklab,
+    var(--callout-color) var(--callout-icon-keep),
+    var(--callout-icon-target)
+  );
 }
 .callout-title .callout-icon svg,
 .callout-title .callout-fold svg {
@@ -6496,7 +6524,7 @@ body {
   --callout-icon-error: ban;
   --callout-icon-bug: bug;
   --callout-icon-example: scroll-text;
-  --callout-icon-quote: message-square-note;
+  --callout-icon-quote: quote;
   --callout-icon-cite: book-marked;
   --callout-general: var(--color-l-cyan-60);
   --callout-note: var(--color-l-gray-70);
@@ -6796,7 +6824,7 @@ body.embed-hide-title .embed-title {
   color: var(--text-muted);
 }
 .workspace-leaf-content .empty-state-action {
-  color: var(--text-faint);
+  color: var(--text-muted);
   background: var(--empty-state-action-btn-bg);
   font-size: var(--font-ui-small);
   line-height: normal;
@@ -6807,7 +6835,7 @@ body.embed-hide-title .embed-title {
   transition: var(--anim-duration-superfast) var(--anim-motion-smooth);
 }
 .workspace-leaf-content .empty-state-action:hover {
-  color: var(--text-muted);
+  color: var(--text-normal);
   border-color: var(--background-modifier-border-hover);
 }
 .workspace-leaf-content .empty-state-action:active {
@@ -6816,7 +6844,7 @@ body.embed-hide-title .embed-title {
 @container (width < 640px) {
   .workspace-leaf-content .empty-state-container div:nth-child(2) {
     font-size: var(--font-ui-small);
-    color: var(--text-faint);
+    color: var(--text-muted);
   }
 }
 @container (width > 640px) {
@@ -6854,7 +6882,7 @@ body.is-mobile .empty-state-title {
   display: none;
 }
 body.is-mobile .empty-state-action {
-  color: var(--text-faint);
+  color: var(--text-muted);
   background: var(--empty-state-action-btn-bg);
   padding: var(--size-4-3) var(--size-4-4);
   border: 1px solid var(--background-modifier-border);
@@ -7229,6 +7257,18 @@ body .metadata-property-icon svg {
 }
 .metadata-content {
   font-size: var(--font-small);
+}
+/* The phone drawer's view switcher sits on the button colour, where the
+muted text drops below 4.5:1 in dark mode. */
+.workspace-drawer-tab-options-list {
+  color: var(--text-normal);
+}
+/* Obsidian mobile pulls .metadata-content 12px outwards (translate and
+100% + 24px width) to reach the screen edge; inside the theme's framed
+properties card that pushes it past the frame on both sides. */
+.is-mobile .metadata-container .metadata-content {
+  transform: none;
+  width: auto;
 }
 .metadata-property-icon {
   padding-inline-start: var(--size-2-3);
@@ -7727,6 +7767,12 @@ body {
   --bases-group-heading-property-color: var(--text-muted);
   --bases-group-heading-property-weight: var(--font-normal);
   --bases-filter-input-background: var(--background-modifier-form-field);
+}
+/* Obsidian sets the dark default as body.theme-dark { --canvas-color },
+which outranks .theme-dark, so the plain edge and card colour is set here. */
+body.theme-light,
+body.theme-dark {
+  --canvas-color: rgb(var(--color-gray-rgb));
 }
 .canvas-menu {
   border-radius: var(--radius-m);

@@ -5,7 +5,8 @@
 # Run this locally after every Obsidian update, then commit the result. The
 # diff shows exactly which variables and classes appeared or disappeared, and
 # validate-theme.mjs uses the snapshot to flag references the app no longer
-# recognises. It cannot run in CI: it reads the locally installed app.
+# recognises. It reads the locally installed app, so it runs on a Mac with
+# Obsidian, not on a build server.
 #
 #   ./scripts/snapshot-obsidian-api.sh [/path/to/obsidian.asar]
 #
@@ -61,14 +62,22 @@ strings "$ASAR" | grep -o -- '--[a-z][a-z0-9-]\{2,\}' | sort -u > "$OUT.vars.tmp
       done
 } | sort -u > "$OUT.cls.tmp"
 
-python3 - "$OUT" "$VERSION" <<'PY'
-import json, sys
-out, version = sys.argv[1], sys.argv[2]
+python3 - "$OUT" "$VERSION" "$ASAR" <<'PY'
+import json, re, sys
+out, version, asar = sys.argv[1], sys.argv[2], sys.argv[3]
 variables = [l.strip() for l in open(out + ".vars.tmp") if l.strip()]
 classes = [l.strip() for l in open(out + ".cls.tmp") if l.strip()]
-json.dump({"obsidianVersion": version, "variables": variables, "classes": classes},
+# Icons: the bundled Lucide set is a map of name -> [[tag, ...], ...] in
+# app.js, keyed "kebab-name" or bare identifier. An icon name the build does
+# not ship renders as an empty <svg>, without any error.
+data = open(asar, "rb").read().decode("utf-8", "ignore")
+icons = sorted({a or b for a, b in re.findall(
+    r'(?:"([a-z0-9]+(?:-[a-z0-9]+)+)"|\b([a-z][a-z0-9]*)):\[\[\d', data)})
+json.dump({"obsidianVersion": version, "variables": variables, "classes": classes,
+           "icons": icons},
           open(out, "w"), indent=0)
-print(f"{out}: Obsidian {version}, {len(variables)} variables, {len(classes)} classes")
+print(f"{out}: Obsidian {version}, {len(variables)} variables, {len(classes)} classes, "
+      f"{len(icons)} icons")
 PY
 
 rm -f "$OUT.vars.tmp" "$OUT.cls.tmp"
